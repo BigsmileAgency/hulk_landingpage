@@ -10,9 +10,9 @@ body {
   font-size: 16px;
   font-weight: normal;
   line-height: 1.1;
-  color: $copy-color;
+  color: $white;
   overflow-x: hidden;
-  background-color: $body-color;
+  background-color: $white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -33,99 +33,15 @@ main {
   }
 }
 
-.inner {
-  z-index: 1;
-  width: 100%;
-  max-width: $defaultSize;
-  margin: 0 $spaceMin;
-  &.full {
-    max-width: 100%;
-    margin: 0;
-  }
-  &.small {
-    max-width: $smallSize;
-  }
+a {
+  text-decoration: none;
+  font-family: inherit;
+  color: $black;
+  font-weight: bold;
 }
 
-* {
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.img__bg {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.hidden {
-  opacity: 0;
-  display: none;
-  pointer-events: none;
-}
-
-.lazy {
-  opacity: 0;
-  &:not(.initial) {
-    transition: opacity 0.5s, transform 0.5s ease;
-  }
-  &.initial,
-  &.loaded,
-  &.error {
-    opacity: 1;
-  }
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: $white;
-  border-left: solid 1px rgba($body-color, 0.1);
-  border-right: solid 1px rgba($body-color, 0.1);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $main-color;
-  opacity: 0.8;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  opacity: 1;
-}
-
-// Animation
-@keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-// COLOR SELECT
-::-moz-selection {
-  color: $white;
-  background: $main-color;
-}
-
-::selection {
-  color: $white;
-  background: $main-color;
-}
-
-// img gutenberg
-figure.wp-block-image {
-  height: auto;
-  width: auto;
-  display: block;
-  border-radius: 0;
-  margin: 0;
+h2 {
+  font-weight: 800;
+  font-size: 2rem;
+  color: $black;
 }

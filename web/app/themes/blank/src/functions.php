@@ -15,6 +15,9 @@ include get_theme_file_path( '/components/functions/wp/emails.php' );
 // WP USEFULL
 include get_theme_file_path( '/components/functions/wp/usefull.php' );
 
+// CUSTOM MENUS
+include get_theme_file_path( '/components/functions/custom_menu.php' );
+
 
 // AJAX CATEGORY FILTER
 // include get_theme_file_path( '/components/functions/ajaxFilter.php' );
