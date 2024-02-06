@@ -8,10 +8,8 @@
  * can.
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
 
 use Roots\WPConfig\Config;
-use Dotenv\Dotenv;
 use function Env\env;
 
 /**
@@ -36,7 +34,7 @@ $env_files = file_exists($root_dir . '/.env.local')
     ? ['.env', '.env.local']
     : ['.env'];
 
-$dotenv = Dotenv::createUnsafeImmutable($root_dir, $env_files, false);
+$dotenv = Dotenv\Dotenv::createUnsafeImmutable($root_dir, $env_files, false);
 
 if (file_exists($root_dir . '/.env')) {
     $dotenv->load();
