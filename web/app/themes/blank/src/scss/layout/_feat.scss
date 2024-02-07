@@ -10,16 +10,26 @@ $fs-title :40px;
 .feat h1 {
     font-weight: 700;
     font-size: $fs-title;
+    margin-bottom : 25px;
 }
 
-.feat_header, .free_trial_container, .add_ons_header {
+.feat_header, .free_trial_container, .add_ons_container {
     text-align: center;
     width: 800px;
-    margin:25px auto;
+    margin: 0px auto 50px auto;
+}
+.free_trial_container {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.add_ons_container {
+.bg_blue {
     background-color: $light-blue;
+}
+.container {
+    padding : 50px 0;
 }
 
 // features
@@ -60,6 +70,7 @@ $fs-title :40px;
     justify-content: space-between;
     padding : 30px 0 0 0;
     box-shadow:  0 3px 30px rgba(51, 170, 255, 0.25);
+    background-color: $white;
 }
 
 .add_on_title {
@@ -67,6 +78,7 @@ $fs-title :40px;
     font-size: $fs-sub ;
     font-weight: 700;
     padding: 0 50px;
+    margin-bottom :20px;
 }
 .add_on_content {
     padding: 0 50px;
@@ -83,10 +95,22 @@ $fs-title :40px;
     font-size: $fs-sub;
 }
 
+// free_trial
+
+.free_trial_button {
+    @include button(16px);
+    width : 225px;
+    margin-top :25px;
+    color : $white;
+}
+
+
 // qualities
 
 .qualities {
     display: flex;
+    align-items: top;
+    height : 400px;
     gap : 25px;
 }
 
@@ -99,8 +123,19 @@ $fs-title :40px;
     width:270px;
     height:100px;
     border-radius: 25px;
+    background-color: $white;
 }
 
 .quality_title {
     font-size: $fs-sub;
+    color :$blue;
+    font-weight: bold;
+}
+
+.bottom_img {
+    position :relative;
+    top:-350px;
+}
+.bottom_container {
+    height : 280px;
 }
