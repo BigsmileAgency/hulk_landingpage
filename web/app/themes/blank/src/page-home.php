@@ -18,8 +18,8 @@
 				<?= get_field('sub_catchphrase') ?>		
 
 				<div class="grid_btn_2">					
-					<button class="solid"><a href="http://hulk-landing.local/login/"><?= get_field('trial_btn')?></a></button>
-					<button class="hollow"><a href="http://hulk-landing.local/demo/"><?= get_field('demo_btn')?></button></a>						
+					<button class="trial_btn"><a href="http://hulk-landing.local/login/"><?= get_field('trial_btn')?></a></button>
+					<button class="demo_btn"><a href="http://hulk-landing.local/demo/"><?= get_field('demo_btn')?></button></a>						
 				</div>
 			</div>
 		</div>

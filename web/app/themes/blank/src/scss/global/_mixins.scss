@@ -1,21 +1,61 @@
 @mixin breakpoint($class) {
-  @if $class == xs {
-    @media (max-width: 480px) { @content; }
+  @if $class ==xs {
+    @media (max-width: 480px) {
+      @content;
+    }
   }
 
-  @else if $class == sm {
-    @media (max-width: 768px) { @content; }
+  @else if $class ==sm {
+    @media (max-width: 768px) {
+      @content;
+    }
   }
 
-  @else if $class == md {
-    @media (max-width: 992px) { @content; }
+  @else if $class ==md {
+    @media (max-width: 992px) {
+      @content;
+    }
   }
 
-  @else if $class == lg {
-    @media (max-width: 1280px) { @content; }
+  @else if $class ==lg {
+    @media (max-width: 1280px) {
+      @content;
+    }
   }
 
-  @else if $class == xl {
-    @media (max-width: 1366px) { @content; }
+  @else if $class ==xl {
+    @media (max-width: 1366px) {
+      @content;
+    }
+  }
+}
+
+
+@mixin button($font-size: 16px, $type: solid) {
+  
+  border-radius: 50px;
+  padding: .7em 1em;
+  border: solid 2px $main-color;
+  font-size: $font-size;
+
+  &:hover {
+    border: solid 2px $main-hover;
+    cursor: pointer;
+  }
+
+  @if $type ==hollow {
+    background-color: rgba(255, 255, 255, 0);
+    color: $main-color;
+    &:hover {
+      background-color: $main-hover;
+      color: $white;
+    }
+  }
+
+  @else {
+    background-color: $main-color;
+    &:hover {
+      background-color: $main-hover;
+    }
   }
 }
