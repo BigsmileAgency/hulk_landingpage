@@ -1,8 +1,28 @@
-.feat_header {
+$fs-sub : 24px;
+$fs-title :40px;
+
+.feat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feat h1 {
+    font-weight: 700;
+    font-size: $fs-title;
+}
+
+.feat_header, .free_trial_container, .add_ons_header {
     text-align: center;
     width: 800px;
     margin:25px auto;
 }
+
+.add_ons_container {
+    background-color: $light-blue;
+}
+
+// features
 
 .features {
     display : grid;
@@ -23,6 +43,8 @@
     border-radius: 25px;
 }
 
+// add-ons
+
 .add_ons {
     display : grid;
     gap :25px;
@@ -42,7 +64,7 @@
 
 .add_on_title {
     color : $blue;
-    font-size: 24px;
+    font-size: $fs-sub ;
     font-weight: 700;
     padding: 0 50px;
 }
@@ -58,5 +80,27 @@
     align-items: center;
     padding-left : 50px;
     font-weight: 700;
-    font-size: 24px;
+    font-size: $fs-sub;
+}
+
+// qualities
+
+.qualities {
+    display: flex;
+    gap : 25px;
+}
+
+.quality {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap : 15px;
+    box-shadow:  0 3px 30px rgba(51, 170, 255, 0.25);
+    width:270px;
+    height:100px;
+    border-radius: 25px;
+}
+
+.quality_title {
+    font-size: $fs-sub;
 }
