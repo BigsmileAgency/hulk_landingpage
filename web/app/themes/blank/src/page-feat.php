@@ -21,6 +21,8 @@
           <?php the_content(); ?>
         </div>
       </div>
+      <?php the_field('title')?>
+
     </section>
 
   <?php endwhile; ?>
