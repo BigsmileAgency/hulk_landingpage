@@ -1,0 +1,26 @@
+.bg_footer {
+    background: $blue;
+}
+.container_footer {
+    display : flex;
+    justify-content: left;
+    color : $white;
+    gap :25px;
+}
+.bold {
+    font-weight: 700;
+}
+.container_footer ul {
+    list-style-type: none;
+    list-style-position: inside;
+    padding :0;
+}
+.container_footer li {
+    margin-bottom : 10px;
+}
+.legal_footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
