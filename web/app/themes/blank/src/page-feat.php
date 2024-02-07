@@ -9,7 +9,7 @@
 <main class="default">
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-  <header class="header">
+  <header class="feat_header">
     <h1 class="title"><?= get_field('title_header') ?></h1>
     <p class="title_content"><?= get_field('content_header') ?></p>      
   </header>
@@ -26,7 +26,7 @@
       // Do something, but make sure you escape the value if outputting directly... ?>
       <div class="feature">
         <div class="feature_img">
-          <img src="<?=$img_feature?>" width="375">
+          <img src="<?=$img_feature?>" width="375" height="250">
         </div>
         <div class="feature_title">
           <?= $title_feature ?>
@@ -44,15 +44,46 @@
   // Do something...
   endif; ?>
   </div>
+  <div class="add_ons_container">
+    <div class="feat_header">
+      <h1 class="title"><?= get_field('title_add-ons') ?></h1>
+      <p class="title_content"><?= get_field('content_add-ons') ?></p>      
+    </div>
+      <div class="add_ons">
+    <?php if( have_rows('add-ons') ):
+
+// Loop through rows.
+while( have_rows('add-ons') ) : the_row();
+
+    // Load sub field value.
+    $title_add_on = get_sub_field('title_add-on');
+    $content_add_on = get_sub_field('content_add-on'); 
+    $price_add_on = get_sub_field('price_add-on');
+    // Do something, but make sure you escape the value if outputting directly... ?>
+    <div class="add_on">
+      <div class="add_on_title">
+        <?= $title_add_on ?>
+      </div>
+      <div class="add_on_content">
+        <?= $content_add_on ?>
+      </div>
+      <div class="add_on_price">
+        <?= $price_add_on ?>
+      </div>
+    </div>
+
+<?php // End loop.
+endwhile;
+
+// No value.
+else :
+// Do something...
+endif; ?>
+    </div>
   <?php endwhile; ?>
   <?php else: ?>
-    <article>
-      <div class="inner large">
-        <div class="default__content">
-          <h1><?php _e('Oups, rien à montrer.', 'bsa'); ?></h1>
-        </div>
-      </div>
-    </article>
+</div>
+
   <?php endif; ?>
 
 </main>
