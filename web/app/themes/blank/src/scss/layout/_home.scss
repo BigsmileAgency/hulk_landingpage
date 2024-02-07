@@ -1,22 +1,37 @@
+.home {
+  h4 {
+    font-size: 40px;
+  }
+}
+
 .hero_1 {
+
   color: $main-color;
   height: 91vh;
   text-align: center;
+
+
   h2 {
-    font-size: 5rem;
+    font-weight: 800;
+    font-size: 70px;
+    color: $main-color;
   }
+
   h3 {
-    font-size: 3rem;
-    margin: 3rem;
+    font-size: 20px;
+    margin: 10rem 0rem 5rem 0rem;
   }
+
   .trial_btn {
     @include button(16px);
   }
+
   .demo_btn {
     @include button(16px, hollow);
   }
+
   .grid_btn_2 {
-    width: 40%;
+    width: 30%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -25,44 +40,74 @@
   }
 }
 
-.hero_2, .hero_3 {
+.hero_2,
+.hero_3 {
   padding-top: 2rem;
   background-color: $light-blue;
 }
 
-.hero_2_box, .hero_3_box {
-
-  margin-bottom: 2rem;
+.hero_2_box,
+.hero_3_box {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 3rem;
   display: grid;
   grid-template-columns: 50% 1fr;
+  gap: 3rem;
   background-color: $light-blue;
-
-  img {
-    width: 500px;
+  text-align: justify;
+  h4 {
+    margin-bottom: 2rem;
   }
+  p {
+    margin-bottom: 2rem;
+  }
+  img {
+    width: 575px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.404);
+  }
+
   .hollow_trial_btn {
     @include button(16px, hollow);
   }
 }
 
-.feat_section {
+.feats_section {
   margin-bottom: 2rem;
+  h4 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
 }
 
 .feat_container {
   margin-bottom: 2em;
   display: grid;
   grid-template-columns: 50% 1fr;
-  
+
+  h5 {
+    font-size: 30px;
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    margin-bottom: 2rem;
+  }
+
   .feat_btn {
     @include button(14px, hollow);
-    text-align: center;
+    float: right;
   }
-  &:nth-of-type(even){
+
+  &:nth-of-type(odd) {
     direction: rtl;
-    ul, h4  {
+    ul,
+    h5 {
       direction: ltr;
     }
+    .feat_btn {
+      float: left;
+    }
   }
-  
 }
