@@ -1,5 +1,6 @@
 .hero_1 {
-    height: 80vh;
+    height: 91vh;
+    background-color: $light-blue;
 }
 
 .grid_btn_2 {
@@ -10,3 +11,12 @@
     margin: auto;
 }
 
+.hero_2_box {
+
+    display: grid;
+    grid-template-columns: 50% 1fr;
+
+    img {
+        width: 500px;
+    }
+}
