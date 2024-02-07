@@ -1,22 +1,68 @@
 .hero_1 {
-    height: 91vh;
-    background-color: $light-blue;
-}
-
-.grid_btn_2 {
-    width: 80%;
+  color: $main-color;
+  height: 91vh;
+  text-align: center;
+  h2 {
+    font-size: 5rem;
+  }
+  h3 {
+    font-size: 3rem;
+    margin: 3rem;
+  }
+  .trial_btn {
+    @include button(16px);
+  }
+  .demo_btn {
+    @include button(16px, hollow);
+  }
+  .grid_btn_2 {
+    width: 40%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: auto;
+    margin-top: 5rem;
+  }
 }
 
-.hero_2_box {
+.hero_2, .hero_3 {
+  padding-top: 2rem;
+  background-color: $light-blue;
+}
 
-    display: grid;
-    grid-template-columns: 50% 1fr;
+.hero_2_box, .hero_3_box {
 
-    img {
-        width: 500px;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  background-color: $light-blue;
+
+  img {
+    width: 500px;
+  }
+  .hollow_trial_btn {
+    @include button(16px, hollow);
+  }
+}
+
+.feat_section {
+  margin-bottom: 2rem;
+}
+
+.feat_container {
+  margin-bottom: 2em;
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  
+  .feat_btn {
+    @include button(14px, hollow);
+    text-align: center;
+  }
+  &:nth-of-type(even){
+    direction: rtl;
+    ul, h4  {
+      direction: ltr;
     }
+  }
+  
 }

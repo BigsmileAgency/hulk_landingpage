@@ -54,14 +54,7 @@ h2 {
   color: $main-color;
 }
 
-.trial_btn {
-  @include button(16px);
-}
-
-.demo_btn {
-  @include button(16px, hollow);
-}
-
 .main-color {
   color: $main-color;
 }
+
