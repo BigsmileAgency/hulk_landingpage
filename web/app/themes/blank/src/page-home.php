@@ -11,7 +11,7 @@
 
 	<section class=" hero_1" style="background-image: url(<?= get_field('bg_img') ?>);">
   <div class="container">
-    <h2><?= get_field('catchphrase') ?></h2>
+    <h1><?= get_field('catchphrase') ?></h1>
     <h3><?= get_field('sub_catchphrase') ?></h3>
     <div class="grid_btn_2">
       <button class="trial_btn"><a href="http://hulk-landing.local/login/"><?= get_field('trial_btn') ?></a></button>
@@ -25,7 +25,7 @@
     <div class="container">
       <div class="hero_2_box">
         <div class="left_box">
-          <h4><?= $hero2['catchphrase'] ?></h4>
+          <h2><?= $hero2['catchphrase'] ?></h2>
           <p><?= $hero2['sub_catchphrase'] ?></p>
           <button class="hollow_trial_btn"><a href="http://hulk-landing.local/demo/"><?= $hero2['btn_trial'] ?></a></button>
         </div>
@@ -36,7 +36,7 @@
 
   <section class="feats_section">
     <div class="container">
-      <h4><?= get_field('feats_diplay_title') ?></h4>
+      <h2><?= get_field('feats_diplay_title') ?></h2>
       <div class="feats_display_container">
         <?php
         if (have_rows("feat_display")) :
@@ -48,7 +48,7 @@
             <div class="feat_container">
               <img src="<?= $img ?>" alt="">
               <div class="side_grid">
-                <h5><?= $title ?></h5>
+                <h3><?= $title ?></h3>
                 <div class="feat_list">
                   <ul>
                     <?php if (have_rows("feat_list")) :
@@ -74,7 +74,7 @@
     <div class="container">
       <div class="hero_3_box">
         <div class="left_box">
-          <h4><?= $hero3['catchphrase'] ?></h4>
+          <h2><?= $hero3['catchphrase'] ?></h2>
           <p><?= $hero3['sub_catchphrase'] ?></p>
           <button class="hollow_trial_btn"><a href="http://hulk-landing.local/demo/"><?= $hero3['btn_trial'] ?></a></button>
         </div>
