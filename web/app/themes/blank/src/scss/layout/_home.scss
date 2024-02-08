@@ -1,8 +1,34 @@
 $mb: 2rem;
 
 .home {
-  h2, h3 {
+  h2,
+  h3 {
     font-weight: 800;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  .container {
+    width: 80%;
+
+    @include breakpoint(md) {
+      width: 90%;
+    }
+  }
+
+  // center button and img
+  @include breakpoint(md) {
+    .hollow_trial_btn, 
+    .hero_2_box img,
+    .hero_3_box img,
+    .feat_btn
+    {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }
 
@@ -10,20 +36,19 @@ $mb: 2rem;
   color: $main-color;
   height: 91vh;
   text-align: center;
-  
+
   h1 {
     max-width: 100vw;
     font-weight: 800;
     font-size: 70px;
 
-    @include breakpoint(lg){
+    @include breakpoint(lg) {
       font-size: 50px;
-    };
+    }
 
-    @include breakpoint(md){
+    @include breakpoint(md) {
       font-size: 40px;
-    };
-
+    }
   }
 
   h3 {
@@ -31,10 +56,13 @@ $mb: 2rem;
     font-size: 20px;
     padding-top: 6rem;
     margin: auto;
-    @include breakpoint(md){
+
+    @include breakpoint(md) {
       font-size: 16px;
       width: 80%;
-    };
+    }
+
+    ;
   }
 
   .trial_btn {
@@ -57,11 +85,10 @@ $mb: 2rem;
       min-width: 200px;
     }
 
-    @include breakpoint(md){
+    @include breakpoint(md) {
       flex-direction: column;
-      gap: $mb;
+      gap: 1rem;
     }
-
   }
 }
 
@@ -71,12 +98,8 @@ $mb: 2rem;
   background-color: $light-blue;
 }
 
-
-
 .hero_2_box,
 .hero_3_box {
-
-  width: 80%;
   margin: auto;
   margin-bottom: 3rem;
   display: grid;
@@ -84,8 +107,7 @@ $mb: 2rem;
   gap: 2rem;
   background-color: $light-blue;
 
-
-  @include breakpoint(md){
+  @include breakpoint(md) {
     grid-template-columns: 1fr;
   }
 
@@ -93,17 +115,21 @@ $mb: 2rem;
     font-weight: 800;
     margin-bottom: $mb;
   }
+
   p {
     margin-bottom: $mb;
   }
+
   img {
     width: 575px;
     border-radius: 30px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.404);
   }
+
   .hollow_trial_btn {
     @include button(16px, hollow);
   }
+
 }
 
 .feats_section {
@@ -114,10 +140,17 @@ $mb: 2rem;
 }
 
 .feat_container {
-
   margin-bottom: 2em;
   display: grid;
   grid-template-columns: 40% 1fr;
+
+  ul {
+    padding: 20px;
+  }
+
+  li {
+    padding: 1px 0;
+  }
 
   .feat_btn {
     @include button(14px, hollow);
@@ -126,22 +159,25 @@ $mb: 2rem;
   @media screen and (min-width: 992px) {
     &:nth-of-type(odd) {
       direction: rtl;
+
       ul,
       h3 {
         direction: ltr;
       }
+
       .feat_btn {
         float: left;
       }
     }
   }
-  
-  @include breakpoint(md){
+
+  @include breakpoint(md) {
     grid-template-columns: 1fr;
-    
+
     img {
       width: 50%;
       margin: auto;
     }
-  };
+  }
+
 }
