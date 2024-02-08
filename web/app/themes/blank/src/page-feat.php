@@ -57,9 +57,9 @@
       <section class="bg_blue">
         <div class="container">
           <div class="add_ons_container">
-            <h1 class="title">
+            <h2 class="title">
               <?= get_field('title_add-ons') ?>
-            </h1>
+            </h2>
             <p class="title_content">
               <?= get_field('content_add-ons') ?>
             </p>
@@ -105,9 +105,9 @@
       <section>
         <div class="container">
           <div class="free_trial_container">
-            <h1 class="free_trial_title">
+            <h2 class="free_trial_title">
               <?= get_field('tilte_free_trial') ?>
-            </h1>
+            </h2>
             <p class="free_trial_content">
               <?= get_field('content_free_trial') ?>
             </p>
@@ -118,7 +118,7 @@
         </div>
       </section>
       <section class="bg_blue">
-        <div class="container">
+        <div class="container container_qualities">
           <div class="qualities">
 
             <?php if (have_rows('qualities')):

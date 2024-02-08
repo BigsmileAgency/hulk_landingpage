@@ -30,6 +30,7 @@ main {
   section {
     display: flex;
     width: 100%;
+
     &.center {
       justify-content: center;
     }
@@ -39,6 +40,9 @@ main {
 .container {
   max-width: 1366px;
   margin: auto;
+  @include breakpoint(xl) {
+    width: 95%;
+  }
 }
 
 a {
@@ -54,6 +58,9 @@ a {
 
 h1, h2 {
   font-size: 40px;
+  @include breakpoint(xs) {
+    
+  }
 }
 
 h3 {
