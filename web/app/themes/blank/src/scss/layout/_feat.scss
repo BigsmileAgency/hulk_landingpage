@@ -27,7 +27,9 @@ $fs-sub-mobile : 20px;
     text-align: center;
     width: 800px;
     margin: 0px auto 50px auto;
-
+    @include breakpoint(md) {
+        width: 750px;
+    }
     @include breakpoint(sm) {
         width: 100%;
     }
@@ -94,7 +96,7 @@ $fs-sub-mobile : 20px;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
 
-    @include breakpoint(md) {
+    @include breakpoint(xl) {
         grid-template-columns: 1fr;
     }
     .add_on {
@@ -178,7 +180,7 @@ $fs-sub-mobile : 20px;
         grid-template-columns: repeat(4, 1fr);
         justify-items: center;
     
-        @include breakpoint(md) {
+        @include breakpoint(xl) {
             grid-template-columns: repeat(2, 1fr);
         }
     
@@ -215,6 +217,9 @@ $fs-sub-mobile : 20px;
     position: relative;
     top: -260px;
     margin: auto;
+    @include breakpoint(xl) {
+        top:-150px;
+    }
     @include breakpoint(md) {
         width: 90%;
         top:-150px;
@@ -230,6 +235,9 @@ $fs-sub-mobile : 20px;
 
 .bottom_container {
     height: 350px;
+    @include breakpoint(xl) {
+        height: 480px;
+    }
     @include breakpoint(md) {
         height: 45vw;
     }
