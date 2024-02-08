@@ -49,5 +49,21 @@ a {
 }
 
 .main-color {
-  color: $main-color;
+  color: $main-color
+}
+
+h1, h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
 }
