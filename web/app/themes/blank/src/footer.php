@@ -4,23 +4,28 @@
     </div>
     <section class="bg_footer">
         <div class="container container_footer">
-            <div class="menu1">
-                <span class="bold">Ressources</span>
-                <ul>
-                    <li>Status page</li>
-                    <li>Social and mockups</li>
-                    <li>API</li>
-                    <li>Blog</li>
-                </ul>
+            <div class="menus">
+
+                <div class="menu1">
+                    <span class="bold">Ressources</span>
+                    <ul>
+                        <li>Status page</li>
+                        <li>Social and mockups</li>
+                        <li>API</li>
+                        <li>Blog</li>
+                    </ul>
+                </div>
+                <div class="menu2">
+                    <span class="bold">Support</span>
+                    <ul>
+                        <li>Knowledgebase</li>
+                        <li>Security</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+                
             </div>
-            <div class="menu2">
-                <span class="bold">Support</span>
-                <ul>
-                    <li>Knowledgebase</li>
-                    <li>Security</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
+            <div class="logo_hulk"><img class="logo_hulk" src="<?php echo get_template_directory_uri() ?>/images/HulkBanner.png"></div>
         </div>
     </section>
 

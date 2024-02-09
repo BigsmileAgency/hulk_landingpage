@@ -49,7 +49,6 @@ a {
   text-decoration: none;
   font-family: inherit;
   color: inherit;
-  font-weight: bold;
 }
 
 .main-color {
@@ -73,6 +72,12 @@ h4 {
 
 h5 {
   font-size: 20px;
+}
+.bold {
+  font-weight: 700;
+}
+.underline {
+  text-decoration: underline;
 }
 
 ul, ol {

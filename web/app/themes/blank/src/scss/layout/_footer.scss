@@ -3,14 +3,17 @@
 }
 .container_footer {
     display : flex;
-    justify-content: left;
+    justify-content: space-between;
     color : $white;
-    gap :25px;
     padding: 50px 20px;
-
+    position: relative;
+    @include breakpoint(sm) {
+        flex-direction: column;
+    }
 }
-.bold {
-    font-weight: 700;
+.menus {
+    display: flex;
+    gap :25px;
 }
 .container_footer ul {
     list-style-type: none;
@@ -30,4 +33,7 @@
         width :90%;
         margin: auto;
     }
+}
+.logo_hulk {
+   
 }

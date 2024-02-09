@@ -16,7 +16,7 @@ shadow
     .container {
         padding: 50px 0;
     }
-    h1, h2 {
+    h1, h2, p {
         margin-bottom: 25px;
     }
 }
@@ -28,12 +28,12 @@ shadow
 .add_ons_container {
     text-align: center;
     width: 800px;
-    margin: 0px auto 50px auto;
+    margin: 0px auto 0px auto;
     @include breakpoint(md) {
         width: 750px;
     }
     @include breakpoint(sm) {
-        width: 100%;
+        width: 95%;
     }
 }
 
@@ -109,6 +109,7 @@ shadow
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        text-align: left;
         padding: 30px 0 0 0;
         box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
         background-color: $white;
