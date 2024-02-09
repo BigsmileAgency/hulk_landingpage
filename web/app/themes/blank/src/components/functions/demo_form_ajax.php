@@ -55,6 +55,8 @@ function demo_form_ajax()
                 let isConsent = document.querySelector("#demo_consent").checked;
                 let sentBtn = document.querySelector("#demo_send_btn");
 
+                let daysArray = Array.from(document.querySelectorAll('.days div'))
+
                 // response
                 let response = document.querySelector('#demo_response');
 
@@ -62,29 +64,37 @@ function demo_form_ajax()
                 let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
-
                 if (firstName === "" || lastName === "" || email === "" || phone === "") {
                     // alert(copy.emptyFields[lang]);
                     response.textContent = copy.emptyFields[lang];
-                }
 
-                else if (!email.match(mailRegex)) {
+                } else if (!email.match(mailRegex)) {
                     response.textContent = copy.badMail[lang];
-                }
-
-                else if (!phone.match(phoneRegex)) {
+                } else if (!phone.match(phoneRegex)) {
                     response.textContent = copy.badPhone[lang];
-                } 
-                else {
+                } else {
                     demoFormContainer.style.display = "none";
-    
+
                     gif.style.display = "block";
-    
+
                     setTimeout(() => {
                         gif.style.display = "none"
                         calendar.style.display = "block"
                     }, 1000)
+
                 }
+            })
+
+
+            let calendar = document.querySelector('.calendar_container');
+            let daysArray = Array.from(document.querySelectorAll('.day'));
+
+            console.log(calendar);
+
+            daysArray.forEach((day) => {
+                day.addEventListener('click', (e) => {
+                    console.log(e.currentTarget.dataset.date);
+                })
             })
 
         })

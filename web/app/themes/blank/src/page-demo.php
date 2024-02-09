@@ -102,37 +102,9 @@
             <p>Do canlendar</p>
             <p class="demo_response response"></p>
           </div>
-          <div class="calendar">
-            <table>
-              <thead>
-                <tr>
-                  <th colspan="7">
-                    <div id="prev_month">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="5.564" height="9.273" viewBox="0 0 5.564 9.273">
-                        <path id="Icon_feather-chevron-left" data-name="Icon feather-chevron-left" d="M4.868,9.273a.711.711,0,0,1-.492-.194L.2,5.1a.64.64,0,0,1,0-.937L4.376.194a.72.72,0,0,1,.984,0,.64.64,0,0,1,0,.937L1.679,4.636,5.36,8.142a.64.64,0,0,1,0,.937A.711.711,0,0,1,4.868,9.273Z" fill="#293133" />
-                      </svg>
-                    </div>
-                    <div class="header_date">${months[currentMonth]} ${currentYear}</div>
-                    <div id="next_month">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="5.564" height="9.273" viewBox="0 0 5.564 9.273">
-                        <path id="Icon_feather-chevron-left" data-name="Icon feather-chevron-left" d="M4.868,9.273a.711.711,0,0,1-.492-.194L.2,5.1a.64.64,0,0,1,0-.937L4.376.194a.72.72,0,0,1,.984,0,.64.64,0,0,1,0,.937L1.679,4.636,5.36,8.142a.64.64,0,0,1,0,.937A.711.711,0,0,1,4.868,9.273Z" transform="translate(5.564 9.273) rotate(180)" fill="#293133" />
-                      </svg>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <th><?= __('L', 'calendar_days'); ?></th>
-                  <th><?= __('Ma', 'calendar_days'); ?></th>
-                  <th><?= __('Me', 'calendar_days'); ?></th>
-                  <th><?= __('J', 'calendar_days'); ?></th>
-                  <th><?= __('V', 'calendar_days'); ?></th>
-                  <th><?= __('S', 'calendar_days'); ?></th>
-                  <th><?= __('D', 'calendar_days'); ?></th>
-                </tr>
-              </thead>
-              <tbody id="calendar-body"></tbody>
-            </table>
-          </div>
+
+          <?php get_template_part('./components/layouts/calendar') ?>
+
         </div>
       </div>
 
