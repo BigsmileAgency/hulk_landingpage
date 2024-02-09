@@ -5,7 +5,7 @@ function demo_form_ajax()
 ?>
 	<script>
 		let lang = document.documentElement.lang;
-
+		
 		if (lang == "fr-FR") {
 			lang = "fr";
 		}
@@ -30,17 +30,15 @@ function demo_form_ajax()
 
 		document.addEventListener("DOMContentLoaded", function() {
 
-			let demoForm = document.querySelector("#demo_form")
 
-			demoForm.addEventListener("submit", (e) => {
-
+			document.querySelector("#demo_form").addEventListener("submit", (e) => {
 				e.preventDefault();
 
 				// containers
 				let formAndCalendar = document.querySelector('.form_and_calendar');
 				let demoFormContainer = document.querySelector('.demo_form_container');
-				let calendar = document.querySelector('.calendar_container');
 				let gif = document.querySelector('.demo_gif');
+				let calendarContainer = document.querySelector('.calendar_container');
 
 
 				// form input
@@ -52,13 +50,10 @@ function demo_form_ajax()
 				let isAgency = document.querySelector("#are_you_agency").checked;
 				let isConsent = document.querySelector("#demo_consent").checked;
 				let sentBtn = document.querySelector("#demo_send_btn");
-				let calendarContainer = document.querySelector('.calendar_container');
 
-
-				let daysArray = Array.from(document.querySelectorAll('.days div'))
 
 				// response
-				let response = document.querySelector('#demo_response');
+				let response = document.querySelector('.demo_response');
 
 				// regexs 
 				let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -67,23 +62,48 @@ function demo_form_ajax()
 				if (firstName === "" || lastName === "" || email === "" || phone === "") {
 					// alert(copy.emptyFields[lang]);
 					response.textContent = copy.emptyFields[lang];
-
 				} else if (!email.match(mailRegex)) {
 					response.textContent = copy.badMail[lang];
 				} else if (!phone.match(phoneRegex)) {
 					response.textContent = copy.badPhone[lang];
 				} else {
-					demoFormContainer.style.display = "none";
 
+					demoFormContainer.style.display = "none";
 					gif.style.display = "block";
 
 					setTimeout(() => {
 						gif.style.display = "none"
 						calendarContainer.style.display = "block"
-					}, 1000)
+					}, 1)
 
+					renderCalendar();
+
+					document.querySelector(".prev").addEventListener("click", () => {
+						date.setMonth(date.getMonth() - 1);
+						renderCalendar();
+					});
+
+					document.querySelector(".next").addEventListener("click", () => {
+						date.setMonth(date.getMonth() + 1);
+						renderCalendar();
+					});
+
+					
+					let calendar = document.querySelector('.calendar')
+					let daysArray = Array.from(calendar.querySelectorAll('.day'));
+
+					daysArray.forEach((day) => {
+						day.addEventListener('click', (e) => {
+							rdv = e.target.innerHTML;	
+							handleForm(firstName, rdv)								
+						})
+					})			
 				}
 			})
+
+			function handleForm(firstName, rdv){
+				console.log(firstName, rdv);
+			}
 		})
 	</script>
 <?php

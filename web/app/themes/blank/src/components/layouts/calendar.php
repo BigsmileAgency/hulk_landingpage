@@ -24,6 +24,7 @@
 </div>
 
 <script>
+	let apointement = 0;
 	const date = new Date();
 
 	const renderCalendar = () => {
@@ -95,27 +96,7 @@
 			monthDays.innerHTML = days;
 		}
 
-		let calendar = document.querySelector('.calendar')
-		let daysArray = Array.from(calendar.querySelectorAll('.day'));
 
-		console.log(daysArray);
 
-		daysArray.forEach((day) => {
-			day.addEventListener('click', (e) => {
-				console.log(e.target.innerHTML);
-			})
-		})
 	};
-
-	document.querySelector(".prev").addEventListener("click", () => {
-		date.setMonth(date.getMonth() - 1);
-		renderCalendar();
-	});
-
-	document.querySelector(".next").addEventListener("click", () => {
-		date.setMonth(date.getMonth() + 1);
-		renderCalendar();
-	});
-
-	renderCalendar();
 </script>
