@@ -5,7 +5,7 @@ function demo_form_ajax()
 ?>
 	<script>
 		let lang = document.documentElement.lang;
-		
+
 		if (lang == "fr-FR") {
 			lang = "fr";
 		}
@@ -19,7 +19,6 @@ function demo_form_ajax()
 			badMail: {
 				"en": "Put a proper e-mail adress",
 				"fr": "Adresse e-mail non conforme",
-
 			},
 
 			badPhone: {
@@ -30,7 +29,6 @@ function demo_form_ajax()
 
 		document.addEventListener("DOMContentLoaded", function() {
 
-
 			document.querySelector("#demo_form").addEventListener("submit", (e) => {
 				e.preventDefault();
 
@@ -39,7 +37,6 @@ function demo_form_ajax()
 				let demoFormContainer = document.querySelector('.demo_form_container');
 				let gif = document.querySelector('.demo_gif');
 				let calendarContainer = document.querySelector('.calendar_container');
-
 
 				// form input
 				let firstName = document.querySelector("#demo_first_name").value;
@@ -50,7 +47,6 @@ function demo_form_ajax()
 				let isAgency = document.querySelector("#are_you_agency").checked;
 				let isConsent = document.querySelector("#demo_consent").checked;
 				let sentBtn = document.querySelector("#demo_send_btn");
-
 
 				// response
 				let response = document.querySelector('.demo_response');
@@ -88,21 +84,34 @@ function demo_form_ajax()
 						renderCalendar();
 					});
 
-					
-					let calendar = document.querySelector('.calendar')
-					let daysArray = Array.from(calendar.querySelectorAll('.day'));
+					let daysArray = Array.from(document.querySelectorAll('.day'));
 
 					daysArray.forEach((day) => {
 						day.addEventListener('click', (e) => {
-							rdv = e.target.innerHTML;	
-							handleForm(firstName, rdv)								
+							rdv = e.target.innerHTML;
+							youGetDateYouNeedTime(firstName, rdv)
+							console.log(rdv);
+							rdv = "";
 						})
-					})			
+					})
 				}
 			})
 
-			function handleForm(firstName, rdv){
-				console.log(firstName, rdv);
+			function youGetDateYouNeedTime(firstName, rdv) {
+				let time;
+				let slotsArray = Array.from(document.querySelectorAll('.slot'));
+				slotsArray.forEach((slot) => {
+					slot.addEventListener('click', (f) => {
+						f.preventDefault();
+						time = f.target.innerHTML;
+						handleForm(firstName, rdv, time);
+						time = "";
+					})
+				})
+			}
+
+			function handleForm(firstName, rdv, time) {
+				console.log(firstName, rdv, time);
 			}
 		})
 	</script>

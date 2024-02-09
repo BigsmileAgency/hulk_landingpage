@@ -1,27 +1,42 @@
-<div class="calendar">
-	<div class="month">
-		<i class="fas fa-angle-left prev"></i>
-		<div class="date">
-			<p class="month_display"></p>
-			<p class="full_date"></p>
+<div class="booking_form">
+	<div class="calendar">
+		<div class="month">
+			<i class="fas fa-angle-left prev"></i>
+			<div class="date">
+				<p class="month_display"></p>
+			</div>
+			<i class="fas fa-angle-right next"></i>
 		</div>
-		<i class="fas fa-angle-right next"></i>
+
+		<div class="weekdays">
+			<div>M</div>
+			<div>Tue</div>
+			<div>W</div>
+			<div>Thu</div>
+			<div>F</div>
+			<div>S</div>
+			<div>Sun</div>
+		</div>
+
+		<div class="days">
+		</div>
 	</div>
 
-	<div class="weekdays">
-		<div>M</div>
-		<div>Tue</div>
-		<div>W</div>
-		<div>Thu</div>
-		<div>F</div>
-		<div>S</div>
-		<div>Sun</div>
+	<div class="time">
+		<p class="full_date"></p>
+		<div class="slots">
+			<div class="slot">09:00</div>
+			<div class="slot">10:00</div>
+			<div class="slot">11:00</div>
+			<div class="slot">14:00</div>
+			<div class="slot">15:30</div>
+			<div class="slot">16:00</div>
+			<div class="slot">16:30</div>
+		</div>
 	</div>
-
-	<div class="days">
-	</div>
-
 </div>
+
+<button id="book_btn">Réservez</button>
 
 <script>
 	let apointement = 0;
