@@ -1,0 +1,130 @@
+.demo {
+
+	.hero_demo {
+		height: 20vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+		p {
+			width: 50%;
+			text-align: center;
+		}
+	}
+
+	.demo_section {
+		background-color: $light-color;
+	}
+
+	.demo_container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		min-height: 60vh;
+		padding: 40px 0;
+		p {
+			margin-bottom: 2rem;
+		}
+		@include breakpoint(md){
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.explanation_list {
+		width: 80%;
+		margin: 3rem auto;
+		h3 {
+			margin-bottom: $mb;
+		}
+		ol {
+			padding-left: 30px;
+			color: $main-color;
+			font-weight: bold;
+			font-size: 20px;
+		}
+		li {
+			margin-bottom: 10px;
+		}
+		.black {
+			color: black;
+			font-weight: 400;
+		}
+	}
+	
+	.form_and_calendar {
+		background-color: $white;
+		padding: 20px;
+		width: 80%;
+		margin: 2rem auto;
+	}
+	
+	.form_header {
+		text-align: center;
+		h3 {
+			margin-bottom: $mb;
+		}
+	}
+
+	.form_and_calendar {
+		width: 80%;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
+		@include breakpoint(sm){
+			width: 95%;
+		}
+	}
+
+	#demo_form {
+		input[type=text] {
+			border: solid grey 1px;
+			border-radius: 5px;
+			padding: 5px;
+			width: 100%
+		}
+		
+		input[type=submit] {
+			@include button(12px, hollow);
+			width: 60%;
+			margin: 0 20%;
+		}
+		
+		.form_item {
+			margin-bottom: 1rem;
+		}
+		
+		#form_grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 1rem;
+		}
+		
+		#consent_container {
+			font-size: 12px;
+			text-align: justify;
+		}
+
+		// display: block;
+		display: none;
+	}
+
+	.calendar_container {
+		display: block;
+		// display: none;
+	}
+	.demo_gif {
+		// display: block;
+		display: none;
+	}
+
+
+	.response {
+		color : $danger-color;
+		font-weight: bold;
+	}
+	
+	.success {
+		color: green;
+	}
+
+}

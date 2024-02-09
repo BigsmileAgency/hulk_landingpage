@@ -21,6 +21,9 @@ include get_theme_file_path( '/components/functions/custom_menu.php' );
 // CUSTOM POST
 include get_theme_file_path( '/components/functions/custom_post_type.php' );
 
+// DEMO FORM JS HANDLER SCRIPT
+include get_theme_file_path( '/components/functions/demo_form_ajax.php' );
+
 // AJAX CATEGORY FILTER
 // include get_theme_file_path( '/components/functions/ajaxFilter.php' );
 
