@@ -17,15 +17,12 @@
 	}
 
 	.demo_container {
-
 		p {
 			margin-bottom: 2rem;
 		}
-
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		min-height: 60vh;
-		padding: 40px 0;
 
 		@include breakpoint(md) {
 			grid-template-columns: 1fr;
@@ -74,15 +71,10 @@
 
 	.form_and_calendar {
 		text-align: center;
-
-		width: 80%;
+		width: 95%;
 		padding: 20px;
 		border-radius: 10px;
 		box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
-
-		@include breakpoint(sm) {
-			width: 95%;
-		}
 	}
 
 	#demo_form {
@@ -124,6 +116,7 @@
 	.calendar_container {
 		// display: block;
 		display: none;
+		width: fit-content;
 
 		#book_btn {
 			margin-top: 1rem;
@@ -149,8 +142,14 @@
 
 	.booking_form {
 		display: grid;
-		grid-template-columns: 1fr 25%;
+		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
+		width: 90%;
+
+		@include breakpoint(sm){
+			grid-template-columns: 1fr;
+		}
+
 
 		p {
 			margin-bottom: 0;
