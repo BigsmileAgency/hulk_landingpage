@@ -129,6 +129,9 @@
 	}
 
 	.calendar {
+
+		text-align: center;
+		
 		p {
 			margin-bottom: 0;
 		}
@@ -167,19 +170,23 @@
 			grid-template-columns: repeat(7, 1fr);
 			place-items: center;
 			
-			div:not(.prev_date, .next_date) {
+			.day {
 				width: 90%;
 				height: 90%;
-				text-align: center;
 				cursor: pointer;
 				padding: 10px;
 				background-color: $light-color;
 				border-radius: 5px;
+
+				&:hover {
+					background-color: $main-color;
+				}
 			}
 
-			.today {
-				background-color: green;
-				color: red;
+			.today, .selected {
+				
+				background-color: $main-color;
+				color: white;
 				font-weight: 800;
 			}
 
