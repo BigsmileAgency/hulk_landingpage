@@ -3,6 +3,10 @@
 /**
  * Template Name: Demo
  */
+
+// GET FIELDS FROM OPTION TAB : 
+//  <?= get_field('time', 'Options') ?>
+
 ?>
 
 <?php get_header(); ?>
