@@ -1,10 +1,10 @@
 <?php 
   /**
-  * Template Name: Login
+  * Template Name: Sign-up
   */
 ?>
 
-<?php get_header("login"); ?>
+<?php get_header("signup"); ?>
 
 <main class="default">
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
@@ -14,8 +14,7 @@
       <div class="form_login">
         <a href="<?php echo get_home_url(); ?>" class="back_home"><img src="<?php echo get_template_directory_uri() ?>/images/icon_close.png" alt=""></a>
         <div class="header_login_form">
-          <h1><?= get_field('title_login') ?></h1>
-          <p><?= get_field('title_content_login') ?></p>
+          <h1><?= get_field('title_signup') ?></h1>
         </div>
         <form action="">
           <label for="email"><?= get_field('label_email') ?></label>
@@ -24,14 +23,8 @@
           <label for="password"><?= get_field('label_password') ?></label>
           <input type="text" name="password" id="password_login">
           <br>
-          <div class="sublogin">
-            <div class="remember_me">
-              <input type="checkbox" name="remember_me" id="remember_me">
-              <label for="remember_me"><?= get_field('label_rememberme') ?></label>
-            </div>
-            <a href="<?= get_field('password_reset_link') ?>" class="reset_password bold"><?= get_field('password_reset') ?></a>
-          </div>
-          <input type="submit" value="<?= get_field('login_button') ?>">
+          <div class="captcha">Captcha</div>
+          <input type="submit" value="<?= get_field('signup_button') ?>">
         </form>
         <div class="divider">
           <hr>
@@ -39,7 +32,7 @@
           <hr>
         </div>
         
-        <div class="google_login">Google login</div>
+        <div class="google_login">Google signup</div>
       </div>
     </div>
   </section>

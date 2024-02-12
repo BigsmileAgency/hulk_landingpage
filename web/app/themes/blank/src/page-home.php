@@ -7,7 +7,7 @@
 
 <?php get_header(); ?>
 
-<main class="home"">
+<main class="home">
 
 	<section class=" hero_1" style="background-image: url(<?= get_field('bg_img') ?>);">
   <div class="container">
