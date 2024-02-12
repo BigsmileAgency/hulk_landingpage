@@ -1,6 +1,8 @@
 $fs-sub : 24px;
 $fs-sub-mobile : 20px;
 
+shadow
+
 .header {
     @include breakpoint(xs) {
         display: none;
