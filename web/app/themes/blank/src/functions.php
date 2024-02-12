@@ -24,6 +24,19 @@ include get_theme_file_path( '/components/functions/custom_post_type.php' );
 // DEMO FORM JS HANDLER SCRIPT
 include get_theme_file_path( '/components/functions/demo_form_ajax.php' );
 
+// OPTION TAB // CALENDAR ADMIN : 
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page(
+		array(
+			'page_title' => 'Options',
+			'menu_title' => 'Options',
+			'menu_slug' => 'Options',
+			'capability' => 'edit_posts',
+			'redirect' => false
+		)
+	);
+}
+
 // AJAX CATEGORY FILTER
 // include get_theme_file_path( '/components/functions/ajaxFilter.php' );
 

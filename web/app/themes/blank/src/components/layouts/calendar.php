@@ -111,7 +111,5 @@
 			monthDays.innerHTML = days;
 		}
 
-
-
 	};
 </script>

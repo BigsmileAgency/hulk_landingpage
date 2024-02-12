@@ -173,6 +173,10 @@
 					cursor: pointer;
 				}
 			}
+			.time_selected {
+				background-color: $main-color;
+				color: white;
+			}
 		}
 
 		.calendar {
@@ -226,10 +230,10 @@
 				}
 	
 				.today,
-				.selected {
+				.date_selected,
+				.time_selected {
 					background-color: $main-color;
 					color: white;
-					font-weight: 800;
 				}
 	
 				.prev_date,

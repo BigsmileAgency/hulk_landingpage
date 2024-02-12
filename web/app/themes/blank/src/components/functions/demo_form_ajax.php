@@ -5,6 +5,8 @@ function demo_form_ajax()
 ?>
 	<script>
 		let lang = document.documentElement.lang;
+		let rdv
+		let i = 0;
 
 		if (lang == "fr-FR") {
 			lang = "fr";
@@ -84,35 +86,50 @@ function demo_form_ajax()
 						renderCalendar();
 					});
 
+
 					let daysArray = Array.from(document.querySelectorAll('.day'));
+					let timeArray = Array.from(document.querySelectorAll('.slot'));
+					const today = document.querySelector('.today')
+
+					function dateIsSelected(e) {
+						const thisDate = e.target;
+						today.classList.remove('today')
+						const otherDates = daysArray.filter(date => {
+							return (date !== thisDate);
+						})
+						otherDates.forEach((e) => {
+							e.classList.remove(('date_selected'))
+						})
+						thisDate.classList.add('date_selected')
+					}
+
+					function timeIsSelected(f) {
+						const thisTime = f.target;
+						const otherTime = timeArray.filter(time => {
+							return (time !== thisTime);
+						})
+						otherTime.forEach((e) => {
+							e.classList.remove(('time_selected'))
+						})
+						thisTime.classList.add('time_selected')
+					}
 
 					daysArray.forEach((day) => {
 						day.addEventListener('click', (e) => {
-							rdv = e.target.innerHTML;
-							youGetDateYouNeedTime(firstName, rdv)
-							console.log(rdv);
-							rdv = "";
+							dateIsSelected(e);
 						})
 					})
+
+					timeArray.forEach((time) => {
+						time.addEventListener('click', (f) => {
+							timeIsSelected(f)
+						})
+					})
+
+
 				}
 			})
 
-			function youGetDateYouNeedTime(firstName, rdv) {
-				let time;
-				let slotsArray = Array.from(document.querySelectorAll('.slot'));
-				slotsArray.forEach((slot) => {
-					slot.addEventListener('click', (f) => {
-						f.preventDefault();
-						time = f.target.innerHTML;
-						handleForm(firstName, rdv, time);
-						time = "";
-					})
-				})
-			}
-
-			function handleForm(firstName, rdv, time) {
-				console.log(firstName, rdv, time);
-			}
 		})
 	</script>
 <?php
