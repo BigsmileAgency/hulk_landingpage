@@ -39,13 +39,13 @@
             
             <?php wp_nav_menu(array('theme_location' => 'header', 'container_class' => 'nav_menu')); ?>
             <?php wp_nav_menu(array('theme_location' => 'login', 'container_class' => 'nav_menu')); ?>
-            <!-- <div class="nav_mobile">
+            <div class="nav_mobile">
 
                 <input type="checkbox" id="menu-toggle" />
                 <label id="trigger" for="menu-toggle"></label>
                 <label id="burger" for="menu-toggle"></label>
-                <?php wp_nav_menu(array('theme_location' => 'burger', 'container' => '')); ?>
-            </div> -->
+                <?php wp_nav_menu(array('theme_location' => 'burger', 'container' => '','container_id' => '#menu-burger',)); ?>
+            </div>
 
         </div>
         </div>
