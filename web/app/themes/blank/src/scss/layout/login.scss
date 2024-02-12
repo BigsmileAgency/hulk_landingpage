@@ -1,0 +1,297 @@
+.login_body {
+    background-color: #33AAFF;
+    .container_nav {
+        @include breakpoint(sm) {
+            justify-content: space-between;
+          }
+    }
+    .logo_hulk {
+        @include breakpoint(xs) {
+            width : 150px;
+          }
+    }
+    .captcha {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .signup {
+        display: flex;
+        align-items: center;
+        color: $white;
+        gap: 15px;
+
+        .sign_up_button {
+            border-radius: 50px;
+            padding: .7em 40px;
+            background-color: white;
+            color: $main-color;
+            text-align: center;
+
+            &:hover {
+                transform: scale(1.05);
+                transition: 0.25s ease-out;
+            }
+        }
+    }
+
+    .section_login {
+        min-height: 90vh;
+
+        .form_login {
+            margin: auto;
+            background-color: $white;
+            border-radius: 30px;
+            padding: 30px 50px;
+            width: 500px;
+            max-width: 500px;
+            height: 575px;
+            @include breakpoint(sm) {
+                width: 100%;
+                height: auto;
+                margin : 50px auto;
+              }
+
+            .back_home {
+                display: flex;
+                justify-content: right;
+            }
+
+            .header_login_form {
+                text-align: center;
+                margin-bottom: 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                height: 40px;
+                border-radius: 5px;
+                border: 1px #3D464D solid;
+                margin: 10px auto 10px auto;
+                padding-left: 15px;
+            }
+
+            
+
+            .sublogin {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 30px;
+                @include breakpoint(xs) {
+                    flex-direction: column;
+                    gap : 15px;
+                    justify-content: flex-start;
+                align-items: center;
+                  }
+                .reset_password {
+                    color: $main-color;
+                }
+                label,
+                input {
+                    display: initial;
+                }
+
+                .remember_me {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    input[type="checkbox"] {
+                        width: 22px;
+                        height: 22px;
+                        border: 1px #3D464D solid;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            input[type="submit"] {
+                width: 100%;
+                @include button(16px);
+                color: $white;
+            }
+
+            .divider {
+                display: flex;
+                margin: 25px 0;
+
+                hr {
+                    border-top: 2px solid #3D464D;
+                    width: 44%;
+                }
+            }
+
+            .google_login {
+                text-align: center;
+            }
+        }
+
+        label,
+        input {
+            display: block;
+        }
+
+    }
+    #menu-toggle {
+                    display:none;
+                }
+    .mobile_hidden {
+        @include breakpoint(sm) {
+            display:none;
+          }
+    }
+//     // burger menu
+
+//     .header {
+//         @keyframes checked-anim {
+//             50% {
+//                 width: 3000px;
+//                 height: 3000px;
+//             }
+
+//             100% {
+//                 width: 100%;
+//                 height: 100%;
+//                 border-radius: 0;
+//             }
+//         }
+
+//         @keyframes not-checked-anim {
+//             0% {
+//                 width: 3000px;
+//                 height: 3000px;
+//             }
+//         }
+
+//         .nav_mobile {
+//             display: none;
+//         }
+
+
+//         #menu-toggle {
+//             display:none;
+//         }
+//         @include breakpoint(xs) {
+//             .logo_nav {
+//                 padding-right: 5%;
+//             }
+//             .signup {
+//                 display: block;
+
+//                 div,
+//                 a {
+//                     margin: 75px 0 -55px 0;
+//                     color: #03A9F4;
+//                     font: 14pt "Roboto", sans-serif;
+//                     font-weight: 700;
+//                     line-height: 1.8;
+//                     text-decoration: none;
+//                     text-transform: none;
+//                     list-style: none;
+//                     outline: 0;
+//                     display: none;
+//                 }
+
+//                 li {
+//                     width: 230px;
+//                     text-indent: 56px;
+//                 }
+
+//                 a:focus {
+//                     display: block;
+//                     color: #333;
+//                     background-color: #eee;
+//                     transition: all .5s;
+//                 }
+
+//                 #trigger,
+//                 #burger,
+//                 #burger:before,
+//                 #burger:after {
+//                     position: absolute;
+//                     top: 25px;
+//                     left: 25px;
+//                     background: #03A9F4;
+//                     width: 30px;
+//                     height: 5px;
+//                     transition: .2s ease;
+//                     cursor: pointer;
+//                     z-index: 1;
+//                 }
+
+//                 .signup {
+//                     position: absolute;
+//                     margin: 0;
+//                     padding: 0;
+//                     left: 0;
+//                     top: 0;
+//                     width: 110px;
+//                     height: 110px;
+//                     background-color: #fff;
+//                     border-bottom-right-radius: 100%;
+//                     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+//                     animation: not-checked-anim .2s both;
+//                     transition: .2s;
+//                 }
+
+//                 #menu-toggle:checked+#trigger+#burger+.signup {
+//                     animation: checked-anim 1s ease both;
+//                 }
+
+//                 #menu-toggle:checked+#trigger~.signup>div,
+//                 a {
+//                     display: block;
+//                 }
+
+//                 [type="checkbox"]:not(:checked),
+//                 [type="checkbox"]:checked {
+//                     display: none;
+//                 }
+
+//                 // style bouton burger
+//                 #trigger {
+//                     height: 25px;
+//                     background: none;
+//                 }
+
+//                 #burger:before {
+//                     content: " ";
+//                     top: 10px;
+//                     left: 0;
+//                 }
+
+//                 #burger:after {
+//                     content: " ";
+//                     top: 20px;
+//                     left: 0;
+//                 }
+
+//                 #menu-toggle:checked+#trigger+#burger {
+//                     top: 35px;
+//                     transform: rotate(180deg);
+//                     transition: transform .2s ease;
+//                 }
+
+//                 #menu-toggle:checked+#trigger+#burger:before {
+//                     width: 20px;
+//                     top: -2px;
+//                     left: 18px;
+//                     transform: rotate(45deg) translateX(-5px);
+//                     transition: transform .2s ease;
+//                 }
+
+//                 #menu-toggle:checked+#trigger+#burger:after {
+//                     width: 20px;
+//                     top: 2px;
+//                     left: 18px;
+//                     transform: rotate(-45deg) translateX(-5px);
+//                     transition: transform .2s ease;
+//                 }
+//             }
+
+//         }
+//     }
+}
