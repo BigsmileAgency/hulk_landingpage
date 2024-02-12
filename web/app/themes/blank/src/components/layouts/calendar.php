@@ -1,4 +1,4 @@
-<div class="booking_form">
+<form class="booking_form">
 	<div class="calendar">
 		<div class="month">
 			<i class="fas fa-angle-left prev"></i>
@@ -34,15 +34,15 @@
 			<div class="slot">16:30</div>
 		</div>
 	</div>
-</div>
+	<button type="submit" id="book_btn">Réservez</button>
+</form>
 
-<button id="book_btn">Réservez</button>
 
 <script>
-	let apointement = 0;
-	const date = new Date();
+	let date = new Date();
+	let fullDate = document.querySelector(".full_date")
 
-	const renderCalendar = () => {
+	function renderCalendar() {
 
 		date.setDate(1);
 
@@ -87,7 +87,7 @@
 
 		document.querySelector(".month_display").innerHTML = months[date.getMonth()];
 
-		document.querySelector(".full_date").innerHTML = new Date().toDateString();
+		fullDate.innerHTML = new Date().toDateString();
 
 		let days = "";
 
@@ -96,10 +96,7 @@
 		}
 
 		for (let i = 1; i <= lastDay; i++) {
-			if (
-				i === new Date().getDate() &&
-				date.getMonth() === new Date().getMonth()
-			) {
+			if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
 				days += `<div class="day today">${i}</div>`;
 			} else {
 				days += `<div class="day">${i}</div>`;
@@ -110,5 +107,95 @@
 			days += `<div class="day next_date">${j}</div>`;
 			monthDays.innerHTML = days;
 		}
+
+		return date;
 	};
+	
+	let daysArray = [];
+	let timeArray = [];
+	let month;
+	let today;
+
+
+	renderCalendar();
+	handleSelection();
+
+	document.querySelector(".prev").addEventListener("click", () => {
+		prevMonth();
+	});
+
+	document.querySelector(".next").addEventListener("click", () => {
+		nextMonth();
+	});
+
+
+	function handleSelection() {
+
+
+		daysArray = Array.from(document.querySelectorAll('.day'));
+		timeArray = Array.from(document.querySelectorAll('.slot'));
+		today = document.querySelector('.today')
+
+		function dateIsSelected(e) {
+			const thisDate = e.target;
+			const otherDates = daysArray.filter(date => {
+				return (date !== thisDate);
+			})
+			otherDates.forEach((e) => {
+				e.classList.remove('date_selected')
+				if (e.classList.contains('today')) {
+					e.classList.remove('today')
+				}
+			})
+			thisDate.classList.add('date_selected')
+			date.setDate(thisDate.innerHTML)
+			fullDate.innerHTML = date.toDateString();
+		}
+
+		function timeIsSelected(e) {
+			const thisTime = e.target;
+			const otherTime = timeArray.filter(time => {
+				return (time !== thisTime);
+			})
+			otherTime.forEach((e) => {
+				e.classList.remove(('time_selected'))
+			})
+			thisTime.classList.add('time_selected')
+		}
+
+		daysArray.forEach((day) => {
+			day.addEventListener('click', (e) => {
+				if (e.target.classList.contains('prev_date')) {
+					prevMonth(e);
+				} else if (e.target.classList.contains('next_date')) {
+					nextMonth(e);
+				} else {
+					dateIsSelected(e);
+				}
+			})
+		})
+
+		timeArray.forEach((time) => {
+			time.addEventListener('click', (e) => {
+				timeIsSelected(e);
+			})
+		})
+	}
+
+	console.log(date);
+
+
+	function prevMonth() {
+		date.setMonth(date.getMonth() - 1);
+		date = renderCalendar();
+		fullDate.innerHTML = date.toDateString();
+		handleSelection();
+	}
+
+	function nextMonth() {
+		date.setMonth(date.getMonth() + 1);
+		date = renderCalendar();
+		fullDate.innerHTML = date.toDateString();
+		handleSelection();
+	}
 </script>

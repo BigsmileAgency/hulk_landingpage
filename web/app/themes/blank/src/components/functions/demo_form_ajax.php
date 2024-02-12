@@ -67,6 +67,7 @@ function demo_form_ajax()
 				// 	response.textContent = copy.badPhone[lang];
 				// } else {
 
+
 				demoFormContainer.style.display = "none";
 				gif.style.display = "block";
 
@@ -74,67 +75,17 @@ function demo_form_ajax()
 					gif.style.display = "none"
 					calendarContainer.style.display = "block"
 				}, 1)
-				
-				renderCalendar();
-				let daysArray = Array.from(document.querySelectorAll('.day'));
 
-				document.querySelector(".prev").addEventListener("click", (e) => {
+				document.querySelector('#book_btn').addEventListener('click', (e) => {
 					e.preventDefault();
-					date.setMonth(date.getMonth() - 1);
-					renderCalendar();
+					console.log(daysArray);
 
-				});
-				
-				document.querySelector(".next").addEventListener("click", (e) => {
-					e.preventDefault();
-					date.setMonth(date.getMonth() + 1);
-					renderCalendar();
+					let fullDate = document.querySelector('.full_date').innerHTML
+				})
 
-				});
-	
-				let timeArray = Array.from(document.querySelectorAll('.slot'));
-				let today = document.querySelector('.today')
-							
-				console.log(daysArray);
-	
-				function dateIsSelected(e) {
-					const thisDate = e.target;
-					today.classList.remove('today')
-					const otherDates = daysArray.filter(date => {
-						return (date !== thisDate);
-					})
-					otherDates.forEach((e) => {
-						e.classList.remove(('date_selected'))
-					})
-					thisDate.classList.add('date_selected')
-				}
-	
-				function timeIsSelected(f) {
-					const thisTime = f.target;
-					const otherTime = timeArray.filter(time => {
-						return (time !== thisTime);
-					})
-					otherTime.forEach((e) => {
-						e.classList.remove(('time_selected'))
-					})
-					thisTime.classList.add('time_selected')
-				}
-	
-				daysArray.forEach((day) => {
-					day.addEventListener('click', (e) => {
-						dateIsSelected(e);
-					})
-				})
-	
-				timeArray.forEach((time) => {
-					time.addEventListener('click', (f) => {
-						timeIsSelected(f)
-					})
-				})
-				
 				// }
-			})	
-			
+			})
+
 		})
 	</script>
 <?php
