@@ -23,10 +23,10 @@
           <div class="tabs_container">
             <div class="tabs">
               <input type="radio" name="tabs" id="monthly" onchange="showContent('monthly_price')" checked>
-              <label class="tab" for="monthly">Monthly billing</label>
+              <label class="tab" for="monthly"><?= __('Monthly billing', 'hulkBanner') ?></label>
 
               <input type="radio" name="tabs" id="annual" onchange="showContent('annual_price')">
-              <label class="tab" for="annual">Annual billing</label>
+              <label class="tab" for="annual"><?= __('Annual billing', 'hulkBanner') ?></label>
 
               <span class="glider"></span>
             </div>

@@ -41,8 +41,8 @@
                 <input type="checkbox" id="menu-toggle" />
                     <label id="trigger" for="menu-toggle"></label>
                     <label id="burger" for="menu-toggle"></label>
-                <p class="mobile_hidden">Already have an account? </p>
-                <div><a href="<?php echo esc_url(get_permalink(60)); ?>" class="sign_up_button">Login</a></div>
+                <p class="mobile_hidden"><?= __('Already have an account?', 'hulkBanner') ?> </p>
+                <div><a href="<?php echo esc_url(get_permalink(60)); ?>" class="sign_up_button"><?= __('Login', 'hulkBanner') ?></a></div>
             </div>
 
         </div>

@@ -102,8 +102,8 @@
 
         <div class="calendar_container">
           <div class="form_header">
-            <h3>Calendar</h3>
-            <p>Do canlendar</p>
+            <h3><?= __('Calendar', 'hulkBanner') ?></h3>
+            <p><?= __('Do canlendar', 'hulkBanner') ?></p>
             <p class="demo_response response"></p>
           </div>
 
