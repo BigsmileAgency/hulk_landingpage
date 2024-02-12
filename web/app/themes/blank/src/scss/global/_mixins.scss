@@ -41,6 +41,10 @@
   &:hover {
     border: solid 2px $main-hover;
     cursor: pointer;
+    transform: scale(1.05);
+    transition : 0.25s ease-out;
+
+
   }
 
   @if $type ==hollow {

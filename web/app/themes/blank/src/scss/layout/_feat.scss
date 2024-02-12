@@ -31,7 +31,7 @@ $fs-sub-mobile : 20px;
         width: 750px;
     }
     @include breakpoint(sm) {
-        width: 95%;
+        width: 90%;
     }
 }
 
@@ -79,7 +79,7 @@ $fs-sub-mobile : 20px;
 
 .feature_content {
     @include breakpoint(xs) {
-        width: 95%;
+        width: 90%;
         margin:auto;
     }
 }
@@ -113,7 +113,7 @@ $fs-sub-mobile : 20px;
         background-color: $white;
     
         @include breakpoint(sm) {
-            width: 95%;
+            width: 90%;
         }
         .add_on_title {
             color: $blue;

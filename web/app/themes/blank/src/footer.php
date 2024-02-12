@@ -7,7 +7,7 @@
             <div class="menus">
 
                 <div class="menu1">
-                    <span class="bold">Ressources</span>
+                    <div class="head_li bold">Ressources</div>
                     <ul>
                         <li>Status page</li>
                         <li>Social and mockups</li>
@@ -16,7 +16,7 @@
                     </ul>
                 </div>
                 <div class="menu2">
-                    <span class="bold">Support</span>
+                    <div class="head_li bold">Support</div>
                     <ul>
                         <li>Knowledgebase</li>
                         <li>Security</li>

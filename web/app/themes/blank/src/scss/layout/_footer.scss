@@ -13,12 +13,15 @@
 }
 .menus {
     display: flex;
-    gap :25px;
+    gap :40px;
 }
 .container_footer ul {
     list-style-type: none;
     list-style-position: inside;
     padding :0;
+}
+.head_li {
+    margin-bottom: 15px;
 }
 .container_footer li {
     margin-bottom : 10px;
