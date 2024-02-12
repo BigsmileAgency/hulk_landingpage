@@ -57,79 +57,84 @@ function demo_form_ajax()
 				let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
-				if (firstName === "" || lastName === "" || email === "" || phone === "") {
-					// alert(copy.emptyFields[lang]);
-					response.textContent = copy.emptyFields[lang];
-				} else if (!email.match(mailRegex)) {
-					response.textContent = copy.badMail[lang];
-				} else if (!phone.match(phoneRegex)) {
-					response.textContent = copy.badPhone[lang];
-				} else {
 
-					demoFormContainer.style.display = "none";
-					gif.style.display = "block";
+				// if (firstName === "" || lastName === "" || email === "" || phone === "") {
+				// 	// alert(copy.emptyFields[lang]);
+				// 	response.textContent = copy.emptyFields[lang];
+				// } else if (!email.match(mailRegex)) {
+				// 	response.textContent = copy.badMail[lang];
+				// } else if (!phone.match(phoneRegex)) {
+				// 	response.textContent = copy.badPhone[lang];
+				// } else {
 
-					setTimeout(() => {
-						gif.style.display = "none"
-						calendarContainer.style.display = "block"
-					}, 1)
+				demoFormContainer.style.display = "none";
+				gif.style.display = "block";
 
+				setTimeout(() => {
+					gif.style.display = "none"
+					calendarContainer.style.display = "block"
+				}, 1)
+				
+				renderCalendar();
+				let daysArray = Array.from(document.querySelectorAll('.day'));
+
+				document.querySelector(".prev").addEventListener("click", (e) => {
+					e.preventDefault();
+					date.setMonth(date.getMonth() - 1);
 					renderCalendar();
 
-					document.querySelector(".prev").addEventListener("click", () => {
-						date.setMonth(date.getMonth() - 1);
-						renderCalendar();
-					});
+				});
+				
+				document.querySelector(".next").addEventListener("click", (e) => {
+					e.preventDefault();
+					date.setMonth(date.getMonth() + 1);
+					renderCalendar();
 
-					document.querySelector(".next").addEventListener("click", () => {
-						date.setMonth(date.getMonth() + 1);
-						renderCalendar();
-					});
-
-
-					let daysArray = Array.from(document.querySelectorAll('.day'));
-					let timeArray = Array.from(document.querySelectorAll('.slot'));
-					const today = document.querySelector('.today')
-
-					function dateIsSelected(e) {
-						const thisDate = e.target;
-						today.classList.remove('today')
-						const otherDates = daysArray.filter(date => {
-							return (date !== thisDate);
-						})
-						otherDates.forEach((e) => {
-							e.classList.remove(('date_selected'))
-						})
-						thisDate.classList.add('date_selected')
-					}
-
-					function timeIsSelected(f) {
-						const thisTime = f.target;
-						const otherTime = timeArray.filter(time => {
-							return (time !== thisTime);
-						})
-						otherTime.forEach((e) => {
-							e.classList.remove(('time_selected'))
-						})
-						thisTime.classList.add('time_selected')
-					}
-
-					daysArray.forEach((day) => {
-						day.addEventListener('click', (e) => {
-							dateIsSelected(e);
-						})
+				});
+	
+				let timeArray = Array.from(document.querySelectorAll('.slot'));
+				let today = document.querySelector('.today')
+							
+				console.log(daysArray);
+	
+				function dateIsSelected(e) {
+					const thisDate = e.target;
+					today.classList.remove('today')
+					const otherDates = daysArray.filter(date => {
+						return (date !== thisDate);
 					})
-
-					timeArray.forEach((time) => {
-						time.addEventListener('click', (f) => {
-							timeIsSelected(f)
-						})
+					otherDates.forEach((e) => {
+						e.classList.remove(('date_selected'))
 					})
-
-
+					thisDate.classList.add('date_selected')
 				}
-			})
-
+	
+				function timeIsSelected(f) {
+					const thisTime = f.target;
+					const otherTime = timeArray.filter(time => {
+						return (time !== thisTime);
+					})
+					otherTime.forEach((e) => {
+						e.classList.remove(('time_selected'))
+					})
+					thisTime.classList.add('time_selected')
+				}
+	
+				daysArray.forEach((day) => {
+					day.addEventListener('click', (e) => {
+						dateIsSelected(e);
+					})
+				})
+	
+				timeArray.forEach((time) => {
+					time.addEventListener('click', (f) => {
+						timeIsSelected(f)
+					})
+				})
+				
+				// }
+			})	
+			
 		})
 	</script>
 <?php

@@ -110,6 +110,5 @@
 			days += `<div class="day next_date">${j}</div>`;
 			monthDays.innerHTML = days;
 		}
-
 	};
 </script>

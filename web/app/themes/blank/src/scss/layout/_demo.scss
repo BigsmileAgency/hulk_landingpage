@@ -223,15 +223,14 @@
 					padding: 10px;
 					background-color: $light-color;
 					border-radius: 5px;
-	
+					
 					&:hover {
 						background-color: $main-color;
 					}
 				}
 	
 				.today,
-				.date_selected,
-				.time_selected {
+				.date_selected {
 					background-color: $main-color;
 					color: white;
 				}
