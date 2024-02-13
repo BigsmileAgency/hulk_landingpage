@@ -24,6 +24,13 @@ include get_theme_file_path( '/components/functions/custom_post_type.php' );
 // DEMO FORM JS HANDLER SCRIPT
 include get_theme_file_path( '/components/functions/demo_form_ajax.php' );
 
+// TEST
+include get_theme_file_path( '/components/functions/the_test.php' );
+
+// GET TIME SLOTS WHEN PICK A DATE :
+include get_theme_file_path( '/components/functions/get_the_slots.php' );
+
+
 // OPTION TAB // CALENDAR ADMIN : 
 if (function_exists('acf_add_options_page')) {
 	acf_add_options_page(

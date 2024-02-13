@@ -1,5 +1,4 @@
 <?php
-
 function demo_form_ajax()
 {
 ?>
@@ -76,12 +75,34 @@ function demo_form_ajax()
 					calendarContainer.style.display = "block"
 				}, 1)
 
-				document.querySelector('#book_btn').addEventListener('click', (e) => {
-					e.preventDefault();
-					console.log(daysArray);
 
-					let fullDate = document.querySelector('.full_date').innerHTML
-				})
+				document.querySelector("#book_btn").addEventListener('click', function(e) {
+					e.preventDefault();
+
+					let fullDate = document.querySelector('.full_date').innerHTML;
+
+					let xhr = new XMLHttpRequest();
+					let url = '<?= admin_url('admin-ajax.php') ?>';
+					let dataSet = 'action=the_test'
+					'&first_name=' + firstName + 
+					'&last_name=' + lastName + 
+					'&full_year=' + fullDate;
+
+					xhr.open("POST", url, true);
+					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					xhr.onreadystatechange = function() {
+						if (xhr.readyState == 4 && xhr.status == 200) {
+							let result = xhr.responseText;
+							result = JSON.parse(result);
+							if (!result.error) {
+								console.log(result);
+							} else {
+								console.log(result);
+							}
+						}
+					};
+					xhr.send(dataSet);
+				});
 
 				// }
 			})

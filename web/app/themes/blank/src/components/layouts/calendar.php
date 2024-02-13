@@ -110,7 +110,7 @@
 
 		return date;
 	};
-	
+
 	let daysArray = [];
 	let timeArray = [];
 	let month;
@@ -130,7 +130,6 @@
 
 
 	function handleSelection() {
-
 
 		daysArray = Array.from(document.querySelectorAll('.day'));
 		timeArray = Array.from(document.querySelectorAll('.slot'));
@@ -182,8 +181,6 @@
 		})
 	}
 
-	console.log(date);
-
 
 	function prevMonth() {
 		date.setMonth(date.getMonth() - 1);
@@ -197,5 +194,29 @@
 		date = renderCalendar();
 		fullDate.innerHTML = date.toDateString();
 		handleSelection();
+	}
+
+	function getTheSlots(date) {
+		
+		let xhr = new XMLHttpRequest();
+		let url = '<?= admin_url('admin-ajax.php') ?>';
+		let dataSet = 'action=get_the_slots'
+			'&date=' + date
+
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				let result = xhr.responseText;
+				result = JSON.parse(result);
+				if (!result.error) {
+					console.log(result);
+				} else {
+					console.log(result);
+				}
+			}
+		};
+		xhr.send(dataSet);
+
 	}
 </script>

@@ -26,8 +26,8 @@ function loadScripts() {
 	}
 
   wp_localize_script( 'app', 'app', array(
-    'nonce'    => wp_create_nonce( 'app' ),
-    'ajax_url' => admin_url( 'admin-ajax.php' )
+      'nonce'    => wp_create_nonce( 'app' ),
+      'ajax_url' => admin_url( 'admin-ajax.php' )
   ));
 
   wp_enqueue_script('app');
