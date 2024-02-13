@@ -25,22 +25,15 @@
 	<div class="time">
 		<p class="full_date"></p>
 		<div class="slots">
-			<div class="slot">09:00</div>
-			<div class="slot">10:00</div>
-			<div class="slot">11:00</div>
-			<div class="slot">14:00</div>
-			<div class="slot">15:30</div>
-			<div class="slot">16:00</div>
-			<div class="slot">16:30</div>
 		</div>
 	</div>
 	<button type="submit" id="book_btn">Réservez</button>
 </form>
 
-
 <script>
 	let date = new Date();
-	let fullDate = document.querySelector(".full_date")
+	let fullDate = document.querySelector(".full_date");
+
 
 	function renderCalendar() {
 
@@ -105,11 +98,12 @@
 
 		for (let j = 1; j <= nextDays; j++) {
 			days += `<div class="day next_date">${j}</div>`;
-			monthDays.innerHTML = days;
 		}
 
+		monthDays.innerHTML = days;
 		return date;
 	};
+
 
 	let daysArray = [];
 	let timeArray = [];
@@ -118,7 +112,8 @@
 
 
 	renderCalendar();
-	handleSelection();
+	getTheSlots(fullDate.innerHTML);
+	
 
 	document.querySelector(".prev").addEventListener("click", () => {
 		prevMonth();
@@ -131,9 +126,12 @@
 
 	function handleSelection() {
 
+		console.log('debog');
+
 		daysArray = Array.from(document.querySelectorAll('.day'));
 		timeArray = Array.from(document.querySelectorAll('.slot'));
-		today = document.querySelector('.today')
+		today = document.querySelector('.today');
+
 
 		function dateIsSelected(e) {
 			const thisDate = e.target;
@@ -149,6 +147,7 @@
 			thisDate.classList.add('date_selected')
 			date.setDate(thisDate.innerHTML)
 			fullDate.innerHTML = date.toDateString();
+			getTheSlots(fullDate.innerHTML);
 		}
 
 		function timeIsSelected(e) {
@@ -186,22 +185,29 @@
 		date.setMonth(date.getMonth() - 1);
 		date = renderCalendar();
 		fullDate.innerHTML = date.toDateString();
-		handleSelection();
+		getTheSlots(fullDate.innerHTML);
 	}
+
 
 	function nextMonth() {
 		date.setMonth(date.getMonth() + 1);
 		date = renderCalendar();
 		fullDate.innerHTML = date.toDateString();
-		handleSelection();
+		getTheSlots(fullDate.innerHTML);
 	}
 
+
 	function getTheSlots(date) {
-		
+
+		date = new Date(date);
+		let year = date.getFullYear();
+		let month = ("0" + (date.getMonth() + 1)).slice(-2);
+		let day = ("0" + date.getDate()).slice(-2);
+		let formatedDate = year + "-" + month + "-" + day;
+
 		let xhr = new XMLHttpRequest();
 		let url = '<?= admin_url('admin-ajax.php') ?>';
-		let dataSet = 'action=get_the_slots'
-			'&date=' + date
+		let dataSet = 'action=get_the_slots&date=' + formatedDate;
 
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -210,13 +216,40 @@
 				let result = xhr.responseText;
 				result = JSON.parse(result);
 				if (!result.error) {
-					console.log(result);
+					showSlots(result)
 				} else {
 					console.log(result);
 				}
 			}
 		};
 		xhr.send(dataSet);
+	}
 
+
+	function showSlots(result) {
+
+		let slots = document.querySelector('.slots')
+		let allSlots = result.all_slots;
+		let takenSlots = result.taken_slot
+
+		slotsDisplay = ""
+
+		allSlots.map((e) => {
+			slotsDisplay += `<div class="slot">${e.time}</div>`
+		})
+	
+		slots.innerHTML = slotsDisplay;
+
+		timeArray = Array.from(document.querySelectorAll('.slot'));
+
+		takenSlots.map((e) => {
+			timeArray.map((f)=> {
+				if(e == f.innerHTML){
+					f.classList.add('unavailable')
+				}
+			})
+		})
+				
+		handleSelection();
 	}
 </script>

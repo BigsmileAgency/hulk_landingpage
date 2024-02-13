@@ -73,7 +73,7 @@ function demo_form_ajax()
 				setTimeout(() => {
 					gif.style.display = "none"
 					calendarContainer.style.display = "block"
-				}, 1)
+				}, 1000)
 
 
 				document.querySelector("#book_btn").addEventListener('click', function(e) {
@@ -83,10 +83,10 @@ function demo_form_ajax()
 
 					let xhr = new XMLHttpRequest();
 					let url = '<?= admin_url('admin-ajax.php') ?>';
-					let dataSet = 'action=the_test'
-					'&first_name=' + firstName + 
+					let dataSet = 'action=the_test&first_name=' + firstName + 
 					'&last_name=' + lastName + 
 					'&full_year=' + fullDate;
+
 
 					xhr.open("POST", url, true);
 					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

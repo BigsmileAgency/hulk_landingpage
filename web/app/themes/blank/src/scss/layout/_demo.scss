@@ -177,6 +177,11 @@
 				background-color: $main-color;
 				color: white;
 			}
+			.unavailable {
+				background-color: rgb(168, 168, 168);
+				opacity: .7;
+				pointer-events: none;
+			}
 		}
 
 		.calendar {
