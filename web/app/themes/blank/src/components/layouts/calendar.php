@@ -74,7 +74,7 @@
 			days += `<div class="day prev_date">${prevLastDay - x + 1}</div>`;
 		}
 
-		for (let i = 1; i <= lastDay; i++) {						
+		for (let i = 1; i <= lastDay; i++) {
 			if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
 				days += `<div class="day today">${i}</div>`;
 			} else {
@@ -225,27 +225,40 @@
 
 	function showSlots(result) {
 
+		slotsDisplay = ""
 		let slots = document.querySelector('.slots')
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot
 
-		slotsDisplay = ""
 
-		allSlots.map((e) => {
-			slotsDisplay += `<div class="slot">${e.time}</div>`
-		})
+		console.log(date.getDay());
 
-		slots.innerHTML = slotsDisplay;
+		if (date.getDay() === 0 || date.getDay() === 6) {
 
-		if (takenSlots.length > 0) {
-			timeArray = Array.from(document.querySelectorAll('.slot'));
-			takenSlots.map((e) => {
-				timeArray.map((f) => {
-					if (e == f.innerHTML) {
-						f.classList.add('unavailable')
-					}
-				})
+			allSlots.map((e) => {
+				slotsDisplay += `<div class="slot unavailable">${e.time}</div>`
 			})
+
+			slots.innerHTML = slotsDisplay;
+
+		} else {			
+
+			allSlots.map((e) => {
+				slotsDisplay += `<div class="slot">${e.time}</div>`
+			})
+
+			slots.innerHTML = slotsDisplay;
+				
+			if (takenSlots.length > 0) {
+				timeArray = Array.from(document.querySelectorAll('.slot'));
+				takenSlots.map((e) => {
+					timeArray.map((f) => {
+						if (e == f.innerHTML) {
+							f.classList.add('unavailable')
+						}
+					})
+				})
+			}
 		}
 
 
