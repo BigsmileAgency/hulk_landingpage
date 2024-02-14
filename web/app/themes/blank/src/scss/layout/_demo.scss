@@ -142,11 +142,10 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
 		width: 90%;
-
+		
 		@include breakpoint(sm){
 			grid-template-columns: 1fr;
 		}
-
 
 		p {
 			margin-bottom: 0;
@@ -232,7 +231,10 @@
 					}
 				}
 	
-				.today,
+				.today {
+					border: solid 2px $main-color;
+					padding: -2px;
+				}
 				.date_selected {
 					background-color: $main-color;
 					color: white;

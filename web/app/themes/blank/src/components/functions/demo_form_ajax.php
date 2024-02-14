@@ -64,10 +64,6 @@ function demo_form_ajax()
 				let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
-
-				// isConsent = isConsent ? "oui" : "non";
-
-
 				// if (firstName === "" || lastName === "" || email === "" || phone === "") {
 				// 	// alert(copy.emptyFields[lang]);
 				// 	response.textContent = copy.emptyFields[lang];
@@ -77,53 +73,53 @@ function demo_form_ajax()
 				// 	response.textContent = copy.badPhone[lang];
 				// } else {
 
+					demoFormContainer.style.display = "none";
+					gif.style.display = "block";
 
-				demoFormContainer.style.display = "none";
-				gif.style.display = "block";
+					setTimeout(() => {
+						gif.style.display = "none"
+						calendarContainer.style.display = "block"
+					}, 500)
 
-				setTimeout(() => {
-					gif.style.display = "none"
-					calendarContainer.style.display = "block"
-				}, 200)
-				
+					document.querySelector("#book_btn").addEventListener('click', function(e) {
+						e.preventDefault();
 
-				document.querySelector("#book_btn").addEventListener('click', function(e) {
-					e.preventDefault();			
+						let time = document.querySelector('.time_selected');
 
-					let time = document.querySelector('.time_selected');
+						if (time == null || time == undefined) {
+							alert(copy.noTime[lang]);
+						} else {
 
-					if (time == null || time == undefined) {
-						alert(copy.noTime[lang]);
-					} else {
+							let xhr = new XMLHttpRequest();
+							let url = '<?= admin_url('admin-ajax.php') ?>';
+							let dataSet = 'action=insert_demo_request&first_name=' + firstName +
+								'&last_name=' + lastName +
+								'&full_date=' + date.toDateString() +
+								'&phone=' + phone +
+								'&email=' + email +
+								'&company=' + companyName +
+								'&is_consent=' + isConsent +
+								'&time=' + time.innerHTML;
 
-						let xhr = new XMLHttpRequest();
-						let url = '<?= admin_url('admin-ajax.php') ?>';
-						let dataSet = 'action=insert_demo_request&first_name=' + firstName +
-							'&last_name=' + lastName +
-							'&full_date=' + fullDate.innerHTML +
-							'&phone=' + phone +
-							'&email=' + email +
-							'&company=' + companyName +
-							'&is_consent=' + isConsent +
-							'&time=' + time.innerHTML;
-
-						xhr.open("POST", url, true);
-						xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-						xhr.onreadystatechange = function() {
-							if (xhr.readyState == 4 && xhr.status == 200) {
-								let result = xhr.responseText;
-								result = JSON.parse(result);
-								if (!result.error) {
-									console.log(result);
-								} else {
-									console.log(result);
+							xhr.open("POST", url, true);
+							xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+							xhr.onreadystatechange = function() {
+								if (xhr.readyState == 4 && xhr.status == 200) {
+									let result = xhr.responseText;
+									result = JSON.parse(result);
+									if (!result.error) {
+										console.log(result);
+										console.log(response);
+										response.innerHTML = result.success;
+									} else {
+										console.log(result);
+									}
 								}
-							}
-						};
-						xhr.send(dataSet);
-					}
+							};
+							xhr.send(dataSet);
+						}
 
-				});
+					});
 
 				// }
 			})

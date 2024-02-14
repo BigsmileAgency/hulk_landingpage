@@ -2,7 +2,7 @@
 $lang = get_language_attributes($doctype = "html");
 ?>
 
-<form class="booking_form">
+<div class="booking_form">
 	<div class="calendar">
 		<div class="month">
 			<i class="fas fa-angle-left prev"></i>
@@ -45,18 +45,17 @@ $lang = get_language_attributes($doctype = "html");
 		</div>
 	</div>
 	<button type="submit" id="book_btn">Réservez</button>
-</form>
+</div>
 
 <script>
-	let date = new Date();
 	let fullDate = document.querySelector(".full_date");
+	let date = new Date();
 
 	function renderCalendar() {
 
 		date.setDate(1);
 
 		const monthDays = document.querySelector(".days");
-
 		const lastDay = new Date(
 			date.getFullYear(),
 			date.getMonth() + 1,
@@ -86,7 +85,12 @@ $lang = get_language_attributes($doctype = "html");
 
 		document.querySelector(".month_display").innerHTML = months[lang][date.getMonth()];
 
-		fullDate.innerHTML = new Date().toDateString();
+		if (lang == "fr") {
+			let dateFr = new Date().toDateString();
+			fullDate.innerHTML = dateInFr(dateFr);
+		} else {
+			fullDate.innerHTML = new Date().toDateString();
+		}
 
 		let days = "";
 
@@ -110,9 +114,8 @@ $lang = get_language_attributes($doctype = "html");
 		return date;
 	};
 
-
+	getTheSlots(date);
 	renderCalendar();
-	getTheSlots(fullDate.innerHTML);
 
 	document.querySelector(".prev").addEventListener("click", () => {
 		prevMonth();
@@ -137,14 +140,15 @@ $lang = get_language_attributes($doctype = "html");
 			})
 			otherDates.forEach((e) => {
 				e.classList.remove('date_selected')
-				if (e.classList.contains('today')) {
-					e.classList.remove('today')
-				}
 			})
 			thisDate.classList.add('date_selected')
 			date.setDate(thisDate.innerHTML)
-			fullDate.innerHTML = date.toDateString();
-			getTheSlots(fullDate.innerHTML);
+			if (lang = "fr") {
+				fullDate.innerHTML = dateInFr(date)
+			} else {
+				fullDate.innerHTML = date.toDateString();
+			}
+			getTheSlots(date);
 		}
 
 
@@ -198,22 +202,29 @@ $lang = get_language_attributes($doctype = "html");
 	function prevMonth() {
 		date.setMonth(date.getMonth() - 1);
 		date = renderCalendar();
-		fullDate.innerHTML = date.toDateString();
-		getTheSlots(fullDate.innerHTML);
+		if (lang = "fr") {
+			fullDate.innerHTML = dateInFr(date)
+		} else {
+			fullDate.innerHTML = date.toDateString();
+		}
+		getTheSlots(date);
 	}
 
 
 	function nextMonth() {
 		date.setMonth(date.getMonth() + 1);
 		date = renderCalendar();
-		fullDate.innerHTML = date.toDateString();
-		getTheSlots(fullDate.innerHTML);
+		if (lang = "fr") {
+			fullDate.innerHTML = dateInFr(date)
+		} else {
+			fullDate.innerHTML = date.toDateString();
+		}
+		getTheSlots(date);
 	}
 
 
 	function getTheSlots(date) {
 
-		date = new Date(date);
 		let year = date.getFullYear();
 		let month = ("0" + (date.getMonth() + 1)).slice(-2);
 		let day = ("0" + date.getDate()).slice(-2);
@@ -240,6 +251,7 @@ $lang = get_language_attributes($doctype = "html");
 	}
 
 
+
 	function showSlots(result) {
 
 		slotsDisplay = ""
@@ -247,22 +259,20 @@ $lang = get_language_attributes($doctype = "html");
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot
 
-		if (date.getDay() === 0 || date.getDay() === 6) {
+		let selectedDate = new Date(date);
+		let now = new Date();
+		now.setHours(0, 0, 0, 0);
 
+		if (date.getDay() === 0 || date.getDay() === 6 || selectedDate < now) {
 			allSlots.map((e) => {
 				slotsDisplay += `<div class="slot unavailable">${e.time}</div>`
 			})
-
 			slots.innerHTML = slotsDisplay;
-
 		} else {
-
 			allSlots.map((e) => {
 				slotsDisplay += `<div class="slot">${e.time}</div>`
 			})
-
 			slots.innerHTML = slotsDisplay;
-
 			if (takenSlots.length > 0) {
 				timeArray = Array.from(document.querySelectorAll('.slot'));
 				takenSlots.map((e) => {
@@ -276,5 +286,18 @@ $lang = get_language_attributes($doctype = "html");
 		}
 
 		handleSelection();
+	}
+
+
+	function dateInFr(date) {
+		let selectedDate = new Date(date);
+		let joursSemaine = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+		let mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+		let jourSemaine = joursSemaine[selectedDate.getDay()];
+		let jour = selectedDate.getDate();
+		let moisActuel = mois[selectedDate.getMonth()];
+		let annee = selectedDate.getFullYear();
+
+		return fullDateFr = jourSemaine + " " + jour + " " + moisActuel + " " + annee;
 	}
 </script>

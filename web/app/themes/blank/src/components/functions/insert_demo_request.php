@@ -2,7 +2,6 @@
 
 function insert_demo_request()
 {
-
     global $wpdb;
 
     $first_name = $_POST['first_name'];
@@ -13,6 +12,7 @@ function insert_demo_request()
     $company = $_POST['company'];
     $is_consent = $_POST['is_consent'];
     $time = $_POST['time'];
+
 
     if ($is_consent === "true") {
         // insert in mailing list
@@ -34,7 +34,15 @@ function insert_demo_request()
         )
     );
 
-    $response = [$insert];
+    if ($insert) {
+   
+        $response = [
+            "success" => "oui"
+        ];
+
+    } else {
+        $response = "non";
+    }
 
     echo json_encode($response);
     wp_die();
