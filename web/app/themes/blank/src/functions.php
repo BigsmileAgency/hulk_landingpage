@@ -25,7 +25,7 @@ include get_theme_file_path( '/components/functions/custom_post_type.php' );
 include get_theme_file_path( '/components/functions/demo_form_ajax.php' );
 
 // TEST
-include get_theme_file_path( '/components/functions/the_test.php' );
+include get_theme_file_path( '/components/functions/insert_demo_request.php' );
 
 // GET TIME SLOTS WHEN PICK A DATE :
 include get_theme_file_path( '/components/functions/get_the_slots.php' );

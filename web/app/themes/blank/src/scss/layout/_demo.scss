@@ -53,23 +53,20 @@
 			font-weight: 400;
 		}
 	}
-
+	
+	.form_header {
+		text-align: center;
+		
+		h3 {
+			margin-bottom: $mb;
+		}
+	}
+	
 	.form_and_calendar {
 		background-color: $white;
 		padding: 20px;
 		width: 80%;
 		margin: 2rem auto;
-	}
-
-	.form_header {
-		text-align: center;
-
-		h3 {
-			margin-bottom: $mb;
-		}
-	}
-
-	.form_and_calendar {
 		text-align: center;
 		width: 95%;
 		padding: 20px;

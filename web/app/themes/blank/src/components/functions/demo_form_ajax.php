@@ -9,6 +9,8 @@ function demo_form_ajax()
 
 		if (lang == "fr-FR") {
 			lang = "fr";
+		} else if (lang == "en-EN") {
+			lang = "en"
 		}
 
 		let copy = {
@@ -25,8 +27,14 @@ function demo_form_ajax()
 			badPhone: {
 				"en": "Put a proper phone number",
 				"fr": "Numéro de téléphone non-valide",
-			}
+			},
+
+			noTime: {
+				"en": "Select a time-slot please",
+				"fr": "Selectionner une plage horaire SVP",
+			},
 		}
+
 
 		document.addEventListener("DOMContentLoaded", function() {
 
@@ -57,6 +65,9 @@ function demo_form_ajax()
 				let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
 
+				// isConsent = isConsent ? "oui" : "non";
+
+
 				// if (firstName === "" || lastName === "" || email === "" || phone === "") {
 				// 	// alert(copy.emptyFields[lang]);
 				// 	response.textContent = copy.emptyFields[lang];
@@ -74,34 +85,44 @@ function demo_form_ajax()
 					gif.style.display = "none"
 					calendarContainer.style.display = "block"
 				}, 200)
-
+				
 
 				document.querySelector("#book_btn").addEventListener('click', function(e) {
-					e.preventDefault();
+					e.preventDefault();			
 
-					let fullDate = document.querySelector('.full_date').innerHTML;
+					let time = document.querySelector('.time_selected');
 
-					let xhr = new XMLHttpRequest();
-					let url = '<?= admin_url('admin-ajax.php') ?>';
-					let dataSet = 'action=the_test&first_name=' + firstName + 
-					'&last_name=' + lastName + 
-					'&full_year=' + fullDate;
+					if (time == null || time == undefined) {
+						alert(copy.noTime[lang]);
+					} else {
 
+						let xhr = new XMLHttpRequest();
+						let url = '<?= admin_url('admin-ajax.php') ?>';
+						let dataSet = 'action=insert_demo_request&first_name=' + firstName +
+							'&last_name=' + lastName +
+							'&full_date=' + fullDate.innerHTML +
+							'&phone=' + phone +
+							'&email=' + email +
+							'&company=' + companyName +
+							'&is_consent=' + isConsent +
+							'&time=' + time.innerHTML;
 
-					xhr.open("POST", url, true);
-					xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					xhr.onreadystatechange = function() {
-						if (xhr.readyState == 4 && xhr.status == 200) {
-							let result = xhr.responseText;
-							result = JSON.parse(result);
-							if (!result.error) {
-								console.log(result);
-							} else {
-								console.log(result);
+						xhr.open("POST", url, true);
+						xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						xhr.onreadystatechange = function() {
+							if (xhr.readyState == 4 && xhr.status == 200) {
+								let result = xhr.responseText;
+								result = JSON.parse(result);
+								if (!result.error) {
+									console.log(result);
+								} else {
+									console.log(result);
+								}
 							}
-						}
-					};
-					xhr.send(dataSet);
+						};
+						xhr.send(dataSet);
+					}
+
 				});
 
 				// }
