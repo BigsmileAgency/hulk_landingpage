@@ -1,3 +1,7 @@
+<?php
+$lang = get_language_attributes($doctype = "html");
+?>
+
 <form class="booking_form">
 	<div class="calendar">
 		<div class="month">
@@ -8,15 +12,28 @@
 			<i class="fas fa-angle-right next"></i>
 		</div>
 
-		<div class="weekdays">
-			<div>M</div>
-			<div>Tue</div>
-			<div>W</div>
-			<div>Thu</div>
-			<div>F</div>
-			<div>S</div>
-			<div>Sun</div>
-		</div>
+		<?php if ($lang == 'lang="fr-FR"') : ?>
+			<div class="weekdays">
+				<div>L</div>
+				<div>Ma</div>
+				<div>Me</div>
+				<div>J</div>
+				<div>V</div>
+				<div>S</div>
+				<div>D</div>
+			</div>
+
+		<?php elseif ($lang == 'lang="en-EN"') : ?>
+			<div class="weekdays">
+				<div>M</div>
+				<div>Tue</div>
+				<div>W</div>
+				<div>Thu</div>
+				<div>F</div>
+				<div>S</div>
+				<div>Sun</div>
+			</div>
+		<?php endif; ?>
 
 		<div class="days">
 		</div>
@@ -62,9 +79,12 @@
 
 		const nextDays = 7 - lastDayIndex;
 
-		const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		const months = {
+			"en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+			"fr": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+		}
 
-		document.querySelector(".month_display").innerHTML = months[date.getMonth()];
+		document.querySelector(".month_display").innerHTML = months[lang][date.getMonth()];
 
 		fullDate.innerHTML = new Date().toDateString();
 
@@ -105,8 +125,6 @@
 	let handler = false;
 
 	function handleSelection() {
-
-		console.log('handle selection');
 
 		let daysArray = Array.from(document.querySelectorAll('.day'));
 		let timeArray = Array.from(document.querySelectorAll('.slot'));
@@ -167,7 +185,6 @@
 				}
 			})
 		})
-
 
 		timeArray.forEach((time) => {
 			time.addEventListener('click', (e) => {
@@ -230,9 +247,6 @@
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot
 
-
-		console.log(date.getDay());
-
 		if (date.getDay() === 0 || date.getDay() === 6) {
 
 			allSlots.map((e) => {
@@ -241,14 +255,14 @@
 
 			slots.innerHTML = slotsDisplay;
 
-		} else {			
+		} else {
 
 			allSlots.map((e) => {
 				slotsDisplay += `<div class="slot">${e.time}</div>`
 			})
 
 			slots.innerHTML = slotsDisplay;
-				
+
 			if (takenSlots.length > 0) {
 				timeArray = Array.from(document.querySelectorAll('.slot'));
 				takenSlots.map((e) => {
@@ -260,7 +274,6 @@
 				})
 			}
 		}
-
 
 		handleSelection();
 	}
