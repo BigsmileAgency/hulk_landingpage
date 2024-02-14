@@ -73,7 +73,7 @@ function demo_form_ajax()
 				setTimeout(() => {
 					gif.style.display = "none"
 					calendarContainer.style.display = "block"
-				}, 1000)
+				}, 200)
 
 
 				document.querySelector("#book_btn").addEventListener('click', function(e) {

@@ -34,7 +34,6 @@
 	let date = new Date();
 	let fullDate = document.querySelector(".full_date");
 
-
 	function renderCalendar() {
 
 		date.setDate(1);
@@ -63,20 +62,7 @@
 
 		const nextDays = 7 - lastDayIndex;
 
-		const months = [
-			"January",
-			"February",
-			"March",
-			"April",
-			"May",
-			"June",
-			"July",
-			"August",
-			"September",
-			"October",
-			"November",
-			"December",
-		];
+		const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 		document.querySelector(".month_display").innerHTML = months[date.getMonth()];
 
@@ -88,7 +74,7 @@
 			days += `<div class="day prev_date">${prevLastDay - x + 1}</div>`;
 		}
 
-		for (let i = 1; i <= lastDay; i++) {
+		for (let i = 1; i <= lastDay; i++) {						
 			if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
 				days += `<div class="day today">${i}</div>`;
 			} else {
@@ -105,15 +91,8 @@
 	};
 
 
-	let daysArray = [];
-	let timeArray = [];
-	let month;
-	let today;
-
-
 	renderCalendar();
 	getTheSlots(fullDate.innerHTML);
-	
 
 	document.querySelector(".prev").addEventListener("click", () => {
 		prevMonth();
@@ -123,18 +102,18 @@
 		nextMonth();
 	});
 
+	let handler = false;
 
 	function handleSelection() {
 
-		console.log('debog');
+		console.log('handle selection');
 
-		daysArray = Array.from(document.querySelectorAll('.day'));
-		timeArray = Array.from(document.querySelectorAll('.slot'));
-		today = document.querySelector('.today');
-
+		let daysArray = Array.from(document.querySelectorAll('.day'));
+		let timeArray = Array.from(document.querySelectorAll('.slot'));
+		let today = document.querySelector('.today');
 
 		function dateIsSelected(e) {
-			const thisDate = e.target;
+			let thisDate = e.target;
 			const otherDates = daysArray.filter(date => {
 				return (date !== thisDate);
 			})
@@ -150,8 +129,9 @@
 			getTheSlots(fullDate.innerHTML);
 		}
 
+
 		function timeIsSelected(e) {
-			const thisTime = e.target;
+			let thisTime = e.target;
 			const otherTime = timeArray.filter(time => {
 				return (time !== thisTime);
 			})
@@ -161,23 +141,40 @@
 			thisTime.classList.add('time_selected')
 		}
 
+		let callIt = false;
 		daysArray.forEach((day) => {
 			day.addEventListener('click', (e) => {
 				if (e.target.classList.contains('prev_date')) {
-					prevMonth(e);
+					date.setMonth(date.getMonth() - 1);
+					renderCalendar()
+					if (!callIt) {
+						dateIsSelected(e);
+						callIt = true;
+					}
 				} else if (e.target.classList.contains('next_date')) {
-					nextMonth(e);
+					date.setMonth(date.getMonth() + 1);
+					renderCalendar()
+					if (!callIt) {
+						dateIsSelected(e);
+						callIt = true;
+					}
 				} else {
-					dateIsSelected(e);
+					date.setDate(day.innerHTML)
+					if (!callIt) {
+						dateIsSelected(e);
+						callIt = true;
+					}
 				}
 			})
 		})
+
 
 		timeArray.forEach((time) => {
 			time.addEventListener('click', (e) => {
 				timeIsSelected(e);
 			})
 		})
+
 	}
 
 
@@ -237,19 +234,21 @@
 		allSlots.map((e) => {
 			slotsDisplay += `<div class="slot">${e.time}</div>`
 		})
-	
+
 		slots.innerHTML = slotsDisplay;
 
-		timeArray = Array.from(document.querySelectorAll('.slot'));
-
-		takenSlots.map((e) => {
-			timeArray.map((f)=> {
-				if(e == f.innerHTML){
-					f.classList.add('unavailable')
-				}
+		if (takenSlots.length > 0) {
+			timeArray = Array.from(document.querySelectorAll('.slot'));
+			takenSlots.map((e) => {
+				timeArray.map((f) => {
+					if (e == f.innerHTML) {
+						f.classList.add('unavailable')
+					}
+				})
 			})
-		})
-				
+		}
+
+
 		handleSelection();
 	}
 </script>
