@@ -111,15 +111,10 @@
 
           <button type="submit" id="book_btn"><?= get_field('calendar_btn') ?></button>
 
-
         </div>
       </div>
-
     </div>
-
-
   </section>
-
 </main>
 
 <!-- <?php var_dump($_POST) ?>  -->

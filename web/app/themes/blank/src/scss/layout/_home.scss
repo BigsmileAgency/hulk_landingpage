@@ -21,7 +21,6 @@ $mb: 2rem;
 
   // center button and img
   @include breakpoint(md) {
-
     .hollow_trial_btn,
     .hero_2_box img,
     .hero_3_box img,
@@ -42,20 +41,21 @@ $mb: 2rem;
     max-width: 100vw;
     font-weight: 800;
     font-size: 70px;
+    margin: 2rem;
 
     @include breakpoint(lg) {
       font-size: 50px;
     }
 
     @include breakpoint(md) {
-      font-size: 40px;
+      font-size: 36px;
     }
   }
 
   h3 {
     width: 50%;
     font-size: 20px;
-    padding-top: 6rem;
+    padding-top: 2rem;
     margin: auto;
 
     @include breakpoint(md) {
