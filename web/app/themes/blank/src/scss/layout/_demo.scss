@@ -125,11 +125,21 @@
 		.demo_gif {
 			// display: block;
 			display: none;
+			img {
+				width: 80%;
+				margin: auto;
+			}
 		}
 
-		.response {
-			color: $danger-color;
+		.demo_response {
 			font-weight: bold;
+			margin: .5rem;
+		}
+		.error {
+			color: $danger-color;
+		}
+		.success {
+			color: green;
 		}
 
 		.booking_form {

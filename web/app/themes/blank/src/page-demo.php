@@ -5,7 +5,8 @@
  */
 
 // GET FIELDS FROM OPTION TAB : 
-//  <?= get_field('time', 'Options') ?>
+//  <?= get_field('time', 'Options') 
+?>
 
 ?>
 
@@ -44,12 +45,12 @@
 
       <div class="form_and_calendar">
 
-        <div class="demo_form_container">
+        <p class="demo_response response"></p>
 
+        <div class="demo_form_container">        
           <div class="form_header">
             <h3><?= $demo_form['form_title'] ?></h3>
             <p><?= $demo_form['form_subtitle'] ?></p>
-            <p class="demo_response response"></p>
           </div>
 
           <form action="" method="POST" id="demo_form">
@@ -102,9 +103,8 @@
 
         <div class="calendar_container">
           <div class="form_header">
-            <h3><?= __('Calendar', 'hulkBanner') ?></h3>
-            <p><?= __('Do canlendar', 'hulkBanner') ?></p>
-            <p class="demo_response response"></p>
+            <h3>Book Now!</h3>
+            <p>Pick a date and time</p>
           </div>
 
           <?php get_template_part('./components/layouts/calendar') ?>
