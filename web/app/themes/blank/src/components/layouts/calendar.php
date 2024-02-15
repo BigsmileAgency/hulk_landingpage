@@ -44,8 +44,8 @@ $lang = get_language_attributes($doctype = "html");
 		<div class="slots">
 		</div>
 	</div>
-	<button type="submit" id="book_btn">Réservez</button>
 </div>
+<button type="submit" id="book_btn">Réservez</button>
 
 <script>
 	let fullDate = document.querySelector(".full_date");

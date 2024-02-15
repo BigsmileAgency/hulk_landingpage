@@ -22,7 +22,7 @@ include get_theme_file_path( '/components/functions/custom_menu.php' );
 include get_theme_file_path( '/components/functions/custom_post_type.php' );
 
 // DEMO FORM JS HANDLER SCRIPT
-include get_theme_file_path( '/components/functions/demo_form_ajax.php' );
+include get_theme_file_path( '/components/functions/demo_form_handler.php' );
 
 // TEST
 include get_theme_file_path( '/components/functions/insert_demo_request.php' );

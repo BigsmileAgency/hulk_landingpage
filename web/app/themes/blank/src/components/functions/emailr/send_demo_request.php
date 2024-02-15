@@ -18,7 +18,6 @@ function send_demo_request()
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $company = $_POST['company'];
-    $is_consent = $_POST['is_consent'];
     $time = $_POST['time'];
 
     $emailrO = new EmailR( $emailR_data['ACCOUNT_ID'],  $emailR_data['USER'],  $emailR_data['PWD'],  $emailR_data["fr"]['PROFILE_ID'] );
@@ -36,7 +35,6 @@ function send_demo_request()
     ];
 
     $sendMail = $emailrO->sendEmail($emailR_data["fr"]["CONTACT"], array('contacts' => $emails ));
- 
 
     echo json_encode($sendMail);
     wp_die();
