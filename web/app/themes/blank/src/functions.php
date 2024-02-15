@@ -30,6 +30,11 @@ include get_theme_file_path( '/components/functions/insert_demo_request.php' );
 // GET TIME SLOTS WHEN PICK A DATE :
 include get_theme_file_path( '/components/functions/get_the_slots.php' );
 
+include get_theme_file_path( '/components/functions/emailr/class.emailr.php' );
+include get_theme_file_path( '/components/functions/emailr/conf.emailr.php' );
+include get_theme_file_path( '/components/functions/emailr/send_demo_request.php' ); 
+
+
 
 // OPTION TAB // CALENDAR ADMIN : 
 if (function_exists('acf_add_options_page')) {

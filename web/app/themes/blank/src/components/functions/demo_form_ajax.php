@@ -64,14 +64,14 @@ function demo_form_ajax()
 				let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
-				// if (firstName === "" || lastName === "" || email === "" || phone === "") {
-				// 	// alert(copy.emptyFields[lang]);
-				// 	response.textContent = copy.emptyFields[lang];
-				// } else if (!email.match(mailRegex)) {
-				// 	response.textContent = copy.badMail[lang];
-				// } else if (!phone.match(phoneRegex)) {
-				// 	response.textContent = copy.badPhone[lang];
-				// } else {
+				if (firstName === "" || lastName === "" || email === "" || phone === "") {
+					// alert(copy.emptyFields[lang]);
+					response.textContent = copy.emptyFields[lang];
+				} else if (!email.match(mailRegex)) {
+					response.textContent = copy.badMail[lang];
+				} else if (!phone.match(phoneRegex)) {
+					response.textContent = copy.badPhone[lang];
+				} else {
 
 					demoFormContainer.style.display = "none";
 					gif.style.display = "block";
@@ -89,10 +89,11 @@ function demo_form_ajax()
 						if (time == null || time == undefined) {
 							alert(copy.noTime[lang]);
 						} else {
-
-							let xhr = new XMLHttpRequest();
-							let url = '<?= admin_url('admin-ajax.php') ?>';
-							let dataSet = 'action=insert_demo_request&first_name=' + firstName +
+							
+							// INSERT DB
+							let xhrInsert = new XMLHttpRequest();
+							let urlInsert = '<?= admin_url('admin-ajax.php') ?>';
+							let dataSetInsert = 'action=insert_demo_request&first_name=' + firstName +
 								'&last_name=' + lastName +
 								'&full_date=' + date.toDateString() +
 								'&phone=' + phone +
@@ -101,27 +102,54 @@ function demo_form_ajax()
 								'&is_consent=' + isConsent +
 								'&time=' + time.innerHTML;
 
-							xhr.open("POST", url, true);
-							xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-							xhr.onreadystatechange = function() {
-								if (xhr.readyState == 4 && xhr.status == 200) {
-									let result = xhr.responseText;
+							xhrInsert.open("POST", urlInsert, true);
+							xhrInsert.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+							xhrInsert.onreadystatechange = function() {
+								if (xhrInsert.readyState == 4 && xhrInsert.status == 200) {
+									let result = xhrInsert.responseText;
 									result = JSON.parse(result);
 									if (!result.error) {
-										console.log(result);
-										console.log(response);
+										console.log("insert result : " + result.success);
 										response.innerHTML = result.success;
 									} else {
 										console.log(result);
 									}
 								}
 							};
-							xhr.send(dataSet);
+							xhrInsert.send(dataSetInsert);
+
+
+							// SEND MAIL
+							let xhrSend = new XMLHttpRequest();
+							let urlSend = '<?= admin_url('admin-ajax.php') ?>';
+							let dataSetSend = 'action=send_demo_request&first_name=' + firstName +
+								'&last_name=' + lastName +
+								'&full_date=' + date.toDateString() +
+								'&phone=' + phone +
+								'&email=' + email +
+								'&company=' + companyName +
+								'&is_consent=' + isConsent +
+								'&time=' + time.innerHTML;
+
+							xhrSend.open("POST", urlSend, true);
+							xhrSend.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+							xhrSend.onreadystatechange = function() {
+								if (xhrSend.readyState == 4 && xhrSend.status == 200) {
+									let result = xhrSend.responseText;
+									result = JSON.parse(result);
+									if (!result.error) {
+										console.log(result);
+									} else {
+										console.log(result);
+									}
+								}
+							};
+							xhrSend.send(dataSetSend);
 						}
 
 					});
 
-				// }
+				}
 			})
 
 		})
