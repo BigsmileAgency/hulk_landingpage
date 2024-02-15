@@ -47,7 +47,7 @@
 
         <p class="demo_response response"></p>
 
-        <div class="demo_form_container">        
+        <div class="demo_form_container">
           <div class="form_header">
             <h3><?= $demo_form['form_title'] ?></h3>
             <p><?= $demo_form['form_subtitle'] ?></p>
@@ -103,11 +103,14 @@
 
         <div class="calendar_container">
           <div class="form_header">
-            <h3>Book Now!</h3>
-            <p>Pick a date and time</p>
+            <h3><?= get_field('calendar_title') ?></h3>
+            <p><?= get_field('calendar_sub_title') ?></p>
           </div>
 
           <?php get_template_part('./components/layouts/calendar') ?>
+
+          <button type="submit" id="book_btn"><?= get_field('calendar_btn') ?></button>
+
 
         </div>
       </div>

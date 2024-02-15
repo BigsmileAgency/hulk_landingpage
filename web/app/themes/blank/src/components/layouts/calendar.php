@@ -23,7 +23,7 @@ $lang = get_language_attributes($doctype = "html");
 				<div>D</div>
 			</div>
 
-		<?php elseif ($lang == 'lang="en-EN"') : ?>
+		<?php elseif ($lang == 'lang="en-EN"' || $lang == 'lang="en-US"') : ?>
 			<div class="weekdays">
 				<div>M</div>
 				<div>Tue</div>
@@ -45,7 +45,6 @@ $lang = get_language_attributes($doctype = "html");
 		</div>
 	</div>
 </div>
-<button type="submit" id="book_btn">Réservez</button>
 
 <script>
 	let fullDate = document.querySelector(".full_date");

@@ -7,7 +7,7 @@ function demo_form_handler()
 
 		if (lang == "fr-FR") {
 			lang = "fr";
-		} else if (lang == "en-EN") {
+		} else if (lang == "en-US") {
 			lang = "en"
 		}
 

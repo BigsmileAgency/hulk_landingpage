@@ -1,6 +1,7 @@
 $mb: 2rem;
 
 .home {
+
   h2,
   h3 {
     font-weight: 800;
@@ -20,11 +21,11 @@ $mb: 2rem;
 
   // center button and img
   @include breakpoint(md) {
-    .hollow_trial_btn, 
+
+    .hollow_trial_btn,
     .hero_2_box img,
     .hero_3_box img,
-    .feat_btn
-    {
+    .feat_btn {
       position: relative;
       left: 50%;
       transform: translateX(-50%);
