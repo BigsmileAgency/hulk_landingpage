@@ -124,7 +124,6 @@ $lang = get_language_attributes($doctype = "html");
 		nextMonth();
 	});
 
-	let handler = false;
 
 	function handleSelection() {
 

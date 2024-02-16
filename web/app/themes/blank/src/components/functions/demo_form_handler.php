@@ -32,6 +32,11 @@ function demo_form_handler()
 				"fr": "Selectionner une plage horaire SVP",
 			},
 
+			noDate: {
+				"en": "Select a date please",
+				"fr": "Selectionner une date SVP",
+			},
+
 			successSend: {
 				"en": "We have received your request, bye",
 				"fr": "Nous avons bien reçus votre demand, bye"
@@ -93,15 +98,19 @@ function demo_form_handler()
 					}, 500)
 
 					bookBtn.addEventListener('click', function(e) {
+
+						console.log(lang);
+
 						e.preventDefault();
 						response.classList.add('success');
-						
-						let time = document.querySelector('.time_selected');
-						
-						if (time == null || time == undefined) {
 
+						let time = document.querySelector('.time_selected');
+						let day = document.querySelector('.date_selected');
+
+						if (day == null || day == undefined) {
+							alert(copy.noDate[lang]);
+						} else if (time == null || time == undefined) {
 							alert(copy.noTime[lang]);
-							
 						} else {
 
 							bookBtn.disabled = true;
@@ -147,7 +156,7 @@ function demo_form_handler()
 									let result = xhrSend.responseText;
 									result = JSON.parse(result);
 									if (!result.error) {
-										response.textContent = copy.successSend[lang];										
+										response.textContent = copy.successSend[lang];
 										console.log(result);
 										setTimeout((e) => {
 											window.location = '/';
