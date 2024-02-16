@@ -153,6 +153,10 @@ $mb: 2rem;
     padding: 1px 0;
   }
 
+  img {
+    width: 100%;
+  }
+  
   .feat_btn {
     @include button(14px, hollow);
   }

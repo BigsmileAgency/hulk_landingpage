@@ -35,11 +35,7 @@ function insert_demo_request()
     );
 
     if ($insert) {
-   
-        $response = [
-            "success" => "oui"
-        ];
-
+        $response ="oui";
     } else {
         $response = "non";
     }
