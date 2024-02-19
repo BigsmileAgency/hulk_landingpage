@@ -6,31 +6,32 @@ function block_slot_from_plugin()
   global $wpdb;
 
   $date = date("Y-m-d", strtotime($_POST['date']));
-  $time = $_POST['time'];
+  $timeArray = explode("," , $_POST['time']);
+  $inserted = 0;
+  
+  foreach($timeArray as $time){
+    $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE time = %s", $time));
+    $insert = $wpdb->query(
+      $wpdb->prepare(
+        "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `email`, `phone`, `date`, `time_slot_id`) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s)",
+        "BSA",
+        "BSA",
+        "BSA",
+        "BSA",
+        "BSA",
+        $date,
+        $time_id,
+      )
+    );
+    $inserted++;
+  }
 
-  $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE time = %s", $time));
-
-  $insert = $wpdb->query(
-    $wpdb->prepare(
-      "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `email`, `phone`, `date`, `time_slot_id`) 
-          VALUES (%s, %s, %s, %s, %s, %s, %s)",
-      "BSA",
-      "BSA",
-      "BSA",
-      "BSA",
-      "BSA",
-      $date,
-      $time_id,
-    )
-  );
-
-  if($insert){
-    $response = "Créneau bloqué";
+  if($inserted > 0){
+    $response = $inserted . " Créneau(x) bloqué(s)";
   } else {
     $response = "problème";
   }
-
-  // $response = [$time, $time_id];
 
   echo json_encode($response);
   wp_die();

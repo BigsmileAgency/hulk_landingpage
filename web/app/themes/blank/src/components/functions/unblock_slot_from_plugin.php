@@ -6,25 +6,45 @@ function unblock_slot_from_plugin()
   global $wpdb;
 
   $date = date("Y-m-d", strtotime($_POST['date']));
-  $time = $_POST['time'];
+  $timeArray = explode(",", $_POST['time']);
+  $inserted = 0;
 
-  $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE time = %s", $time));
+  foreach ($timeArray as $time) {
+    $time_id = $wpdb->get_results($wpdb->prepare("SELECT * FROM `wp_time_slot` WHERE time = %s", $time));
 
-  $insert = $wpdb->query(
-    $wpdb->prepare(
-      "DELETE FROM `wp_demo_appointement` WHERE `date` = %s AND `time_slot_id` = %s",
-      $date,
-      $time_id,
-    )
-  );
+    $check = $wpdb->get_results(
+      $wpdb->prepare(
+        "SELECT * FROM `wp_demo_appointement` WHERE `date` = %s AND `time_slot_id` = %s",
+        $date,
+        $time_id[0]->id,
+      )
+    );
 
-  if($insert){
-    $response = "Créneau débloqué";
-  } else {
-    $response = "problème";
+    if ($check[0]->first_name == "BSA") {
+      $insert = $wpdb->query(
+        $wpdb->prepare(
+          "DELETE FROM `wp_demo_appointement` WHERE `date` = %s AND `time_slot_id` = %s",
+          $date,
+          $time_id[0]->id,
+        )
+      );
+
+      $response[] = [
+        "first_name" => "BSA",       
+      ];
+
+    } else {
+
+      $response[] = [
+        "first_name" => $check[0]->first_name,
+        "last_name" => $check[0]->last_name,
+        "date"=> $check[0]->date, 
+        "time"=>$time_id[0]->time,       
+      ];
+
+    }
+    $inserted++;
   }
-
-  // $response = [$date, $time];
 
   echo json_encode($response);
   wp_die();
