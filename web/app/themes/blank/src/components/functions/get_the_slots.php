@@ -6,16 +6,23 @@ function get_the_slots()
     global $wpdb;
 
     $date = $_POST['date'];
-    $all_slots = $wpdb->get_results($wpdb->prepare("SELECT * FROM `wp_time_slot`"));
+    $all_slots = $wpdb->get_results($wpdb->prepare("SELECT * FROM `wp_time_slot` ORDER BY time"));
     $check_date = $wpdb->get_results($wpdb->prepare("SELECT * FROM `wp_demo_appointement` WHERE `date` = %s;", $date));
 
     $taken_slots = [];
 
     if (!empty($check_date)) {
         foreach ($check_date as $appointement) {
-            // $taken_slots[] = $appointement->time_slot_id;
             $taken_slots[] = $wpdb->get_var($wpdb->prepare("SELECT time FROM `wp_time_slot` WHERE id = %s", $appointement->time_slot_id));
         }
+    }
+
+    foreach ($taken_slots as $slot) {
+        $slot = date('H:i', strtotime($slot));
+    }
+
+    foreach ($all_slots as $slot) {
+        $slot->time = date('H:i', strtotime($slot->time));
     }
 
     $response = [

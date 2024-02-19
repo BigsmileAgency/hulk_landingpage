@@ -30,7 +30,7 @@ function block_slot_from_plugin()
     $response = "problème";
   }
 
-  // $response = $date;
+  // $response = [$time, $time_id];
 
   echo json_encode($response);
   wp_die();

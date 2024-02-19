@@ -38,6 +38,8 @@ include get_theme_file_path( '/components/functions/block_slot_from_plugin.php' 
 include get_theme_file_path( '/components/functions/block_day_from_plugin.php' );
 include get_theme_file_path( '/components/functions/unblock_slot_from_plugin.php' );
 include get_theme_file_path( '/components/functions/unblock_day_from_plugin.php' );
+include get_theme_file_path( '/components/functions/get_all_appointements.php' );
+
 
 // OPTION TAB // CALENDAR ADMIN : 
 if (function_exists('acf_add_options_page')) {
