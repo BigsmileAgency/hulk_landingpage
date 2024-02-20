@@ -15,11 +15,9 @@ function get_all_appointements()
         ORDER BY wp_demo_appointement.date, wp_time_slot.time"
     );
 
-  if ($appointements) {
-    $response = $appointements;
-  } else {
-    $response = "Get all apointements is failed!";
-  }
+
+  $response = $appointements;
+
 
   echo json_encode($response);
   wp_die();
