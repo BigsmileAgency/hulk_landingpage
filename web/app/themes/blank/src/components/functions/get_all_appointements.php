@@ -15,7 +15,6 @@ function get_all_appointements()
         ORDER BY wp_demo_appointement.date, wp_time_slot.time"
     );
 
-
   if ($appointements) {
     $response = $appointements;
   } else {

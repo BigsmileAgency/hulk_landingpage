@@ -40,6 +40,7 @@ include get_theme_file_path( '/components/functions/unblock_slot_from_plugin.php
 include get_theme_file_path( '/components/functions/unblock_day_from_plugin.php' );
 include get_theme_file_path( '/components/functions/get_all_appointements.php' );
 include get_theme_file_path( '/components/functions/cancel_demo_meeting.php' );
+include get_theme_file_path( '/components/functions/handle_week_slots.php' );
 
 
 // OPTION TAB // CALENDAR ADMIN : 
