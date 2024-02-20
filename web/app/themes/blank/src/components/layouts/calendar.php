@@ -230,7 +230,7 @@ $lang = get_language_attributes($doctype = "html");
 
 		let xhr = new XMLHttpRequest();
 		let url = '<?= admin_url('admin-ajax.php') ?>';
-		let dataSet = 'action=get_the_slots&date=' + formatedDate;
+		let dataSet = 'action=get_the_slots&date=' + formatedDate +'&week_day='+ date.getDay();
 
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
