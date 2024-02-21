@@ -251,7 +251,8 @@
                               <script>
                                 // Utilisation de JavaScript pour vérifier la largeur de l'écran
                                 if (window.innerWidth < 480 && "<?= $small_row ?>" === "Unlimited") {
-                                  document.write('<img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/infinity.png">');
+                                  // document.write('<img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/infinity.png">');
+                                  document.write('<span class="bigger-font">&#8734;</span>');
                                 } else {
                                   document.write("<?php echo $small_row; ?>");
                                 }
@@ -270,7 +271,8 @@
                               <script>
                                 // Utilisation de JavaScript pour vérifier la largeur de l'écran
                                 if (window.innerWidth < 480 && "<?= $medium_row ?>" === "Unlimited") {
-                                  document.write('<img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/infinity.png">');
+                                  // document.write('<img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/infinity.png">');
+                                  document.write('<span class="bigger-font">&#8734;</span>');
                                 } else {
                                   document.write("<?php echo $medium_row; ?>");
                                 }
@@ -287,7 +289,8 @@
                               <script>
                                 // Utilisation de JavaScript pour vérifier la largeur de l'écran
                                 if (window.innerWidth < 480 && "<?= $large_row ?>" === "Unlimited") {
-                                  document.write('<img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/infinity.png">');
+                                  // document.write('<img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/infinity.png">');
+                                  document.write('<span class="bigger-font">&#8734;</span>');
                                 } else {
                                   document.write("<?php echo $large_row; ?>");
                                 }
