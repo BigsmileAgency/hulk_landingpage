@@ -2,6 +2,10 @@
     display: flex;
     justify-content: center;
     padding-top : 15px;
+    
+    li {
+        list-style: none;
+    }
 }
 
 .container_nav {
@@ -13,7 +17,7 @@
         justify-content: right;
     }
 }
-#menu-nav, #menu-login {
+.nav_menu ul {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,10 +36,6 @@
     width :145px;
     height : 45px;
     color: $white;
-}
-
-li {
-    list-style: none;
 }
 
 // burger menu
@@ -104,7 +104,7 @@ li {
                 cursor: pointer;
                 z-index: 99;
             }
-            #menu-burger {
+            .menu {
                 z-index: 98;
                 position: absolute;
                 margin: 0; 
@@ -119,10 +119,10 @@ li {
                 animation: not-checked-anim .2s both;
                 transition: .2s;
             }
-            #menu-toggle:checked + #trigger + #burger + #menu-burger {
+            #menu-toggle:checked + #trigger + #burger + .menu {
                 animation: checked-anim 1s ease both;
             }
-            #menu-toggle:checked + #trigger ~ #menu-burger > li, a {
+            #menu-toggle:checked + #trigger ~ .menu > li, a {
                 display: block;
             }
             [type="checkbox"]:not(:checked), [type="checkbox"]:checked {

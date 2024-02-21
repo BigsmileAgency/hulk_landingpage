@@ -12,7 +12,8 @@
 		p {
 			width: 50%;
 			margin-bottom: 2rem;
-			@include breakpoint(md){
+
+			@include breakpoint(md) {
 				width: 90%;
 			}
 		}
@@ -66,13 +67,11 @@
 		background-color: $white;
 		margin: 2rem auto;
 		text-align: center;
-		width: 95%;
 		padding: 20px;
 		border-radius: 10px;
 		box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
 
 		.form_header {
-
 			h3 {
 				margin-bottom: $mb;
 			}
@@ -100,6 +99,27 @@
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				column-gap: 1rem;
+
+				@include breakpoint(md) {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			#agency_container {
+				display: flex;
+				flex-direction: row;
+				flex-direction: row-reverse;
+				justify-content: left;
+				align-items: center;
+				margin-bottom: 0rem;
+
+				label {
+					margin-left: .5rem;
+				}
+
+				@include breakpoint(md) {
+					margin-bottom: .5rem;
+				}
 			}
 
 			#consent_container {
@@ -128,6 +148,7 @@
 		.demo_gif {
 			// display: block;
 			display: none;
+
 			img {
 				width: 80%;
 				margin: auto;
@@ -138,9 +159,11 @@
 			font-weight: bold;
 			margin: .5rem;
 		}
+
 		.error {
 			color: $danger-color;
 		}
+
 		.success {
 			color: green;
 		}
@@ -167,7 +190,7 @@
 
 				.slots {
 					display: grid;
-					grid-template-columns: 1fr 1fr 1fr;
+					grid-template-columns: 1fr 1fr 1fr 1fr;
 				}
 
 				.slot {

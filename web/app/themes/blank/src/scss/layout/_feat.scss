@@ -1,10 +1,6 @@
 $fs-sub : 24px;
 $fs-sub-mobile : 20px;
 
-
-
-
-
 .feat {
     display: flex;
     flex-direction: column;
@@ -16,8 +12,6 @@ $fs-sub-mobile : 20px;
         margin-bottom: 25px;
     }
 }
-
-
 
 .feat_header,
 .free_trial_container,
@@ -45,7 +39,6 @@ $fs-sub-mobile : 20px;
 }
 
 // features
-
 .features {
     display: grid;
     gap: 25px;
@@ -66,7 +59,6 @@ $fs-sub-mobile : 20px;
     width: 100%;
     max-width: 375px;
     text-align: center;
-
 }
 
 .feature_title {
@@ -84,6 +76,8 @@ $fs-sub-mobile : 20px;
 
 .feature_img img {
     border-radius: 25px;
+    height: 200px;
+    object-fit: cover;
 }
 
 // add-ons

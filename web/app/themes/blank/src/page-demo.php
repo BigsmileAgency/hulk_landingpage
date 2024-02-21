@@ -79,7 +79,7 @@
                 <input id="demo_company_name" type="text" name="demo_company_name">
               </div>
 
-              <div class="form_item">
+              <div class="form_item" id="agency_container">
                 <label for="are_you_agency"><?= $demo_form['are_you_agency'] ?></label><br>
                 <input id="are_you_agency" type="checkbox" name="are_you_agency">
               </div>
