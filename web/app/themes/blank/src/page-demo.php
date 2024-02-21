@@ -8,7 +8,6 @@
 //  <?= get_field('time', 'Options') 
 ?>
 
-?>
 
 <?php get_header(); ?>
 

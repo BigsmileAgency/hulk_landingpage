@@ -37,7 +37,7 @@
             <div class="logo_nav"><a href="<?php echo get_home_url(); ?>"><img class="logo_hulk"
                         src="<?php echo get_template_directory_uri() ?>/images/HulkBanner2.png"></a></div>
             
-            <?php wp_nav_menu(array('theme_location' => 'header', 'container_class' => 'nav_menu')); ?>
+            <?php wp_nav_menu(array('theme_location' => 'nav_menu', 'container_class' => 'nav_menu')); ?>
             <div class="nav_menu">
                 <ul id="menu-login">
                     <li><a href="#">Login</a></li>

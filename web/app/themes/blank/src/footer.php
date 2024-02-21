@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="inner">
-        <?php wp_nav_menu(array('theme_location' => 'footer')); ?>
+      
     </div>
     <section class="bg_footer">
         <div class="container container_footer">
