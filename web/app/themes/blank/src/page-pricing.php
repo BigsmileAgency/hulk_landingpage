@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Pricing
  */
@@ -7,8 +8,8 @@
 <?php get_header(); ?>
 
 <main class="default pricing">
-  <?php if (have_posts()):
-    while (have_posts()):
+  <?php if (have_posts()) :
+    while (have_posts()) :
       the_post(); ?>
       <section>
         <div class="container container_pricing">
@@ -143,16 +144,17 @@
             </p>
           </div>
           <div class="questions">
-            <?php if (have_rows('questions')):
+            <?php if (have_rows('questions')) :
 
               // Loop through rows.
-              while (have_rows('questions')):
+              while (have_rows('questions')) :
                 the_row();
 
                 // Load sub field value.
                 $title_question = get_sub_field('title_question');
                 $content_question = get_sub_field('content_question');
-                // Do something, but make sure you escape the value if outputting directly... ?>
+                // Do something, but make sure you escape the value if outputting directly... 
+            ?>
                 <div class="question">
                   <div class="title_question bold">
                     <?= $title_question ?>
@@ -162,12 +164,12 @@
                   </div>
                 </div>
 
-              <?php // End loop.
+            <?php // End loop.
               endwhile;
 
-              // No value.
-            else:
-              // Do something...
+            // No value.
+            else :
+            // Do something...
             endif; ?>
           </div>
         </div>
@@ -184,7 +186,7 @@
           </div>
           <div class="columns_title">
             <div class="column">
-               
+
             </div>
             <div class="column">
               <div class="title_column bold">
@@ -197,7 +199,7 @@
             </div>
             <div class="column">
               <div class="title_column bold">
-              <div class="title_medium title_desktop"><?= get_field('title_medium') ?></div>
+                <div class="title_medium title_desktop"><?= get_field('title_medium') ?></div>
                 <div class="hidden title_medium_mobile title_mobile"><?= get_field('title_medium_mobile') ?></div>
               </div>
               <div class="free_trial_button">
@@ -206,7 +208,7 @@
             </div>
             <div class="column">
               <div class="title_column bold">
-              <div class="title_large title_desktop"><?= get_field('title_large') ?></div>
+                <div class="title_large title_desktop"><?= get_field('title_large') ?></div>
                 <div class="hidden title_large_mobile title_mobile"><?= get_field('title_large_mobile') ?></div>
               </div>
               <div class="free_trial_button">
@@ -215,28 +217,29 @@
             </div>
           </div>
           <div class="plans_table">
-            <?php if (have_rows('plans_table')):
+            <?php if (have_rows('plans_table')) :
 
               // Loop through rows.
-              while (have_rows('plans_table')):
+              while (have_rows('plans_table')) :
                 the_row();
 
                 // Load sub field value.
                 $table_title = get_sub_field('table_title');
-                // Do something, but make sure you escape the value if outputting directly... ?>
+                // Do something, but make sure you escape the value if outputting directly... 
+            ?>
                 <div class="table">
                   <div class="titre_table bold">
                     <?= $table_title ?>
                   </div>
-                  <?php if (have_rows('table_row')):
+                  <?php if (have_rows('table_row')) :
                     // Loop through rows.
-                    while (have_rows('table_row')):
+                    while (have_rows('table_row')) :
                       the_row();
                       $row_title = get_sub_field('row_title');
                       $small_row = get_sub_field('small_row');
                       $medium_row = get_sub_field('medium_row');
                       $large_row = get_sub_field('large_row');
-                      ?>
+                  ?>
                       <div class="table_row">
                         <div class="row_title row bold">
                           <?= $row_title ?>
@@ -246,18 +249,9 @@
                           if ($small_row === "true") { ?>
                             <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.png">
                           <?php } else if ($small_row === "false") { ?>
-                              <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
-                          <?php } else { ?>
-                              <script>
-                                // Utilisation de JavaScript pour vérifier la largeur de l'écran
-                                if (window.innerWidth < 480 && "<?= $small_row ?>" === "Unlimited") {
-                                  // document.write('<img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/infinity.png">');
-                                  document.write('<span class="bigger-font">&#8734;</span>');
-                                } else {
-                                  document.write("<?php echo $small_row; ?>");
-                                }
-                              </script>
-                          <?php
+                            <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
+                          <?php } else {  
+                            echo $small_row; 
                           }
                           ?>
                         </div>
@@ -266,51 +260,28 @@
                           if ($medium_row === "true") { ?>
                             <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.png">
                           <?php } else if ($medium_row === "false") { ?>
-                              <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
-                          <?php } else { ?>
-                              <script>
-                                // Utilisation de JavaScript pour vérifier la largeur de l'écran
-                                if (window.innerWidth < 480 && "<?= $medium_row ?>" === "Unlimited") {
-                                  // document.write('<img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/infinity.png">');
-                                  document.write('<span class="bigger-font">&#8734;</span>');
-                                } else {
-                                  document.write("<?php echo $medium_row; ?>");
-                                }
-                              </script>
-                          <?php } ?>
+                            <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
+                          <?php } else { 
+                            echo $medium_row;
+                          } ?>
                         </div>
                         <div class="large_row row">
                           <?php
                           if ($large_row === "true") { ?>
                             <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.png">
                           <?php } else if ($large_row === "false") { ?>
-                              <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
-                          <?php } else { ?>
-                              <script>
-                                // Utilisation de JavaScript pour vérifier la largeur de l'écran
-                                if (window.innerWidth < 480 && "<?= $large_row ?>" === "Unlimited") {
-                                  // document.write('<img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/infinity.png">');
-                                  document.write('<span class="bigger-font">&#8734;</span>');
-                                } else {
-                                  document.write("<?php echo $large_row; ?>");
-                                }
-                              </script>
-                          <?php
+                            <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
+                          <?php } else { 
+                            echo $large_row ;                          
                           } ?>
                         </div>
                       </div>
-
-                    <?php endwhile;
+                  <?php endwhile;
                   endif; ?>
-
                 </div>
 
-              <?php // End loop.
+            <?php // End loop.
               endwhile;
-
-              // No value.
-            else:
-              // Do something...
             endif; ?>
           </div>
         </div>
@@ -326,17 +297,18 @@
             </p>
           </div>
           <div class="add_ons">
-            <?php if (have_rows('add-ons')):
+            <?php if (have_rows('add-ons')) :
 
               // Loop through rows.
-              while (have_rows('add-ons')):
+              while (have_rows('add-ons')) :
                 the_row();
 
                 // Load sub field value.
                 $title_add_on = get_sub_field('title_add-on');
                 $content_add_on = get_sub_field('content_add-on');
                 $price_add_on = get_sub_field('price_add-on');
-                // Do something, but make sure you escape the value if outputting directly... ?>
+                // Do something, but make sure you escape the value if outputting directly... 
+            ?>
                 <div class="add_on">
                   <div class="add_on_top">
 
@@ -352,22 +324,16 @@
                   </div>
                 </div>
 
-              <?php // End loop.
+            <?php // End loop.
               endwhile;
-
-              // No value.
-            else:
-              // Do something...
             endif; ?>
           </div>
         </div>
         </div>
       </section>
 
-
-
     <?php endwhile; ?>
-  <?php else: ?>
+  <?php else : ?>
     <!-- fin contenu page -->
     <article>
       <div class="inner large">
@@ -385,28 +351,33 @@
   function showContent(contentId) {
     // Masquer tous les contenus
     var allContents = document.querySelectorAll('.price div');
-    allContents.forEach(function (content) {
+    allContents.forEach(function(content) {
       content.style.display = 'none';
     });
 
     // Afficher le contenu sélectionné
     var elements = document.querySelectorAll('.' + contentId);
-    elements.forEach(function (content) {
+    elements.forEach(function(content) {
       content.style.display = 'block';
     });
   }
-  if(window.innerWidth < 480) {
+  if (window.innerWidth < 480) {
 
     var title_mobile = document.querySelectorAll('.title_mobile');
     var title_desktop = document.querySelectorAll('.title_desktop');
-    title_mobile.forEach(function (content) {
+    title_mobile.forEach(function(content) {
       content.style.display = 'block';
     });
-    title_desktop.forEach(function (content) {
+    title_desktop.forEach(function(content) {
       content.style.display = 'none';
     });
-
-    
   }
+
+  let rows = document.querySelectorAll('.row');
+  rows.forEach((row)=> {
+    if(window.innerWidth < 540 && (row.innerHTML.trim() == "Unlimited" || row.innerHTML.trim() == "Illimité" || row.innerHTML.trim() == "Onbeperkt")){
+      row.innerHTML = '<span class="bigger-font">&#8734;</span>'
+    }    
+  })
 </script>
 <?php get_footer(); ?>
