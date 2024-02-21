@@ -38,7 +38,13 @@
                         src="<?php echo get_template_directory_uri() ?>/images/HulkBanner2.png"></a></div>
             
             <?php wp_nav_menu(array('theme_location' => 'header', 'container_class' => 'nav_menu')); ?>
-            <?php wp_nav_menu(array('theme_location' => 'login', 'container_class' => 'nav_menu')); ?>
+            <div class="nav_menu">
+                <ul id="menu-login">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Try for free</a></li>
+                </ul>
+            </div>
+            <!-- <?php wp_nav_menu(array('theme_location' => 'login', 'container_class' => 'nav_menu')); ?> -->
             <div class="nav_mobile">
 
                 <input type="checkbox" id="menu-toggle" />
