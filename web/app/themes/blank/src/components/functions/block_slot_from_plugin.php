@@ -8,23 +8,28 @@ function block_slot_from_plugin()
   $date = date("Y-m-d", strtotime($_POST['date']));
   $timeArray = explode("," , $_POST['time']);
   $inserted = 0;
+  $response = [];
   
   foreach($timeArray as $time){
     $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE time = %s", $time));
-    $insert = $wpdb->query(
-      $wpdb->prepare(
-        "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `email`, `phone`, `date`, `time_slot_id`) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s)",
-        "BSA",
-        "BSA",
-        "BSA",
-        "BSA",
-        "BSA",
-        $date,
-        $time_id,
-      )
-    );
-    $inserted++;
+    $is_it = $wpdb->get_var($wpdb->prepare("SELECT * FROM `wp_demo_appointement` WHERE time_slot_id = %s AND date = %s", $time_id, $date));
+
+    if(is_null($is_it)){
+      $insert = $wpdb->query(
+        $wpdb->prepare(
+          "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `email`, `phone`, `date`, `time_slot_id`) 
+              VALUES (%s, %s, %s, %s, %s, %s, %s)",
+          "BSA",
+          "BSA",
+          "BSA",
+          "BSA",
+          "BSA",
+          $date,
+          $time_id,
+        )
+      );
+      $inserted++;
+    }
   }
 
   if($inserted > 0){
