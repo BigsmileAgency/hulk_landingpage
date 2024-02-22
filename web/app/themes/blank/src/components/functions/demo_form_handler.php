@@ -33,7 +33,7 @@ function demo_form_handler()
 			},
 
 			noTime: {
-				"en": "Select a time-slot please",
+				"en": "Select a time slot please",
 				"fr": "Selectionner une plage horaire SVP",
 				"nl": "Selecteer een tijdslot",
 			},
@@ -60,8 +60,13 @@ function demo_form_handler()
 		
 		document.addEventListener("DOMContentLoaded", function() {
 
+			console.log(lang);
+
+
 			document.querySelector("#demo_form").addEventListener("submit", (e) => {
 				e.preventDefault();
+
+				console.log(lang);
 
 				// containers
 				let demoFormContainer = document.querySelector('.demo_form_container');
@@ -115,6 +120,8 @@ function demo_form_handler()
 
 						let time = document.querySelector('.time_selected');
 						let day = document.querySelector('.date_selected');
+
+						console.log(time, lang);
 
 						if (day == null || day == undefined) {
 							alert(copy.noDate[lang]);

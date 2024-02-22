@@ -33,6 +33,17 @@ $lang = get_language_attributes($doctype = "html");
 				<div>S</div>
 				<div>Sun</div>
 			</div>
+
+		<?php elseif ($lang == 'lang="nl-NL"' || $lang == 'lang="nl-BE"') : ?>
+			<div class="weekdays">
+				<div>Ma</div>
+				<div>Di</div>
+				<div>Wo</div>
+				<div>Do</div>
+				<div>Vr</div>
+				<div>Za</div>
+				<div>Zo</div>
+			</div>
 		<?php endif; ?>
 
 		<div class="days">
@@ -80,6 +91,7 @@ $lang = get_language_attributes($doctype = "html");
 		const months = {
 			"en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 			"fr": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+			"nl": ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"], 
 		}
 
 		document.querySelector(".month_display").innerHTML = months[lang][date.getMonth()];
@@ -87,6 +99,9 @@ $lang = get_language_attributes($doctype = "html");
 		if (lang == "fr") {
 			let dateFr = new Date().toDateString();
 			fullDate.innerHTML = dateInFr(dateFr);
+		} else if(lang == "nl"){
+			let dateFr = new Date().toDateString();
+			fullDate.innerHTML = dateInNl(dateFr);
 		} else {
 			fullDate.innerHTML = new Date().toDateString();
 		}
@@ -141,11 +156,13 @@ $lang = get_language_attributes($doctype = "html");
 			})
 			thisDate.classList.add('date_selected')
 			date.setDate(thisDate.innerHTML)
-			if (lang = "fr") {
-				fullDate.innerHTML = dateInFr(date)
-			} else {
-				fullDate.innerHTML = date.toDateString();
-			}
+			if (lang == "fr") {
+			fullDate.innerHTML = dateInFr(date)
+		} else if(lang == "nl"){
+			fullDate.innerHTML = dateInNl(date)
+		} else {
+			fullDate.innerHTML = date.toDateString();
+		}
 			getTheSlots(date);
 		}
 
@@ -200,8 +217,10 @@ $lang = get_language_attributes($doctype = "html");
 	function prevMonth() {
 		date.setMonth(date.getMonth() - 1);
 		date = renderCalendar();
-		if (lang = "fr") {
+		if (lang == "fr") {
 			fullDate.innerHTML = dateInFr(date)
+		} else if(lang == "nl"){
+			fullDate.innerHTML = dateInNl(date)
 		} else {
 			fullDate.innerHTML = date.toDateString();
 		}
@@ -212,8 +231,10 @@ $lang = get_language_attributes($doctype = "html");
 	function nextMonth() {
 		date.setMonth(date.getMonth() + 1);
 		date = renderCalendar();
-		if (lang = "fr") {
+		if (lang == "fr") {
 			fullDate.innerHTML = dateInFr(date)
+		} else if(lang == "nl"){
+			fullDate.innerHTML = dateInNl(date)
 		} else {
 			fullDate.innerHTML = date.toDateString();
 		}
@@ -291,6 +312,18 @@ $lang = get_language_attributes($doctype = "html");
 		let selectedDate = new Date(date);
 		let joursSemaine = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 		let mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+		let jourSemaine = joursSemaine[selectedDate.getDay()];
+		let jour = selectedDate.getDate();
+		let moisActuel = mois[selectedDate.getMonth()];
+		let annee = selectedDate.getFullYear();
+
+		return fullDateFr = jourSemaine + " " + jour + " " + moisActuel + " " + annee;
+	}
+
+	function dateInNl(date) {
+		let selectedDate = new Date(date);
+		let joursSemaine = ["Zondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag"];
+		let mois = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"];
 		let jourSemaine = joursSemaine[selectedDate.getDay()];
 		let jour = selectedDate.getDate();
 		let moisActuel = mois[selectedDate.getMonth()];
