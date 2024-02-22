@@ -9,46 +9,55 @@ function demo_form_handler()
 			lang = "fr";
 		} else if (lang == "en-US") {
 			lang = "en"
+		} else if (lang == "nl-NL"){
+			lang = "nl"
 		}
 
 		let copy = {
 			emptyFields: {
 				"en": "Fields marked with * are mandatory",
 				"fr": "Les champs marqué d'un * sont obligatoire",
+				"nl": "Velden gemarkeerd met * zijn verplicht",
 			},
 
 			badMail: {
 				"en": "Put a proper e-mail adress",
 				"fr": "Adresse e-mail non conforme",
+				"nl": "E-mailadres niet conform",			
 			},
 
 			badPhone: {
 				"en": "Put a proper phone number",
 				"fr": "Numéro de téléphone non-valide",
+				"nl": "Plaats een goed telefoonnummer",
 			},
 
 			noTime: {
 				"en": "Select a time-slot please",
 				"fr": "Selectionner une plage horaire SVP",
+				"nl": "Selecteer een tijdslot",
 			},
 
 			noDate: {
 				"en": "Select a date please",
 				"fr": "Selectionner une date SVP",
+				"nl": "Selecteer een datum",
 			},
 
 			successSend: {
 				"en": "We have received your request, bye",
-				"fr": "Nous avons bien reçus votre demand, bye"
+				"fr": "Nous avons bien reçus votre demand, bye",
+				"nl": "We hebben uw verzoek ontvangen, tot ziens",
 			},
 
 			problem: {
 				"en": "Problem, try again",
 				"fr": "Un problème est survenu réessayez",
+				"nl": "Probleem, probeer het opnieuw",
 			}
 		}
 
-
+		
 		document.addEventListener("DOMContentLoaded", function() {
 
 			document.querySelector("#demo_form").addEventListener("submit", (e) => {

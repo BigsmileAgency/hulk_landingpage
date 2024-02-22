@@ -22,7 +22,7 @@
             </p>
           </div>
           <div class="tabs_container">
-            <div class="tabs">
+            <div class="tabs">              
               <input type="radio" name="tabs" id="monthly" onchange="showContent('monthly_price')" checked>
               <label class="tab" for="monthly"><?= __('Monthly billing', 'hulkBanner') ?></label>
 
@@ -244,6 +244,7 @@
                         <div class="row_title row bold">
                           <?= $row_title ?>
                         </div>
+
                         <div class="small_row row">
                           <?php
                           if ($small_row === "true") { ?>
@@ -255,6 +256,7 @@
                           }
                           ?>
                         </div>
+
                         <div class="medium_row row">
                           <?php
                           if ($medium_row === "true") { ?>
@@ -265,6 +267,7 @@
                             echo $medium_row;
                           } ?>
                         </div>
+
                         <div class="large_row row">
                           <?php
                           if ($large_row === "true") { ?>
@@ -373,11 +376,13 @@
     });
   }
 
+  // listen if row = 'unlimited' if so replace it by infinity characters
   let rows = document.querySelectorAll('.row');
   rows.forEach((row)=> {
     if(window.innerWidth < 540 && (row.innerHTML.trim() == "Unlimited" || row.innerHTML.trim() == "Illimité" || row.innerHTML.trim() == "Onbeperkt")){
       row.innerHTML = '<span class="bigger-font">&#8734;</span>'
     }    
   })
+
 </script>
 <?php get_footer(); ?>
