@@ -59,10 +59,6 @@ function demo_form_handler()
 
 		
 		document.addEventListener("DOMContentLoaded", function() {
-
-			console.log(lang);
-
-
 			document.querySelector("#demo_form").addEventListener("submit", (e) => {
 				e.preventDefault();
 
@@ -174,9 +170,15 @@ function demo_form_handler()
 									if (!result.error) {
 										response.textContent = copy.successSend[lang];
 										console.log(result);
-										setTimeout((e) => {
-											window.location = '/';
-										}, 2000)
+										if(lang !== "en"){
+											setTimeout((e) => {
+												window.location = '/' + lang;
+											}, 2000)
+										} else {
+											setTimeout((e) => {
+												window.location = '/';
+											}, 2000)
+										}
 									} else {
 										response.textContent = copy.problem[lang];
 										console.log(result);

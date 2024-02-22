@@ -22,7 +22,7 @@
             </p>
           </div>
           <div class="tabs_container">
-            <div class="tabs">              
+            <div class="tabs">
               <input type="radio" name="tabs" id="monthly" onchange="showContent('monthly_price')" checked>
               <label class="tab" for="monthly"><?= __('Monthly billing', 'hulkBanner') ?></label>
 
@@ -191,7 +191,7 @@
             <div class="column">
               <div class="title_column bold">
                 <div class="title_small title_desktop"><?= get_field('title_small') ?></div>
-                <div class="hidden title_small_mobile title_mobile"><?= get_field('title_small_mobile') ?></div>
+                <div class="title_small_mobile title_mobile"><?= get_field('title_small_mobile') ?></div>
               </div>
               <div class="free_trial_button">
                 <?= get_field('free_trial_button') ?>
@@ -200,7 +200,7 @@
             <div class="column">
               <div class="title_column bold">
                 <div class="title_medium title_desktop"><?= get_field('title_medium') ?></div>
-                <div class="hidden title_medium_mobile title_mobile"><?= get_field('title_medium_mobile') ?></div>
+                <div class="title_medium_mobile title_mobile"><?= get_field('title_medium_mobile') ?></div>
               </div>
               <div class="free_trial_button">
                 <?= get_field('free_trial_button') ?>
@@ -209,7 +209,7 @@
             <div class="column">
               <div class="title_column bold">
                 <div class="title_large title_desktop"><?= get_field('title_large') ?></div>
-                <div class="hidden title_large_mobile title_mobile"><?= get_field('title_large_mobile') ?></div>
+                <div class="title_large_mobile title_mobile"><?= get_field('title_large_mobile') ?></div>
               </div>
               <div class="free_trial_button">
                 <?= get_field('free_trial_button') ?>
@@ -217,6 +217,7 @@
             </div>
           </div>
           <div class="plans_table">
+            <?php $unlimited = get_field('unlimited_value'); ?>
             <?php if (have_rows('plans_table')) :
 
               // Loop through rows.
@@ -251,10 +252,11 @@
                             <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.png">
                           <?php } else if ($small_row === "false") { ?>
                             <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
-                          <?php } else {  
-                            echo $small_row; 
-                          }
-                          ?>
+                            <?php } else if ($small_row == $unlimited) { ?>
+                            <span class="unlimited"><?= $small_row ?></span>
+                          <?php } else {
+                            echo $small_row;
+                          } ?>
                         </div>
 
                         <div class="medium_row row">
@@ -263,7 +265,9 @@
                             <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.png">
                           <?php } else if ($medium_row === "false") { ?>
                             <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
-                          <?php } else { 
+                            <?php } else if ($medium_row == $unlimited) { ?>
+                            <span class="unlimited"><?= $medium_row ?></span>
+                          <?php } else {
                             echo $medium_row;
                           } ?>
                         </div>
@@ -274,8 +278,10 @@
                             <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.png">
                           <?php } else if ($large_row === "false") { ?>
                             <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
-                          <?php } else { 
-                            echo $large_row ;                          
+                          <?php } else if ($large_row == $unlimited) { ?>
+                            <span class="unlimited"><?= $large_row ?></span>
+                          <?php } else {
+                            echo $large_row;
                           } ?>
                         </div>
                       </div>
@@ -350,39 +356,4 @@
   <?php endif; ?>
 
 </main>
-<script>
-  function showContent(contentId) {
-    // Masquer tous les contenus
-    var allContents = document.querySelectorAll('.price div');
-    allContents.forEach(function(content) {
-      content.style.display = 'none';
-    });
-
-    // Afficher le contenu sélectionné
-    var elements = document.querySelectorAll('.' + contentId);
-    elements.forEach(function(content) {
-      content.style.display = 'block';
-    });
-  }
-  if (window.innerWidth < 480) {
-
-    var title_mobile = document.querySelectorAll('.title_mobile');
-    var title_desktop = document.querySelectorAll('.title_desktop');
-    title_mobile.forEach(function(content) {
-      content.style.display = 'block';
-    });
-    title_desktop.forEach(function(content) {
-      content.style.display = 'none';
-    });
-  }
-
-  // listen if row = 'unlimited' if so replace it by infinity characters
-  let rows = document.querySelectorAll('.row');
-  rows.forEach((row)=> {
-    if(window.innerWidth < 540 && (row.innerHTML.trim() == "Unlimited" || row.innerHTML.trim() == "Illimité" || row.innerHTML.trim() == "Onbeperkt")){
-      row.innerHTML = '<span class="bigger-font">&#8734;</span>'
-    }    
-  })
-
-</script>
 <?php get_footer(); ?>

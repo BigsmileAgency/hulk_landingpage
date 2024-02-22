@@ -260,6 +260,19 @@
 					}
 				}
 
+				.title_mobile {
+					font-size: 0;
+				}
+
+				@include breakpoint(xs){
+					.title_column {
+						font-size: 0px;
+					}
+					.title_mobile {
+						font-size: $fs-sub-mobile;
+					}
+				}
+
 				.free_trial_button {
 					@include button(16px);
 					width: 220px;
@@ -310,8 +323,14 @@
 						justify-content: center;
 						align-items: center;
 
-						.bigger-font {
-							font-size: 1.8rem;
+						.unlimited {
+							@include breakpoint(xs){
+								font-size: 0px;
+								&::after {
+									content: "\221E";
+									font-size: 30px;
+								}
+							}
 						}
 					}
 
@@ -319,6 +338,7 @@
 						justify-content: flex-start;
 						padding-left: 15px;
 					}
+
 				}
 			}
 		}

@@ -19,7 +19,10 @@
         <script async src="https://www.googletagmanager.com/gtag/js?id=<?= GOOGLE_ANALYTICS_ID ?>"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
             gtag('js', new Date());
 
             gtag('config', <?= GOOGLE_ANALYTICS_ID ?>, {
@@ -30,6 +33,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
 
     <header class="header">
@@ -41,17 +45,18 @@
                     <li><a href="#">Login</a></li>
                     <li><a href="#">Try for free</a></li>
                 </ul>
+                <div id="lang_switch_wrap">
+                    <div id="lang_btns"></div>
+                    <!-- generate by: lang_switch_handler.php -->
+                </div>
             </div>
             <!-- <?php wp_nav_menu(array('theme_location' => 'login', 'container_class' => 'nav_menu')); ?> -->
             <div class="nav_mobile">
                 <input type="checkbox" id="menu-toggle" />
                 <label id="trigger" for="menu-toggle"></label>
                 <label id="burger" for="menu-toggle"></label>
-                <?php wp_nav_menu(array('theme_location' => 'burger', 'container' => '','container_id' => '#menu-burger',)); ?>
+                <?php wp_nav_menu(array('theme_location' => 'burger', 'container' => '', 'container_id' => '#menu-burger',)); ?>
             </div>
-        
         </div>
         </div>
     </header>
-
-
