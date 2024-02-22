@@ -217,7 +217,11 @@
             </div>
           </div>
           <div class="plans_table">
-            <?php $unlimited = get_field('unlimited_value'); ?>
+            <?php 
+            // !!! The value used in ACF field has to match the string displayed as 'unilimited' in the compare table so we can replace it by infinity sign on mobile
+            $unlimited = get_field('unlimited_value'); 
+            // !!! You hear?
+            ?>
             <?php if (have_rows('plans_table')) :
 
               // Loop through rows.
