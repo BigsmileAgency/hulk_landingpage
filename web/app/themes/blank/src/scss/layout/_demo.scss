@@ -257,6 +257,9 @@
 					// place-items: center;
 					.day {
 						cursor: pointer;
+						display: flex;
+						align-items: center;
+						justify-content: center;
 						padding: 8px;
 						margin: 2px;
 						background-color: $light-color;

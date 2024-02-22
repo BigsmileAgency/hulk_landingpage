@@ -21,6 +21,7 @@ $mb: 2rem;
 
   // center button and img
   @include breakpoint(md) {
+
     .hollow_trial_btn,
     .hero_2_box img,
     .hero_3_box img,
@@ -34,7 +35,7 @@ $mb: 2rem;
 
 .hero_1 {
   color: $main-color;
-  height: 91vh;
+  min-height: 91vh;
   text-align: center;
 
   h1 {
@@ -82,9 +83,20 @@ $mb: 2rem;
     margin: auto;
     margin-top: 5rem;
 
+    @include breakpoint(lg) {
+      width: 60%;
+      button {
+        font-size: 14px;
+      }
+    }
+
     button {
       min-width: 200px;
+      @include breakpoint(sm) {
+        font-size: 12px;
+      }
     }
+
 
     @include breakpoint(md) {
       flex-direction: column;
@@ -156,7 +168,7 @@ $mb: 2rem;
   img {
     width: 100%;
   }
-  
+
   .feat_btn {
     @include button(14px, hollow);
   }

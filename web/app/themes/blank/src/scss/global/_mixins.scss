@@ -5,6 +5,12 @@
     }
   }
 
+  @else if $class ==s {
+    @media (max-width: 560px) {
+      @content;
+    }
+  }
+
   @else if $class ==sm {
     @media (max-width: 768px) {
       @content;
@@ -37,14 +43,13 @@
   padding: .7em 1em;
   border: solid 2px $main-color;
   font-size: $font-size;
+  color: $white;
 
   &:hover {
     border: solid 2px $main-hover;
     cursor: pointer;
     transform: scale(1.05);
     transition : 0.25s ease-out;
-
-
   }
 
   @if $type ==hollow {
