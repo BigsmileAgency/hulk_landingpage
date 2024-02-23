@@ -1,19 +1,15 @@
 $mb: 2rem;
 
 .home {
-
   h2,
   h3 {
     font-weight: 800;
   }
-
   p {
     text-align: justify;
   }
-
   .container {
     width: 80%;
-
     @include breakpoint(md) {
       width: 90%;
     }
@@ -21,7 +17,6 @@ $mb: 2rem;
 
   // center button and img
   @include breakpoint(md) {
-
     .hollow_trial_btn,
     .hero_2_box img,
     .hero_3_box img,
@@ -43,7 +38,7 @@ $mb: 2rem;
     font-weight: 800;
     font-size: 70px;
     margin: 2rem;
-
+    
     @include breakpoint(lg) {
       font-size: 50px;
     }
@@ -58,13 +53,10 @@ $mb: 2rem;
     font-size: 20px;
     padding-top: 2rem;
     margin: auto;
-
     @include breakpoint(md) {
       font-size: 16px;
       width: 80%;
-    }
-
-    ;
+    }    
   }
 
   .trial_btn {
@@ -91,12 +83,11 @@ $mb: 2rem;
     }
 
     button {
-      min-width: 200px;
+      min-width: 240px;
       @include breakpoint(sm) {
         font-size: 12px;
       }
     }
-
 
     @include breakpoint(md) {
       flex-direction: column;
