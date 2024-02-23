@@ -1,15 +1,19 @@
 $mb: 2rem;
 
 .home {
+
   h2,
   h3 {
     font-weight: 800;
   }
+
   p {
     text-align: justify;
   }
+
   .container {
     width: 80%;
+
     @include breakpoint(md) {
       width: 90%;
     }
@@ -26,6 +30,7 @@ $mb: 2rem;
       transform: translateX(-50%);
     }
   }
+
 }
 
 .hero_1 {
@@ -38,7 +43,7 @@ $mb: 2rem;
     font-weight: 800;
     font-size: 70px;
     margin: 2rem;
-    
+
     @include breakpoint(lg) {
       font-size: 50px;
     }
@@ -53,10 +58,11 @@ $mb: 2rem;
     font-size: 20px;
     padding-top: 2rem;
     margin: auto;
+
     @include breakpoint(md) {
       font-size: 16px;
       width: 80%;
-    }    
+    }
   }
 
   .trial_btn {
@@ -77,6 +83,7 @@ $mb: 2rem;
 
     @include breakpoint(lg) {
       width: 60%;
+
       button {
         font-size: 14px;
       }
@@ -84,6 +91,7 @@ $mb: 2rem;
 
     button {
       min-width: 240px;
+
       @include breakpoint(sm) {
         font-size: 12px;
       }
@@ -132,8 +140,10 @@ $mb: 2rem;
 
   .hollow_trial_btn {
     @include button(16px, hollow);
+    &:hover {
+      transform: scale(1.05) translateX(-48%);
+    }
   }
-
 }
 
 .feats_section {
@@ -162,6 +172,9 @@ $mb: 2rem;
 
   .feat_btn {
     @include button(14px, hollow);
+    &:hover {
+      transform: scale(1.05) translateX(-48%);
+    }
   }
 
   @media screen and (min-width: 992px) {
@@ -187,5 +200,4 @@ $mb: 2rem;
       margin: auto;
     }
   }
-
 }
