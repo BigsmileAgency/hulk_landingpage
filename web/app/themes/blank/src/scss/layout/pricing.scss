@@ -50,7 +50,7 @@
 			.tabs {
 				display: flex;
 				position: relative;
-				background-color: #EAF6FF;
+				background-color: $white;
 				padding: 5px;
 				border-radius: 99px;
 			}
@@ -99,7 +99,7 @@
 				z-index: 1;
 				border-radius: 99px;
 				color: $black;
-				background-color: white;
+				background-color: $white;
 				transition: 0.25s ease-out;
 
 				@include breakpoint(xs) {
@@ -125,7 +125,7 @@
 			.billing_option {
 				width: 375px;
 				height: 515px;
-				background-color: $blue;
+				background-color: $main-color;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -216,7 +216,7 @@
 			.question {
 				width: 1180px;
 				border-radius: 30px;
-				box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
+				// box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
 				background-color: $white;
 				padding: 30px;
 				text-align: left;
@@ -264,10 +264,11 @@
 					font-size: 0;
 				}
 
-				@include breakpoint(xs){
+				@include breakpoint(xs) {
 					.title_column {
 						font-size: 0px;
 					}
+
 					.title_mobile {
 						font-size: $fs-sub-mobile;
 					}
@@ -294,7 +295,7 @@
 		.plans_table {
 			.table {
 				.table_row:nth-child(even) {
-					background-color: $light-blue;
+					background-color: $light-color;
 				}
 
 				margin-bottom : 50px;
@@ -324,8 +325,9 @@
 						align-items: center;
 
 						.unlimited {
-							@include breakpoint(xs){
+							@include breakpoint(xs) {
 								font-size: 0px;
+
 								&::after {
 									content: "\221E";
 									font-size: 30px;
@@ -333,12 +335,11 @@
 							}
 						}
 					}
-
+					
 					.row_title {
 						justify-content: flex-start;
 						padding-left: 15px;
 					}
-
 				}
 			}
 		}

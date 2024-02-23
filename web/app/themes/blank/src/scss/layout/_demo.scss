@@ -1,7 +1,7 @@
 .demo {
 	.hero_demo {
 
-		min-height: 50vh;
+		min-height: 30vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -18,14 +18,11 @@
 			}
 		}
 	}
-
-	.demo_section {
-		background-color: $light-color;
-	}
+	
 
 	.demo_container {
 		display: grid;
-		grid-template-columns: 1fr 1.5fr;
+		grid-template-columns: 50% 1fr;
 		min-height: 60vh;
 
 		p {
@@ -70,6 +67,18 @@
 		padding: 20px;
 		border-radius: 10px;
 		box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
+
+		@include breakpoint(md) {
+			width: 60%;
+		}
+
+		@include breakpoint(sm) {
+			width: 80%;
+		}
+
+		@include breakpoint(xs) {
+			width: 100%;
+		}
 
 		.form_header {
 			h3 {
@@ -165,7 +174,7 @@
 		}
 
 		.success {
-			color: green;
+			color: $success-color;
 		}
 
 		.booking_form {
@@ -190,10 +199,15 @@
 
 				.slots {
 					display: grid;
-					grid-template-columns: 1fr 1fr 1fr 1fr;
+					grid-template-columns: 1fr 1fr;
+
+					@include breakpoint(sm) {
+						grid-template-columns: repeat(4, 1fr);
+					}
 				}
 
 				.slot {
+					font-size: 12px;
 					padding: 10px 4px;
 					border: solid 2px grey;
 					border-radius: 5px;
@@ -238,6 +252,9 @@
 					i {
 						font-size: 20px;
 						cursor: pointer;
+						&:hover {
+							color: $grey;
+						}
 					}
 				}
 
@@ -256,19 +273,23 @@
 
 					// place-items: center;
 					.day {
+						font-size: 14px;
+						width: 30px;
+						height: 30px;
+						margin: 5px;
 						cursor: pointer;
 						display: flex;
 						align-items: center;
 						justify-content: center;
-						padding: 8px;
-						margin: 2px;
-						background-color: $light-color;
-						border-radius: 5px;
 						border: solid 2px transparent;
+						// background-color: $light-color;
+						// border-radius: 5000px;
+						border-radius: 1000px;
 
 						// text-align: center;
 						&:hover {
 							background-color: $main-color;
+							border: solid 2px $main-color;
 						}
 					}
 
@@ -277,6 +298,7 @@
 					}
 
 					.date_selected {
+						border: solid 2px $main-color;
 						background-color: $main-color;
 						color: white;
 					}
@@ -285,11 +307,8 @@
 					.next_date {
 						opacity: .5;
 					}
-
 				}
 			}
 		}
 	}
-
-
 }

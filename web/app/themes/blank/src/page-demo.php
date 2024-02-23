@@ -8,9 +8,7 @@
 //  <?= get_field('time', 'Options') 
 ?>
 
-
 <?php get_header(); ?>
-
 <main class="demo">
 
   <div class="container">
@@ -20,11 +18,8 @@
     </section>
   </div>
 
-
-  <section class="demo_section">
-
-    <div class="container demo_container">
-
+  <section class="demo_section" style="background-image: url(<?= get_field('bg_img') ?>);">
+    <div class="container demo_container" >
       <div class="explanation_list">
         <h3><?= get_field("list_title") ?></h3>
         <ol>
