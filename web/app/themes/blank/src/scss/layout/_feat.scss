@@ -35,7 +35,7 @@ $fs-sub-mobile : 20px;
 }
 
 .bg_blue {
-    background-color: $light-blue;
+    background-color: $light-color;
 }
 
 // features
@@ -108,7 +108,7 @@ $fs-sub-mobile : 20px;
             width: 90%;
         }
         .add_on_title {
-            color: $blue;
+            color: $main-color;
             font-size: $fs-sub;
         
             @include breakpoint(xs) {
@@ -125,7 +125,7 @@ $fs-sub-mobile : 20px;
         }
         
         .add_on_price {
-            background-color: $blue;
+            background-color: $main-color;
             color: $white;
             height: 60px;
             display: flex;
@@ -195,7 +195,7 @@ $fs-sub-mobile : 20px;
             }
             .quality_title {
                 font-size: $fs-sub;
-                color: $blue;
+                color: $main-color;
                 font-weight: bold;
             
                 @include breakpoint(xs) {

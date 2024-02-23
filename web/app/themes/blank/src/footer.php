@@ -25,7 +25,7 @@
                 </div>
                 
             </div>
-            <div class="logo_hulk"><img class="logo_hulk" src="<?php echo get_template_directory_uri() ?>/images/HulkBanner.png"></div>
+            <div class="logo_hulk"><img class="logo_hulk" src="<?php echo get_template_directory_uri() ?>/images/logo_footer.svg"></div>
         </div>
     </section>
 

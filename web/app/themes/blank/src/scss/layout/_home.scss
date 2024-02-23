@@ -21,6 +21,7 @@ $mb: 2rem;
 
   // center button and img
   @include breakpoint(md) {
+
     .hollow_trial_btn,
     .hero_2_box img,
     .hero_3_box img,
@@ -107,7 +108,7 @@ $mb: 2rem;
 .hero_2,
 .hero_3 {
   padding-top: 2rem;
-  background-color: $light-blue;
+  background-color: $light-color;
 }
 
 .hero_2_box,
@@ -117,7 +118,6 @@ $mb: 2rem;
   display: grid;
   grid-template-columns: 60% 1fr;
   gap: 2rem;
-  background-color: $light-blue;
 
   @include breakpoint(md) {
     grid-template-columns: 1fr;
@@ -140,8 +140,11 @@ $mb: 2rem;
 
   .hollow_trial_btn {
     @include button(16px, hollow);
-    &:hover {
-      transform: scale(1.05) translateX(-48%);
+
+    @include breakpoint(md) {
+      &:hover {
+        transform: scale(1.05) translateX(-48%);
+      }
     }
   }
 }
@@ -173,7 +176,9 @@ $mb: 2rem;
   .feat_btn {
     @include button(14px, hollow);
     &:hover {
-      transform: scale(1.05) translateX(-48%);
+      @include breakpoint(md) {
+        transform: scale(1.05) translateX(-48%);
+      }
     }
   }
 
@@ -194,7 +199,6 @@ $mb: 2rem;
 
   @include breakpoint(md) {
     grid-template-columns: 1fr;
-
     img {
       width: 50%;
       margin: auto;
