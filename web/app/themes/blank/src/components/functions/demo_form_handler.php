@@ -61,9 +61,6 @@ function demo_form_handler()
 		document.addEventListener("DOMContentLoaded", function() {
 			document.querySelector("#demo_form").addEventListener("submit", (e) => {
 				e.preventDefault();
-
-				console.log(lang);
-
 				// containers
 				let demoFormContainer = document.querySelector('.demo_form_container');
 				let gif = document.querySelector('.demo_gif');
@@ -109,15 +106,11 @@ function demo_form_handler()
 
 					bookBtn.addEventListener('click', function(e) {
 
-						console.log(lang);
-
-						e.preventDefault();
+									e.preventDefault();
 						response.classList.add('success');
 
 						let time = document.querySelector('.time_selected');
 						let day = document.querySelector('.date_selected');
-
-						console.log(time, lang);
 
 						if (day == null || day == undefined) {
 							alert(copy.noDate[lang]);

@@ -6,9 +6,6 @@ function lang_switch_handler()
     document.addEventListener("DOMContentLoaded", (e) => {
       e.preventDefault();
 
-      console.log(window.location);
-      console.log(window.location.pathname.replace('/' + lang, ''));
-
       let switchContainer = document.querySelector('#lang_btns');
       let langArray = ["en", "fr", "nl"];
       let otherLang = [];
@@ -27,7 +24,6 @@ function lang_switch_handler()
 
       langBtn.forEach((e) => {
         e.addEventListener('click', (click) => {
-          console.log(lang, click.target.innerHTML.toLowerCase());
           if (click.target.innerHTML.toLowerCase() !== lang) {
             let newLang = click.target.innerHTML.toLowerCase()
             if (newLang == "en") {
