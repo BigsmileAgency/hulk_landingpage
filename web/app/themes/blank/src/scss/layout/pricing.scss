@@ -80,7 +80,7 @@
 			}
 
 			input[type="radio"]:checked+label {
-				color: black;
+				color: $black;
 			}
 
 			input[id="monthly"]:checked~.glider {
@@ -98,7 +98,7 @@
 				width: 200px;
 				z-index: 1;
 				border-radius: 99px;
-				color: black;
+				color: $black;
 				background-color: white;
 				transition: 0.25s ease-out;
 

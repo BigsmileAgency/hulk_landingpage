@@ -182,17 +182,17 @@ $lang = get_language_attributes($doctype = "html");
 		daysArray.forEach((day) => {
 			day.addEventListener('click', (e) => {
 				if (e.target.classList.contains('prev_date')) {
-					date.setMonth(date.getMonth() - 1);
-					renderCalendar()
 					if (!callIt) {
 						dateIsSelected(e);
+						date.setMonth(date.getMonth() - 1);
+						renderCalendar()
 						callIt = true;
 					}
 				} else if (e.target.classList.contains('next_date')) {
-					date.setMonth(date.getMonth() + 1);
-					renderCalendar()
 					if (!callIt) {
 						dateIsSelected(e);
+						date.setMonth(date.getMonth() + 1);
+						renderCalendar()
 						callIt = true;
 					}
 				} else {
