@@ -2,235 +2,246 @@ $fs-sub : 24px;
 $fs-sub-mobile : 20px;
 
 .feat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .container {
-        padding: 50px 0;
-    }
-    h1, h2, p {
-        margin-bottom: 25px;
-    }
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.container {
+		padding: 50px 0;
+	}
+
+	h1,
+	h2,
+	p {
+		margin-bottom: 25px;
+	}
 }
 
 .feat_header,
 .free_trial_container,
 .add_ons_container {
-    text-align: center;
-    width: 800px;
-    margin: 0px auto 0px auto;
-    @include breakpoint(md) {
-        width: 750px;
-    }
-    @include breakpoint(sm) {
-        width: 95%;
-    }
+	text-align: center;
+	width: 800px;
+	margin: 0px auto 0px auto;
+
+	@include breakpoint(md) {
+		width: 750px;
+	}
+
+	@include breakpoint(sm) {
+		width: 95%;
+	}
 }
 
 .free_trial_container {
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	margin-bottom: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .bg_blue {
-    background-color: $light-color;
+	background-color: $light-color;
 }
 
 // features
 .features {
-    display: grid;
-    gap: 25px;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-    justify-items: center;
+	display: grid;
+	gap: 25px;
+	grid-template-columns: repeat(3, 1fr);
+	text-align: center;
+	justify-items: center;
 
-    @include breakpoint(md) {
-        grid-template-columns: repeat(2, 1fr);
-    }
+	@include breakpoint(md) {
+		grid-template-columns: repeat(2, 1fr);
+	}
 
-    @include breakpoint(sm) {
-        grid-template-columns: 1fr;
-    }
+	@include breakpoint(sm) {
+		grid-template-columns: 1fr;
+	}
 }
 
 .feature {
-    width: 100%;
-    max-width: 375px;
-    text-align: center;
+	width: 100%;
+	max-width: 375px;
+	text-align: center;
 }
 
 .feature_title {
-    font-weight: 700;
-    font-size: 20px;
-    margin: 20px 0 15px 0;
+	font-weight: 700;
+	font-size: 20px;
+	margin: 20px 0 15px 0;
 }
 
 .feature_content {
-    @include breakpoint(xs) {
-        width: 90%;
-        margin:auto;
-    }
+	@include breakpoint(xs) {
+		width: 90%;
+		margin: auto;
+	}
 }
 
 .feature_img img {
-    border-radius: 25px;
-    height: 200px;
-    object-fit: cover;
+	border-radius: 25px;
+	height: 200px;
+	object-fit: cover;
 }
 
 // add-ons 
 .add_ons {
-    display: grid;
-    gap: 25px;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
+	display: grid;
+	gap: 25px;
+	grid-template-columns: repeat(2, 1fr);
+	justify-items: center;
 
-    @include breakpoint(xl) {
-        grid-template-columns: 1fr;
-    }
-    .add_on {
-        height: 260px;
-        width: 575px;
-        border-radius: 25px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        text-align: left;
-        padding: 30px 0 0 0;
-        // box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
-        background-color: $white;
-    
-        @include breakpoint(sm) {
-            width: 90%;
-        }
-        .add_on_title {
-            color: $main-color;
-            font-size: $fs-sub;
-        
-            @include breakpoint(xs) {
-                font-size: $fs-sub-mobile;
-            }
-        
-            font-weight: 700;
-            padding: 0 50px;
-            margin-bottom :20px;
-        }
-        
-        .add_on_content {
-            padding: 0 50px;
-        }
-        
-        .add_on_price {
-            background-color: $main-color;
-            color: $white;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            padding-left: 50px;
-            font-weight: 700;
-            font-size: $fs-sub;
-        
-            @include breakpoint(xs) {
-                font-size: $fs-sub-mobile;
-            }
-        }
-    }
+	@include breakpoint(xl) {
+		grid-template-columns: 1fr;
+	}
+
+	.add_on {
+		min-height: 260px;
+		width: 575px;
+		border-radius: 25px;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		text-align: left;
+		padding: 30px 0 0 0;
+		// box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
+		background-color: $white;
+
+		@include breakpoint(sm) {
+			width: 90%;
+		}
+
+		.add_on_title {
+			color: $main-color;
+			font-size: $fs-sub;
+
+			@include breakpoint(xs) {
+				font-size: $fs-sub-mobile;
+			}
+
+			font-weight: 700;
+			padding: 0 50px;
+			margin-bottom :20px;
+		}
+
+		.add_on_content {
+			padding: 0 50px 20px;
+		}
+
+		.add_on_price {
+			background-color: $main-color;
+			color: $white;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			padding-left: 50px;
+			font-weight: 700;
+			font-size: $fs-sub;
+
+			@include breakpoint(xs) {
+				font-size: $fs-sub-mobile;
+			}
+		}
+	}
 }
-
-
-
-
 
 // free_trial
-
 .free_trial_button {
-    @include button(16px);
-    width: 225px;
-    margin-top: 25px;
-    color: $white;
+	@include button(16px);
+	width: 225px;
+	margin-top: 25px;
+	color: $white;
 }
-
 
 // qualities
 .container_qualities {
-    height: 400px;
+	height: 400px;
 
-    @include breakpoint(sm) {
-        height: 630px;
-    }
+	@include breakpoint(sm) {
+		height: 630px;
+	}
 
-    @include breakpoint(xs) {
-        height: 550px;
-    }
-    .qualities {
-        display: grid;
-        align-items: top;
-        gap: 25px;
-        grid-template-columns: repeat(4, 1fr);
-        justify-items: center;
-    
-        @include breakpoint(xl) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    
-        @include breakpoint(sm) {
-            grid-template-columns: 1fr;
-        }
-        .quality {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
-            width: 270px;
-            height: 100px;
-            border-radius: 25px;
-            background-color: $white;
-            @include breakpoint(xs) {
-                height: 80px;
-            }
-            .quality_title {
-                font-size: $fs-sub;
-                color: $main-color;
-                font-weight: bold;
-            
-                @include breakpoint(xs) {
-                    font-size: $fs-sub-mobile;
-                }
-            }
-        }
-    }
+	@include breakpoint(xs) {
+		height: 550px;
+	}
+
+	.qualities {
+		display: grid;
+		align-items: top;
+		gap: 25px;
+		grid-template-columns: repeat(4, 1fr);
+		justify-items: center;
+
+		@include breakpoint(xl) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include breakpoint(sm) {
+			grid-template-columns: 1fr;
+		}
+
+		.quality {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 15px;
+			box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
+			width: 270px;
+			height: 100px;
+			border-radius: 25px;
+			background-color: $white;
+
+			@include breakpoint(xs) {
+				height: 80px;
+			}
+
+			.quality_title {
+				font-size: 18px;
+				color: $main-color;
+				font-weight: bold;
+
+				@include breakpoint(xs) {
+					font-size: $fs-sub-mobile;
+				}
+			}
+		}
+	}
 }
 
 .bottom_img {
-    position: relative;
-    top: -260px;
-    margin: auto;
-    @include breakpoint(xl) {
-        top:-150px;
-    }
-    @include breakpoint(md) {
-        width: 90%;
-        top:-150px;
-    }
-    @include breakpoint(sm) {
-        top: -120px;
-    }
+	position: relative;
+	top: -260px;
+	margin: auto;
 
-    @include breakpoint(xs) {
-        top: -100px;
-    }
+	@include breakpoint(xl) {
+		top: -150px;
+	}
+
+	@include breakpoint(md) {
+		width: 90%;
+		top: -150px;
+	}
+
+	@include breakpoint(sm) {
+		top: -120px;
+	}
+
+	@include breakpoint(xs) {
+		top: -100px;
+	}
 }
 
 .bottom_container {
-    height: 350px;
-    @include breakpoint(xl) {
-        height: 480px;
-    }
-    @include breakpoint(md) {
-        height: 45vw;
-    }
+	height: 350px;
+
+	@include breakpoint(xl) {
+		height: 480px;
+	}
+
+	@include breakpoint(md) {
+		height: 45vw;
+	}
 }

@@ -75,31 +75,29 @@ $mb: 2rem;
   }
 
   .grid_btn_2 {
-    width: 50%;
+    width: 55%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: auto;
-    margin-top: 5rem;
-
+    margin: 8rem auto 1rem;
+    
     @include breakpoint(lg) {
-      width: 60%;
-
+      width: 65%;
       button {
         font-size: 14px;
       }
     }
-
+    
     button {
       min-width: 240px;
-
       @include breakpoint(sm) {
         font-size: 12px;
       }
     }
-
+    
     @include breakpoint(md) {
       flex-direction: column;
+      margin: 3rem auto;
       gap: 1rem;
     }
   }
