@@ -124,6 +124,7 @@ $mb: 2rem;
   h2 {
     font-weight: 800;
     margin-bottom: $mb;
+
   }
 
   p {
@@ -151,6 +152,9 @@ $mb: 2rem;
   h2 {
     text-align: center;
     margin: 2rem 0 4rem;
+    @include breakpoint(xs){
+      font-size: 36px;
+    }
   }
 }
 

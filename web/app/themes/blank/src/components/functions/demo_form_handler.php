@@ -75,6 +75,7 @@ function demo_form_handler()
 				let isAgency = document.querySelector("#are_you_agency").checked;
 				let isConsent = document.querySelector("#demo_consent").checked;
 				let bookBtn = document.querySelector("#book_btn");
+				let back = document.querySelector('#back_arrow');
 
 				// response
 				let response = document.querySelector('.demo_response');
@@ -104,9 +105,16 @@ function demo_form_handler()
 						calendarContainer.style.display = "block"
 					}, 500)
 
-					bookBtn.addEventListener('click', function(e) {
 
-									e.preventDefault();
+					back.addEventListener('click', function(e) {
+						e.preventDefault();
+						demoFormContainer.style.display = "block";
+						calendarContainer.style.display = "none"
+						response.textContent = ""
+					})
+
+					bookBtn.addEventListener('click', function(e) {
+						e.preventDefault();
 						response.classList.add('success');
 
 						let time = document.querySelector('.time_selected');

@@ -67,6 +67,7 @@ a {
 h1, h2 {
   font-size: 40px;
   @include breakpoint(xs) {
+    font-size: 36px;
     
   }
 }
