@@ -10,33 +10,72 @@ namespace App;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
 
+
 class StripePayment 
 {
+  
 
   public function __construct(private string $stripe) {
     Stripe::setApiKey($this->stripe);
     }
 
     public function startPayment() {
+      var_dump($_POST['subscription_type']);
+      if ($_SERVER['REQUEST_METHOD'] == "POST"){
+        $subscription_choice = $_POST['subscription_type'];
+        list($plan_type, $duration) = explode(' ', $subscription_choice);
+        if($plan_type === "small") {
+          $plan = [
+            'quantity' => 1,
+            'price_data' => [
+                'currency' => 'EUR',
+                'product_data' => [ 
+                    'name' => 'FoxBanner Small'
+                ],
+                'unit_amount' => ($duration === 'month') ?3900 : 36000,
+                'recurring' => ['interval' => $duration]
+            ]
+              ];
+        }
+        elseif($plan_type === "medium") {
+          $plan = [
+            'quantity' => 1,
+            'price_data' => [
+                'currency' => 'EUR',
+                'product_data' => [ 
+                    'name' => 'FoxBanner Medium'
+                ],
+                'unit_amount' => ($duration === 'month') ?5900 : 60000,
+                'recurring' => ['interval' => $duration]
+            ]
+              ];
+        }
+        elseif($plan_type === "large") {
+          $plan = [
+            'quantity' => 1,
+            'price_data' => [
+                'currency' => 'EUR',
+                'product_data' => [ 
+                    'name' => 'FoxBanner Large'
+                ],
+                'unit_amount' => ($duration === 'month') ?8900 : 96000,
+                'recurring' => ['interval' => $duration]
+            ]
+              ];
+        }
+      
+      }
         $session = Session::create([
             'line_items' => [
-                [
-                    'quantity' => 1,
-                    'price_data' => [
-                        'currency' => 'EUR',
-                        'product_data' => [ 
-                            'name' => 'abonnement'
-                        ],
-                        'unit_amount' => 10000
-                    ]
-                ]
+              $plan
             ],
-            'mode' => 'payment',
+            'mode' => 'subscription',
             'success_url' => 'http://hulk-landing.local/',
             'cancel_url' => 'http://hulk-landing.local/',
+            'phone_number_collection' => ['enabled' => true],
             'billing_address_collection' => 'required',
             'shipping_address_collection' => [
-                'allowed_countries' => ['FR'],
+                'allowed_countries' => ['FR', 'BE'],
             ],
         ]);
 
@@ -50,7 +89,7 @@ class StripePayment
 require __DIR__ . "/../../../../../vendor/autoload.php";
 
 $stripe_secret_key = "sk_test_51OjiPkEs8IUWb6zlYonAYlGr8LDQXUaCoy1FhY2xdfG11V0e9xTLbw9mCS1ldWY9ikWDNSjNxhVrdfdiifvdXDDX00homK5Gbp";
-\Stripe\Stripe::setApiKey($stripe_secret_key);
+Stripe::setApiKey($stripe_secret_key);
 
 $payment = new \App\StripePayment($stripe_secret_key);
 
