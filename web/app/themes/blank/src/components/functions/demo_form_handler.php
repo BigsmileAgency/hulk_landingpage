@@ -127,7 +127,8 @@ function demo_form_handler()
 								'&email=' + email +
 								'&company=' + companyName +
 								'&is_consent=' + isConsent +
-								'&time=' + time.innerHTML;
+								'&time=' + time.innerHTML + 
+								'&lang=' + lang;
 
 							// INSERT DB
 							let xhrInsert = new XMLHttpRequest();

@@ -4,14 +4,6 @@
 function send_demo_request()
 {
 
-    $emailR_data = array();
-    $emailR_data["fr"] = array();
-    $emailR_data["fr"]["CONTACT"] = "6cd82bc9-cc78-40ae-b016-dea907ca017f"; 
-    $emailR_data["USER"] = "info@bigsmile.be"; // Account creditential
-    $emailR_data["PWD"] = "bsaRFLX@2024"; // Account creditential
-    $emailR_data["ACCOUNT_ID"] = "C1DE4A05-049F-4F75-86E9-3B140C481FC2"; // Account ID
-    $emailR_data["fr"]["PROFILE_ID"] = "22EFD984-B8A1-42B1-A8B5-958287D5DFF2";  // Profile ID
-
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $full_date = date("d-m-Y", strtotime($_POST['full_date']));
@@ -19,10 +11,26 @@ function send_demo_request()
     $email = $_POST['email'];
     $company = $_POST['company'];
     $time = $_POST['time'];
+    $lang = $_POST['lang'];
 
-    $emailrO = new EmailR( $emailR_data['ACCOUNT_ID'],  $emailR_data['USER'],  $emailR_data['PWD'],  $emailR_data["fr"]['PROFILE_ID'] );
+    $emailR_data = array();
+    $emailR_data["fr"] = array();
 
-    $emails[] = [
+    $emailR_data["fr"]["FOR_US"] = "6cd82bc9-cc78-40ae-b016-dea907ca017f"; 
+    $emailR_data["fr"]["FOR_CLIENT"] = "4295bfbf-a071-4e37-8ea8-68d7957d5191"; 
+    $emailR_data["nl"]["FOR_CLIENT"] = ""; 
+    $emailR_data["en"]["FOR_CLIENT"] = ""; 
+
+
+    $emailR_data["USER"] = "info@bigsmile.be"; // Account creditential
+    $emailR_data["PWD"] = "bsaRFLX@2024"; // Account creditential
+    $emailR_data["ACCOUNT_ID"] = "C1DE4A05-049F-4F75-86E9-3B140C481FC2"; // Account ID
+    $emailR_data["fr"]["PROFILE_ID"] = "22EFD984-B8A1-42B1-A8B5-958287D5DFF2";  // Profile ID
+
+
+    // FOR US
+    $emailrOforUs = new EmailR( $emailR_data['ACCOUNT_ID'],  $emailR_data['USER'],  $emailR_data['PWD'],  $emailR_data["fr"]['PROFILE_ID'] );
+    $emails_for_us[] = [
         "Email" => "jr@bigsmile.be",
         "message" => "Vous avez reçu une demande de RDV pour une démo de HulkBanner de la part de : ",
         "first_name" => $first_name,
@@ -33,8 +41,22 @@ function send_demo_request()
         "date" => $full_date,
         "time" => $time,
     ];
+    $sendMail = $emailrOforUs->sendEmail($emailR_data["fr"]["FOR_US"], array('contacts' => $emails_for_us ));
 
-    $sendMail = $emailrO->sendEmail($emailR_data["fr"]["CONTACT"], array('contacts' => $emails ));
+
+    // FOR THEM
+    $emailrOforThem = new EmailR( $emailR_data['ACCOUNT_ID'],  $emailR_data['USER'],  $emailR_data['PWD'],  $emailR_data["fr"]['PROFILE_ID'] );
+    
+
+    $emails_for_them[] = [
+        "Email" => $email,
+        "object" => "Fox Banner RDV",
+        "header" => "Vous Avez RDV avec nous!",
+        "date" => $full_date,
+        "time" => $time,       
+    ];
+    $sendMail = $emailrOforThem->sendEmail($emailR_data[$lang]["FOR_CLIENT"], array('contacts' => $emails_for_them ));
+
 
     echo json_encode($sendMail);
     wp_die();

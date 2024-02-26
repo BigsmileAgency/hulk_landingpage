@@ -48,18 +48,6 @@ include get_theme_file_path( '/components/functions/customise_weekday.php' );
 
 include get_theme_file_path( '/components/functions/lang_switch_handler.php' );
 
-// OPTION TAB // CALENDAR ADMIN : 
-if (function_exists('acf_add_options_page')) {
-	acf_add_options_page(
-		array(
-			'page_title' => 'Options',
-			'menu_title' => 'Options',
-			'menu_slug' => 'Options',
-			'capability' => 'edit_posts',
-			'redirect' => false
-		)
-	);
-}
 
 // AJAX CATEGORY FILTER
 // include get_theme_file_path( '/components/functions/ajaxFilter.php' );

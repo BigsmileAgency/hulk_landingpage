@@ -216,7 +216,6 @@ $lang = get_language_attributes($doctype = "html");
 		if (!selectClass) {
 			let whatDay = fullDate.innerHTML.split(' ').filter((e) => /^\d{1,2}$/.test(e)).join('');
 			whatDay = whatDay.replace(/\b0+(\d+)/g, "$1")
-			console.log(whatDay);
 			daysArray.forEach((day) => {
 				if (day.innerHTML == whatDay && !day.classList.contains('prev_date') && !day.classList.contains('next_date')) {
 					day.classList.add('date_selected')

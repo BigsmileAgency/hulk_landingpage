@@ -360,4 +360,31 @@
   <?php endif; ?>
 
 </main>
+
+<script>
+  function showContent(contentId) {
+    // Masquer tous les contenus
+    var allContents = document.querySelectorAll('.price div');
+    allContents.forEach(function(content) {
+      content.style.display = 'none';
+    });
+
+    // Afficher le contenu sélectionné
+    var elements = document.querySelectorAll('.' + contentId);
+    elements.forEach(function(content) {
+      content.style.display = 'block';
+    });
+  }
+  if (window.innerWidth < 480) {
+
+    var title_mobile = document.querySelectorAll('.title_mobile');
+    var title_desktop = document.querySelectorAll('.title_desktop');
+    title_mobile.forEach(function(content) {
+      content.style.display = 'block';
+    });
+    title_desktop.forEach(function(content) {
+      content.style.display = 'none';
+    });
+  }
+</script>
 <?php get_footer(); ?>
