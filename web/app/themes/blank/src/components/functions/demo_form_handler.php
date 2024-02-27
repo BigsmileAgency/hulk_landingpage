@@ -59,7 +59,10 @@ function demo_form_handler()
 
 		
 		document.addEventListener("DOMContentLoaded", function() {
-			document.querySelector("#demo_form").addEventListener("submit", (e) => {
+
+			let demoSubmit = document.querySelector("#demo_form");
+
+			demoSubmit.addEventListener("submit", (e) => {
 				e.preventDefault();
 				// containers
 				let demoFormContainer = document.querySelector('.demo_form_container');
