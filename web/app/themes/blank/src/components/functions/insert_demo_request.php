@@ -12,6 +12,7 @@ function insert_demo_request()
     $company = $_POST['company'];
     $is_consent = $_POST['is_consent'];
     $time = $_POST['time'];
+    $lang = $_POST['lang'];
 
 
     if ($is_consent === "true") {
@@ -22,13 +23,14 @@ function insert_demo_request()
 
     $insert = $wpdb->query(
         $wpdb->prepare(
-            "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `email`, `phone`, `date`, `time_slot_id`) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s)",
+            "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `email`, `phone`, `lang`, `date`, `time_slot_id`) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
             $first_name,
             $last_name,
             $company,
             $email,
             $phone,
+            $lang,
             $full_date,
             $time_id
         )

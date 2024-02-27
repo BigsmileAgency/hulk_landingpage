@@ -16,7 +16,7 @@ function send_demo_request()
     $emailR_data = array();
     $emailR_data["fr"] = array();
 
-    $emailR_data["fr"]["FOR_US"] = "6cd82bc9-cc78-40ae-b016-dea907ca017f"; 
+    $emailR_data["fr"]["FOR_US"] = "515f498f-ad96-4add-ac16-6c402162a8d9"; 
 
     $emailR_data["fr"]["FOR_CLIENT"] = "7fe57583-1e52-4406-8976-58488627f0e8"; 
     $emailR_data["nl"]["FOR_CLIENT"] = "a5fd7c05-a118-49d9-88bc-5c15f977d991"; 
@@ -38,6 +38,7 @@ function send_demo_request()
         "company" => $company,
         "usermail" => $email,
         "phone" => $phone,
+        "lang" => $lang,
         "date" => $full_date,
         "time" => $time,
     ];
