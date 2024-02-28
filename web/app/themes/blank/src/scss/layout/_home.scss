@@ -181,6 +181,9 @@ $mb: 2rem;
   margin-bottom: 2em;
   display: grid;
   grid-template-columns: 50% 50%;
+  .side_grid {
+    padding-top: 60px;
+  }
 
   ul {
     padding: 20px;
