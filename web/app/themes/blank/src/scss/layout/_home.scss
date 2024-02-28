@@ -207,4 +207,10 @@ $mb: 2rem;
       margin: auto;
     }
   }
+
+  .feat_list {
+    li::marker {
+      color : $main-color;
+    }
+  }
 }
