@@ -51,9 +51,11 @@ $lang = get_language_attributes($doctype = "html");
 	</div>
 
 	<div class="time">
-	<i class="fas fa-angle-left prev"></i>
-		<p class="full_date"></p>
-		<i class="fas fa-angle-right next"></i>
+		<div class="time_header">
+			<i class="fas fa-angle-left prev_day"></i>
+			<p class="full_date"></p>
+			<i class="fas fa-angle-right next_day"></i>
+		</div>
 		<div class="slots">
 		</div>
 	</div>
@@ -146,6 +148,13 @@ $lang = get_language_attributes($doctype = "html");
 		nextMonth();
 	});
 
+	document.querySelector(".prev_day").addEventListener("click", () => {
+		prevDay();
+	});
+
+	document.querySelector(".next_day").addEventListener("click", () => {
+		nextDay();
+	});
 
 	function handleSelection() {
 
