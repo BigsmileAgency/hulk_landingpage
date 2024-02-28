@@ -14,8 +14,8 @@
     <h1><?= get_field('catchphrase') ?></h1>
     <h3><?= get_field('sub_catchphrase') ?></h3>
     <div class="grid_btn_2">
-      <button class="trial_btn"><a href="http://hulk-landing.local/login/"><?= get_field('trial_btn') ?></a></button>
-      <button class="demo_btn"><a href="http://hulk-landing.local/demo/"><?= get_field('demo_btn') ?></a></button>
+      <button class="trial_btn"><a href="<?php echo site_url('/login'); ?>"><?= get_field('trial_btn') ?></a></button>
+      <button class="demo_btn"><a href="<?php echo site_url('/demo'); ?>"><?= get_field('demo_btn') ?></a></button>
     </div>
   </div>
   </section>
@@ -27,7 +27,7 @@
         <div class="left_box">
           <h2><?= $hero2['catchphrase'] ?></h2>
           <p><?= $hero2['sub_catchphrase'] ?></p>
-          <button class="hollow_trial_btn"><a href="http://hulk-landing.local/demo/"><?= $hero2['btn_trial'] ?></a></button>
+          <button class="hollow_trial_btn"><a href="<?php echo site_url('/demo'); ?>"><?= $hero2['btn_trial'] ?></a></button>
         </div>
         <img src="<?= $hero2['img_hero2'] ?>" alt="">
       </div>
@@ -60,7 +60,7 @@
                     endif; ?>
                   </ul>
                 </div>
-                <button class="feat_btn"><a href="http://hulk-landing.local/feat/"><?= $btn ?></a></button>
+                <button class="feat_btn"><a href="<?php echo site_url('/feat'); ?>"><?= $btn ?></a></button>
               </div>
             </div>
         <?php endwhile;
@@ -76,7 +76,7 @@
         <div class="left_box">
           <h2><?= $hero3['catchphrase'] ?></h2>
           <p><?= $hero3['sub_catchphrase'] ?></p>
-          <button class="hollow_trial_btn"><a href="http://hulk-landing.local/demo/"><?= $hero3['btn_trial'] ?></a></button>
+          <button class="hollow_trial_btn"><a href="<?php echo site_url('/demo'); ?>"><?= $hero3['btn_trial'] ?></a></button>
         </div>
         <img src="<?= $hero3['img_hero3'] ?>" alt="">
       </div>
