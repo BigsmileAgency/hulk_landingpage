@@ -9,6 +9,8 @@ namespace App;
 
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
+use Stripe\Customer;
+
 
 
 class StripePayment 
@@ -64,11 +66,36 @@ class StripePayment
               ];
         }
       
+        // $name = $_POST['firstname'] ." " . $_POST['lastname'];
+        $email = $_POST['mail'];
+        // $tel = $_POST['tel'];
+        // $address =$_POST['address'];
+        // $postcode =$_POST['postcode'];
+        // $tva =$_POST['tva'];
+        // $company=$_POST['company'];
       }
+
+      // // a continuer, pas eu le temps de finir !
+      //   $customer = Customer::create([
+      //     'name' => $company,
+      //     'email' => $email,
+      //     'address' => [
+      //       'line1' => $address,
+      //       'postal_code' => $postcode,
+      //     ],
+      //     'phone' => $tel,
+      //     // 'tax_id_data' => [
+      //     //     'type' => 'eu_vat',
+      //     //     'value' => $tva,
+      //     // ],
+      //   ]);
+
         $session = Session::create([
+          'customer_email' => $email,
             'line_items' => [
               $plan
             ],
+            'tax_id_collection' => ['enabled' => true],
             'mode' => 'subscription',
             'success_url' => 'http://hulk-landing.local/',
             'cancel_url' => 'http://hulk-landing.local/',

@@ -27,14 +27,20 @@
           <label for="mail"><?= __('Mail', 'hulkbanner') ?></label>
           <input type="email" name="mail" id="mail">
           <br>
-          <label for="tel"><?= __('Phone', 'hulkbanner') ?></label>
-          <input type="tel" name="tel" id="tel">
+          <label class="hidden" for="tel"><?= __('Phone', 'hulkbanner') ?></label>
+          <input type="hidden" name="tel" id="tel">
+          <br>
+          <label class="hidden" for="address"><?= __('Address', 'hulkbanner') ?></label>
+          <input type="hidden" name="address" id="address">
+          <br>
+          <label class="hidden" for="postcode"><?= __('Postcode', 'hulkbanner') ?></label>
+          <input type="hidden" name="postcode" id="postcode">
           <br>
           <label for="company"><?= __('Company', 'hulkbanner') ?></label>
           <input type="text" name="company" id="company">
           <br>
-          <label for="tva"><?= __('TVA number', 'hulkbanner') ?></label>
-          <input type="text" name="tva" id="tva">
+          <label class="hidden" for="tva"><?= __('TVA number', 'hulkbanner') ?></label>
+          <input type="hidden" name="tva" id="tva">
           <br>
           <div class="billing_plan">
             <div class="billing_choice">
