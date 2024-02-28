@@ -55,11 +55,13 @@ $mb: 2rem;
     }
   }
 
-  h3 {
+  p {
     width: 50%;
     font-size: 20px;
     padding-top: 2rem;
     margin: auto;
+    color: $black;
+    text-align: center;
 
     @include breakpoint(md) {
       font-size: 16px;
