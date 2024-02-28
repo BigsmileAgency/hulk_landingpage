@@ -72,6 +72,14 @@
   <?php $hero3 = get_field('hero_3'); ?>
   <section class="hero_3">
     <div class="container">
+
+      <h2>Lorem ipsum <span class="main-color"> dolor sit amet.</span></h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada nulla eget ipsum pretium molestie. Cras lobortis dui non volutpat posuere. Mauris lacinia neque sed nisl aliquam dapibus.</p>
+      <button class="trial_btn"><a href="#"><?= $hero3['btn_trial'] ?></a></button>
+    </div>
+      </section>
+  <section class="hero_4">
+  <div class="container">
       <div class="hero_3_box">
         <div class="left_box">
           <h2><?= $hero3['catchphrase'] ?></h2>

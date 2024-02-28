@@ -145,7 +145,7 @@ $mb: 2rem;
   }
 
   .hollow_trial_btn {
-    @include button(16px, solid);
+    @include button(16px, hollow);
 
     @include breakpoint(md) {
       &:hover {
@@ -168,7 +168,7 @@ $mb: 2rem;
 .feat_container {
   margin-bottom: 2em;
   display: grid;
-  grid-template-columns: 40% 1fr;
+  grid-template-columns: 50% 50%;
 
   ul {
     padding: 20px;
