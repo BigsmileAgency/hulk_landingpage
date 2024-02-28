@@ -1,4 +1,9 @@
 .demo {
+
+	i {
+		cursor: pointer;
+	}
+
 	.hero_demo {
 		padding-top: 50px;
 		min-height: 30vh;
@@ -76,7 +81,6 @@
 		border-radius: 10px;
 		box-shadow: 0 3px 30px $light-color;
 
-
 		@include breakpoint(md) {
 			width: 60%;
 		}
@@ -98,11 +102,9 @@
 
 			i {
 				position: absolute;
-				cursor: pointer;
-				color: $black;
+				color: $main-color;
 				font-size: 20px;
 				padding: 8px;
-				box-shadow: 0px 0px 10px $light-color;
 				left: 0px;
 				top: -35px;
 				margin: 0;
@@ -112,7 +114,6 @@
 				}
 			}
 		}
-
 		#demo_form {
 			input[type=text] {
 				border: solid grey 1px;
@@ -219,6 +220,12 @@
 			}
 
 			.time {
+
+				.time_header {
+					display: flex;
+					justify-content: space-between;
+				}		
+
 				.full_date {
 					margin-bottom: 1rem;
 				}
@@ -275,17 +282,7 @@
 					align-items: center;
 					padding: 0 2rem;
 					margin-bottom: 1rem;
-
-					i {
-						font-size: 20px;
-						cursor: pointer;
-
-						&:hover {
-							color: $grey;
-						}
-					}
 				}
-
 
 				.weekdays {
 					display: grid;

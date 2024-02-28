@@ -12,7 +12,7 @@
 	<section class="hero_1" style="background-image: url(<?= get_field('bg_img') ?>);">
   <div class="container">
     <h1><?= get_field('catchphrase') ?></h1>
-    <p class="header_title_content"><?= get_field('sub_catchphrase') ?></p>
+    <h3><?= get_field('sub_catchphrase') ?></h3>
     <div class="grid_btn_2">
       <button class="trial_btn"><a href="<?php echo site_url('/login'); ?>"><?= get_field('trial_btn') ?></a></button>
       <button class="demo_btn"><a href="<?php echo site_url('/demo'); ?>"><?= get_field('demo_btn') ?></a></button>
