@@ -18,7 +18,7 @@
     </section>
   </div>
 
-  <section class="demo_section" style="background-image: url(<?= get_field('bg_img') ?>);">
+  <section class="demo_section">
     <div class="container demo_container" >
       <div class="explanation_list">
         <h3><?= get_field("list_title") ?></h3>
@@ -32,6 +32,9 @@
           endif;
           ?>
         </ol>
+        <div class="icons_demo">
+          <img src="<?= get_template_directory_uri() ?>/images/icones.svg"" alt="">
+        </div>
       </div>
 
       <!-- CONTACT FORM -->

@@ -19,6 +19,10 @@
 		}
 	}
 
+	.demo_section {
+		background-color: $light-color;
+	}
+
 	.demo_container {
 		display: grid;
 		grid-template-columns: 50% 1fr;
@@ -56,8 +60,13 @@
 			color: $black;
 			font-weight: 400;
 		}
-	}
 
+		.icons_demo {
+			width: 80%;
+			padding: 20px;
+		}
+	}
+	
 
 	.form_and_calendar {
 		background-color: $white;
