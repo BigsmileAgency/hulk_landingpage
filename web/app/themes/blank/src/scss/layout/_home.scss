@@ -1,7 +1,9 @@
 $mb: 2rem;
 
 .home {
-
+  section {
+    padding : 50px 0px;
+  }
   h2,
   h3 {
     font-weight: 800;
@@ -72,10 +74,12 @@ $mb: 2rem;
 
   .trial_btn {
     @include button(16px);
+    height:60px;
   }
 
   .demo_btn {
     @include button(16px, hollow);
+    height:60px;
   }
 
   .grid_btn_2 {
@@ -190,7 +194,7 @@ $mb: 2rem;
   }
 
   @media screen and (min-width: 992px) {
-    &:nth-of-type(odd) {
+    &:nth-of-type(even) {
       direction: rtl;
 
       ul,

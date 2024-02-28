@@ -5,7 +5,7 @@
     display : flex;
     justify-content: space-between;
     color : $white;
-    padding: 50px 0px;
+    padding: 50px 90px;
     position: relative;
     @include breakpoint(sm) {
         flex-direction: column;
