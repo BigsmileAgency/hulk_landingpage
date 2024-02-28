@@ -9,7 +9,7 @@ function demo_form_handler()
 			lang = "fr";
 		} else if (lang == "en-US") {
 			lang = "en"
-		} else if (lang == "nl-NL"){
+		} else if (lang == "nl-NL") {
 			lang = "nl"
 		}
 
@@ -23,7 +23,7 @@ function demo_form_handler()
 			badMail: {
 				"en": "Put a proper e-mail adress",
 				"fr": "Adresse e-mail non conforme",
-				"nl": "E-mailadres niet conform",			
+				"nl": "E-mailadres niet conform",
 			},
 
 			badPhone: {
@@ -57,27 +57,35 @@ function demo_form_handler()
 			}
 		}
 
-		
+
 		document.addEventListener("DOMContentLoaded", function() {
-			document.querySelector("#demo_form").addEventListener("submit", (e) => {
+			
+			let demoSubmit = document.querySelector("#demo_form");
+			let demoFormContainer = document.querySelector('.demo_form_container');
+			let gif = document.querySelector('.demo_gif');
+			let calendarContainer = document.querySelector('.calendar_container');
+			let response = document.querySelector('.demo_response');
+			let bookBtn = document.querySelector("#book_btn");
+			let back = document.querySelector('#back_arrow')
+			let firstName, lastName, email, phone, companyName, isAgency, isConsent;
+
+
+			demoSubmit.addEventListener("submit", handleInfos)
+			bookBtn.addEventListener('click', (e) => {
+				handleTimeDay(e, firstName, lastName, email, phone, companyName, isAgency, isConsent)
+			});
+			back.addEventListener('click', handleBackButton)
+
+
+			function handleInfos(e) {
 				e.preventDefault();
-				// containers
-				let demoFormContainer = document.querySelector('.demo_form_container');
-				let gif = document.querySelector('.demo_gif');
-				let calendarContainer = document.querySelector('.calendar_container');
-
-				// form input
-				let firstName = document.querySelector("#demo_first_name").value;
-				let lastName = document.querySelector("#demo_last_name").value;
-				let email = document.querySelector("#demo_email").value;
-				let phone = document.querySelector("#demo_phone").value;
-				let companyName = document.querySelector("#demo_company_name").value;
-				let isAgency = document.querySelector("#are_you_agency").checked;
-				let isConsent = document.querySelector("#demo_consent").checked;
-				let bookBtn = document.querySelector("#book_btn");
-
-				// response
-				let response = document.querySelector('.demo_response');
+				firstName = document.querySelector("#demo_first_name").value;
+				lastName = document.querySelector("#demo_last_name").value;
+				email = document.querySelector("#demo_email").value;
+				phone = document.querySelector("#demo_phone").value;
+				companyName = document.querySelector("#demo_company_name").value;
+				isAgency = document.querySelector("#are_you_agency").checked;
+				isConsent = document.querySelector("#demo_consent").checked;
 
 				// regexs 
 				let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -102,89 +110,103 @@ function demo_form_handler()
 					setTimeout(() => {
 						gif.style.display = "none"
 						calendarContainer.style.display = "block"
-					}, 500)
-
-					bookBtn.addEventListener('click', function(e) {
-
-									e.preventDefault();
-						response.classList.add('success');
-
-						let time = document.querySelector('.time_selected');
-						let day = document.querySelector('.date_selected');
-
-						if (day == null || day == undefined) {
-							alert(copy.noDate[lang]);
-						} else if (time == null || time == undefined) {
-							alert(copy.noTime[lang]);
-						} else {
-
-							bookBtn.disabled = true;
-
-							let dataSet = 'first_name=' + firstName +
-								'&last_name=' + lastName +
-								'&full_date=' + date.toDateString() +
-								'&phone=' + phone +
-								'&email=' + email +
-								'&company=' + companyName +
-								'&is_consent=' + isConsent +
-								'&time=' + time.innerHTML + 
-								'&lang=' + lang;
-
-							// INSERT DB
-							let xhrInsert = new XMLHttpRequest();
-							let urlInsert = '<?= admin_url('admin-ajax.php') ?>';
-							let dataSetInsert = 'action=insert_demo_request&' + dataSet
-
-							xhrInsert.open("POST", urlInsert, true);
-							xhrInsert.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-							xhrInsert.onreadystatechange = function() {
-								if (xhrInsert.readyState == 4 && xhrInsert.status == 200) {
-									let result = xhrInsert.responseText;
-									result = JSON.parse(result);
-									if (result.error) {
-										response.textContent = copy.problem[lang];
-										console.log(result);
-										bookBtn.disabled = false;
-									}
-								}
-							};
-							xhrInsert.send(dataSetInsert);
-
-							// SEND MAIL
-							let xhrSend = new XMLHttpRequest();
-							let urlSend = '<?= admin_url('admin-ajax.php') ?>';
-							let dataSetSend = 'action=send_demo_request&' + dataSet;
-
-							xhrSend.open("POST", urlSend, true);
-							xhrSend.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-							xhrSend.onreadystatechange = function() {
-								if (xhrSend.readyState == 4 && xhrSend.status == 200) {
-									let result = xhrSend.responseText;
-									result = JSON.parse(result);
-									if (!result.error) {
-										response.textContent = copy.successSend[lang];
-										console.log(result);
-										if(lang !== "en"){
-											setTimeout((e) => {
-												window.location = '/' + lang;
-											}, 2000)
-										} else {
-											setTimeout((e) => {
-												window.location = '/';
-											}, 2000)
-										}
-									} else {
-										response.textContent = copy.problem[lang];
-										console.log(result);
-										bookBtn.disabled = false;
-									}
-								}
-							};
-							xhrSend.send(dataSetSend);
-						}
-					});
+					}, 500);
 				}
-			})
+			}
+
+
+			function handleTimeDay(e) {
+				e.preventDefault();
+				response.classList.add('success');
+				let time = document.querySelector('.time_selected');
+				let day = document.querySelector('.date_selected');
+				if (day == null || day == undefined) {
+					alert(copy.noDate[lang]);
+				} else if (time == null || time == undefined) {
+					alert(copy.noTime[lang]);
+				} else {
+
+					bookBtn.disabled = true;
+
+					let dataSet = 'first_name=' + firstName +
+						'&last_name=' + lastName +
+						'&full_date=' + date.toDateString() +
+						'&phone=' + phone +
+						'&email=' + email +
+						'&company=' + companyName +
+						'&is_consent=' + isConsent +
+						'&time=' + time.innerHTML +
+						'&lang=' + lang;
+
+					// INSERT DB
+					let xhrInsert = new XMLHttpRequest();
+					let urlInsert = '<?= admin_url('admin-ajax.php') ?>';
+					let dataSetInsert = 'action=insert_demo_request&' + dataSet
+
+					xhrInsert.open("POST", urlInsert, true);
+					xhrInsert.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					xhrInsert.onreadystatechange = function() {
+						if (xhrInsert.readyState == 4 && xhrInsert.status == 200) {
+							let result = xhrInsert.responseText;
+							result = JSON.parse(result);
+							if (result.error) {
+								response.textContent = copy.problem[lang];
+								console.log(result);
+								bookBtn.disabled = false;
+							}
+						}
+					};
+					xhrInsert.send(dataSetInsert);
+
+					// SEND MAIL
+					let xhrSend = new XMLHttpRequest();
+					let urlSend = '<?= admin_url('admin-ajax.php') ?>';
+					let dataSetSend = 'action=send_demo_request&' + dataSet;
+
+					xhrSend.open("POST", urlSend, true);
+					xhrSend.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					xhrSend.onreadystatechange = function() {
+						if (xhrSend.readyState == 4 && xhrSend.status == 200) {
+							let result = xhrSend.responseText;
+							result = JSON.parse(result);
+							if (!result.error) {
+								response.textContent = copy.successSend[lang];
+								console.log(result);
+								if (lang !== "en") {
+									setTimeout((e) => {
+										window.location = '/' + lang;
+									}, 2000)
+								} else {
+									setTimeout((e) => {
+										window.location = '/';
+									}, 2000)
+								}
+							} else {
+								response.textContent = copy.problem[lang];
+								console.log(result);
+								bookBtn.disabled = false;
+							}
+						}
+					};
+					xhrSend.send(dataSetSend);
+				}
+			}
+
+
+			function handleBackButton(e) {
+				e.preventDefault();
+				demoFormContainer.style.display = "block";
+				calendarContainer.style.display = "none"
+				response.textContent = ""
+				firstName = "";
+				lastName = "";
+				email = "";
+				phone = "";
+				companyName = "";
+				isAgency = false;
+				isConsent = false;
+			}
+			
 		})
 	</script>
 <?php

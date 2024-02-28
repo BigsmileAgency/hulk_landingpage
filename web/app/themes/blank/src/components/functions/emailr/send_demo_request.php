@@ -16,11 +16,11 @@ function send_demo_request()
     $emailR_data = array();
     $emailR_data["fr"] = array();
 
-    $emailR_data["fr"]["FOR_US"] = "6cd82bc9-cc78-40ae-b016-dea907ca017f"; 
-    $emailR_data["fr"]["FOR_CLIENT"] = "4295bfbf-a071-4e37-8ea8-68d7957d5191"; 
-    $emailR_data["nl"]["FOR_CLIENT"] = ""; 
-    $emailR_data["en"]["FOR_CLIENT"] = ""; 
+    $emailR_data["fr"]["FOR_US"] = "515f498f-ad96-4add-ac16-6c402162a8d9"; 
 
+    $emailR_data["fr"]["FOR_CLIENT"] = "7fe57583-1e52-4406-8976-58488627f0e8"; 
+    $emailR_data["nl"]["FOR_CLIENT"] = "a5fd7c05-a118-49d9-88bc-5c15f977d991"; 
+    $emailR_data["en"]["FOR_CLIENT"] = "5ee5f165-e37c-4b14-b5df-3a3e360e4be2"; 
 
     $emailR_data["USER"] = "info@bigsmile.be"; // Account creditential
     $emailR_data["PWD"] = "bsaRFLX@2024"; // Account creditential
@@ -38,27 +38,26 @@ function send_demo_request()
         "company" => $company,
         "usermail" => $email,
         "phone" => $phone,
+        "lang" => $lang,
         "date" => $full_date,
         "time" => $time,
     ];
-    $sendMail = $emailrOforUs->sendEmail($emailR_data["fr"]["FOR_US"], array('contacts' => $emails_for_us ));
+    $sendMailToUs = $emailrOforUs->sendEmail($emailR_data["fr"]["FOR_US"], array('contacts' => $emails_for_us ));
 
 
     // FOR THEM
     $emailrOforThem = new EmailR( $emailR_data['ACCOUNT_ID'],  $emailR_data['USER'],  $emailR_data['PWD'],  $emailR_data["fr"]['PROFILE_ID'] );
     
-
     $emails_for_them[] = [
         "Email" => $email,
-        "object" => "Fox Banner RDV",
-        "header" => "Vous Avez RDV avec nous!",
+        "first_name" => $first_name,
+        "last_name" => $last_name,
         "date" => $full_date,
         "time" => $time,       
     ];
-    $sendMail = $emailrOforThem->sendEmail($emailR_data[$lang]["FOR_CLIENT"], array('contacts' => $emails_for_them ));
+    $sendMailToCLient = $emailrOforThem->sendEmail($emailR_data[$lang]["FOR_CLIENT"], array('contacts' => $emails_for_them ));
 
-
-    echo json_encode($sendMail);
+    echo json_encode([$sendMailToCLient, $sendMailToCLient]);
     wp_die();
 }
 

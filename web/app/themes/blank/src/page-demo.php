@@ -36,11 +36,9 @@
 
       <!-- CONTACT FORM -->
       <?php $demo_form = get_field('demo_form') ?>
-
-      <div class="form_and_calendar">
-
+      
+      <div class="form_and_calendar">       
         <p class="demo_response response"></p>
-
         <div class="demo_form_container">
           <div class="form_header">
             <h3><?= $demo_form['form_title'] ?></h3>
@@ -97,6 +95,7 @@
 
         <div class="calendar_container">
           <div class="form_header">
+            <i id="back_arrow" class="fa-solid fa-arrow-left"></i>
             <h3><?= get_field('calendar_title') ?></h3>
             <p><?= get_field('calendar_sub_title') ?></p>
           </div>

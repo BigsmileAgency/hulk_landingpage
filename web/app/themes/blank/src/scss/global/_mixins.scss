@@ -44,6 +44,7 @@
   border: solid 2px $main-color;
   font-size: $font-size;
   color: $white;
+  transition: 0.25s ease-out;
 
   &:hover {
     border: solid 2px $main-hover;
