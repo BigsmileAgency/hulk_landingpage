@@ -113,17 +113,29 @@ $mb: 2rem;
 
 .hero_2,
 .hero_3 {
-  padding-top: 2rem;
   background-color: $light-color;
 }
 
-.hero_2_box,
 .hero_3_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:30px;
+  p{
+    text-align: center;
+  }
+  .full_btn {
+    @include button(16px);
+  }
+}
+
+.hero_2_box,
+.hero_4_box {
   margin: auto;
   margin-bottom: 3rem;
   display: grid;
-  grid-template-columns: 60% 1fr;
-  gap: 2rem;
+  grid-template-columns: 50% 1fr;
+  gap: 50px;
 
   @include breakpoint(md) {
     grid-template-columns: 1fr;
