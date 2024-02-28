@@ -269,6 +269,66 @@ $lang = get_language_attributes($doctype = "html");
 		getTheSlots(date);
 	}
 
+	function nextDay() {
+		let daysArray = Array.from(document.querySelectorAll('.day'));
+		let whatDay = fullDate.innerHTML.split(' ').filter((e) => /^\d{1,2}$/.test(e)).join('');
+		let nextDate = new Date(date)
+
+		whatDay = whatDay.replace(/\b0+(\d+)/g, "$1")
+		nextDate.setDate(Number(whatDay) + 1)
+
+		if (nextDate.getDate() !== 1) {
+			if (lang == "fr") {
+				fullDate.innerHTML = dateInFr(nextDate.toDateString());
+			} else if (lang == "nl") {
+				fullDate.innerHTML = dateInNl(nextDate.toDateString());
+			} else {
+				fullDate.innerHTML = dateInEn(nextDate.toDateString());
+			}
+			daysArray.forEach((day) => {
+				if (day.innerHTML == Number(whatDay) + 1 && !day.classList.contains('prev_date') && !day.classList.contains('next_date')) {
+					day.classList.add('date_selected')
+				} else {
+					day.classList.remove('date_selected')
+				}
+			})
+			getTheSlots(nextDate);
+		} else {
+			nextMonth()
+		}
+	}
+
+	function prevDay() {
+
+		let daysArray = Array.from(document.querySelectorAll('.day'));
+		let whatDay = fullDate.innerHTML.split(' ').filter((e) => /^\d{1,2}$/.test(e)).join('');
+		let prevDate = new Date(date)
+
+		whatDay = whatDay.replace(/\b0+(\d+)/g, "$1")
+		prevDate.setDate(Number(whatDay) - 1)
+
+		if (true) {
+			if (lang == "fr") {
+				fullDate.innerHTML = dateInFr(prevDate.toDateString());
+			} else if (lang == "nl") {
+				fullDate.innerHTML = dateInNl(prevDate.toDateString());
+			} else {
+				fullDate.innerHTML = dateInEn(prevDate.toDateString());
+			}
+			daysArray.forEach((day) => {
+				if (day.innerHTML == Number(whatDay) - 1 && !day.classList.contains('prev_date') && !day.classList.contains('next_date')) {
+					day.classList.add('date_selected')
+				} else {
+					day.classList.remove('date_selected')
+				}
+			})
+			getTheSlots(prevDate);
+
+		} else {
+
+		}
+	}
+
 	function getTheSlots(date) {
 
 		let year = date.getFullYear();
@@ -346,10 +406,9 @@ $lang = get_language_attributes($doctype = "html");
 		return dayOfWeek[selectedDate.getDay()] + " " + selectedDate.getDate();
 	}
 
-	function dateInEn(date){
+	function dateInEn(date) {
 		let selectedDate = new Date(date);
 		let dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		return dayOfWeek[selectedDate.getDay()] + " " + selectedDate.getDate();
 	}
-
 </script>
