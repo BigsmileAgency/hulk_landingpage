@@ -221,13 +221,10 @@
 
 			.time {
 
-				// .time_header {
-
-				// }
-				
-				// i {
-
-				// }
+				.time_header {
+					display: flex;
+					justify-content: space-between;
+				}		
 
 				.full_date {
 					margin-bottom: 1rem;
