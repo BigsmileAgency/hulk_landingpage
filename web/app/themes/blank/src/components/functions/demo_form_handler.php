@@ -93,14 +93,14 @@ function demo_form_handler()
 
 				response.classList.add('error')
 
-				if (firstName === "" || lastName === "" || email === "" || phone === "") {
-					// alert(copy.emptyFields[lang]);
-					response.textContent = copy.emptyFields[lang];
-				} else if (!email.match(mailRegex)) {
-					response.textContent = copy.badMail[lang];
-				} else if (!phone.match(phoneRegex)) {
-					response.textContent = copy.badPhone[lang];
-				} else {
+				// if (firstName === "" || lastName === "" || email === "" || phone === "") {
+				// 	// alert(copy.emptyFields[lang]);
+				// 	response.textContent = copy.emptyFields[lang];
+				// } else if (!email.match(mailRegex)) {
+				// 	response.textContent = copy.badMail[lang];
+				// } else if (!phone.match(phoneRegex)) {
+				// 	response.textContent = copy.badPhone[lang];
+				// } else {
 
 					response.classList.remove('error')
 					demoFormContainer.style.display = "none";
@@ -111,7 +111,7 @@ function demo_form_handler()
 						gif.style.display = "none"
 						calendarContainer.style.display = "block"
 					}, 500);
-				}
+				// }
 			}
 
 
