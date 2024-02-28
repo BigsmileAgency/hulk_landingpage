@@ -24,7 +24,7 @@
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
-
+	height:60px;
 	ul {
 		display: flex;
 		justify-content: center;
@@ -52,8 +52,21 @@
 
 #lang_switch_wrap {
 	position: relative;
-	width: 45px;
-	min-height: 40px;
+	width: 41px;
+	box-sizing: initial;
+	align-self: flex-start;
+	overflow: hidden;
+  height: 41px;
+  border: solid 2px #FF7300;
+  border-radius: 8888px;
+  transition: height .2s ease;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	margin-top: 7px;
+	&:hover{
+		height:123px;
+	}
 	
 	#lang_btns {
 		position: absolute;
@@ -62,33 +75,29 @@
 		justify-content: center;
 		align-items: center;
 		background-color: $white;
-		border: solid 2px $main-color;
-		border-radius: 8888px;
 		cursor: pointer;
-		margin: -2px;
-		padding: 2px;
-		&:hover {
-			.other_lang {
-				display: unset;
-			}
-		}
+
 		.current_lang {
 			color: $main-color;
 			font-weight: 600;
 		}
 		.other_lang {
 			color: $black;
-			display: none;
 			transition: .2s;
 		}
 		.lang_display {
 			font-size: 12px;
 			transition: .2s;
-			width: 38px;
-			height: 38px;
-			padding-top: 13px;
-			padding-left: 10.5px;
+			width: 41px;
+			height: 41px;
+			line-height: 1;
+			border: solid 2px white;
+
 			border-radius: 1000px;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
 
 			&:not(:last-of-type) {
 				transition: .2s;
