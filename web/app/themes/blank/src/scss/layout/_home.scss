@@ -79,9 +79,10 @@ $mb: 2rem;
   .grid_btn_2 {
     width: 55%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap:30px;
     align-items: center;
-    margin: 8rem auto 1rem;
+    margin: 70px auto 1rem;
     
     @include breakpoint(lg) {
       width: 65%;
@@ -139,7 +140,7 @@ $mb: 2rem;
   }
 
   .hollow_trial_btn {
-    @include button(16px, hollow);
+    @include button(16px, solid);
 
     @include breakpoint(md) {
       &:hover {
@@ -170,6 +171,7 @@ $mb: 2rem;
 
   li {
     padding: 1px 0;
+    margin-bottom : 10px;
   }
 
   img {
