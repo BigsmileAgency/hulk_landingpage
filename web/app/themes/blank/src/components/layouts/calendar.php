@@ -51,7 +51,9 @@ $lang = get_language_attributes($doctype = "html");
 	</div>
 
 	<div class="time">
+	<i class="fas fa-angle-left prev"></i>
 		<p class="full_date"></p>
+		<i class="fas fa-angle-right next"></i>
 		<div class="slots">
 		</div>
 	</div>
@@ -103,7 +105,8 @@ $lang = get_language_attributes($doctype = "html");
 			let dateFr = new Date().toDateString();
 			fullDate.innerHTML = dateInNl(dateFr);
 		} else {
-			fullDate.innerHTML = new Date().toDateString();
+			let dateEn = new Date().toDateString();
+			fullDate.innerHTML = dateInEn(dateEn);
 		}
 
 		let days = "";
@@ -165,7 +168,7 @@ $lang = get_language_attributes($doctype = "html");
 			} else if (lang == "nl") {
 				fullDate.innerHTML = dateInNl(date)
 			} else {
-				fullDate.innerHTML = date.toDateString();
+				fullDate.innerHTML = dateInEn(date);
 			}
 			getTheSlots(date);
 		}
@@ -238,7 +241,7 @@ $lang = get_language_attributes($doctype = "html");
 		} else if (lang == "nl") {
 			fullDate.innerHTML = dateInNl(date)
 		} else {
-			fullDate.innerHTML = date.toDateString();
+			fullDate.innerHTML = dateInEn(date)
 		}
 		getTheSlots(date);
 	}
@@ -252,7 +255,7 @@ $lang = get_language_attributes($doctype = "html");
 		} else if (lang == "nl") {
 			fullDate.innerHTML = dateInNl(date)
 		} else {
-			fullDate.innerHTML = date.toDateString();
+			fullDate.innerHTML = dateInEn(date);
 		}
 		getTheSlots(date);
 	}
@@ -324,25 +327,20 @@ $lang = get_language_attributes($doctype = "html");
 
 	function dateInFr(date) {
 		let selectedDate = new Date(date);
-		let joursSemaine = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
-		let mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-		let jourSemaine = joursSemaine[selectedDate.getDay()];
-		let jour = selectedDate.getDate();
-		let moisActuel = mois[selectedDate.getMonth()];
-		let annee = selectedDate.getFullYear();
-
-		return fullDateFr = jourSemaine + " " + jour + " " + moisActuel + " " + annee;
+		let dayOfWeek = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+		return dayOfWeek[selectedDate.getDay()] + " " + selectedDate.getDate();
 	}
 
 	function dateInNl(date) {
 		let selectedDate = new Date(date);
-		let joursSemaine = ["Zondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag"];
-		let mois = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"];
-		let jourSemaine = joursSemaine[selectedDate.getDay()];
-		let jour = selectedDate.getDate();
-		let moisActuel = mois[selectedDate.getMonth()];
-		let annee = selectedDate.getFullYear();
-
-		return fullDateFr = jourSemaine + " " + jour + " " + moisActuel + " " + annee;
+		let dayOfWeek = ["Zondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag"];
+		return dayOfWeek[selectedDate.getDay()] + " " + selectedDate.getDate();
 	}
+
+	function dateInEn(date){
+		let selectedDate = new Date(date);
+		let dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		return dayOfWeek[selectedDate.getDay()] + " " + selectedDate.getDate();
+	}
+
 </script>
