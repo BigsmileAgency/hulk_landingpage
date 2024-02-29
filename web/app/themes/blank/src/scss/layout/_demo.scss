@@ -239,7 +239,7 @@
 				}		
 
 				.slots {
-					display: grid;
+					display: none;
 					grid-template-columns: 1fr 1fr;
 					grid-template-rows: repeat(6,1fr);
 					place-items: center;
@@ -276,6 +276,7 @@
 
 				.time_gif {
 					display: none;
+					width: 100%;
 					img {
 						width: 80%;
 						margin: auto;

@@ -74,7 +74,7 @@ function demo_form_handler()
 			let bookBtn = document.querySelector("#book_btn");
 			let back = document.querySelector('#back_arrow')
 			let firstName, lastName, email, phone, companyName, isAgency, isConsent;
-
+						
 
 			demoSubmit.addEventListener("submit", handleInfos)
 			bookBtn.addEventListener('click', (e) => {
