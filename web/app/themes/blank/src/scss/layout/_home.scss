@@ -114,6 +114,9 @@ $mb: 2rem;
 .hero_2,
 .hero_3 {
   background-color: $light-color;
+  .left_box {
+    align-self: center;
+  }
 }
 
 .hero_3_box {
@@ -132,7 +135,6 @@ $mb: 2rem;
 .hero_2_box,
 .hero_4_box {
   margin: auto;
-  margin-bottom: 3rem;
   display: grid;
   grid-template-columns: 50% 1fr;
   gap: 50px;
@@ -140,7 +142,7 @@ $mb: 2rem;
   @include breakpoint(md) {
     grid-template-columns: 1fr;
   }
-
+  
   h2 {
     font-weight: 800;
     margin-bottom: $mb;
@@ -196,6 +198,7 @@ $mb: 2rem;
 
   img {
     width: 100%;
+    max-width:433px;
   }
 
   .feat_btn {
