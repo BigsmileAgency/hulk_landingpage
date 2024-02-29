@@ -273,6 +273,14 @@
 				.unavailable {
 					display: none;
 				}
+
+				.time_gif {
+					display: none;
+					img {
+						width: 80%;
+						margin: auto;
+					}
+				}
 			}
 
 			.calendar {
