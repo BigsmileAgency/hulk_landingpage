@@ -98,7 +98,7 @@ $lang = get_language_attributes($doctype = "html");
 			"nl": ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
 		}
 
-		document.querySelector(".month_display").innerHTML = months[lang][date.getMonth()];
+		document.querySelector(".month_display").innerHTML = months[lang][date.getMonth()] + " " + date.getFullYear();
 
 		if (lang == "fr") {
 			let dateFr = new Date().toDateString();
@@ -307,26 +307,29 @@ $lang = get_language_attributes($doctype = "html");
 		whatDay = whatDay.replace(/\b0+(\d+)/g, "$1")
 		prevDate.setDate(Number(whatDay) - 1)
 
-		if (true) {
-			if (lang == "fr") {
-				fullDate.innerHTML = dateInFr(prevDate.toDateString());
-			} else if (lang == "nl") {
-				fullDate.innerHTML = dateInNl(prevDate.toDateString());
-			} else {
-				fullDate.innerHTML = dateInEn(prevDate.toDateString());
-			}
-			daysArray.forEach((day) => {
-				if (day.innerHTML == Number(whatDay) - 1 && !day.classList.contains('prev_date') && !day.classList.contains('next_date')) {
-					day.classList.add('date_selected')
-				} else {
-					day.classList.remove('date_selected')
-				}
-			})
-			getTheSlots(prevDate);
-
-		} else {
-
+		if (prevDate.getMonth() !== date.getMonth()) {
+			date.setDate(prevDate.getDate());
+			date.setMonth(prevDate.getMonth());
+			renderCalendar();
 		}
+
+		if (lang == "fr") {
+			fullDate.innerHTML = dateInFr(prevDate.toDateString());
+		} else if (lang == "nl") {
+			fullDate.innerHTML = dateInNl(prevDate.toDateString());
+		} else {
+			fullDate.innerHTML = dateInEn(prevDate.toDateString());
+		}
+		daysArray.forEach((day) => {
+			if (day.innerHTML == Number(whatDay) - 1 && !day.classList.contains('prev_date') && !day.classList.contains('next_date')) {
+				day.classList.add('date_selected')
+			} else {
+				day.classList.remove('date_selected')
+			}
+		})
+
+		getTheSlots(prevDate);
+
 	}
 
 	function getTheSlots(date) {
