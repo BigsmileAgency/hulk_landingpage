@@ -246,13 +246,13 @@ $fs-sub-mobile : 20px;
 }
 
 .bottom_container {
-	height: 400px;
+	height: 380px;
 
 	@include breakpoint(xl) {
 		height: 480px;
 	}
 
 	@include breakpoint(md) {
-		height: 45vw;
+		height: 40vw;
 	}
 }
