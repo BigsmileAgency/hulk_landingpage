@@ -29,9 +29,9 @@
 	}
 
 	.demo_container {
+		width: 100%;
 		display: grid;
-		grid-template-columns: 50% 1fr;
-		min-height: 60vh;
+		grid-template-columns: 1fr 60%;
 
 		p {
 			margin-bottom: 2rem;
@@ -69,13 +69,14 @@
 		.icons_demo {
 			width: 80%;
 			padding: 20px;
-			@include breakpoint(md){
+
+			@include breakpoint(md) {
 				display: none;
 				width: 0px;
 			}
 		}
 	}
-	
+
 
 	.form_and_calendar {
 		background-color: $white;
@@ -84,17 +85,15 @@
 		padding: 20px;
 		border-radius: 10px;
 		box-shadow: 0 3px 30px $light-color;
+		width: 90%;
+		min-height: 690px;
 
 		@include breakpoint(md) {
-			width: 60%;
+			width: 75%;
 		}
 
 		@include breakpoint(sm) {
 			width: 80%;
-		}
-
-		@include breakpoint(xs) {
-			width: 100%;
 		}
 
 		.form_header {
@@ -112,18 +111,23 @@
 				left: 0px;
 				top: -35px;
 				margin: 0;
+
 				&:hover {
 					background-color: $main-color;
 					color: $white;
 				}
 			}
 		}
+
 		#demo_form {
+
 			input[type=text] {
 				border: solid grey 1px;
 				border-radius: 5px;
 				padding: 5px;
-				width: 100%
+				width: 100%;
+				height: 40px;
+				margin-top: 12px;
 			}
 
 			input[type=submit] {
@@ -133,13 +137,15 @@
 			}
 
 			.form_item {
-				margin-bottom: 1rem;
+				margin-bottom: 2rem;	
 			}
 
 			#form_grid {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
-				column-gap: 1rem;
+				column-gap: 2rem;
+				padding: 0px 20px;
+				text-align: left;
 
 				@include breakpoint(md) {
 					grid-template-columns: 1fr;
@@ -163,8 +169,15 @@
 			}
 
 			#consent_container {
+				display: flex;
+				justify-content: flex-start;
+				align-items: flex-start;
+				text-align: left;
 				font-size: 12px;
-				text-align: justify;
+				padding: 0px 20px;	
+				label {
+					margin-left: .5rem;
+				}
 			}
 		}
 
@@ -210,13 +223,16 @@
 
 		.booking_form {
 			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 1rem;
+			grid-template-columns: 1fr 40%;
 			place-items: center;
+			gap: 1rem;
+			width: 80%;
+			padding: 10px;
 
 			@include breakpoint(sm) {
 				grid-template-columns: 1fr;
 				place-items: center;
+				width: 100%;
 			}
 
 			p {
@@ -224,28 +240,59 @@
 			}
 
 			.time {
-
-				width: 100%;
+				width: 90%;
 				height: 100%;
 				display: grid;
 				grid-template-rows: 10% 1fr;
 				padding-top: 10px;
 
+				@include breakpoint(md) {
+					width: 70%;
+				}
+
+				@include breakpoint(xs) {
+					width: 100%;
+				}
+
+
 				.time_header {
 					width: 100%;
+					min-width: 160px;
 					display: flex;
 					justify-content: space-between;
 					font-size: 16px;
-				}		
+
+					@include breakpoint(md) {
+						margin-bottom: 2rem;
+					}
+				}
+
+				.slots_container {
+					width: 100%;
+					@include breakpoint(md){
+						min-height: 170px;
+						// padding: 20px;
+					}
+				}
 
 				.slots {
-					display: grid;
+					display: none;
 					grid-template-columns: 1fr 1fr;
-					grid-template-rows: repeat(6,1fr);
+					grid-template-rows: repeat(6, 1fr);
 					place-items: center;
 					column-gap: 10px;
+
 					@include breakpoint(sm) {
 						grid-template-columns: repeat(4, 1fr);
+						grid-template-rows: repeat(3, 1fr);
+					}
+				
+				}
+
+				@include breakpoint(md){
+					.slots, .no_slots, .time_gif > img {
+						height: 100%;
+						width: auto;
 					}
 				}
 
@@ -254,9 +301,10 @@
 					padding: 10px 4px;
 					border: solid 2px grey;
 					border-radius: 5px;
-					margin: 5px;			
+					margin: 5px;
 					width: 100%;
-					max-width: 90px;							
+					max-width: 90px;
+
 					&:hover:not(.time_selected) {
 						background-color: $light-color;
 						cursor: pointer;
@@ -276,6 +324,7 @@
 
 				.time_gif {
 					display: none;
+					width: 100%;
 					img {
 						width: 80%;
 						margin: auto;
@@ -287,6 +336,7 @@
 				border: solid 2px grey;
 				border-radius: 5px;
 				padding-bottom: 2px;
+				padding: 10px;
 
 				.month_display {
 					font-size: 16px;
@@ -296,7 +346,7 @@
 				.month {
 					width: 70%;
 					display: flex;
-					justify-content: space-between;					
+					justify-content: space-between;
 					padding: 8px 1rem;
 					margin-bottom: 1rem;
 				}
@@ -312,6 +362,7 @@
 					width: 100%;
 					display: grid;
 					grid-template-columns: repeat(7, 1fr);
+
 					.day {
 						font-size: 14px;
 						width: 30px;
@@ -323,10 +374,12 @@
 						justify-content: center;
 						border: solid 2px transparent;
 						border-radius: 1000px;
+
 						&:hover {
 							background-color: $main-color;
 							border: solid 2px $main-color;
 						}
+
 						@include breakpoint(xs) {
 							font-size: 12px;
 							width: 20px;

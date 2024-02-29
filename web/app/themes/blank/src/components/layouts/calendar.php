@@ -60,7 +60,7 @@ $lang = get_language_attributes($doctype = "html");
 			<div class="slots"></div>
 			<div class="no_slots"></div>
 			<div class="time_gif">
-				<img src="<?php echo get_template_directory_uri() ?>/images/FoxBanner_loading.svg" alt="">
+				<img src="<?= get_template_directory_uri() ?>/images/FoxBanner_loading.gif" alt="">
 			</div>
 		</div>
 	</div>
@@ -279,6 +279,7 @@ $lang = get_language_attributes($doctype = "html");
 	}
 
 	function nextDay() {
+
 		let daysArray = Array.from(document.querySelectorAll('.day'));
 		let whatDay = fullDate.innerHTML.split(' ').filter((e) => /^\d{1,2}$/.test(e)).join('');
 		let nextDate = new Date(date)
@@ -339,12 +340,19 @@ $lang = get_language_attributes($doctype = "html");
 		getTheSlots(prevDate);
 	}
 
+
 	function getTheSlots(date) {
 
-		let gif = document.querySelector('.time_gif')
-		gif.style.display = "block";
+		let calendarContainer = document.querySelector('.calendar_container');
+		let slots = document.querySelector('.slots');
+		let noSlots = document.querySelector('.no_slots');
+		let gif = document.querySelector('.time_gif');
 
-		console.log(gif.innerHTML);
+		calendarContainer.style.pointerEvents = "none";
+
+		gif.style.display = "block";
+		slots.style.display = "none";
+		noSlots.style.display = "none";
 
 		let year = date.getFullYear();
 		let month = ("0" + (date.getMonth() + 1)).slice(-2);
@@ -363,27 +371,26 @@ $lang = get_language_attributes($doctype = "html");
 				result = JSON.parse(result);
 				if (!result.error) {
 					gif.style.display = "none";
-					showSlots(result)
+					showSlots(result, slots, noSlots)
+					setTimeout((e) => {
+						calendarContainer.style.pointerEvents = "auto";
+					}, 200)
 				} else {
 					console.log(result);
 				}
 			}
 		};
 		xhr.send(dataSet);
+
 	}
 
 
-	function showSlots(result) {
+	function showSlots(result, slots, noSlots) {
 
-		slotsDisplay = ""
-
-		let slots = document.querySelector('.slots')
-		let noSlots = document.querySelector('.no_slots')
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot
 
-		slots.style.display = "grid";
-		noSlots.style.display = "none";
+		slotsDisplay = ""
 
 		let selectedDate = new Date(date);
 		let now = new Date();
@@ -391,8 +398,11 @@ $lang = get_language_attributes($doctype = "html");
 		allSlots.map((e) => {
 			slotsDisplay += `<div class="slot">${e.time}</div>`
 		})
-
 		slots.innerHTML = slotsDisplay;
+
+		slots.style.display = "grid";
+		noSlots.style.display = "none";
+
 		if (takenSlots.length > 0) {
 			timeArray = Array.from(document.querySelectorAll('.slot'));
 			takenSlots.map((e) => {
