@@ -59,6 +59,9 @@ $lang = get_language_attributes($doctype = "html");
 		<div class="slots_container">
 			<div class="slots"></div>
 			<div class="no_slots"></div>
+			<div class="time_gif">
+				<img src="<?php echo get_template_directory_uri() ?>/images/FoxBanner_loading.svg" alt="">
+			</div>
 		</div>
 	</div>
 </div>
@@ -193,7 +196,11 @@ $lang = get_language_attributes($doctype = "html");
 			otherTime.forEach((e) => {
 				e.classList.remove(('time_selected'))
 			})
-			thisTime.classList.add('time_selected')
+			if (thisTime.classList.contains('time_selected')) {
+				thisTime.classList.remove('time_selected')
+			} else {
+				thisTime.classList.add('time_selected')
+			}
 		}
 
 		let callIt = false;
@@ -329,12 +336,15 @@ $lang = get_language_attributes($doctype = "html");
 				day.classList.remove('date_selected')
 			}
 		})
-
 		getTheSlots(prevDate);
-
 	}
 
 	function getTheSlots(date) {
+
+		let gif = document.querySelector('.time_gif')
+		gif.style.display = "block";
+
+		console.log(gif.innerHTML);
 
 		let year = date.getFullYear();
 		let month = ("0" + (date.getMonth() + 1)).slice(-2);
@@ -352,6 +362,7 @@ $lang = get_language_attributes($doctype = "html");
 				let result = xhr.responseText;
 				result = JSON.parse(result);
 				if (!result.error) {
+					gif.style.display = "none";
 					showSlots(result)
 				} else {
 					console.log(result);
@@ -365,20 +376,22 @@ $lang = get_language_attributes($doctype = "html");
 	function showSlots(result) {
 
 		slotsDisplay = ""
+
 		let slots = document.querySelector('.slots')
 		let noSlots = document.querySelector('.no_slots')
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot
-		
+
 		slots.style.display = "grid";
 		noSlots.style.display = "none";
-		
+
 		let selectedDate = new Date(date);
 		let now = new Date();
-		
+
 		allSlots.map((e) => {
 			slotsDisplay += `<div class="slot">${e.time}</div>`
 		})
+
 		slots.innerHTML = slotsDisplay;
 		if (takenSlots.length > 0) {
 			timeArray = Array.from(document.querySelectorAll('.slot'));
@@ -397,8 +410,7 @@ $lang = get_language_attributes($doctype = "html");
 			slots.style.display = "none";
 			noSlots.style.display = "block";
 			noSlots.innerHTML = `${copy.noAvailable[lang]}`
-		} 
-
+		}
 		handleSelection();
 	}
 
