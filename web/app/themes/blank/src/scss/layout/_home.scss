@@ -114,8 +114,9 @@ $mb: 2rem;
 .hero_2,
 .hero_3 {
   background-color: $light-color;
-  .left_box {
-    align-self: center;
+  
+  .trial_btn {
+      @include button(16px);
   }
 }
 
@@ -142,7 +143,9 @@ $mb: 2rem;
   @include breakpoint(md) {
     grid-template-columns: 1fr;
   }
-  
+  .left_box {
+    align-self: center;
+  }
   h2 {
     font-weight: 800;
     margin-bottom: $mb;
@@ -202,7 +205,7 @@ $mb: 2rem;
   }
 
   .feat_btn {
-    @include button(14px, hollow);
+    @include button(16px, hollow);
     &:hover {
       @include breakpoint(md) {
         transform: scale(1.05) translateX(-48%);
