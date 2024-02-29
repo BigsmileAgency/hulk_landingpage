@@ -130,6 +130,7 @@ $mb: 2rem;
   }
   .full_btn {
     @include button(16px);
+    height: 60px;
   }
 }
 
@@ -171,8 +172,31 @@ $mb: 2rem;
     }
   }
 }
+.hero_4_box {
+  .trial_btn {
+    @include button(16px);
+  }
+}
 
 .feats_section {
+  .feats_display_container {
+    width : 1366px;
+    position: relative;
+  }
+  .img_shadow {
+    position: absolute;
+    left : 43px;
+    width : 317px;
+    height : 288px;
+    background-color: rgba(255, 115, 0, 0.1);
+    border-radius: 30px;
+    transform: rotate(-45deg);
+  }
+  .feat_container:nth-of-type(even) .img_shadow {
+    transform: rotate(45deg);
+    left: auto;
+    right: 43px;
+}
   h2 {
     text-align: center;
     margin: 2rem 0 4rem;
