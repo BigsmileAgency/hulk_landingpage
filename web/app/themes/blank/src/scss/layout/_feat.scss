@@ -54,6 +54,7 @@ $fs-sub-mobile : 20px;
 	grid-template-columns: repeat(3, 1fr);
 	text-align: center;
 	justify-items: center;
+	margin-top : 60px;
 
 	@include breakpoint(md) {
 		grid-template-columns: repeat(2, 1fr);
@@ -96,7 +97,7 @@ $fs-sub-mobile : 20px;
 	grid-template-columns: repeat(2, 1fr);
 	justify-items: center;
 
-	@include breakpoint(xl) {
+	@include breakpoint(sm) {
 		grid-template-columns: 1fr;
 	}
 
@@ -114,12 +115,14 @@ $fs-sub-mobile : 20px;
 		background-color: $white;
 		transition: 0.25s ease-out;
 
-
+		@include breakpoint(xl) {
+			width: 100%;
+		}
 		@include breakpoint(sm) {
 			width: 90%;
 		}
 		&:hover {
-			transform: scale(1.05);
+			transform: scale(1.02);
 		}
 		.add_on_title {
 			color: $main-color;
