@@ -36,12 +36,12 @@
                   <div class="feature_img">
                     <img src="<?= $img_feature ?>" width="375" height="250">
                   </div>
-                  <div class="feature_title">
+                  <h3 class="feature_title">
                     <?= $title_feature ?>
-                  </div>
-                  <div class="feature_content">
+                  </h3>
+                  <p class="feature_content">
                     <?= $content_feature ?>
-                  </div>
+                  </p>
                 </div>
 
               <?php // End loop.
@@ -79,16 +79,16 @@
                 <div class="add_on">
                   <div class="add_on_top">
 
-                    <div class="add_on_title">
+                    <h3 class="add_on_title">
                       <?= $title_add_on ?>
-                    </div>
-                    <div class="add_on_content">
+                    </h3>
+                    <p class="add_on_content">
                       <?= $content_add_on ?>
-                    </div>
+                    </p>
                   </div>
-                  <div class="add_on_price">
+                  <h3 class="add_on_price">
                     <?= $price_add_on ?>
-                  </div>
+              </h3>
                 </div>
 
               <?php // End loop.
