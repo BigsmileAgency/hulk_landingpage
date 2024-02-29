@@ -44,6 +44,12 @@ function demo_form_handler()
 				"nl": "Selecteer een datum",
 			},
 
+			noAvailable: {
+				"en": "no availability for this date",
+				"fr": "pas de disponibilitées pour cette date",
+				"nl": "geen beschikbaarheid voor deze datum",
+			},
+
 			successSend: {
 				"en": "We have received your request, bye",
 				"fr": "Nous avons bien reçus votre demand, bye",
