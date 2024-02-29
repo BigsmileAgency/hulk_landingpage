@@ -369,37 +369,36 @@ $lang = get_language_attributes($doctype = "html");
 		let noSlots = document.querySelector('.no_slots')
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot
-
-		console.log(slots, allSlots);
-
+		
 		slots.style.display = "grid";
 		noSlots.style.display = "none";
-
+		
 		let selectedDate = new Date(date);
 		let now = new Date();
+		
+		allSlots.map((e) => {
+			slotsDisplay += `<div class="slot">${e.time}</div>`
+		})
+		slots.innerHTML = slotsDisplay;
+		if (takenSlots.length > 0) {
+			timeArray = Array.from(document.querySelectorAll('.slot'));
+			takenSlots.map((e) => {
+				timeArray.map((f) => {
+					if (e == f.innerHTML) {
+						f.classList.add('unavailable')
+					}
+				})
+			})
+		}
 
-		if (date.getDay() === 0 || date.getDay() === 6 || selectedDate <= now) {
+		let unavailable = document.querySelectorAll('.unavailable')
 
+		if (unavailable.length == allSlots.length || date.getDay() === 0 || date.getDay() === 6 || selectedDate <= now) {
 			slots.style.display = "none";
 			noSlots.style.display = "block";
-			noSlots.innerHTML = `<p>Pas de slots pour toi aujourd'hui</p>`
+			noSlots.innerHTML = `${copy.noAvailable[lang]}`
+		} 
 
-		} else {
-			allSlots.map((e) => {
-				slotsDisplay += `<div class="slot">${e.time}</div>`
-			})
-			slots.innerHTML = slotsDisplay;
-			if (takenSlots.length > 0) {
-				timeArray = Array.from(document.querySelectorAll('.slot'));
-				takenSlots.map((e) => {
-					timeArray.map((f) => {
-						if (e == f.innerHTML) {
-							f.classList.add('unavailable')
-						}
-					})
-				})
-			}
-		}
 		handleSelection();
 	}
 
