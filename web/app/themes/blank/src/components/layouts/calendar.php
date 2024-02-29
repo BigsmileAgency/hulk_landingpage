@@ -56,7 +56,9 @@ $lang = get_language_attributes($doctype = "html");
 			<p class="full_date"></p>
 			<i class="fas fa-angle-right next_day"></i>
 		</div>
-		<div class="slots">
+		<div class="slots_container">
+			<div class="slots"></div>
+			<div class="no_slots"></div>
 		</div>
 	</div>
 </div>
@@ -137,8 +139,8 @@ $lang = get_language_attributes($doctype = "html");
 		return date;
 	};
 
-	getTheSlots(date);
 	renderCalendar();
+	getTheSlots(date);
 
 	document.querySelector(".prev").addEventListener("click", () => {
 		prevMonth();
@@ -360,23 +362,28 @@ $lang = get_language_attributes($doctype = "html");
 	}
 
 
-
 	function showSlots(result) {
 
 		slotsDisplay = ""
 		let slots = document.querySelector('.slots')
+		let noSlots = document.querySelector('.no_slots')
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot
 
+		console.log(slots, allSlots);
+
+		slots.style.display = "grid";
+		noSlots.style.display = "none";
+
 		let selectedDate = new Date(date);
 		let now = new Date();
-		now.setHours(0, 0, 0, 0);
 
-		if (date.getDay() === 0 || date.getDay() === 6 || selectedDate < now) {
-			allSlots.map((e) => {
-				slotsDisplay += `<div class="slot unavailable">${e.time}</div>`
-			})
-			slots.innerHTML = slotsDisplay;
+		if (date.getDay() === 0 || date.getDay() === 6 || selectedDate <= now) {
+
+			slots.style.display = "none";
+			noSlots.style.display = "block";
+			noSlots.innerHTML = `<p>Pas de slots pour toi aujourd'hui</p>`
+
 		} else {
 			allSlots.map((e) => {
 				slotsDisplay += `<div class="slot">${e.time}</div>`
@@ -395,7 +402,6 @@ $lang = get_language_attributes($doctype = "html");
 		}
 		handleSelection();
 	}
-
 
 	function dateInFr(date) {
 		let selectedDate = new Date(date);

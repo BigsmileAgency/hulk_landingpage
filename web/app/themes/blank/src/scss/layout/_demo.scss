@@ -242,6 +242,8 @@
 					display: grid;
 					grid-template-columns: 1fr 1fr;
 					grid-template-rows: repeat(6,1fr);
+					place-items: center;
+					column-gap: 10px;
 					@include breakpoint(sm) {
 						grid-template-columns: repeat(4, 1fr);
 					}
@@ -252,7 +254,9 @@
 					padding: 10px 4px;
 					border: solid 2px grey;
 					border-radius: 5px;
-					margin: 5px;					
+					margin: 5px;			
+					width: 100%;
+					max-width: 90px;							
 					&:hover:not(.time_selected) {
 						background-color: $main-color;
 						cursor: pointer;
@@ -266,9 +270,7 @@
 				}
 
 				.unavailable {
-					background-color: rgb(168, 168, 168);
-					opacity: .7;
-					pointer-events: none;
+					display: none;
 				}
 			}
 
