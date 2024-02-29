@@ -15,11 +15,11 @@ $mb: 2rem;
   }
 
   .container {
-    width: 80%;
+    // width: 80%;
 
-    @include breakpoint(md) {
-      width: 90%;
-    }
+    // @include breakpoint(md) {
+    //   width: 90%;
+    // }
   }
 
   // center button and img
@@ -154,7 +154,7 @@ $mb: 2rem;
   img {
     width: 575px;
     border-radius: 30px;
-  }
+  } 
 
   .hollow_trial_btn {
     @include button(16px, hollow);
