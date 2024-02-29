@@ -46,6 +46,7 @@
             $btn = get_sub_field('feat_btn');
         ?>
             <div class="feat_container">
+              <div class="img_shadow"></div>
               <img src="<?= $img ?>" alt="">
               <div class="side_grid">
                 <h3><?= $title ?></h3>
@@ -85,7 +86,7 @@
         <div class="left_box">
           <h2><?= $hero3['catchphrase'] ?></h2>
           <p><?= $hero3['sub_catchphrase'] ?></p>
-          <button class="hollow_trial_btn"><a href="<?php echo site_url('/demo'); ?>"><?= $hero3['btn_trial'] ?></a></button>
+          <button class="trial_btn"><a href="<?php echo site_url('/demo'); ?>"><?= __('Book a demo call', 'hulkbanner')?></a></button>
         </div>
         <img src="<?= $hero3['img_hero3'] ?>" alt="">
       </div>
