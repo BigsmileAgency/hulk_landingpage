@@ -12,7 +12,6 @@
     <meta name="theme-color" content="#ffffff">
 
     <?php wp_head(); ?>
-
     <?php if (WP_ENV !== 'development' && !is_admin()) { ?>
 
         <!-- Google tag (gtag.js) -->

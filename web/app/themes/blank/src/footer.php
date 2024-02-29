@@ -32,7 +32,7 @@
     <section>
     <div class="legal_footer">
 
-    © 2023 Big Smile Agency - Terms and conditions | Privacy policy | Cookie policy
+    © 2024 Big Smile Agency - Terms and conditions | Privacy policy | Cookie policy
     </div>
 </section>
 

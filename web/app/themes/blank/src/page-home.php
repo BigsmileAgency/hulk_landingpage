@@ -27,7 +27,7 @@
         <div class="left_box">
           <h2><?= $hero2['catchphrase'] ?></h2>
           <p><?= $hero2['sub_catchphrase'] ?></p>
-          <button class="hollow_trial_btn"><a href="<?php echo site_url('/demo'); ?>"><?= $hero2['btn_trial'] ?></a></button>
+          <button class="trial_btn"><a href="<?php echo site_url('/demo'); ?>"><?= $hero2['btn_trial'] ?></a></button>
         </div>
         <img src="<?= $hero2['img_hero2'] ?>" alt="">
       </div>
