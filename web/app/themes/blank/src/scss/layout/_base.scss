@@ -3,6 +3,7 @@ body {
   height: 100%;
   min-height: 100vh;
   position: relative;
+  line-height: 1.1;
 }
 
 body {
@@ -66,6 +67,7 @@ a {
 
 h1, h2 {
   font-size: 40px;
+  line-height: 1.25;
   @include breakpoint(xs) {
     font-size: 36px;
     
@@ -74,6 +76,7 @@ h1, h2 {
 
 h3 {
   font-size: 30px;
+  line-height: 1.25;
 }
 
 h4 {
@@ -96,4 +99,7 @@ ul, ol {
 }
 .hidden {
   display: none;
+}
+p {
+  line-height: 1.5;
 }

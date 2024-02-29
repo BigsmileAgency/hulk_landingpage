@@ -3,6 +3,9 @@ $mb: 2rem;
 .home {
   .container {
     padding : 50px 90px;
+    @include breakpoint(md) {
+      padding : 50px 0px;
+    }
   }
   h2,
   h3 {
@@ -10,9 +13,7 @@ $mb: 2rem;
     color: $black;
   }
 
-  p {
-    text-align: justify;
-  }
+
 
   .container {
     // width: 80%;
@@ -84,19 +85,19 @@ $mb: 2rem;
     align-items: center;
     margin: 70px auto 1rem;
     
-    @include breakpoint(lg) {
-      width: 65%;
-      button {
-        font-size: 14px;
-      }
-    }
+    // @include breakpoint(lg) {
+    //   width: 65%;
+    //   button {
+    //     font-size: 14px;
+    //   }
+    // }
     
-    button {
-      min-width: 240px;
-      @include breakpoint(sm) {
-        font-size: 12px;
-      }
-    }
+    // button {
+    //   min-width: 240px;
+    //   @include breakpoint(sm) {
+    //     font-size: 12px;
+    //   }
+    // }
     
     @include breakpoint(md) {
       flex-direction: column;
@@ -177,6 +178,10 @@ $mb: 2rem;
   .feats_display_container {
     width : 1366px;
     position: relative;
+    @include breakpoint(xl) {
+      width:100%;
+    }
+
   }
   .img_shadow {
     z-index: -1;
