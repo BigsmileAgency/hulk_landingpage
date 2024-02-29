@@ -258,15 +258,16 @@
 					width: 100%;
 					max-width: 90px;							
 					&:hover:not(.time_selected) {
-						background-color: $main-color;
+						background-color: $light-color;
 						cursor: pointer;
-						color: $white;
 					}
 				}
 
 				.time_selected {
 					background-color: $main-color;
-					color: white;
+					color: $white;
+					border: solid 2px $main-color;
+					cursor: pointer;
 				}
 
 				.unavailable {

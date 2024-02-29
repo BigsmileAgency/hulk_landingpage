@@ -193,7 +193,11 @@ $lang = get_language_attributes($doctype = "html");
 			otherTime.forEach((e) => {
 				e.classList.remove(('time_selected'))
 			})
-			thisTime.classList.add('time_selected')
+			if (thisTime.classList.contains('time_selected')) {
+				thisTime.classList.remove('time_selected')
+			} else {
+				thisTime.classList.add('time_selected')
+			}
 		}
 
 		let callIt = false;
@@ -329,9 +333,7 @@ $lang = get_language_attributes($doctype = "html");
 				day.classList.remove('date_selected')
 			}
 		})
-
 		getTheSlots(prevDate);
-
 	}
 
 	function getTheSlots(date) {
@@ -369,13 +371,13 @@ $lang = get_language_attributes($doctype = "html");
 		let noSlots = document.querySelector('.no_slots')
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot
-		
+
 		slots.style.display = "grid";
 		noSlots.style.display = "none";
-		
+
 		let selectedDate = new Date(date);
 		let now = new Date();
-		
+
 		allSlots.map((e) => {
 			slotsDisplay += `<div class="slot">${e.time}</div>`
 		})
@@ -397,7 +399,7 @@ $lang = get_language_attributes($doctype = "html");
 			slots.style.display = "none";
 			noSlots.style.display = "block";
 			noSlots.innerHTML = `${copy.noAvailable[lang]}`
-		} 
+		}
 
 		handleSelection();
 	}
