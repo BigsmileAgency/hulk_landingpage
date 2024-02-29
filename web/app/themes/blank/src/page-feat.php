@@ -133,7 +133,7 @@
                 // Do something, but make sure you escape the value if outputting directly... ?>
                 <div class="quality">
                   <div class="quality_img">
-                    <img src="<?= $img_quality ?>" width="30" height="30">
+                  <img src="<?= get_template_directory_uri() ?>/images/check.svg" alt="" width="30" height="30">
                   </div>
                   <div class="quality_title">
                     <?= $title_quality ?>

@@ -15,13 +15,16 @@ $fs-sub-mobile : 20px;
 	p {
 		margin-bottom: 25px;
 	}
+	.add_on_content, .feature_content, .title_content, .free_trial_content {
+		line-height: 24px;
+	}
 }
 
 .feat_header,
 .free_trial_container,
 .add_ons_container {
 	text-align: center;
-	width: 800px;
+	width: 850px;
 	margin: 0px auto 0px auto;
 
 	@include breakpoint(md) {
@@ -69,7 +72,7 @@ $fs-sub-mobile : 20px;
 
 .feature_title {
 	font-weight: 700;
-	font-size: 20px;
+	font-size: 24px;
 	margin: 20px 0 15px 0;
 }
 
@@ -153,6 +156,7 @@ $fs-sub-mobile : 20px;
 	@include button(16px);
 	width: 225px;
 	margin-top: 25px;
+	padding: 13px 35px;
 	color: $white;
 }
 
