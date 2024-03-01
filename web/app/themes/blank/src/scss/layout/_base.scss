@@ -103,3 +103,9 @@ ul, ol {
 p {
   line-height: 1.5;
 }
+
+:focus-visible {
+  outline: none;
+  border: solid $grey 2px;
+  border-radius: 5px;
+}
