@@ -17,7 +17,7 @@
             <h1 class="title">
               <?= get_field('main_title') ?>
             </h1>
-            <p class="title_content">
+            <p class="title_content margin_bottom">
               <?= get_field('main_title_content') ?>
             </p>
           </div>
@@ -143,7 +143,7 @@
             <h2 class="title">
               <?= get_field('faq_title') ?>
             </h2>
-            <p class="title_content">
+            <p class="title_content margin_bottom">
               <?= get_field('faq_title_content') ?>
             </p>
           </div>
@@ -184,7 +184,7 @@
             <h1 class="title">
               <?= get_field('compare_title') ?>
             </h1>
-            <p class="title_content">
+            <p class="title_content margin_bottom">
               <?= get_field('compare_title_content') ?>
             </p>
           </div>
@@ -301,6 +301,11 @@
               endwhile;
             endif; ?>
           </div>
+          <div class="mobile_button_container">
+            <div class="free_trial_button">
+              <?= get_field('free_trial_button') ?>
+            </div>
+          </div>
         </div>
       </section>
       <section class="bg_blue">
@@ -309,7 +314,7 @@
             <h2 class="title">
               <?= get_field('title_add-ons') ?>
             </h2>
-            <p class="title_content">
+            <p class="title_content margin_bottom">
               <?= get_field('content_add-ons') ?>
             </p>
           </div>
@@ -329,16 +334,16 @@
                 <div class="add_on">
                   <div class="add_on_top">
 
-                    <div class="add_on_title">
+                    <h3 class="add_on_title">
                       <?= $title_add_on ?>
-                    </div>
-                    <div class="add_on_content">
+              </h3>
+                    <p class="add_on_content">
                       <?= $content_add_on ?>
-                    </div>
+              </p>
                   </div>
-                  <div class="add_on_price">
+                  <h3 class="add_on_price">
                     <?= $price_add_on ?>
-                  </div>
+              </h3>
                 </div>
 
             <?php // End loop.
