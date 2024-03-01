@@ -123,13 +123,25 @@
 
 		#demo_form {
 
+			.response {
+				height: 16px;
+				font-size: 12px;
+				margin: 4px 0;
+				color: red;
+				display: flex;
+				flex-direction: row;
+				.response_text {
+					padding-left: 6px;
+				}
+			}
+
 			input[type=text] {
-				border: solid grey 1px;
+				border: solid $grey 1px;
 				border-radius: 5px;
 				padding: 5px;
 				width: 100%;
-				height: 40px;
-				margin-top: 12px;
+				height: 38px;
+				margin-top: 8px;
 			}
 
 			input[type=submit] {
@@ -138,8 +150,13 @@
 				margin: 0 20%;
 			}
 
+			input[type=text]:focus-visible {
+				outline: none;
+				border: solid $main-color 1px;
+			}
+
 			.form_item {
-				margin-bottom: 2rem;	
+				margin-bottom: 1rem;
 			}
 
 			#form_grid {
@@ -152,6 +169,7 @@
 				@include breakpoint(md) {
 					grid-template-columns: 1fr;
 				}
+
 			}
 
 			#agency_container {
@@ -176,7 +194,8 @@
 				align-items: flex-start;
 				text-align: left;
 				font-size: 12px;
-				padding: 0px 20px;	
+				padding: 0px 20px;
+
 				label {
 					margin-left: .5rem;
 				}
@@ -256,7 +275,6 @@
 					width: 100%;
 				}
 
-
 				.time_header {
 					width: 100%;
 					min-width: 160px;
@@ -271,7 +289,8 @@
 
 				.slots_container {
 					width: 100%;
-					@include breakpoint(md){
+
+					@include breakpoint(md) {
 						min-height: 170px;
 						// padding: 20px;
 					}
@@ -288,11 +307,14 @@
 						grid-template-columns: repeat(4, 1fr);
 						grid-template-rows: repeat(3, 1fr);
 					}
-				
+
 				}
 
-				@include breakpoint(md){
-					.slots, .no_slots, .time_gif > img {
+				@include breakpoint(md) {
+
+					.slots,
+					.no_slots,
+					.time_gif>img {
 						height: 100%;
 						width: auto;
 					}
@@ -327,6 +349,7 @@
 				.time_gif {
 					display: none;
 					width: 100%;
+
 					img {
 						width: 80%;
 						margin: auto;
@@ -401,7 +424,8 @@
 
 					.prev_date,
 					.next_date {
-						opacity: .5;
+						opacity: 0;
+						pointer-events: none;
 					}
 				}
 			}

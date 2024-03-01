@@ -41,7 +41,6 @@
       <?php $demo_form = get_field('demo_form') ?>
       
       <div class="form_and_calendar">       
-        <p class="demo_response response"></p>
         <div class="demo_form_container">
           <div class="form_header">
             <h3><?= $demo_form['form_title'] ?></h3>
@@ -53,26 +52,31 @@
               <div class="form_item">
                 <label for="demo_first_name"><?= $demo_form['first_name'] ?></label><br>
                 <input id="demo_first_name" type="text" name="demo_first_name">
+                <div class="response"></div>
               </div>
 
               <div class="form_item">
                 <label for="demo_last_name"><?= $demo_form['last_name'] ?></label><br>
                 <input id="demo_last_name" type="text" name="demo_last_name">
+                <div class="response"></div>
               </div>
 
               <div class="form_item">
                 <label for="demo_email"><?= $demo_form['email'] ?></label><br>
                 <input id="demo_email" type="text" name="demo_email">
+                <div class="response"></div>
               </div>
 
               <div class="form_item">
                 <label for="demo_phone"><?= $demo_form['phone'] ?></label><br>
                 <input id="demo_phone" type="text" name="demo_phone">
+                <div class="response"></div>
               </div>
 
               <div class="form_item">
                 <label for="demo_company_name"><?= $demo_form['company_name'] ?></label><br>
                 <input id="demo_company_name" type="text" name="demo_company_name">
+                <div class="response"></div>
               </div>
 
               <div class="form_item" id="agency_container">

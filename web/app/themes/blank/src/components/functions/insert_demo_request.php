@@ -10,24 +10,31 @@ function insert_demo_request()
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $company = $_POST['company'];
+    $is_agency = $_POST['is_agency'];
     $is_consent = $_POST['is_consent'];
     $time = $_POST['time'];
     $lang = $_POST['lang'];
 
-
     if ($is_consent === "true") {
         // insert in mailing list
+    }
+
+    if($is_agency === "true"){
+        $is_agency = '1';
+    } else {
+        $is_agency = '0';
     }
 
     $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE time = %s", $time));
 
     $insert = $wpdb->query(
         $wpdb->prepare(
-            "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `email`, `phone`, `lang`, `date`, `time_slot_id`) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+            "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `is_agency`, `email`, `phone`, `lang`, `date`, `time_slot_id`) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
             $first_name,
             $last_name,
             $company,
+            $is_agency,
             $email,
             $phone,
             $lang,
@@ -37,9 +44,9 @@ function insert_demo_request()
     );
 
     if ($insert) {
-        $response ="oui";
+        $response ="Nouveau RDV inséré dans la DB";
     } else {
-        $response = "non";
+        $response = "Echec";
     }
 
     echo json_encode($response);
