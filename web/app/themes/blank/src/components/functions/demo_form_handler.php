@@ -105,7 +105,7 @@ function demo_form_handler()
 					handleAlert(email, copy.emptyFields, lang);
 				} else if (phone.value === "") {
 					handleAlert(phone, copy.emptyFields, lang);
-				} else if (isAgency && companyName.value === ""){
+				} else if (isAgency && companyName.value === "") {
 					handleAlert(companyName, copy.emptyFields, lang);
 				} else if (!email.value.match(mailRegex)) {
 					handleAlert(email, copy.badMail, lang);
@@ -119,6 +119,7 @@ function demo_form_handler()
 						calendarContainer.style.display = "block"
 					}, 750);
 				}
+
 			}
 
 			function handleTimeDay(e) {
@@ -139,7 +140,7 @@ function demo_form_handler()
 						'&phone=' + phone.value +
 						'&email=' + email.value +
 						'&company=' + companyName.value +
-						'&is_agency=' + isAgency + 
+						'&is_agency=' + isAgency +
 						'&is_consent=' + isConsent +
 						'&time=' + time.innerHTML +
 						'&lang=' + lang;
@@ -176,17 +177,12 @@ function demo_form_handler()
 							result = JSON.parse(result);
 							if (!result.error) {
 								console.log(result);
-								if (lang !== "en") {
-									setTimeout((e) => {
-										window.location = '/' + lang;
-									}, 2000)
-								} else {
-									setTimeout((e) => {
-										window.location = '/';
-									}, 2000)
+								if (!alert(copy.successSend[lang])) {
+									window.location.reload()
 								}
 							} else {
 								console.log(result);
+								alert(copy.problem[lang])
 								bookBtn.disabled = false;
 							}
 						}
@@ -209,15 +205,15 @@ function demo_form_handler()
 			}
 
 			function handleAlert(field, message, lang) {
-					let grey = field.style.borderColor
-					field.style.borderColor = "red";
-					let response = field.nextElementSibling;
-					response.innerHTML = `<img class="response_img" src="<?php echo get_template_directory_uri() ?>/images/material_error.svg" /><p class="response_text">${message[lang]}</p>`
-					setTimeout((e) => {
-						field.style.borderColor = grey;
-						response.innerHTML = ""
-					}, 1500)
-				}
+				let grey = field.style.borderColor
+				field.style.borderColor = "red";
+				let response = field.nextElementSibling;
+				response.innerHTML = `<img class="response_img" src="<?php echo get_template_directory_uri() ?>/images/material_error.svg" /><p class="response_text">${message[lang]}</p>`
+				setTimeout((e) => {
+					field.style.borderColor = grey;
+					response.innerHTML = ""
+				}, 1500)
+			}
 		})
 	</script>
 <?php

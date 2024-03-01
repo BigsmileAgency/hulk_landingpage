@@ -19,7 +19,7 @@ function insert_demo_request()
         // insert in mailing list
     }
 
-    if($is_agency){
+    if($is_agency === "true"){
         $is_agency = '1';
     } else {
         $is_agency = '0';
@@ -44,12 +44,12 @@ function insert_demo_request()
     );
 
     if ($insert) {
-        $response ="oui";
+        $response ="Nouveau RDV inséré dans la DB";
     } else {
-        $response = "non";
+        $response = "Echec";
     }
 
-    echo json_encode($is_agency);
+    echo json_encode($response);
     wp_die();
 }
 
