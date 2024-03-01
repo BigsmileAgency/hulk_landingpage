@@ -22,6 +22,10 @@
             </p>
           </div>
           <div class="tabs_container">
+            <div class="annual_promo main-color bold">
+              <p class="promo_text">Get 20% off</p>
+              <img class="promo_arrow" src="<?php echo get_template_directory_uri() ?>/images/promo_arrow.svg">
+              </div>
             <div class="tabs">
               <input type="radio" name="tabs" id="monthly" onchange="showContent('monthly_price')" checked>
               <label class="tab" for="monthly"><?= __('Monthly billing', 'hulkBanner') ?></label>
@@ -39,7 +43,7 @@
                 <?= $small['billing_title'] ?>
               </h3>
               <div class="small_inside_container">
-                <div class="price bold">
+                <div class="price bold main-color">
                   <div class="monthly_price">
                     <?= $small['price_monthly'] ?>
                   </div>
@@ -59,7 +63,7 @@
                 <div class="billing_button">
                   <?= $small['button_billing'] ?>
                 </div>
-                <div class="see_more"><a href="#">
+                <div class="see_more main-color"><a href="#">
                     <?= $small['see_more'] ?>
                   </a></div>
               </div>
@@ -102,7 +106,7 @@
                 <?= $large['billing_title'] ?>
               </h3>
               <div class="small_inside_container">
-                <div class="price bold">
+                <div class="price bold main-color">
                   <div class="monthly_price">
                     <?= $large['price_monthly'] ?>
                   </div>
@@ -122,7 +126,7 @@
                 <div class="billing_button">
                   <?= $large['button_billing'] ?>
                 </div>
-                <div class="see_more"><a href="#">
+                <div class="see_more main-color"><a href="#">
                     <?= $large['see_more'] ?>
                   </a></div>
               </div>
@@ -136,9 +140,9 @@
       <section class="bg_blue">
         <div class="container faq_container">
           <div class="faq_header">
-            <h1 class="title">
+            <h2 class="title">
               <?= get_field('faq_title') ?>
-            </h1>
+            </h2>
             <p class="title_content">
               <?= get_field('faq_title_content') ?>
             </p>
@@ -156,12 +160,12 @@
                 // Do something, but make sure you escape the value if outputting directly... 
             ?>
                 <div class="question">
-                  <div class="title_question bold">
+                  <h3 class="title_question bold">
                     <?= $title_question ?>
-                  </div>
-                  <div class="content_question">
+              </h3>
+                  <p class="content_question">
                     <?= $content_question ?>
-                  </div>
+              </p>
                 </div>
 
             <?php // End loop.
@@ -246,16 +250,16 @@
                       $large_row = get_sub_field('large_row');
                   ?>
                       <div class="table_row">
-                        <div class="row_title row bold">
+                        <div class="row_title row ">
                           <?= $row_title ?>
                         </div>
 
                         <div class="small_row row">
                           <?php
                           if ($small_row === "true") { ?>
-                            <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.png">
+                            <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.svg">
                           <?php } else if ($small_row === "false") { ?>
-                            <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
+                            <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.svg">
                             <?php } else if ($small_row == $unlimited) { ?>
                             <span class="unlimited"><?= $small_row ?></span>
                           <?php } else {
@@ -266,9 +270,9 @@
                         <div class="medium_row row">
                           <?php
                           if ($medium_row === "true") { ?>
-                            <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.png">
+                            <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.svg">
                           <?php } else if ($medium_row === "false") { ?>
-                            <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
+                            <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.svg">
                             <?php } else if ($medium_row == $unlimited) { ?>
                             <span class="unlimited"><?= $medium_row ?></span>
                           <?php } else {
@@ -279,9 +283,9 @@
                         <div class="large_row row">
                           <?php
                           if ($large_row === "true") { ?>
-                            <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.png">
+                            <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.svg">
                           <?php } else if ($large_row === "false") { ?>
-                            <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.png">
+                            <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.svg">
                           <?php } else if ($large_row == $unlimited) { ?>
                             <span class="unlimited"><?= $large_row ?></span>
                           <?php } else {

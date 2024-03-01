@@ -42,11 +42,26 @@
 
 		//bouton slider
 		.tabs_container {
+			position: relative;
 			margin: 50px 0;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-
+			flex-direction: column;
+			gap :10px;
+			.promo_text {
+				margin-bottom :0;
+				margin-left : 220px;
+			}
+			.annual_promo {
+				text-align: right;
+			}
+			.promo_arrow{
+				position: absolute;
+				z-index : 10;
+				top: 10%;
+				right : calc(50% - 205px);
+			}
 			.tabs {
 				display: flex;
 				position: relative;
@@ -69,7 +84,6 @@
 				justify-content: center;
 				height: 60px;
 				width: 200px;
-				font-size: 1.25rem;
 				border-radius: 99px;
 				cursor: pointer;
 				transition: color 0.15s ease-in;
@@ -142,11 +156,7 @@
 					color: $white;
 					margin-bottom: 15px;
 				}
-				.billing_option:nth-child(odd) {
-					.small_inside_container .monthly_price {
-						color: $main-color;
-					}
-				}
+				
 				.small_inside_container {
 					background-color: $white;
 					width: 100%;
@@ -184,6 +194,9 @@
 						align-items: center;
 						justify-content: center;
 						font-weight: 600;
+					}
+					.see_more {
+						font-size: 12px;
 					}
 				}
 
@@ -241,7 +254,7 @@
 	.compare_container {
 		.columns_title {
 			display: grid;
-			grid-template-columns: 250px repeat(3, 1fr);
+			grid-template-columns:  repeat(4, 1fr);
 			height: 60px;
 			width: 1180px;
 
@@ -279,8 +292,7 @@
 				}
 
 				.free_trial_button {
-					@include button(16px);
-					width: 220px;
+					@include button(15px);
 					margin: 20px 0;
 					color: $white;
 					height: 46px;
@@ -316,7 +328,7 @@
 
 				.table_row {
 					display: grid;
-					grid-template-columns: 250px repeat(3, 1fr);
+					grid-template-columns:  repeat(4, 1fr);
 					height: 60px;
 
 					@include breakpoint(xs) {
@@ -343,6 +355,7 @@
 					.row_title {
 						justify-content: flex-start;
 						padding-left: 15px;
+						text-align: left;
 					}
 				}
 			}
