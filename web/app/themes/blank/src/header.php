@@ -43,8 +43,8 @@
             <?php wp_nav_menu(array('theme_location' => 'nav_menu', 'container_class' => 'nav_menu')); ?>
             <div class="nav_menu">
                 <ul id="menu-login">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Try for free</a></li>
+                    <li><a href="#"><?= __('Login', 'hulkbanner') ?></a></li>
+                    <li><a href="#"><?= __('Try for free', 'hulkbanner') ?></a></li>
                 </ul>
                 <div id="lang_switch_wrap">
                     <div id="lang_btns"></div>
@@ -61,3 +61,13 @@
         </div>
         </div>
     </header>
+    <script>
+      window.addEventListener('scroll',(e)=>{
+        const nav = document.querySelector('.header');
+        if(window.pageYOffset>0){
+          nav.classList.add("add-shadow");
+        }else{
+          nav.classList.remove("add-shadow");
+        }
+      });
+    </script>
