@@ -89,12 +89,14 @@ function demo_form_handler()
 				email = document.querySelector("#demo_email");
 				phone = document.querySelector("#demo_phone");
 				companyName = document.querySelector("#demo_company_name");
-				isAgency = document.querySelector("#are_you_agency").checked;
+				isAgency = document.querySelector('input[type=radio][name=is_agency]:checked');
 				isConsent = document.querySelector("#demo_consent").checked;
 
 				// regexs 
 				let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+
+				console.log(isAgency.value);
 
 
 				if (firstName.value === "") {

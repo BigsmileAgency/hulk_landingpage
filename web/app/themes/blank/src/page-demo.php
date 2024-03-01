@@ -19,7 +19,7 @@
   </div>
 
   <section class="demo_section">
-    <div class="container demo_container" >
+    <div class="container demo_container">
       <div class="explanation_list">
         <h3><?= get_field("list_title") ?></h3>
         <ol>
@@ -39,8 +39,8 @@
 
       <!-- CONTACT FORM -->
       <?php $demo_form = get_field('demo_form') ?>
-      
-      <div class="form_and_calendar">       
+
+      <div class="form_and_calendar">
         <div class="demo_form_container">
           <div class="form_header">
             <h3><?= $demo_form['form_title'] ?></h3>
@@ -79,9 +79,19 @@
                 <div class="response"></div>
               </div>
 
-              <div class="form_item" id="agency_container">
-                <label for="are_you_agency"><?= $demo_form['are_you_agency'] ?></label><br>
-                <input id="are_you_agency" type="checkbox" name="are_you_agency">
+              <div class="form_item">
+                <label for="is_agency"><?= __('Are you an agency?', 'hulkBanner') ?> <span class="main-color">*</span></label><br>
+                <div id="agency_container">
+                  <div class="tabs is_agency">
+                    <input type="radio" name="is_agency" id="no" value="0" checked>
+                    <label class="tab" for="no"><?= __('No', 'hulkBanner') ?></label>
+  
+                    <input type="radio" name="is_agency" id="yes" value="1">
+                    <label class="tab" for="yes"><?= __('Yes', 'hulkBanner') ?></label>
+  
+                    <span class="glider"></span>
+                  </div>
+                </div>
               </div>
             </div>
 

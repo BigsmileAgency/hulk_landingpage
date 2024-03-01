@@ -96,6 +96,10 @@
 			width: 80%;
 		}
 
+		@include breakpoint(xs) {
+			width: 90%;
+		}
+
 		.form_header {
 			position: relative;
 
@@ -157,6 +161,66 @@
 				margin-bottom: 1rem;
 			}
 
+			#agency_container {
+				position: relative;
+				display: flex;			
+				justify-content: center;
+				flex-direction: column;
+				width: 150px;
+
+				.tabs {
+					display: flex;
+					position: relative;
+					background-color: $light-color;
+					padding: 4px;
+					border-radius: 99px;
+					margin-top: .5rem;
+				}
+	
+				.tabs * {
+					z-index: 2;
+				}
+	
+				input[type="radio"] {
+					display: none;
+				}
+	
+				.tab {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					height: 30px;
+					width: 70px;
+					border-radius: 99px;
+					cursor: pointer;
+					transition: color 0.15s ease-in;					
+				}			
+			
+					input[type="radio"]:checked+label {
+					color: black;
+				}
+	
+				input[id="no"]:checked~.glider {
+					transform: translateX(0);
+				}
+	
+				input[id="yes"]:checked~.glider {
+					transform: translateX(100%);
+				}
+	
+				.glider {
+					position: absolute;
+					display: flex;
+					height: 30px;
+					width: 70px;
+					z-index: 1;
+					border-radius: 99px;
+					color: $black;
+					background-color: $white;
+					transition: 0.25s ease-out;
+				}
+			}
+
 			#form_grid {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
@@ -166,23 +230,6 @@
 
 				@include breakpoint(md) {
 					grid-template-columns: 1fr;
-				}
-
-			}
-
-			#agency_container {
-				display: flex;
-				flex-direction: row-reverse;
-				justify-content: left;
-				align-items: center;
-				margin-bottom: 0rem;
-
-				label {
-					margin-left: .5rem;
-				}
-
-				@include breakpoint(md) {
-					margin-bottom: .5rem;
 				}
 			}
 
