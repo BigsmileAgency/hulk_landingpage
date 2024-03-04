@@ -19,12 +19,6 @@ function insert_demo_request()
         // insert in mailing list
     }
 
-    if($is_agency === "true"){
-        $is_agency = '1';
-    } else {
-        $is_agency = '0';
-    }
-
     $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE time = %s", $time));
 
     $insert = $wpdb->query(

@@ -107,7 +107,7 @@ function demo_form_handler()
 					handleAlert(email, copy.emptyFields, lang);
 				} else if (phone.value === "") {
 					handleAlert(phone, copy.emptyFields, lang);
-				} else if (isAgency && companyName.value === "") {
+				} else if (isAgency.value == 1 && companyName.value === "") {
 					handleAlert(companyName, copy.emptyFields, lang);
 				} else if (!email.value.match(mailRegex)) {
 					handleAlert(email, copy.badMail, lang);
@@ -142,7 +142,7 @@ function demo_form_handler()
 						'&phone=' + phone.value +
 						'&email=' + email.value +
 						'&company=' + companyName.value +
-						'&is_agency=' + isAgency +
+						'&is_agency=' + isAgency.value +
 						'&is_consent=' + isConsent +
 						'&time=' + time.innerHTML +
 						'&lang=' + lang;
@@ -202,7 +202,7 @@ function demo_form_handler()
 				email = "";
 				phone = "";
 				companyName = "";
-				isAgency = false;
+				isAgency = "";
 				isConsent = false;
 			}
 
