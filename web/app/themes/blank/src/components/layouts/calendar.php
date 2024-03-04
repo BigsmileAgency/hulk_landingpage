@@ -187,7 +187,6 @@ $lang = get_language_attributes($doctype = "html");
 			getTheSlots(date);
 		}
 
-
 		function timeIsSelected(e) {
 			let thisTime = e.target;
 			const otherTime = timeArray.filter(time => {
@@ -283,6 +282,7 @@ $lang = get_language_attributes($doctype = "html");
 		let daysArray = Array.from(document.querySelectorAll('.day'));
 		let whatDay = fullDate.innerHTML.split(' ').filter((e) => /^\d{1,2}$/.test(e)).join('');
 		let nextDate = new Date(date)
+		let callIt = false
 
 		whatDay = whatDay.replace(/\b0+(\d+)/g, "$1")
 		nextDate.setDate(Number(whatDay) + 1)
@@ -371,7 +371,7 @@ $lang = get_language_attributes($doctype = "html");
 				result = JSON.parse(result);
 				if (!result.error) {
 					gif.style.display = "none";
-					showSlots(result, slots, noSlots)
+					showSlots(date, result, slots, noSlots)
 					setTimeout((e) => {
 						calendarContainer.style.pointerEvents = "auto";
 					}, 200)
@@ -382,11 +382,9 @@ $lang = get_language_attributes($doctype = "html");
 		};
 		xhr.send(dataSet);
 	}
-	
 
-	function showSlots(result, slots, noSlots) {
-		
-		// console.log(result, slots, noSlots);
+
+	function showSlots(date, result, slots, noSlots) {
 
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot
@@ -417,7 +415,7 @@ $lang = get_language_attributes($doctype = "html");
 
 		let unavailable = document.querySelectorAll('.unavailable')
 
-		if (unavailable.length == allSlots.length || date.getDay() === 0 || date.getDay() === 6 || selectedDate <= now) {
+		if (selectedDate <= now || unavailable.length == allSlots.length) {
 			slots.style.display = "none";
 			noSlots.style.display = "block";
 			noSlots.innerHTML = `${copy.noAvailable[lang]}`
