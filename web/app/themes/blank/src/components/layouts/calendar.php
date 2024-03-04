@@ -381,11 +381,12 @@ $lang = get_language_attributes($doctype = "html");
 			}
 		};
 		xhr.send(dataSet);
-
 	}
-
+	
 
 	function showSlots(result, slots, noSlots) {
+		
+		// console.log(result, slots, noSlots);
 
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot

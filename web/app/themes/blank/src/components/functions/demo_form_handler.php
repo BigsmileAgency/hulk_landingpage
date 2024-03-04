@@ -74,7 +74,6 @@ function demo_form_handler()
 			let back = document.querySelector('#back_arrow')
 			let firstName, lastName, email, phone, companyName, isAgency, isConsent;
 
-
 			demoSubmit.addEventListener("submit", handleInfos)
 			bookBtn.addEventListener('click', (e) => {
 				handleTimeDay(e, firstName, lastName, email, phone, companyName, isAgency, isConsent)
@@ -83,7 +82,10 @@ function demo_form_handler()
 
 
 			function handleInfos(e) {
+
 				e.preventDefault();
+
+
 				firstName = document.querySelector("#demo_first_name");
 				lastName = document.querySelector("#demo_last_name");
 				email = document.querySelector("#demo_email");
@@ -91,37 +93,40 @@ function demo_form_handler()
 				companyName = document.querySelector("#demo_company_name");
 				isAgency = document.querySelector('input[type=radio][name=is_agency]:checked');
 				isConsent = document.querySelector("#demo_consent").checked;
+				let grey = companyName.style.borderColor
 
 				// regexs 
 				let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
-				console.log(isAgency.value);
+				let fieldsArray = [firstName, lastName, email, phone]
 
+				let success = 0;
 
-				if (firstName.value === "") {
-					handleAlert(firstName, copy.emptyFields, lang);
-				} else if (lastName.value === "") {
-					handleAlert(lastName, copy.emptyFields, lang);
-				} else if (email.value === "") {
-					handleAlert(email, copy.emptyFields, lang);
-				} else if (phone.value === "") {
-					handleAlert(phone, copy.emptyFields, lang);
-				} else if (isAgency.value == 1 && companyName.value === "") {
-					handleAlert(companyName, copy.emptyFields, lang);
-				} else if (!email.value.match(mailRegex)) {
-					handleAlert(email, copy.badMail, lang);
-				} else if (!phone.value.match(phoneRegex)) {
-					handleAlert(phone, copy.badPhone, lang);
-				} else {
+				fieldsArray.map((e) => {
+					if (e.value == "") {
+						handleAlert(e, copy.emptyFields, lang)
+						success++
+					} else if (e == email && !email.value.match(mailRegex)) {
+						handleAlert(e, copy.badMail, lang);
+						success++
+					} else if (e == phone && !phone.value.match(phoneRegex)) {
+						handleAlert(e, copy.badPhone, lang);
+						success++
+					} else {
+						rollBackAlert(e, grey)
+					}
+				})
+
+				if (success == 0) {
 					demoFormContainer.style.display = "none";
 					gif.style.display = "block";
 					setTimeout(() => {
 						gif.style.display = "none"
 						calendarContainer.style.display = "block"
-					}, 750);
-				}
+					}, 1000);
 
+				}
 			}
 
 			function handleTimeDay(e) {
@@ -207,14 +212,15 @@ function demo_form_handler()
 			}
 
 			function handleAlert(field, message, lang) {
-				let grey = field.style.borderColor
 				field.style.borderColor = "red";
 				let response = field.nextElementSibling;
 				response.innerHTML = `<img class="response_img" src="<?php echo get_template_directory_uri() ?>/images/material_error.svg" /><p class="response_text">${message[lang]}</p>`
-				setTimeout((e) => {
-					field.style.borderColor = grey;
-					response.innerHTML = ""
-				}, 1500)
+			}
+
+			function rollBackAlert(field, grey) {
+				field.style.borderColor = grey;
+				let response = field.nextElementSibling;
+				response.innerHTML = ""
 			}
 		})
 	</script>

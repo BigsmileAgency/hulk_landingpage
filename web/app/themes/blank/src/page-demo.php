@@ -80,7 +80,7 @@
               </div>
 
               <div class="form_item">
-                <label for="is_agency"><?= __('Are you an agency?', 'hulkBanner') ?> <span class="main-color">*</span></label><br>
+                <label for="is_agency"><?= __('Are you an agency?', 'hulkBanner') ?></label><br>
                 <div id="agency_container">
                   <div class="tabs is_agency">
                     <input type="radio" name="is_agency" id="no" value="0" checked>
