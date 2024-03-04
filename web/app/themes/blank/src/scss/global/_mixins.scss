@@ -5,6 +5,12 @@
     }
   }
 
+  @else if $class == ss {
+    @media (max-width: 340px) {
+      @content;
+    }
+  }
+
   @else if $class ==s {
     @media (max-width: 560px) {
       @content;

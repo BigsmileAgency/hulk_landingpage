@@ -100,7 +100,7 @@
               <label for="demo_consent"><?= $demo_form['consent'] ?></label>
             </div>
 
-            <input id="demo_send_btn" type="submit" value="<?= $demo_form['send_btn'] ?>">
+            <input class="demo_btn" id="demo_send_btn" type="submit" value="<?= $demo_form['send_btn'] ?>">
 
           </form>
         </div>
@@ -116,10 +116,9 @@
             <h3><?= get_field('calendar_title') ?></h3>
             <p><?= get_field('calendar_sub_title') ?></p>
           </div>
-
+          
           <?php get_template_part('./components/layouts/calendar') ?>
-
-          <button type="submit" id="book_btn"><?= get_field('calendar_btn') ?></button>
+          <button class="demo_btn" type="submit" id="book_btn"><?= get_field('calendar_btn') ?></button>
 
         </div>
       </div>
