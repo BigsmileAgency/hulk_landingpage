@@ -3,67 +3,69 @@ $lang = get_language_attributes($doctype = "html");
 ?>
 
 <div class="booking_form">
-	<div class="calendar">
-		<div class="month">
-			<i class="fas fa-angle-left prev"></i>
-			<div class="date">
-				<p class="month_display"></p>
+	<div class="calendar_and_time">
+		<div class="calendar">
+			<div class="month">
+				<i class="fas fa-angle-left prev"></i>
+				<div class="date">
+					<p class="month_display"></p>
+				</div>
+				<i class="fas fa-angle-right next"></i>
 			</div>
-			<i class="fas fa-angle-right next"></i>
+
+			<?php if ($lang == 'lang="fr-FR"') : ?>
+				<div class="weekdays">
+					<div>L</div>
+					<div>Ma</div>
+					<div>Me</div>
+					<div>J</div>
+					<div>V</div>
+					<div>S</div>
+					<div>D</div>
+				</div>
+
+			<?php elseif ($lang == 'lang="en-EN"' || $lang == 'lang="en-US"') : ?>
+				<div class="weekdays">
+					<div>M</div>
+					<div>Tue</div>
+					<div>W</div>
+					<div>Thu</div>
+					<div>F</div>
+					<div>S</div>
+					<div>Sun</div>
+				</div>
+
+			<?php elseif ($lang == 'lang="nl-NL"' || $lang == 'lang="nl-BE"') : ?>
+				<div class="weekdays">
+					<div>Ma</div>
+					<div>Di</div>
+					<div>Wo</div>
+					<div>Do</div>
+					<div>Vr</div>
+					<div>Za</div>
+					<div>Zo</div>
+				</div>
+			<?php endif; ?>
+
+			<div class="days">
+			</div>
 		</div>
-
-		<?php if ($lang == 'lang="fr-FR"') : ?>
-			<div class="weekdays">
-				<div>L</div>
-				<div>Ma</div>
-				<div>Me</div>
-				<div>J</div>
-				<div>V</div>
-				<div>S</div>
-				<div>D</div>
+		<div class="time">
+			<div class="time_header">
+				<i class="fas fa-angle-left prev_day"></i>
+				<p class="full_date"></p>
+				<i class="fas fa-angle-right next_day"></i>
 			</div>
-
-		<?php elseif ($lang == 'lang="en-EN"' || $lang == 'lang="en-US"') : ?>
-			<div class="weekdays">
-				<div>M</div>
-				<div>Tue</div>
-				<div>W</div>
-				<div>Thu</div>
-				<div>F</div>
-				<div>S</div>
-				<div>Sun</div>
+			<div class="slots_container">
+				<div class="slots"></div>
+				<div class="no_slots"></div>
+				<div class="time_gif">
+					<img src="<?= get_template_directory_uri() ?>/images/FoxBanner_loading.gif" alt="">
+				</div>
 			</div>
-
-		<?php elseif ($lang == 'lang="nl-NL"' || $lang == 'lang="nl-BE"') : ?>
-			<div class="weekdays">
-				<div>Ma</div>
-				<div>Di</div>
-				<div>Wo</div>
-				<div>Do</div>
-				<div>Vr</div>
-				<div>Za</div>
-				<div>Zo</div>
-			</div>
-		<?php endif; ?>
-
-		<div class="days">
 		</div>
 	</div>
-
-	<div class="time">
-		<div class="time_header">
-			<i class="fas fa-angle-left prev_day"></i>
-			<p class="full_date"></p>
-			<i class="fas fa-angle-right next_day"></i>
-		</div>
-		<div class="slots_container">
-			<div class="slots"></div>
-			<div class="no_slots"></div>
-			<div class="time_gif">
-				<img src="<?= get_template_directory_uri() ?>/images/FoxBanner_loading.gif" alt="">
-			</div>
-		</div>
-	</div>
+	<button class="demo_btn" type="submit" id="book_btn"><?= get_field('calendar_btn') ?></button>
 </div>
 
 <script>
@@ -348,7 +350,7 @@ $lang = get_language_attributes($doctype = "html");
 		let noSlots = document.querySelector('.no_slots');
 		let gif = document.querySelector('.time_gif');
 
-		calendarContainer.style.pointerEvents = "none";
+		// calendarContainer.style.pointerEvents = "none";
 
 		gif.style.display = "block";
 		slots.style.display = "none";

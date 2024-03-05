@@ -80,8 +80,8 @@
 		}
 	}
 
-
 	.form_and_calendar {
+
 		background-color: $white;
 		margin: 2rem auto;
 		text-align: center;
@@ -89,7 +89,12 @@
 		border-radius: 10px;
 		box-shadow: 0 3px 30px $light-color;
 		width: 90%;
-		min-height: 680px;
+		min-height: 720px;
+
+		h3 {
+			height: 75px;
+			margin: 1.5rem;
+		}
 
 		@include breakpoint(md) {
 			width: 75%;
@@ -104,11 +109,7 @@
 		}
 
 		.form_header {
-			position: relative;
-
-			h3 {
-				margin: $mb;
-			}
+			position: relative;		
 
 			i {
 				position: absolute;
@@ -126,7 +127,14 @@
 			}
 		}
 
+		$height: 460px;
+
 		#demo_form {
+			min-height: $height;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
 
 			.response {
 				height: 16px;
@@ -155,7 +163,6 @@
 			input[type=submit] {
 				@include button(12px, hollow);
 				width: 60%;
-				margin-top: 2.5rem;
 			}
 
 			input[type=text]:focus-visible,
@@ -175,7 +182,8 @@
 				justify-content: center;
 				flex-direction: column;
 				width: 150px;
-				@include breakpoint(md){
+
+				@include breakpoint(md) {
 					margin-bottom: 2rem;
 				}
 
@@ -243,7 +251,7 @@
 					grid-template-columns: 1fr;
 				}
 
-				@include breakpoint(xs){
+				@include breakpoint(xs) {
 					padding: 0;
 				}
 			}
@@ -260,7 +268,8 @@
 				label {
 					margin-left: .5rem;
 				}
-				@include breakpoint(xs){
+
+				@include breakpoint(xs) {
 					padding: 0;
 				}
 			}
@@ -269,20 +278,8 @@
 		.demo_form_container {
 			display: block;
 			// display: none;
-		}
-
-		.calendar_container {
-			// display: block;
-			display: none;
-			width: 100%;
-
-			#book_btn {
-				margin-top: 5rem;
-				@include button(12px, hollow);
-				width: 60%;
-			}
-		}
-
+		}	
+		
 		.demo_gif {
 			// display: block;
 			display: none;
@@ -290,255 +287,277 @@
 			height: 100%;
 			justify-content: center;
 			align-items: center;
+			
 			img {
 				width: 30%;
 			}
 		}
 
-		.demo_response {
-			font-weight: bold;
-			margin: .5rem;
-		}
-
-		.error {
-			color: $danger-color;
-		}
-
-		.success {
-			color: $success-color;
+		.calendar_container {
+			// display: block;
+			display: none;
+			width: 100%;
 		}
 
 		.booking_form {
 			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
-			align-items: stretch;
-			padding: 10px;
-			height: 100%;
-			gap: 1rem;
+			flex-direction: column;
+			justify-content: space-between;
+			// align-items: center;
+			height: $height;
+
+			@include breakpoint(sm){
+				height: fit-content;
+			}
+
 			p {
 				line-height: 1;
-			}
-
-			@include breakpoint(sm) {
-				flex-direction: column;
-				width: 80%;
-				margin: auto;
-			}
-
-			@include breakpoint(xs) {
-				width: 100%;
-				padding: 0px;
-			}
-
-			p {
 				margin-bottom: 0;
 			}
 
-			.time {
-				width: 40%;
-				height: 100%;
-				padding-top: 10px;
-				min-height: 260px;
+			#book_btn {
+				@include button(12px, hollow);
+				width: 60%;
+				margin: 0 auto;
+			}
+			
+			.calendar_and_time {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
 
-				@include breakpoint(md) {
+				padding: 10px;
+				gap: 1rem;
+
+				@include breakpoint(sm) {
+					flex-direction: column;
 					width: 80%;
-				}
-				@include breakpoint(sm){
 					margin: auto;
 				}
-				@include breakpoint(xs){
+	
+				@include breakpoint(xs) {
 					width: 100%;
+					padding: 0px;
 				}
 
-				.time_header {
-					width: 80%;
-					min-width: 160px;
-					display: flex;
-					justify-content: space-between;
-					font-size: 16px;
-					margin: auto;
-					margin-bottom: 1rem;
-					padding: 8px 1rem;
-
-					@include breakpoint(md) {
-						margin-bottom: 2rem;
-					}
-					@include breakpoint(xs){
-						font-size: 14px;
-					}
-					
-				}
-
-				.slots_container {
-					width: 100%;
-					@include breakpoint(md) {
-						min-height: 190px;
-					}
-				}
-
-				.slots {
-					display: none;
-					grid-template-columns: repeat(3, 1fr);
-					grid-template-rows: repeat(4, 1fr);
-					place-items: center;
-					column-gap: 10px;
-					@include breakpoint(xs){
-						gap: 5px;
-					}
-				}
-
-				@include breakpoint(md) {
-					.slots,
-					.no_slots,
-					.time_gif>img {
-						height: 100%;
-						width: auto;
-					}
-				}
-
-				.slot {
-					font-size: 12px;
-					padding: 10px 4px;
+				.calendar {
 					border: solid 2px grey;
 					border-radius: 5px;
-					margin: 5px;
-					width: 100%;
-					max-width: 90px;
-
-					&:hover:not(.time_selected) {
-						background-color: $light-color;
-						cursor: pointer;
-					}
-					@include breakpoint(xs){
-						font-size: 10px;
-						padding: 8px 3px;
-						margin: 3px;
-
-					}
-				}
-
-				.time_selected {
-					background-color: $main-color;
-					color: $white;
-					border: solid 2px $main-color;
-					cursor: pointer;
-				}
-
-				.unavailable {
-					display: none;
-				}
-
-				.time_gif {
-					display: none;
-					width: 100%;
-
-
-					img {
-						width: 40%;
-						margin: auto;
-					}
-				}
-			}
-
-			.calendar {
-				border: solid 2px grey;
-				border-radius: 5px;
-				padding-bottom: 2px;
-				padding: 10px;
-				
-				.month {
-					width: 70%;
-					display: flex;
-					justify-content: space-between;
-					padding: 8px 1rem;
-					margin-bottom: 1rem;
-					.month_display {
-						font-size: 16px;
-						margin-bottom: .5rem;
-					}
-					@include breakpoint(xs) {
-						padding: .5rem;
-						width: 100%;
+					padding-bottom: 2px;
+					padding: 10px;
+	
+					.month {
+						width: 70%;
+						display: flex;
+						justify-content: space-between;
+						padding: 8px 1rem;
+						margin-bottom: 1rem;
+	
 						.month_display {
+							font-size: 16px;
+							margin-bottom: .5rem;
+						}
+	
+						@include breakpoint(xs) {
+							padding: .5rem;
+							width: 100%;
+	
+							.month_display {
+								font-size: 14px;
+							}
+	
+							p {
+								line-height: 1;
+							}
+						}
+					}
+	
+					.weekdays {
+						display: grid;
+						grid-template-columns: repeat(7, 1fr);
+						place-items: center;
+						margin-bottom: .5rem;
+						gap: 10px;
+	
+						@include breakpoint(xs) {
+							gap: 5px;
 							font-size: 14px;
 						}
-						p {
-							line-height: 1;
+					}
+	
+					.days {
+						width: 100%;
+						display: grid;
+						grid-template-columns: repeat(7, 1fr);
+						place-items: center;
+						gap: 10px;
+	
+						@include breakpoint(sm) {
+							gap: 8px;
 						}
-					}
-				}
-
-				.weekdays {
-					display: grid;
-					grid-template-columns: repeat(7, 1fr);
-					place-items: center;
-					margin-bottom: .5rem;
-					gap: 10px;
-
-					@include breakpoint(xs) {
-						gap: 5px;
-						font-size: 14px;
-					}
-				}
-
-				.days {
-					width: 100%;
-					display: grid;
-					grid-template-columns: repeat(7, 1fr);
-					place-items: center;
-					gap: 10px;
-					@include breakpoint(sm) {
-						gap: 8px;
-					}
-					@include breakpoint(xs){
-						gap: 5px;
-					}
-
-					.day {
-						font-size: 14px;
-						width: 30px;
-						height: 30px;
-						
-						cursor: pointer;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						border: solid 2px transparent;
-						border-radius: 1000px;
-
-						&:hover {
-							background-color: $main-color;
+	
+						@include breakpoint(xs) {
+							gap: 5px;
+						}
+	
+						.day {
+							font-size: 14px;
+							width: 30px;
+							height: 30px;
+	
+							cursor: pointer;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							border: solid 2px transparent;
+							border-radius: 1000px;
+	
+							&:hover {
+								background-color: $main-color;
+								border: solid 2px $main-color;
+							}
+	
+							@include breakpoint(sm) {
+								width: 26px;
+								height: 26px;
+							}
+	
+							@include breakpoint(ss) {
+								font-size: 12px;
+								width: 22px;
+								height: 22px;
+							}
+						}
+	
+						.today {
 							border: solid 2px $main-color;
 						}
-
-						@include breakpoint(sm) {
-							width: 26px;
-							height: 26px;
+	
+						.date_selected {
+							border: solid 2px $main-color;
+							background-color: $main-color;
+							color: white;
 						}
-
-						@include breakpoint(ss) {
-							font-size: 12px;
-							width: 22px;
-							height: 22px;
+	
+						.prev_date,
+						.next_date {
+							opacity: 0;
+							pointer-events: none;
 						}
 					}
+				}
 
-					.today {
-						border: solid 2px $main-color;
+				.time {
+					width: 40%;
+					height: 100%;
+					padding-top: 10px;
+					min-height: 260px;
+	
+					@include breakpoint(md) {
+						width: 80%;
+					}
+	
+					@include breakpoint(sm) {
+						margin: auto;
+					}
+	
+					@include breakpoint(xs) {
+						width: 100%;
+					}
+	
+					.time_header {
+						width: 80%;
+						min-width: 160px;
+						display: flex;
+						justify-content: space-between;
+						font-size: 16px;
+						margin: auto;
+						margin-bottom: 1rem;
+						padding: 8px 1rem;
+	
+						@include breakpoint(md) {
+							margin-bottom: 2rem;
+						}
+	
+						@include breakpoint(xs) {
+							font-size: 14px;
+						}
+					}
+	
+					.slots_container {
+						width: 100%;
+	
+						@include breakpoint(md) {
+							min-height: 190px;
+						}
+					}
+	
+					.slots {
+						display: none;
+						grid-template-columns: repeat(3, 1fr);
+						grid-template-rows: repeat(4, 1fr);
+						place-items: center;
+						column-gap: 10px;
+	
+						@include breakpoint(xs) {
+							gap: 5px;
+						}
+					}
+	
+					.no_slots {
+						width: 100%;
 					}
 
-					.date_selected {
-						border: solid 2px $main-color;
+					.time_gif {
+						display: none;					
+						img {
+							width: 40%;
+							margin: auto;
+						}
+					}
+	
+					@include breakpoint(md) {
+						.slots,
+						.no_slots,
+						.time_gif>img {
+							height: 100%;
+							width: auto;
+						}
+					}
+	
+					.slot {
+						font-size: 12px;
+						padding: 10px 4px;
+						border: solid 2px grey;
+						border-radius: 5px;
+						margin: 5px;
+						width: 100%;
+						max-width: 90px;
+	
+						&:hover:not(.time_selected) {
+							background-color: $light-color;
+							cursor: pointer;
+						}
+	
+						@include breakpoint(xs) {
+							font-size: 10px;
+							padding: 8px 3px;
+							margin: 3px;
+						}
+					}
+	
+					.time_selected {
 						background-color: $main-color;
-						color: white;
+						color: $white;
+						border: solid 2px $main-color;
+						cursor: pointer;
 					}
+	
+					.unavailable {
+						display: none;
+					}
+	
 
-					.prev_date,
-					.next_date {
-						opacity: 0;
-						pointer-events: none;
-					}
 				}
 			}
 		}

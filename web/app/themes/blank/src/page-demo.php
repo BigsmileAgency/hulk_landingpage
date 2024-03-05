@@ -48,60 +48,59 @@
           </div>
 
           <form action="" method="POST" id="demo_form">
-            <div id="form_grid">
-              <div class="form_item">
-                <label for="demo_first_name"><?= $demo_form['first_name'] ?></label><br>
-                <input id="demo_first_name" type="text" name="demo_first_name">
-                <div class="response"></div>
-              </div>
-
-              <div class="form_item">
-                <label for="demo_last_name"><?= $demo_form['last_name'] ?></label><br>
-                <input id="demo_last_name" type="text" name="demo_last_name">
-                <div class="response"></div>
-              </div>
-
-              <div class="form_item">
-                <label for="demo_email"><?= $demo_form['email'] ?></label><br>
-                <input id="demo_email" type="text" name="demo_email">
-                <div class="response"></div>
-              </div>
-
-              <div class="form_item">
-                <label for="demo_phone"><?= $demo_form['phone'] ?></label><br>
-                <input id="demo_phone" type="text" name="demo_phone">
-                <div class="response"></div>
-              </div>
-
-              <div class="form_item">
-                <label for="demo_company_name"><?= $demo_form['company_name'] ?></label><br>
-                <input id="demo_company_name" type="text" name="demo_company_name">
-                <div class="response"></div>
-              </div>
-
-              <div class="form_item">
-                <label for="is_agency"><?= __('Are you an agency?', 'hulkBanner') ?></label><br>
-                <div id="agency_container">
-                  <div class="tabs is_agency">
-                    <input type="radio" name="is_agency" id="no" value="0" checked>
-                    <label class="tab" for="no"><?= __('No', 'hulkBanner') ?></label>
+            <div class="all_but_button">
+              <div id="form_grid">
+                <div class="form_item">
+                  <label for="demo_first_name"><?= $demo_form['first_name'] ?></label><br>
+                  <input id="demo_first_name" type="text" name="demo_first_name">
+                  <div class="response"></div>
+                </div>
   
-                    <input type="radio" name="is_agency" id="yes" value="1">
-                    <label class="tab" for="yes"><?= __('Yes', 'hulkBanner') ?></label>
+                <div class="form_item">
+                  <label for="demo_last_name"><?= $demo_form['last_name'] ?></label><br>
+                  <input id="demo_last_name" type="text" name="demo_last_name">
+                  <div class="response"></div>
+                </div>
   
-                    <span class="glider"></span>
+                <div class="form_item">
+                  <label for="demo_email"><?= $demo_form['email'] ?></label><br>
+                  <input id="demo_email" type="text" name="demo_email">
+                  <div class="response"></div>
+                </div>
+  
+                <div class="form_item">
+                  <label for="demo_phone"><?= $demo_form['phone'] ?></label><br>
+                  <input id="demo_phone" type="text" name="demo_phone">
+                  <div class="response"></div>
+                </div>
+  
+                <div class="form_item">
+                  <label for="demo_company_name"><?= $demo_form['company_name'] ?></label><br>
+                  <input id="demo_company_name" type="text" name="demo_company_name">
+                  <div class="response"></div>
+                </div>
+  
+                <div class="form_item">
+                  <label for="is_agency"><?= __('Are you an agency?', 'hulkBanner') ?></label><br>
+                  <div id="agency_container">
+                    <div class="tabs is_agency">
+                      <input type="radio" name="is_agency" id="no" value="0" checked>
+                      <label class="tab" for="no"><?= __('No', 'hulkBanner') ?></label>
+    
+                      <input type="radio" name="is_agency" id="yes" value="1">
+                      <label class="tab" for="yes"><?= __('Yes', 'hulkBanner') ?></label>
+    
+                      <span class="glider"></span>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="form_item" id="consent_container">
+                <input id="demo_consent" type="checkbox" name="demo_consent">
+                <label for="demo_consent"><?= $demo_form['consent'] ?></label>
+              </div>            
             </div>
-
-            <div class="form_item" id="consent_container">
-              <input id="demo_consent" type="checkbox" name="demo_consent">
-              <label for="demo_consent"><?= $demo_form['consent'] ?></label>
-            </div>
-
             <input class="demo_btn" id="demo_send_btn" type="submit" value="<?= $demo_form['send_btn'] ?>">
-
           </form>
         </div>
 
@@ -118,7 +117,6 @@
           </div>
           
           <?php get_template_part('./components/layouts/calendar') ?>
-          <button class="demo_btn" type="submit" id="book_btn"><?= get_field('calendar_btn') ?></button>
 
         </div>
       </div>
