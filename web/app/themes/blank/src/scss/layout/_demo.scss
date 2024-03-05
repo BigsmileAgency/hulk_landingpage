@@ -518,6 +518,11 @@
 						height: auto;
 						max-height: 100px;
 						margin: auto;
+						img {
+							width: 100%;
+							margin: auto;
+							height: auto;
+						}
 					}
 
 					@include breakpoint(md) {
