@@ -124,8 +124,7 @@ function demo_form_handler()
 					setTimeout(() => {
 						gif.style.display = "none"
 						calendarContainer.style.display = "block"
-					}, 0);
-
+					}, 750);
 				}
 			}
 
