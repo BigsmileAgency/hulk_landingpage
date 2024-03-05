@@ -94,6 +94,9 @@
 		h3 {
 			height: 75px;
 			margin: 1.5rem;
+			@include breakpoint(md){
+				height: fit-content;
+			}
 		}
 
 		@include breakpoint(md) {
