@@ -184,8 +184,8 @@ function demo_form_handler()
 							result = JSON.parse(result);
 							if (!result.error) {
 								console.log(result);
+								handleBackButton();
 								if (!alert(copy.successSend[lang])) {
-									handleBackButton();
 									window.location.reload();
 								}
 							} else {

@@ -6,22 +6,31 @@
 	width: 100%;
 	background-color: white;
 	z-index: 99;
+
 	li {
 		list-style: none;
 	}
-	
+
 }
+
 .add-shadow {
-	box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.1);
 }
+
 .container_nav {
+
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
 
 	@include breakpoint(sm) {
-		justify-content: right;
+		width: 100vw;
+		padding: 10px 20px;
+
+		img {
+			width: 80%;
+		}
 	}
 }
 
@@ -30,7 +39,8 @@
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
-	height:60px;
+	height: 60px;
+
 	ul {
 		display: flex;
 		justify-content: center;
@@ -44,13 +54,15 @@
 			color: $main-color;
 		}
 	}
+
 	#menu-login li {
-		margin-right : 20px;
+		margin-right: 20px;
 	}
+
 	#menu-nav {
 		position: absolute;
-    	left: 50%;
-    	transform: translate(-50%, 0%);
+		left: 50%;
+		transform: translate(-50%, 0%);
 	}
 }
 
@@ -70,19 +82,20 @@
 	box-sizing: initial;
 	align-self: flex-start;
 	overflow: hidden;
-  height: 41px;
-  border: solid 2px #FF7300;
-  border-radius: 8888px;
-  transition: height .2s ease;
+	height: 41px;
+	border: solid 2px #FF7300;
+	border-radius: 8888px;
+	transition: height .2s ease;
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
 	margin-top: 7px;
-	&:hover{
-		height:123px;
+
+	&:hover {
+		height: 123px;
 	}
-	
-	#lang_btns {
+
+	.lang_btns {
 		position: absolute;
 		display: flex;
 		flex-direction: column;
@@ -95,10 +108,12 @@
 			color: $main-color;
 			font-weight: 600;
 		}
+
 		.other_lang {
 			color: $black;
 			transition: .2s;
 		}
+
 		.lang_display {
 			font-size: 12px;
 			transition: .2s;
@@ -153,129 +168,165 @@
 		display: none;
 	}
 
-	@include breakpoint(sm) {
-		.logo_nav {
-			padding-right: 5%;
-			width: 60%;
-		}
+	.burger_to_open {
+		display: none;
+	}
 
+	@include breakpoint(sm) {
 		.nav_menu {
 			display: none;
 		}
 
 		.nav_mobile {
 			display: block;
+			position: absolute;
+			z-index: 12;
+			height: 100vh;
+			width: 100vw;
+			top: -100vh;
+			// top: 0vh;
+			left: 0;
+			background-color: $main-color;
+			transition: .5s ease-in-out;
+		}
 
-			li,
-			a {
-				margin: 75px 0 -55px 0;
-				color: $main-color;
-				font: 14pt "Roboto", sans-serif;
-				font-weight: 700;
-				line-height: 1.8;
-				text-decoration: none;
-				text-transform: none;
-				list-style: none;
-				outline: 0;
-				display: none;
+		.open {
+			top: 0px;
+			transition: .5s ease-in-out;
+		}
+
+		.burger_to_open {
+			cursor: pointer;
+			display: inline-block;
+			margin-left: 20px;
+			z-index: 50;
+		}
+
+		.mobile_logo_container {
+			display: flex;
+			width: 100vw;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px;
+
+			.logo_mobile {				
+				img {
+					width: 80%;
+				}
 			}
+
+			.empty_squarre {
+				width: 52px;
+				margin-left: 20px;
+				display: inline-block;
+				height: 40px;
+			}
+		}
+
+		.nav_mobile_items {
+			margin-top: 5rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			color: $white;
+			font-size: 24px;
+			text-align: center;
 
 			li {
-				width: 230px;
-				text-indent: 56px;
+				margin-bottom: 3rem;
 			}
 
-			a:focus {
-				display: block;
-				color: $black;
-				background-color: $white;
-				transition: all .5s;
-			}
-
-			#trigger,
-			#burger,
-			#burger:before,
-			#burger:after {
-				position: absolute;
-				top: 20px;
-				left: 20px;
-				background: $main-color;
-				width: 30px;
-				height: 5px;
-				transition: .2s ease;
-				cursor: pointer;
-				z-index: 99;
-			}
-
-			.menu {
-				z-index: 98;
-				position: absolute;
-				margin: 0;
-				padding: 0;
-				left: 0;
-				top: 0;
-				width: 90px;
-				height: 90px;
-				background-color: $white;
-				border-bottom-right-radius: 100%;
-				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-				animation: not-checked-anim .2s both;
-				transition: .2s;
-			}
-
-			#menu-toggle:checked+#trigger+#burger+.menu {
-				animation: checked-anim 1s ease both;
-			}
-
-			#menu-toggle:checked+#trigger~.menu>li,
 			a {
-				display: block;
+				&:hover {
+					color: $darker-color;
+				}
 			}
+		}
 
-			[type="checkbox"]:not(:checked),
-			[type="checkbox"]:checked {
-				display: none;
-			}
+		.try {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			@include button(24px);
+			color: $main-color;
+			background-color: $white;
+			height: 60px;
 
-			// style bouton burger
-			#trigger {
-				height: 25px;
-				background: none;
+			a {
+				&:hover {
+					color: $white;
+				}
 			}
+		}
 
-			#burger:before {
-				content: " ";
-				top: 10px;
-				left: 0;
+		#mobile_lang_switch {
+			width: 220px;
+			margin: auto;
+			.mobile_lang_btns {
+				color: $white;
+				display: flex;
+				justify-content: space-around;
+				color: $main-color;
+				.lang_display {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-color: $white;
+					width: 41px;
+					height: 41px;
+					border-radius: 500px;
+					cursor: pointer;
+					&:hover {
+						background-color: $main-color;
+						color: $white;
+						opacity: 1;
+						border: solid 2px $white;
+					}
+				}
+				.other_lang {
+					opacity: .5;	
+				}
 			}
+		}
 
-			#burger:after {
-				content: " ";
-				top: 20px;
-				left: 0;
-			}
+		// burger icon
+		.burger-bg-1 {
+			background: black;
+		}
 
-			#menu-toggle:checked+#trigger+#burger {
-				top: 35px;
-				transform: rotate(180deg);
-				transition: transform .2s ease;
-			}
+		.burger-bar {
+			height: 6px;
+			width: 40px;
+			margin: 6px;
+			border-radius: 10px;
+		}
 
-			#menu-toggle:checked+#trigger+#burger:before {
-				width: 20px;
-				top: -2px;
-				left: 18px;
-				transform: rotate(45deg) translateX(-5px);
-				transition: transform .2s ease;
-			}
+		.burger-icon {
+			cursor: pointer;
+			display: inline-block;
+		}
 
-			#menu-toggle:checked+#trigger+#burger:after {
-				width: 20px;
-				top: 2px;
-				left: 18px;
-				transform: rotate(-45deg) translateX(-5px);
-				transition: transform .2s ease;
-			}
+		/* Simple */
+		.burger-bar-simple {
+			transition: 0.2s;
+			-webkit-transition: 0.2s;
+			background-color: $main-color;
+		}
+
+		.simple .burger-bar-simple:nth-child(1) {
+			transform: translate(0px, 12.5px) rotate(45deg);
+			background-color: $white;
+		}
+
+		.simple .burger-bar-simple:nth-child(2) {
+			opacity: 0;
+			background-color: $white;
+			// -webkit-transition: 0.1s;
+		}
+
+		.simple .burger-bar-simple:nth-child(3) {
+			background-color: $white;
+			transform: translate(0px, -12.5px) rotate(-45deg);
 		}
 	}
 }
