@@ -350,7 +350,7 @@ $lang = get_language_attributes($doctype = "html");
 		let noSlots = document.querySelector('.no_slots');
 		let gif = document.querySelector('.time_gif');
 
-		// calendarContainer.style.pointerEvents = "none";
+		calendarContainer.style.pointerEvents = "none";
 
 		gif.style.display = "block";
 		slots.style.display = "none";

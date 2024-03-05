@@ -185,7 +185,8 @@ function demo_form_handler()
 							if (!result.error) {
 								console.log(result);
 								if (!alert(copy.successSend[lang])) {
-									window.location.reload()
+									handleBackButton();
+									window.location.reload();
 								}
 							} else {
 								console.log(result);
