@@ -114,13 +114,8 @@ $fs-sub-mobile : 20px;
 		// box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
 		background-color: $white;
 		transition: 0.25s ease-out;
+		width: 100%;
 
-		@include breakpoint(xl) {
-			width: 100%;
-		}
-		@include breakpoint(sm) {
-			width: 90%;
-		}
 		&:hover {
 			transform: scale(1.02);
 		}
