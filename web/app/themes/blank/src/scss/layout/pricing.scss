@@ -289,6 +289,10 @@
 				.title_column {
 					font-size: $fs-sub;
 
+					@include breakpoint(md) {
+						padding-top: 60px;
+					}
+
 					@include breakpoint(xs) {
 						font-size: 16px;
 					}
@@ -305,6 +309,7 @@
 
 					.title_mobile {
 						font-size: $fs-sub-mobile;
+
 					}
 				}
 
@@ -390,6 +395,12 @@
 		@include breakpoint(md) {
 			display: flex;
 			justify-content: center;
+			align-items: center;
+			.free_trial_button {
+				min-width: 200px;
+				font-size: 14px;
+				width: 90%;
+			}
 		}
 
 		.free_trial_button {

@@ -302,9 +302,9 @@
             endif; ?>
           </div>
           <div class="mobile_button_container">
-            <div class="free_trial_button">
+            <button class="free_trial_button">
               <?= get_field('free_trial_button') ?>
-            </div>
+          </button>
           </div>
         </div>
       </section>
