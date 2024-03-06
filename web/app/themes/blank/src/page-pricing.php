@@ -309,7 +309,7 @@
         </div>
       </section>
       <section class="bg_blue">
-        <div class="container">
+        <div class="add_ons_box">
           <div class="add_ons_container">
             <h2 class="title">
               <?= get_field('title_add-ons') ?>

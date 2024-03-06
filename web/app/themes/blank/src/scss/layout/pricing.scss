@@ -48,26 +48,32 @@
 			align-items: center;
 			justify-content: center;
 			flex-direction: column;
-			gap :10px;
+			gap: 10px;
+
 			.promo_text {
-				margin-bottom :0;
-				margin-left : 220px;
+				margin-bottom: 0;
+				margin-left: 220px;
+
 				@include breakpoint(xs) {
-					margin-left : 140px;
+					margin-left: 140px;
 				}
 			}
+
 			.annual_promo {
 				text-align: right;
 			}
-			.promo_arrow{
+
+			.promo_arrow {
 				position: absolute;
-				z-index : 10;
+				z-index: 10;
 				top: 10%;
-				right : calc(50% - 205px);
+				right: calc(50% - 205px);
+
 				@include breakpoint(xs) {
-					right : calc(50% - 165px);
+					right: calc(50% - 165px);
 				}
 			}
+
 			.tabs {
 				display: flex;
 				position: relative;
@@ -124,7 +130,7 @@
 
 				@include breakpoint(xs) {
 					width: 150px;
-				}		
+				}
 			}
 		}
 
@@ -162,7 +168,7 @@
 					color: $white;
 					margin-bottom: 15px;
 				}
-				
+
 				.small_inside_container {
 					background-color: $white;
 					width: 100%;
@@ -178,7 +184,7 @@
 						display: flex;
 						justify-content: center;
 						margin-bottom: 15px;
-						
+
 						.euro {
 							font-size: 57px;
 							vertical-align: top;
@@ -201,6 +207,7 @@
 						justify-content: center;
 						font-weight: 600;
 					}
+
 					.see_more {
 						font-size: 12px;
 						margin-bottom: 24px;
@@ -261,7 +268,7 @@
 	.compare_container {
 		.columns_title {
 			display: grid;
-			grid-template-columns:  repeat(4, 1fr);
+			grid-template-columns: repeat(4, 1fr);
 			height: 60px;
 			width: 1180px;
 
@@ -271,7 +278,7 @@
 
 			@include breakpoint(xs) {
 				font-size: 24px;
-				grid-template-columns:  200px repeat(3, 1fr);
+				grid-template-columns: 200px repeat(3, 1fr);
 			}
 
 			.column {
@@ -330,9 +337,11 @@
 					text-align: left;
 					font-size: $fs-sub;
 					margin-bottom: 20px;
+
 					@include breakpoint(sm) {
-						padding-left : 15px;
+						padding-left: 15px;
 					}
+
 					@include breakpoint(xs) {
 						font-size: $fs-sub-mobile;
 					}
@@ -340,12 +349,12 @@
 
 				.table_row {
 					display: grid;
-					grid-template-columns:  repeat(4, 1fr);
+					grid-template-columns: repeat(4, 1fr);
 					height: 60px;
 
 					@include breakpoint(xs) {
 						font-size: 14px;
-						grid-template-columns:  200px repeat(3, 1fr);
+						grid-template-columns: 200px repeat(3, 1fr);
 					}
 
 					.row {
@@ -364,7 +373,7 @@
 							}
 						}
 					}
-					
+
 					.row_title {
 						justify-content: flex-start;
 						padding-left: 15px;
@@ -374,14 +383,23 @@
 			}
 		}
 	}
+
 	.mobile_button_container {
-		display :none;
+		display: none;
+
 		@include breakpoint(md) {
 			display: flex;
 			justify-content: center;
 		}
+
 		.free_trial_button {
 			margin-top: 0;
+		}
+	}
+
+	.bg_blue {
+		p {
+			margin-bottom: 25px;
 		}
 	}
 }
