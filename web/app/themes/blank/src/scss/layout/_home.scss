@@ -71,31 +71,29 @@ $mb: 2rem;
   }
 
   .grid_btn_2 {
-    width: 55%;
     display: flex;
     justify-content: center;
     gap: 30px;
     align-items: center;
     margin: 70px auto 1rem;
+    button {
+      padding: 0 90px;
+    }
 
-    // @include breakpoint(lg) {
-    //   width: 65%;
-    //   button {
-    //     font-size: 14px;
-    //   }
-    // }
+    @include breakpoint(sm) {
+      gap: 20px;
+      button {
+        padding: 0 20px;
+        font-size: 14px;
+      }
+    }
 
-    // button {
-    //   min-width: 240px;
-    //   @include breakpoint(sm) {
-    //     font-size: 12px;
-    //   }
-    // }
-
-    @include breakpoint(md) {
-      flex-direction: column;
-      margin: 3rem auto;
-      gap: 1rem;
+    @include breakpoint(xs) {
+      button {
+        // width: 100px;
+        padding: 0 10px;
+        font-size: 12px;
+      }
     }
   }
 }
@@ -219,7 +217,8 @@ $mb: 2rem;
 
   .side_grid {
     padding-top: 60px;
-    @include breakpoint(md){
+
+    @include breakpoint(md) {
       margin-bottom: 3rem;
     }
   }
