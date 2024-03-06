@@ -6,7 +6,7 @@
   }
 
   @else if $class == ss {
-    @media (max-width: 340px) {
+    @media (max-width: 360px) {
       @content;
     }
   }

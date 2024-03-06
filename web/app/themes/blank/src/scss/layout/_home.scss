@@ -76,24 +76,21 @@ $mb: 2rem;
     gap: 30px;
     align-items: center;
     margin: 70px auto 1rem;
+    
     button {
-      padding: 0 90px;
+      min-width: 340px;
+      padding: 0 30px;
     }
 
     @include breakpoint(sm) {
-      gap: 20px;
-      button {
-        padding: 0 40px;
-        font-size: 14px;
-        height: 50px;
-      }
+      flex-direction: column;
     }
 
     @include breakpoint(xs) {
-      gap: 10px;
       button {
-        padding: 0 10px;
         font-size: 12px;
+        min-width: 270px;
+        height: 44px;
       }
     }
   }
