@@ -120,7 +120,7 @@ function demo_form_handler()
 
 				if (success == 0) {
 					demoFormContainer.style.display = "none";
-					gif.style.display = "block";
+					gif.style.display = "flex";
 					setTimeout(() => {
 						gif.style.display = "none"
 						calendarContainer.style.display = "block"
