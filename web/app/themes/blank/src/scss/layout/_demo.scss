@@ -459,6 +459,12 @@
 
 					@include breakpoint(md) {
 						width: 80%;
+						.slots,
+						.no_slots,
+						.time_gif {
+							height: 100%;
+							width: auto;
+						}
 					}
 
 					@include breakpoint(sm) {
@@ -523,16 +529,6 @@
 						}
 					}
 
-					@include breakpoint(md) {
-
-						.slots,
-						.no_slots,
-						.time_gif {
-							height: 100%;
-							width: auto;
-						}
-					}
-
 					.slot {
 						font-size: 12px;
 						padding: 10px 4px;
@@ -564,8 +560,6 @@
 					.unavailable {
 						display: none;
 					}
-
-
 				}
 			}
 		}
