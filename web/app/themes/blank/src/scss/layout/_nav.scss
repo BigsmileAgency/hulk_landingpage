@@ -103,27 +103,25 @@
 		align-items: center;
 		background-color: $white;
 		cursor: pointer;
+		// font-weight: 600;
 
 		.current_lang {
 			color: $main-color;
-			font-weight: 600;
 		}
-
+		
 		.other_lang {
 			color: $black;
 			transition: .2s;
 		}
-
+		
 		.lang_display {
-			font-size: 12px;
+			font-size: 16px;
 			transition: .2s;
 			width: 41px;
 			height: 41px;
 			line-height: 1;
 			border: solid 2px white;
-
 			border-radius: 1000px;
-
 			display: flex;
 			justify-content: center;
 			align-items: center;

@@ -219,6 +219,9 @@ $mb: 2rem;
 
   .side_grid {
     padding-top: 60px;
+    @include breakpoint(md){
+      margin-bottom: 3rem;
+    }
   }
 
   ul {
@@ -263,11 +266,6 @@ $mb: 2rem;
 
   @include breakpoint(md) {
     grid-template-columns: 1fr;
-
-    img {
-      width: 50%;
-      margin: auto;
-    }
   }
 
   .feat_list {
