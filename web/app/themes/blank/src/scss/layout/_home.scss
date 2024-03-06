@@ -83,14 +83,15 @@ $mb: 2rem;
     @include breakpoint(sm) {
       gap: 20px;
       button {
-        padding: 0 20px;
+        padding: 0 40px;
         font-size: 14px;
+        height: 50px;
       }
     }
 
     @include breakpoint(xs) {
+      gap: 10px;
       button {
-        // width: 100px;
         padding: 0 10px;
         font-size: 12px;
       }
