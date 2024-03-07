@@ -270,13 +270,9 @@
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
 			height: 60px;
-			width: 1185px;
+			width: 100%;
 
-			@include breakpoint(lg) {
-				width: 100%;
-			}
-
-			@include breakpoint(xs) {
+			@media screen and (max-width: 657px)  {
 				font-size: 24px;
 				grid-template-columns: 200px repeat(3, 1fr);
 			}
@@ -302,7 +298,8 @@
 					font-size: 0;
 				}
 
-				@include breakpoint(xs) {
+				@media screen and (max-width: 657px){				
+				
 					.title_column {
 						font-size: 0px;
 					}
@@ -332,11 +329,11 @@
 
 		.plans_table {
 			.table {
+				margin-bottom : 50px;
+
 				.table_row:nth-child(even) {
 					background-color: $light-color;
 				}
-
-				margin-bottom : 50px;
 
 				.titre_table {
 					text-align: left;
@@ -357,7 +354,7 @@
 					grid-template-columns: repeat(4, 1fr);
 					height: 60px;
 
-					@include breakpoint(xs) {
+					@media screen and (max-width: 657px) {
 						font-size: 14px;
 						grid-template-columns: 200px repeat(3, 1fr);
 					}
@@ -383,6 +380,11 @@
 						justify-content: flex-start;
 						padding-left: 15px;
 						text-align: left;
+						max-width: 250px;
+						@include breakpoint(md){
+							max-width: 160px;
+							font-size: 14px;
+						}
 					}
 				}
 			}
