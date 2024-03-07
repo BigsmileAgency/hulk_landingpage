@@ -387,7 +387,7 @@
 						text-align: left;
 						max-width: 250px;
 						@include breakpoint(md){
-							max-width: 160px;
+							max-width: 0px;
 							font-size: 14px;
 						}
 					}
