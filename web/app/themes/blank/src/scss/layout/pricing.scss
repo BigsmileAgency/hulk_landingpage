@@ -385,9 +385,8 @@
 						justify-content: flex-start;
 						padding-left: 15px;
 						text-align: left;
-						max-width: 250px;
 						@include breakpoint(md){
-							max-width: 0px;
+							max-width: 250px;
 							font-size: 14px;
 						}
 					}
