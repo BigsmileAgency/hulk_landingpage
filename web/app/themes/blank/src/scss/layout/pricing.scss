@@ -145,7 +145,7 @@
 			display: flex;
 			gap: 30px;
 			align-items: flex-end;
-			
+
 			// pour aligner "Prices per month. Larger plans are available on request." au milieu
 			padding-bottom: 18px;
 
@@ -329,6 +329,7 @@
 					align-items: center;
 					justify-content: center;
 					font-weight: 600;
+					width: 225px;
 
 					@include breakpoint(md) {
 						display: none;
