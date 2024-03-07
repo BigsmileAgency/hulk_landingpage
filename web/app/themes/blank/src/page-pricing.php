@@ -25,7 +25,7 @@
             <div class="annual_promo main-color bold">
               <p class="promo_text">Get 20% off</p>
               <img class="promo_arrow" src="<?php echo get_template_directory_uri() ?>/images/promo_arrow.svg">
-              </div>
+            </div>
             <div class="tabs">
               <input type="radio" name="tabs" id="monthly" onchange="showContent('monthly_price')" checked>
               <label class="tab" for="monthly"><?= __('Monthly billing', 'hulkBanner') ?></label>
@@ -133,7 +133,7 @@
             </div>
           </div>
           <div class="info_plans">
-            <?= get_field('info_plans') ?>
+            <p><?= get_field('info_plans') ?></p>
           </div>
         </div>
       </section>
@@ -162,10 +162,10 @@
                 <div class="question">
                   <h3 class="title_question bold">
                     <?= $title_question ?>
-              </h3>
+                  </h3>
                   <p class="content_question">
                     <?= $content_question ?>
-              </p>
+                  </p>
                 </div>
 
             <?php // End loop.
@@ -221,9 +221,9 @@
             </div>
           </div>
           <div class="plans_table">
-            <?php 
+            <?php
             // !!! The value used in ACF field has to match the string displayed as 'unilimited' in the compare table so we can replace it by infinity sign on mobile
-            $unlimited = get_field('unlimited_value'); 
+            $unlimited = get_field('unlimited_value');
             // !!! You hear?
             ?>
             <?php if (have_rows('plans_table')) :
@@ -251,7 +251,7 @@
                   ?>
                       <div class="table_row">
                         <div class="row_title row ">
-                          <?= $row_title ?>
+                          <p><?= $row_title ?></p>
                         </div>
 
                         <div class="small_row row">
@@ -260,7 +260,7 @@
                             <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.svg">
                           <?php } else if ($small_row === "false") { ?>
                             <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.svg">
-                            <?php } else if ($small_row == $unlimited) { ?>
+                          <?php } else if ($small_row == $unlimited) { ?>
                             <span class="unlimited"><?= $small_row ?></span>
                           <?php } else {
                             echo $small_row;
@@ -273,7 +273,7 @@
                             <img class="true_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_true.svg">
                           <?php } else if ($medium_row === "false") { ?>
                             <img class="false_icon" src="<?php echo get_template_directory_uri() ?>/images/icon_false.svg">
-                            <?php } else if ($medium_row == $unlimited) { ?>
+                          <?php } else if ($medium_row == $unlimited) { ?>
                             <span class="unlimited"><?= $medium_row ?></span>
                           <?php } else {
                             echo $medium_row;
@@ -304,55 +304,55 @@
           <div class="mobile_button_container">
             <button class="free_trial_button">
               <?= get_field('free_trial_button') ?>
-          </button>
+            </button>
           </div>
         </div>
       </section>
       <section class="bg_blue">
-      <div class="container">
-        <div class="add_ons_box">
-          <div class="add_ons_container">
-            <h2 class="title">
-              <?= get_field('title_add-ons') ?>
-            </h2>
-            <p class="title_content margin_bottom">
-              <?= get_field('content_add-ons') ?>
-            </p>
-          </div>
-          <div class="add_ons">
-            <?php if (have_rows('add-ons')) :
-
-              // Loop through rows.
-              while (have_rows('add-ons')) :
-                the_row();
-
-                // Load sub field value.
-                $title_add_on = get_sub_field('title_add-on');
-                $content_add_on = get_sub_field('content_add-on');
-                $price_add_on = get_sub_field('price_add-on');
-                // Do something, but make sure you escape the value if outputting directly... 
-            ?>
-                <div class="add_on">
-                  <div class="add_on_top">
-
-                    <h3 class="add_on_title">
-                      <?= $title_add_on ?>
-              </h3>
-                    <p class="add_on_content">
-                      <?= $content_add_on ?>
+        <div class="container">
+          <div class="add_ons_box">
+            <div class="add_ons_container">
+              <h2 class="title">
+                <?= get_field('title_add-ons') ?>
+              </h2>
+              <p class="title_content margin_bottom">
+                <?= get_field('content_add-ons') ?>
               </p>
-                  </div>
-                  <h3 class="add_on_price">
-                    <?= $price_add_on ?>
-              </h3>
-                </div>
+            </div>
+            <div class="add_ons">
+              <?php if (have_rows('add-ons')) :
 
-            <?php // End loop.
-              endwhile;
-            endif; ?>
+                // Loop through rows.
+                while (have_rows('add-ons')) :
+                  the_row();
+
+                  // Load sub field value.
+                  $title_add_on = get_sub_field('title_add-on');
+                  $content_add_on = get_sub_field('content_add-on');
+                  $price_add_on = get_sub_field('price_add-on');
+                  // Do something, but make sure you escape the value if outputting directly... 
+              ?>
+                  <div class="add_on">
+                    <div class="add_on_top">
+
+                      <h3 class="add_on_title">
+                        <?= $title_add_on ?>
+                      </h3>
+                      <p class="add_on_content">
+                        <?= $content_add_on ?>
+                      </p>
+                    </div>
+                    <h3 class="add_on_price">
+                      <?= $price_add_on ?>
+                    </h3>
+                  </div>
+
+              <?php // End loop.
+                endwhile;
+              endif; ?>
+            </div>
           </div>
         </div>
-      </div>
       </section>
 
     <?php endwhile; ?>

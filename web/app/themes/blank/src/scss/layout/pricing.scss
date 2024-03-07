@@ -145,6 +145,9 @@
 			display: flex;
 			gap: 30px;
 			align-items: flex-end;
+			
+			// pour aligner "Prices per month. Larger plans are available on request." au milieu
+			padding-bottom: 18px;
 
 			@include breakpoint(xl) {
 				flex-direction: column;

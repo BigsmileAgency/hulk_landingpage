@@ -97,7 +97,7 @@
               </div>
               <div class="form_item" id="consent_container">
                 <input id="demo_consent" type="checkbox" name="demo_consent">
-                <label for="demo_consent"><?= $demo_form['consent'] ?></label>
+                <label for="demo_consent"><p><?= $demo_form['consent'] ?></p></label>
               </div>            
             </div>
             <input class="demo_btn" id="demo_send_btn" type="submit" value="<?= $demo_form['send_btn'] ?>">
