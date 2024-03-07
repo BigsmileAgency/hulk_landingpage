@@ -7,7 +7,7 @@ $fs-sub-mobile : 20px;
 	align-items: center;
 
 	.container {
-		padding: 50px 0;
+		padding: 50px 90px;
 	}
 
 	h1,
@@ -22,7 +22,7 @@ $fs-sub-mobile : 20px;
 }
 
 .add_ons_box {
-	width: 90%;
+	max-width: 1366px;
 	margin: 0 auto;
 	padding: 50px 0;	
 	.add_ons_container {
@@ -103,7 +103,7 @@ $fs-sub-mobile : 20px;
 // add-ons 
 .add_ons {
 	display: grid;
-	gap: 25px;
+	gap: 35px;
 	grid-template-columns: repeat(2, 1fr);
 	justify-items: center;
 
@@ -124,7 +124,13 @@ $fs-sub-mobile : 20px;
 		// box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
 		background-color: $white;
 		transition: 0.25s ease-out;
-		width: 100%;
+		// width: 100%;
+		@include breakpoint(xl) {
+			width: 100%;
+		}
+		@include breakpoint(sm) {
+			width: 90%;
+		}
 
 		&:hover {
 			transform: scale(1.02);
@@ -187,7 +193,7 @@ $fs-sub-mobile : 20px;
 	.qualities {
 		display: grid;
 		align-items: top;
-		gap: 25px;
+		gap: 35px;
 		grid-template-columns: repeat(4, 1fr);
 		justify-items: center;
 

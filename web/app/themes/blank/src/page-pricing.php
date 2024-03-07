@@ -309,6 +309,7 @@
         </div>
       </section>
       <section class="bg_blue">
+      <div class="container">
         <div class="add_ons_box">
           <div class="add_ons_container">
             <h2 class="title">
@@ -351,7 +352,7 @@
             endif; ?>
           </div>
         </div>
-        </div>
+      </div>
       </section>
 
     <?php endwhile; ?>

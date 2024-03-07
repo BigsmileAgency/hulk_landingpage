@@ -140,7 +140,7 @@
 
 		.billing_options {
 			display: flex;
-			gap: 25px;
+			gap: 30px;
 			align-items: flex-end;
 
 			@include breakpoint(xl) {
@@ -245,7 +245,7 @@
 			align-items: center;
 
 			.question {
-				width: 1180px;
+				width: 1185px;
 				border-radius: 30px;
 				// box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
 				background-color: $white;
@@ -270,7 +270,7 @@
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
 			height: 60px;
-			width: 1180px;
+			width: 1185px;
 
 			@include breakpoint(lg) {
 				width: 100%;
