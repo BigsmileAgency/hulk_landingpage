@@ -1,163 +1,181 @@
 .login_body {
-    background-color: #33AAFF;
-    .container_nav {
-        @include breakpoint(sm) {
-            justify-content: space-between;
-          }
-    }
-    .logo_hulk {
-        @include breakpoint(xs) {
-            width : 150px;
-          }
-    }
-    .captcha {
-        text-align: center;
-        margin-bottom: 25px;
-    }
-    .signup {
-        display: flex;
-        align-items: center;
-        color: $white;
-        gap: 15px;
+	background-color: #33AAFF;
 
-        .sign_up_button {
-            border-radius: 50px;
-            padding: .7em 40px;
-            background-color: white;
-            color: $main-color;
-            text-align: center;
+	.container_nav {
+		@include breakpoint(sm) {
+			justify-content: space-between;
+		}
+	}
 
-            &:hover {
-                transform: scale(1.05);
-                transition: 0.25s ease-out;
-            }
-        }
-    }
+	.logo_hulk {
+		@include breakpoint(xs) {
+			width: 150px;
+		}
+	}
 
-    .section_login {
-        min-height: 90vh;
+	.captcha {
+		text-align: center;
+		margin-bottom: 25px;
+	}
 
-        .form_login {
-            margin: auto;
-            background-color: $white;
-            border-radius: 30px;
-            padding: 30px 50px;
-            width: 500px;
-            max-width: 500px;
-            height: auto;
-            margin-bottom : 50px;
-            @include breakpoint(sm) {
-                width: 100%;
-                height: auto;
-                margin : 50px auto;
-              }
-            .billing_infos_link {
-                text-decoration: underline;
-                color : $main-color;
-                text-align: center;
-            }
-            .billing_plan {
-                display: flex;
-                justify-content: center;
-                gap : 50px;
-                .billing_choice {
-                    display: flex;
-                    gap : 10px;
-                }
-            }
-            .back_home {
-                display: flex;
-                justify-content: right;
-            }
+	.signup {
+		display: flex;
+		align-items: center;
+		color: $white;
+		gap: 15px;
 
-            .header_login_form {
-                text-align: center;
-                margin-bottom: 40px;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-            }
+		.sign_up_button {
+			border-radius: 50px;
+			padding: .7em 40px;
+			background-color: white;
+			color: $main-color;
+			text-align: center;
 
-            input[type="text"],input[type="email"],input[type="tel"], select {
-                width: 100%;
-                height: 40px;
-                border-radius: 5px;
-                border: 1px #3D464D solid;
-                margin: 10px auto 10px auto;
-                padding-left: 15px;
-            }
+			&:hover {
+				transform: scale(1.05);
+				transition: 0.25s ease-out;
+			}
+		}
+	}
 
-            
+	.section_login {
+		min-height: 90vh;
 
-            .sublogin {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 30px;
-                @include breakpoint(xs) {
-                    flex-direction: column;
-                    gap : 15px;
-                    justify-content: flex-start;
-                align-items: center;
-                  }
-                .reset_password {
-                    color: $main-color;
-                }
-                label,
-                input {
-                    display: initial;
-                }
+		.form_login {
+			margin: auto;
+			background-color: $white;
+			border-radius: 30px;
+			padding: 30px 50px;
+			width: 500px;
+			max-width: 500px;
+			height: auto;
+			margin-bottom: 50px;
 
-                .remember_me {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
+			@include breakpoint(sm) {
+				width: 100%;
+				height: auto;
+				margin: 50px auto;
+			}
 
-                    input[type="checkbox"] {
-                        width: 22px;
-                        height: 22px;
-                        border: 1px #3D464D solid;
-                        cursor: pointer;
-                    }
-                }
-            }
+			.billing_infos_link {
+				text-decoration: underline;
+				color: $main-color;
+				text-align: center;
+			}
 
-            input[type="submit"] {
-                width: 100%;
-                @include button(16px);
-                color: $white;
-            }
+			.billing_plan {
+				display: flex;
+				justify-content: center;
+				gap: 50px;
 
-            .divider {
-                display: flex;
-                margin: 25px 0;
+				.billing_choice {
+					display: flex;
+					gap: 10px;
+				}
+			}
 
-                hr {
-                    border-top: 2px solid #3D464D;
-                    width: 44%;
-                }
-            }
+			.back_home {
+				display: flex;
+				justify-content: right;
+			}
 
-            .google_login {
-                text-align: center;
-            }
-        }
+			.header_login_form {
+				text-align: center;
+				margin-bottom: 40px;
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
 
-        label,
-        input {
-            display: block;
-        }
+			input[type="text"],
+			input[type="email"],
+			input[type="tel"],
+			select {
+				width: 100%;
+				height: 40px;
+				border-radius: 5px;
+				border: 1px #3D464D solid;
+				margin: 10px auto 10px auto;
+				padding-left: 15px;
+			}
 
-    }
-    #menu-toggle {
-                    display:none;
-                }
-    .mobile_hidden {
-        @include breakpoint(sm) {
-            display:none;
-          }
-    }
-    #second-part-form{
-        display:none;
-    }
+
+
+			.sublogin {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 30px;
+
+				@include breakpoint(xs) {
+					flex-direction: column;
+					gap: 15px;
+					justify-content: flex-start;
+					align-items: center;
+				}
+
+				.reset_password {
+					color: $main-color;
+				}
+
+				label,
+				input {
+					display: initial;
+				}
+
+				.remember_me {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+
+					input[type="checkbox"] {
+						width: 22px;
+						height: 22px;
+						border: 1px #3D464D solid;
+						cursor: pointer;
+					}
+				}
+			}
+
+			input[type="submit"] {
+				width: 100%;
+				@include button(16px);
+				color: $white;
+			}
+
+			.divider {
+				display: flex;
+				margin: 25px 0;
+
+				hr {
+					border-top: 2px solid #3D464D;
+					width: 44%;
+				}
+			}
+
+			.google_login {
+				text-align: center;
+			}
+		}
+
+		label,
+		input {
+			display: block;
+		}
+
+	}
+
+	#menu-toggle {
+		display: none;
+	}
+
+	.mobile_hidden {
+		@include breakpoint(sm) {
+			display: none;
+		}
+	}
+
+	#second-part-form {
+		display: none;
+	}
 }
