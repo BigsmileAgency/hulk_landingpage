@@ -86,8 +86,8 @@
 		padding: 20px;
 		border-radius: 10px;
 		box-shadow: 0 3px 30px $light-color;
-		width: 90%;
-		max-width: 600px;
+		width: 100%;
+		max-width: 650px;
 		height: 694px;
 
 		@include breakpoint(md) {
