@@ -198,12 +198,12 @@ $mb: 2rem;
     height: 288px;
     background-color: rgba(255, 115, 0, 0.1);
     border-radius: 30px;
-    transform: rotate(-45deg);
+    // transform: rotate(-45deg);
     overflow: hidden;
   }
 
   .feat_container:nth-of-type(even) .img_shadow {
-    transform: rotate(45deg);
+    // transform: rotate(45deg);
     left: auto;
     right: 43px;
   }

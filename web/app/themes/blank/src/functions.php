@@ -45,8 +45,10 @@ include get_theme_file_path( '/components/functions/get_slots_for_that_day.php' 
 include get_theme_file_path( '/components/functions/customise_weekday.php' );
 
 // LANGUAGE SWITCH BUTTON
-
 include get_theme_file_path( '/components/functions/lang_switch_handler.php' );
+
+// GSAP / ANIMATION
+include get_theme_file_path( '/components/functions/homepage_scroll_animation.php' );
 
 
 // AJAX CATEGORY FILTER
