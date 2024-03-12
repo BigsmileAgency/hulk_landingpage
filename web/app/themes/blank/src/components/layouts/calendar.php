@@ -65,7 +65,6 @@ $lang = get_language_attributes($doctype = "html");
 			</div>
 		</div>
 	</div>
-	<button class="demo_btn" type="submit" id="book_btn"><?= get_field('calendar_btn') ?></button>
 </div>
 
 <script>

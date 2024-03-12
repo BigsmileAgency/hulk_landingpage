@@ -74,6 +74,8 @@ function demo_form_handler()
 			let back = document.querySelector('#back_arrow')
 			let firstName, lastName, email, phone, companyName, isAgency, isConsent;
 
+			console.log(demoFormContainer);
+
 			demoSubmit.addEventListener("submit", handleInfos)
 			bookBtn.addEventListener('click', (e) => {
 				handleTimeDay(e, firstName, lastName, email, phone, companyName, isAgency, isConsent)
@@ -84,7 +86,6 @@ function demo_form_handler()
 			function handleInfos(e) {
 
 				e.preventDefault();
-
 
 				firstName = document.querySelector("#demo_first_name");
 				lastName = document.querySelector("#demo_last_name");
@@ -123,7 +124,11 @@ function demo_form_handler()
 					gif.style.display = "flex";
 					setTimeout(() => {
 						gif.style.display = "none"
-						calendarContainer.style.display = "block"
+						if(window.innerWidth > 763){
+							calendarContainer.style.display = "grid"
+						} else {
+							calendarContainer.style.display = "flex"
+						}
 					}, 750);
 				}
 			}
