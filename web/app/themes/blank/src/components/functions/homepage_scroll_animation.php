@@ -21,13 +21,14 @@ function homepage_scroll_animation()
 					x: 0,
 					yPercent: 0,
 					rotation: rotation,
+					duration: 1,
 					opacity: 1,
-					ease: 'power4.out',
+					ease: 'expo.out',
 					scrollTrigger: {
 						trigger: box,
 						start: '-=200px center',
 						end: 'bottom 20%',
-						scrub: .5,
+						// scrub: .5,
 					}
 				})
 			})
@@ -43,8 +44,8 @@ function homepage_scroll_animation()
 					scrollTrigger: {
 						trigger: img,
 						start: "top center",
-						markers: true,
 						scrub: 1,
+						// markers: true,
 					},
 				})
 			});
