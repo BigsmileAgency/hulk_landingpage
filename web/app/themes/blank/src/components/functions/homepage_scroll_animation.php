@@ -21,7 +21,7 @@ function homepage_scroll_animation()
 					x: 0,
 					yPercent: 0,
 					rotation: rotation,
-					duration: 1,
+					duration: 2,
 					opacity: 1,
 					ease: 'expo.out',
 					scrollTrigger: {
