@@ -32,6 +32,7 @@ function get_the_slots()
 	}
 
 	$response = [
+		"date" => date('d', strtotime($date)),
 		"all_slots" => $all_slots,
 		"taken_slot" => $taken_slots,
 		"what_day" => $what_day,

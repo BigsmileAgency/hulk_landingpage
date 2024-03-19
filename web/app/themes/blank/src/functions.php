@@ -43,6 +43,8 @@ include get_theme_file_path( '/components/functions/cancel_demo_meeting.php' );
 include get_theme_file_path( '/components/functions/get_all_days_and_all_slots.php' );
 include get_theme_file_path( '/components/functions/get_slots_for_that_day.php' );
 include get_theme_file_path( '/components/functions/customise_weekday.php' );
+include get_theme_file_path( '/components/functions/get_unavailable_days.php' );
+
 
 // LANGUAGE SWITCH BUTTON
 include get_theme_file_path( '/components/functions/lang_switch_handler.php' );

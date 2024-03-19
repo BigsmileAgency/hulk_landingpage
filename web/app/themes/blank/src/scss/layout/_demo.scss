@@ -427,7 +427,6 @@
 							font-size: 14px;
 							width: 30px;
 							height: 30px;
-
 							cursor: pointer;
 							display: flex;
 							align-items: center;
@@ -449,7 +448,7 @@
 								font-size: 12px;
 								width: 22px;
 								height: 22px;
-							}
+							}							
 						}
 
 						.today {
@@ -465,6 +464,11 @@
 						.prev_date,
 						.next_date {
 							opacity: 0;
+							pointer-events: none;
+						}
+
+						.uv_day {
+							opacity: 0.3;
 							pointer-events: none;
 						}
 					}
