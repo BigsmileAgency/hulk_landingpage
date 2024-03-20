@@ -57,7 +57,7 @@ function send_demo_request()
     ];
     $sendMailToCLient = $emailrOforThem->sendEmail($emailR_data[$lang]["FOR_CLIENT"], array('contacts' => $emails_for_them ));
 
-    echo json_encode([$sendMailToCLient, $sendMailToCLient]);
+    echo json_encode([$sendMailToUs, $sendMailToCLient]);
     wp_die();
 }
 

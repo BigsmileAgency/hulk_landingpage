@@ -202,7 +202,6 @@ function demo_form_handler()
 			}
 
 			function handleBackButton(e) {
-				e.preventDefault();
 				demoFormContainer.style.display = "block";
 				calendarContainer.style.display = "none"
 				firstName = "";

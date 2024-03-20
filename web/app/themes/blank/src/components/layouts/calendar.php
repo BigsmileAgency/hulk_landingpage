@@ -68,17 +68,16 @@ $lang = get_language_attributes($doctype = "html");
 </div>
 
 <script>
-
 	let fullDate = document.querySelector(".full_date");
 	let date = new Date();
 
-	function renderCalendar() {				
+	function renderCalendar() {
 		let newDate = new Date();
-		
-		if(date.getMonth() == newDate.getMonth()){
+
+		if (date.getMonth() == newDate.getMonth()) {
 			date = newDate;
 		};
-		
+
 		// make week start on monday
 		date.setDate(1);
 
@@ -130,11 +129,6 @@ $lang = get_language_attributes($doctype = "html");
 			days += `<div class="day prev_date">${prevLastDay - x + 1}</div>`;
 			totalDays++
 		}
-
-		let current = new Date();
-		current.setHours(0,0,0,0);
-
-		console.log(current.getDate());
 
 		for (let i = 1; i <= lastDay; i++) {
 			if (i === new Date().getDate() && date.getMonth() === new Date().getMonth() && date.getFullYear() === new Date().getFullYear()) {
@@ -238,11 +232,11 @@ $lang = get_language_attributes($doctype = "html");
 				// 		callIt = true;
 				// 	}
 				// } else {
-					date.setDate(day.innerHTML)
-					if (!callIt) {
-						callIt = true;
-						dateIsSelected(e);
-					}
+				date.setDate(day.innerHTML)
+				if (!callIt) {
+					callIt = true;
+					dateIsSelected(e);
+				}
 				// }
 			})
 		})
@@ -445,9 +439,9 @@ $lang = get_language_attributes($doctype = "html");
 
 
 	function unavailableDays(date) {
-		
+
 		let year = date.getFullYear();
-		let month = date.getMonth()+1;
+		let month = date.getMonth() + 1;
 		let UVDays = []
 
 		function daysOfMonth(date) {
@@ -466,11 +460,11 @@ $lang = get_language_attributes($doctype = "html");
 			weekDays.push(whatDay);
 			daysArray.push(String(e).padStart(2, '0'));
 		})
-		
+
 		let xhr = new XMLHttpRequest();
 		let url = '<?= admin_url('admin-ajax.php') ?>';
 		let dataSet = 'action=get_unavailable_days&year=' + year + '&month=' + String(month).padStart(2, '0') + '&days_array=' + daysArray + '&weekdays_array=' + weekDays;
-		
+
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.onreadystatechange = function() {
