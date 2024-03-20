@@ -7,7 +7,7 @@ function get_all_appointements()
 
   $appointements =
     $wpdb->get_results(
-      "SELECT * FROM wp_demo_appointement 
+      "SELECT wp_demo_appointement.*, wp_time_slot.time AS time FROM wp_demo_appointement 
         INNER JOIN wp_time_slot 
         ON wp_demo_appointement.time_slot_id = wp_time_slot.id
         WHERE wp_demo_appointement.first_name != 'BSA'
@@ -15,9 +15,7 @@ function get_all_appointements()
         ORDER BY wp_demo_appointement.date, wp_time_slot.time"
     );
 
-
   $response = $appointements;
-
 
   echo json_encode($response);
   wp_die();
