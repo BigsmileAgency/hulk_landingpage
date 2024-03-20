@@ -123,5 +123,4 @@
   </section>
 </main>
 
-<!-- <?php var_dump($_POST) ?>  -->
 <?php get_footer(); ?>
