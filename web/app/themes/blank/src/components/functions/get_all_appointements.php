@@ -7,12 +7,16 @@ function get_all_appointements()
 
   $appointements =
     $wpdb->get_results(
-      "SELECT wp_demo_appointement.*, wp_time_slot.time AS time FROM wp_demo_appointement 
-        INNER JOIN wp_time_slot 
-        ON wp_demo_appointement.time_slot_id = wp_time_slot.id
-        WHERE wp_demo_appointement.first_name != 'BSA'
-        AND DATE(wp_demo_appointement.date) >= DATE(NOW())
-        ORDER BY wp_demo_appointement.date, wp_time_slot.time"
+      "SELECT wp_demo_appointement.*, 
+      wp_time_slot.time AS time,
+        CASE 
+            WHEN DATE(wp_demo_appointement.date) >= DATE(NOW()) THEN 'future_date'
+            ELSE 'past_date'
+        END AS date_category
+      FROM wp_demo_appointement 
+      INNER JOIN wp_time_slot ON wp_demo_appointement.time_slot_id = wp_time_slot.id
+      WHERE wp_demo_appointement.first_name != 'BSA'
+      ORDER BY wp_demo_appointement.date, wp_time_slot.time;"
     );
 
   $response = $appointements;
