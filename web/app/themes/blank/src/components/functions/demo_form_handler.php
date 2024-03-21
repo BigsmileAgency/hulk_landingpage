@@ -141,9 +141,6 @@ function demo_form_handler()
 					alert(copy.noTime[lang]);
 				} else {
 
-					console.log(date.setDate(Number(day.innerHTML)));
-					console.log(date);
-
 					bookBtn.disabled = true;
 
 					let dataSet = 'first_name=' + firstName.value +
@@ -188,7 +185,6 @@ function demo_form_handler()
 							let result = xhrSend.responseText;
 							result = JSON.parse(result);
 							if (!result.error) {
-								console.log(result);
 								if (!alert(copy.successSend[lang])) {
 									firstName.value = "";
 									lastName.value = "";

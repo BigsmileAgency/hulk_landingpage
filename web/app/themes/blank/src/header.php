@@ -112,7 +112,7 @@
 			// close navbar if clicked link = current location
 			mobileLinks.forEach((e) => {
 				e.addEventListener("click", () => {
-					console.log(e.getAttribute('href'));
+					// console.log(e.getAttribute('href'));
 					if (e.getAttribute('href') == window.location.href) {
 						navMobile.classList.remove('open');
 						burgerSimple.classList.remove("simple");
@@ -123,7 +123,7 @@
 			// close navbar if clicked lang = current lang
 			langLinks.forEach((e) => {
 				e.addEventListener('click', () => {
-					console.log(e);
+					// console.log(e);
 					if (e.innerHTML == lang.toUpperCase()) {
 						navMobile.classList.remove('open');
 						burgerSimple.classList.remove("simple");
