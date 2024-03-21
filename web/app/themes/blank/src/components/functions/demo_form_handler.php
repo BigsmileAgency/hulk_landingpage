@@ -190,12 +190,12 @@ function demo_form_handler()
 							if (!result.error) {
 								console.log(result);
 								if (!alert(copy.successSend[lang])) {
-									firstName = "";
-									lastName = "";
-									email = "";
-									phone = "";
-									companyName = "";
-									isAgency = "";
+									firstName.value = "";
+									lastName.value = "";
+									email.value = "";
+									phone.value = "";
+									companyName.value = "";
+									isAgency.value = "";
 									isConsent = false;
 									window.location.reload();
 								}
