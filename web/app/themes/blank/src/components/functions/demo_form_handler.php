@@ -122,7 +122,7 @@ function demo_form_handler()
 					gif.style.display = "flex";
 					setTimeout(() => {
 						gif.style.display = "none"
-						if(window.innerWidth > 763){
+						if (window.innerWidth > 763) {
 							calendarContainer.style.display = "grid"
 						} else {
 							calendarContainer.style.display = "flex"
@@ -189,8 +189,14 @@ function demo_form_handler()
 							result = JSON.parse(result);
 							if (!result.error) {
 								console.log(result);
-								handleBackButton();
 								if (!alert(copy.successSend[lang])) {
+									firstName = "";
+									lastName = "";
+									email = "";
+									phone = "";
+									companyName = "";
+									isAgency = "";
+									isConsent = false;
 									window.location.reload();
 								}
 							} else {
