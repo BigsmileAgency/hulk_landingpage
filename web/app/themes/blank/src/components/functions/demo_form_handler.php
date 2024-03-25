@@ -127,7 +127,7 @@ function demo_form_handler()
 						} else {
 							calendarContainer.style.display = "flex"
 						}
-					}, 10000);
+					}, 750);
 				}
 			}
 
