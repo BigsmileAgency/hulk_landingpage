@@ -308,8 +308,15 @@
 			justify-content: center;
 			align-items: center;
 
+			@include breakpoint(md){
+				min-height: 750px;			
+			}
+
 			img {
 				width: 40%;
+				@include breakpoint(md) {
+					width: 60%;
+				}
 			}
 		}
 
