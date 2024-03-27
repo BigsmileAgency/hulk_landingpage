@@ -229,7 +229,7 @@ $fs-sub-mobile : 20px;
 				font-weight: bold;
 
 				@include breakpoint(xs) {
-					font-size: $fs-sub-mobile;
+					font-size: 19px;
 				}
 			}
 		}
