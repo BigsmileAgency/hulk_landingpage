@@ -259,7 +259,7 @@
 				text-align: left;
 
 				@include breakpoint(lg) {
-					width: 90%;
+					max-width: 100%;
 				}
 
 				.title_question {

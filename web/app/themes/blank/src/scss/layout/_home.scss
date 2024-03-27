@@ -19,7 +19,7 @@ $mb: 2rem;
   // center button and img
   @include breakpoint(md) {
 
-    .hollow_trial_btn,
+    .hero_btn,
     .hero_2_box img,
     .hero_3_box img,
     .feat_btn {
@@ -161,8 +161,8 @@ $mb: 2rem;
     border-radius: 30px;
   }
 
-  .hollow_trial_btn {
-    @include button(16px, hollow);
+  .hero_btn {
+    @include button(16px, solid);
 
     @include breakpoint(md) {
       &:hover {
@@ -203,6 +203,12 @@ $mb: 2rem;
     @media screen and (max-width: 870px){
       transform: rotate(-45deg);
     }
+
+    @include breakpoint(xs){
+      width: 243px;
+      height: 221px;
+      left: -10px;
+    }
     
   }
 
@@ -214,6 +220,9 @@ $mb: 2rem;
 
     left: auto;
     right: 43px;
+    @include breakpoint(xs){
+      right: -10px;
+    }
   }
 
   h2 {

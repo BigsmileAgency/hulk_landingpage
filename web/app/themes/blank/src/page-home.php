@@ -27,7 +27,7 @@
         <div class="left_box">
           <h2><?= $hero2['catchphrase'] ?></h2>
           <p><?= $hero2['sub_catchphrase'] ?></p>
-          <button class="trial_btn"><a href="<?php echo site_url('/demo'); ?>"><?= $hero2['btn_trial'] ?></a></button>
+          <button class="hero_btn"><a href="<?php echo site_url('/demo'); ?>"><?= $hero2['btn_trial'] ?></a></button>
         </div>
         <img src="<?= $hero2['img_hero2'] ?>" alt="">
       </div>
@@ -86,7 +86,7 @@
         <div class="left_box">
           <h2><?= $hero3['catchphrase'] ?></h2>
           <p><?= $hero3['sub_catchphrase'] ?></p>
-          <button class="trial_btn"><a href="<?php echo site_url('/demo'); ?>"><?= __('Book a demo call', 'hulkbanner')?></a></button>
+          <button class="hero_btn"><a href="<?php echo site_url('/demo'); ?>"><?= __('Book a demo call', 'hulkbanner')?></a></button>
         </div>
         <img src="<?= $hero3['img_hero3'] ?>" alt="">
       </div>
