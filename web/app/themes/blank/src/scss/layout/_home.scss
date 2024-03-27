@@ -205,11 +205,17 @@ $mb: 2rem;
     }
 
     @include breakpoint(xs){
-      width: 243px;
-      height: 221px;
+      width: 264px;
+      height: 240px;
       left: -10px;
     }
-    
+
+    @include breakpoint(ss){
+      width: 226px;
+      height: 205px;
+      left: -10px;
+    }
+  
   }
 
   .feat_container:nth-of-type(even) .img_shadow {
@@ -261,6 +267,9 @@ $mb: 2rem;
     width: 100%;
     max-width: 433px;
     justify-self: center;
+    @include breakpoint(xs){
+      width: 110%;
+    }
   }
 
   .feat_btn {
