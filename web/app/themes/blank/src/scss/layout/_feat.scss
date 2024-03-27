@@ -174,9 +174,10 @@ $fs-sub-mobile : 20px;
 .free_trial_button {
 	@include button(16px);
 	width: fit-content;
+	height: fit-content;
 	min-width: 225px;
 	margin-top: 15px;
-	padding: 13px 35px;
+	padding: 13px 20px;
 	color: $white;
 }
 
