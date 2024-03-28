@@ -60,6 +60,9 @@
 				@include breakpoint(xs) {
 					margin-left: 140px;
 				}
+				@include breakpoint(ss) {
+					margin-left: 104px;
+				}
 			}
 
 			.annual_promo {
@@ -74,6 +77,9 @@
 
 				@include breakpoint(xs) {
 					right: calc(50% - 165px);
+				}
+				@include breakpoint(ss) {
+					right: calc(50% - 144px);
 				}
 			}
 
@@ -102,10 +108,17 @@
 				border-radius: 99px;
 				cursor: pointer;
 				transition: color 0.15s ease-in;
-
+				font-size: 16px;
+				
 				@include breakpoint(xs) {
 					width: 150px;
 				}
+
+				@include breakpoint(ss){
+					width: 120px;
+					font-size: 14px;
+				}
+
 			}
 
 			input[type="radio"]:checked+label {
@@ -133,6 +146,9 @@
 
 				@include breakpoint(xs) {
 					width: 150px;
+				}
+				@include breakpoint(ss){
+					width: 120px;
 				}
 			}
 		}
