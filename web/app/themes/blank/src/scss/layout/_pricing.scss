@@ -60,6 +60,7 @@
 				@include breakpoint(xs) {
 					margin-left: 140px;
 				}
+
 				@include breakpoint(ss) {
 					margin-left: 104px;
 				}
@@ -78,6 +79,7 @@
 				@include breakpoint(xs) {
 					right: calc(50% - 165px);
 				}
+
 				@include breakpoint(ss) {
 					right: calc(50% - 144px);
 				}
@@ -109,12 +111,12 @@
 				cursor: pointer;
 				transition: color 0.15s ease-in;
 				font-size: 16px;
-				
+
 				@include breakpoint(xs) {
 					width: 150px;
 				}
 
-				@include breakpoint(ss){
+				@include breakpoint(ss) {
 					width: 120px;
 					font-size: 14px;
 				}
@@ -147,7 +149,8 @@
 				@include breakpoint(xs) {
 					width: 150px;
 				}
-				@include breakpoint(ss){
+
+				@include breakpoint(ss) {
 					width: 120px;
 				}
 			}
@@ -157,17 +160,39 @@
 			text-align: center;
 		}
 
+		.swiper {
+			max-width: 375px;
+		}
+
+		.swiper-horizontal {
+			.swiper-pagination-bullets,
+			.swiper-pagination-bullets.swiper-pagination-horizontal,
+			.swiper-pagination-custom,
+			.swiper-pagination-fraction {
+				bottom: 0px;
+			}
+			.swiper-pagination-bullet {
+				background-color: $lighter-color;
+			}
+			.swiper-pagination-bullet-active {
+				background: $main-color;
+			}
+		}
+
 		.billing_options {
+
+			$size: "md";
+
 			display: flex;
 			gap: 30px;
 			align-items: flex-end;
-
+			justify-content: space-between;
 			// pour aligner "Prices per month. Larger plans are available on request." au milieu
 			padding-bottom: 18px;
 
-			@include breakpoint(xl) {
-				flex-direction: column;
-				align-items: center;
+			@include breakpoint($size) {
+				gap: 0;
+				align-items: unset;
 			}
 
 			.billing_option {
@@ -181,9 +206,10 @@
 				padding: 20px 15px 20px 15px;
 				border-radius: 30px;
 
-				@include breakpoint(xl) {
+				@include breakpoint($size) {
 					width: 100%;
 					max-width: 375px;
+					margin-bottom: 20px;
 				}
 
 				h3 {
@@ -240,6 +266,11 @@
 					background-color: $black;
 					height: 555px;
 					padding-top: 40px;
+
+					@include breakpoint($size) {
+						height: 515px;
+						padding-top: 25px;
+					}
 
 					.billing_button {
 						background-color: $black;
