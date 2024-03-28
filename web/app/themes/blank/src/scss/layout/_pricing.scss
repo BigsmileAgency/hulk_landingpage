@@ -292,6 +292,12 @@
 	}
 
 	.compare_container {
+		width: 1185px;
+
+		@include breakpoint(lg) {
+			width: 95% !important;
+		}
+
 		@include breakpoint(sm) {
 			width: 110% !important;
 		}
