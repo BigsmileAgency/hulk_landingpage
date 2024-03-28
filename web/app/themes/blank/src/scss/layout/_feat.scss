@@ -8,10 +8,11 @@ $fs-sub-mobile : 20px;
 
 	.container {
 		padding: 50px 90px;
+
 		@include breakpoint(sm) {
 			padding: 50px 0px;
 		}
-		
+
 	}
 
 	h1,
@@ -19,15 +20,19 @@ $fs-sub-mobile : 20px;
 	p {
 		margin-bottom: 25px;
 	}
-	.add_on_content, .feature_content, .title_content, .free_trial_content {
+
+	.add_on_content,
+	.feature_content,
+	.title_content,
+	.free_trial_content {
 		line-height: 24px;
 	}
-
 }
 
 .add_ons_box {
 	max-width: 1366px;
 	margin: 0 auto;
+
 	.add_ons_container {
 		margin-bottom: 25px;
 	}
@@ -37,12 +42,8 @@ $fs-sub-mobile : 20px;
 .free_trial_container,
 .add_ons_container {
 	text-align: center;
-	width: 850px;
+	max-width: 850px;
 	margin: 0px auto 0px auto;
-
-	@include breakpoint(md) {
-		width: 750px;
-	}
 
 	@include breakpoint(sm) {
 		width: 95%;
@@ -64,10 +65,10 @@ $fs-sub-mobile : 20px;
 .features {
 	display: grid;
 	gap: 25px;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 30%);
 	text-align: center;
 	justify-items: center;
-	margin-top : 60px;
+	margin-top: 60px;
 
 	@include breakpoint(md) {
 		grid-template-columns: repeat(2, 1fr);
@@ -88,6 +89,7 @@ $fs-sub-mobile : 20px;
 	font-weight: 700;
 	font-size: 24px;
 	margin: 20px 0 15px 0;
+	@include word_wrap()
 }
 
 .feature_content {
@@ -128,6 +130,8 @@ $fs-sub-mobile : 20px;
 		// box-shadow: 0 3px 30px rgba(51, 170, 255, 0.25);
 		background-color: $white;
 		transition: 0.25s ease-out;
+
+
 		// width: 100%;
 		@include breakpoint(xl) {
 			width: 100%;
@@ -136,12 +140,18 @@ $fs-sub-mobile : 20px;
 		&:hover {
 			transform: scale(1.02);
 		}
+
 		.add_on_title {
 			color: $main-color;
 			font-size: $fs-sub;
+			@include word_wrap();
 
 			@include breakpoint(xs) {
 				font-size: $fs-sub-mobile;
+			}
+
+			@include breakpoint(ss) {
+				padding-left: 20px;
 			}
 
 			font-weight: 700;
@@ -151,6 +161,10 @@ $fs-sub-mobile : 20px;
 
 		.add_on_content {
 			padding: 0 30px;
+
+			@include breakpoint(ss) {
+				padding-left: 20px;
+			}
 		}
 
 		.add_on_price {
@@ -165,6 +179,10 @@ $fs-sub-mobile : 20px;
 
 			@include breakpoint(xs) {
 				font-size: $fs-sub-mobile;
+			}
+
+			@include breakpoint(ss) {
+				padding-left: 20px;
 			}
 		}
 	}
@@ -219,8 +237,12 @@ $fs-sub-mobile : 20px;
 			border-radius: 25px;
 			background-color: $white;
 
-			@include breakpoint(xs) {
+			@include breakpoint(sm) {
 				height: 80px;
+			}
+
+			@include breakpoint(ss) {
+				width: 250px;
 			}
 
 			.quality_title {
@@ -229,8 +251,9 @@ $fs-sub-mobile : 20px;
 				font-weight: bold;
 
 				@include breakpoint(xs) {
-					font-size: 19px;
+					font-size: 18px;
 				}
+
 			}
 		}
 	}

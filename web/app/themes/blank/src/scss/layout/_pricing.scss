@@ -9,7 +9,7 @@
 		}
 
 		@include breakpoint(sm) {
-			width: 100%;
+			width: 90%;
 		}
 
 		h1,
@@ -276,6 +276,10 @@
 	}
 
 	.compare_container {
+		@include breakpoint(sm) {
+			width: 110% !important;
+		}
+
 		.columns_title {
 			display: grid;
 			grid-template-columns: repeat(4, 1fr);
@@ -392,6 +396,8 @@
 						padding-left: 15px;
 						text-align: left;
 
+						@include word-wrap();
+
 						@include breakpoint(md) {
 							max-width: 165px;
 							font-size: 14px;
@@ -417,14 +423,13 @@
 			}
 		}
 
-
-
-
 		.free_trial_button {
 			margin-top: 0;
+
 			@include breakpoint(sm) {
 				width: 70%;
 			}
+
 			@include breakpoint(xs) {
 				width: 90%;
 			}

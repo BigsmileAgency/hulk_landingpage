@@ -132,9 +132,19 @@
 				position: absolute;
 				color: $main-color;
 				font-size: 25px;
-				padding: 8px;
-				left: -3px;
-				top: -5px;
+				border-radius: 5px;
+				padding: 4px;
+				left: 6px;
+				top: 3px;
+
+				@include breakpoint(sm) {
+					left: 3px;
+					top: 0px;
+				}
+				@include breakpoint(xs) {
+					left: 3px;
+					top: -6px;
+				}
 
 				&:hover {
 					background-color: $main-color;

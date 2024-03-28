@@ -18,7 +18,6 @@ $mb: 2rem;
 
   // center button and img
   @include breakpoint(md) {
-
     .hero_btn,
     .hero_2_box img,
     .hero_3_box img,
@@ -50,6 +49,7 @@ $mb: 2rem;
 
     @include breakpoint(md) {
       font-size: 36px;
+      margin: 2rem 0rem 1rem;
     }
   }
 
