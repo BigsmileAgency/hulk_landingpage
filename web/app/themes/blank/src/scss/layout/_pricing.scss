@@ -264,17 +264,18 @@
 
 				&.medium {
 					background-color: $black;
-					height: 555px;
-					padding-top: 40px;
-
-					@include breakpoint($size) {
-						height: 515px;
-						padding-top: 25px;
+					@media screen and(min-width: 992px) {
+						height: 555px;
+						padding-top: 40px;
 					}
 
 					.billing_button {
 						background-color: $black;
 						border-color: $black;
+						&:hover {
+							background-color: $grey;
+							border-color: $grey;
+						}
 					}
 				}
 			}

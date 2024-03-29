@@ -68,7 +68,7 @@
     transition: 0.25s ease-out;
   }
 
-  @if $type ==hollow {
+  @if $type == hollow {
     background-color: rgba(255, 255, 255, 0);
     color: $main-color;
     &:hover {
