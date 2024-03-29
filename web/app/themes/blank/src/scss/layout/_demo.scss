@@ -32,8 +32,7 @@
 	}
 
 	.demo_container {
-		width: 90%;
-		max-width: 1185px;
+		width: 100%;
 		display: grid;
 		grid-template-columns: 1fr 60%;
 
@@ -96,16 +95,16 @@
 
 		@include breakpoint(md) {
 			width: 75%;
-			height: fit-content;
 		}
 		
 		@include breakpoint(sm) {
-			width: 90%;
+			width: 80%;
 			min-height: 750px;
+			height: fit-content;
 		}
 
 		@include breakpoint(xs) {
-			width: 95%;
+			width: 90%;
 		}
 
 		.demo_grid {
@@ -319,10 +318,6 @@
 			justify-content: center;
 			align-items: center;
 
-			@include breakpoint(md){
-				min-height: 630px;			
-			}
-
 			@include breakpoint(sm){
 				min-height: 750px;			
 			}
@@ -367,13 +362,14 @@
 				display: flex;
 				flex-direction: row;
 				justify-content: space-around;
+
 				padding: 10px;
 				gap: 1rem;
 
-				@media screen and (max-width: 804px) {
+				@include breakpoint(sm) {
 					flex-direction: column;
 					width: 80%;
-					margin: auto;				
+					margin: auto;
 				}
 
 				@include breakpoint(xs) {
