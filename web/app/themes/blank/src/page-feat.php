@@ -34,7 +34,7 @@
                 // Do something, but make sure you escape the value if outputting directly... ?>
                 <div class="feature">
                   <div class="feature_img">
-                    <img src="<?= $img_feature ?>" width="375" height="250">
+                    <img src="<?= $img_feature ?>">
                   </div>
                   <h3 class="feature_title">
                     <?= $title_feature ?>

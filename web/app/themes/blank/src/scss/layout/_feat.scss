@@ -65,7 +65,7 @@ $fs-sub-mobile : 20px;
 .features {
 	display: grid;
 	gap: 25px;
-	grid-template-columns: repeat(3, 30%);
+	grid-template-columns: repeat(3, 1fr);
 	text-align: center;
 	justify-items: center;
 	margin-top: 60px;
@@ -76,6 +76,7 @@ $fs-sub-mobile : 20px;
 
 	@include breakpoint(sm) {
 		grid-template-columns: 1fr;
+
 	}
 }
 
@@ -83,6 +84,9 @@ $fs-sub-mobile : 20px;
 	width: 100%;
 	max-width: 375px;
 	text-align: center;
+	@include breakpoint(sm) {
+		max-width: none;
+	}
 }
 
 .feature_title {
@@ -103,6 +107,9 @@ $fs-sub-mobile : 20px;
 	border-radius: 25px;
 	height: 250px;
 	object-fit: cover;
+	@include breakpoint(sm) {
+		width: 100%;
+	}
 }
 
 // add-ons 
