@@ -100,12 +100,12 @@
 		}
 		
 		@include breakpoint(sm) {
-			width: 80%;
+			width: 90%;
 			min-height: 750px;
 		}
 
 		@include breakpoint(xs) {
-			width: 90%;
+			width: 95%;
 		}
 
 		.demo_grid {
