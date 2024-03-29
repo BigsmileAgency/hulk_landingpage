@@ -33,6 +33,7 @@
 
 	.demo_container {
 		width: 90%;
+		max-width: 1185px;
 		display: grid;
 		grid-template-columns: 1fr 60%;
 
@@ -95,12 +96,12 @@
 
 		@include breakpoint(md) {
 			width: 75%;
+			height: fit-content;
 		}
 		
 		@include breakpoint(sm) {
 			width: 80%;
 			min-height: 750px;
-			height: fit-content;
 		}
 
 		@include breakpoint(xs) {
@@ -318,6 +319,10 @@
 			justify-content: center;
 			align-items: center;
 
+			@include breakpoint(md){
+				min-height: 630px;			
+			}
+
 			@include breakpoint(sm){
 				min-height: 750px;			
 			}
@@ -365,7 +370,7 @@
 				padding: 10px;
 				gap: 1rem;
 
-				@media screen and (max-width: 802px) {
+				@media screen and (max-width: 804px) {
 					flex-direction: column;
 					width: 80%;
 					margin: auto;				
