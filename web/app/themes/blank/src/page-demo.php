@@ -9,13 +9,13 @@
 ?>
 
 <?php get_header(); ?>
-<main class="demo">
+<main class="default demo">
 
   <div class="container">
-    <section class="hero_demo">
+    <div class="demo_header">
       <h1><?= get_field("title") ?></h1>
       <p><?= get_field("explanation") ?></p>
-    </section>
+    </div>
   </div>
 
   <section class="demo_section">

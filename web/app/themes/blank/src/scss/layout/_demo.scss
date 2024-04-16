@@ -1,30 +1,25 @@
 .demo {
 	.container {
-		padding: 50px 0 0 0;
+		margin: 0px auto;
+		padding: 50px 0;
+		
+		@include breakpoint(md) {
+			width: 90%;
+		}
+
+		.demo_header {
+			width: 800px;
+			margin: auto;
+			text-align: center;
+	
+			h1, p {
+				margin-bottom: 25px;
+			}
+		}
 	}
 
 	i {
 		cursor: pointer;
-	}
-
-	.hero_demo {
-		padding-top: 50px;
-		min-height: 30vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 2rem;
-		text-align: center;
-
-		p {
-			width: 50%;
-			margin-bottom: 2rem;
-
-			@include breakpoint(md) {
-				width: 90%;
-			}
-		}
 	}
 
 	.demo_section {
@@ -44,7 +39,8 @@
 	.explanation_list {
 		width: 100%;
 		margin: 3rem auto 0px;
-		@include breakpoint(xl){
+
+		@include breakpoint(xl) {
 			padding: 0px 30px;
 		}
 
@@ -61,6 +57,7 @@
 
 		li {
 			margin-bottom: 10px;
+
 			@include breakpoint(xs) {
 				font-size: 18px;
 			}
@@ -96,7 +93,7 @@
 		@include breakpoint(md) {
 			width: 75%;
 		}
-		
+
 		@include breakpoint(sm) {
 			width: 80%;
 			min-height: 750px;
@@ -141,6 +138,7 @@
 					left: 3px;
 					top: 0px;
 				}
+
 				@include breakpoint(xs) {
 					left: 3px;
 					top: -6px;
@@ -268,7 +266,7 @@
 				column-gap: 2rem;
 				padding: 50px 20px;
 				text-align: left;
-				
+
 				@include breakpoint(sm) {
 					padding: 20px;
 					grid-template-columns: 1fr;
@@ -290,6 +288,7 @@
 
 				@include breakpoint(sm) {
 					grid-column: 1/1;
+
 					p {
 						padding-bottom: 24px;
 					}
@@ -318,12 +317,13 @@
 			justify-content: center;
 			align-items: center;
 
-			@include breakpoint(sm){
-				min-height: 750px;			
+			@include breakpoint(sm) {
+				min-height: 750px;
 			}
 
 			img {
 				width: 40%;
+
 				@include breakpoint(sm) {
 					width: 60%;
 				}
@@ -465,7 +465,7 @@
 								font-size: 12px;
 								width: 22px;
 								height: 22px;
-							}							
+							}
 						}
 
 						.today {
