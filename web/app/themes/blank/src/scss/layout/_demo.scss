@@ -11,6 +11,14 @@
 			width: 800px;
 			margin: auto;
 			text-align: center;
+			
+			@include breakpoint(md) {
+				width: 750px;
+			}
+	
+			@include breakpoint(sm) {
+				width: 90%;
+			}
 	
 			h1, p {
 				margin-bottom: 25px;
