@@ -251,12 +251,15 @@ $fs-sub-mobile : 20px;
 			@include breakpoint(ss) {
 				width: 250px;
 			}
-
+			
 			.quality_title {
+				margin-bottom: 0;
 				font-size: 20px;
 				color: $main-color;
 				font-weight: bold;
-
+				p {
+					margin-bottom: 0px;
+				}
 				@include breakpoint(xs) {
 					font-size: 18px;
 				}

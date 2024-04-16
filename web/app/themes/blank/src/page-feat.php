@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Feat
  */
@@ -7,8 +8,8 @@
 <?php get_header(); ?>
 
 <main class="default feat">
-  <?php if (have_posts()):
-    while (have_posts()):
+  <?php if (have_posts()) :
+    while (have_posts()) :
       the_post(); ?>
       <section>
         <div class="container">
@@ -21,17 +22,18 @@
             </p>
           </header>
           <div class="features">
-            <?php if (have_rows('features')):
+            <?php if (have_rows('features')) :
 
               // Loop through rows.
-              while (have_rows('features')):
+              while (have_rows('features')) :
                 the_row();
 
                 // Load sub field value.
                 $img_feature = get_sub_field('img_feature');
                 $title_feature = get_sub_field('title_feature');
                 $content_feature = get_sub_field('content_feature');
-                // Do something, but make sure you escape the value if outputting directly... ?>
+                // Do something, but make sure you escape the value if outputting directly... 
+            ?>
                 <div class="feature">
                   <div class="feature_img">
                     <img src="<?= $img_feature ?>">
@@ -44,12 +46,12 @@
                   </p>
                 </div>
 
-              <?php // End loop.
+            <?php // End loop.
               endwhile;
 
-              // No value.
-            else:
-              // Do something...
+            // No value.
+            else :
+            // Do something...
             endif; ?>
           </div>
         </div>
@@ -65,17 +67,18 @@
             </p>
           </div>
           <div class="add_ons">
-            <?php if (have_rows('add-ons')):
+            <?php if (have_rows('add-ons')) :
 
               // Loop through rows.
-              while (have_rows('add-ons')):
+              while (have_rows('add-ons')) :
                 the_row();
 
                 // Load sub field value.
                 $title_add_on = get_sub_field('title_add-on');
                 $content_add_on = get_sub_field('content_add-on');
                 $price_add_on = get_sub_field('price_add-on');
-                // Do something, but make sure you escape the value if outputting directly... ?>
+                // Do something, but make sure you escape the value if outputting directly... 
+            ?>
                 <div class="add_on">
                   <div class="add_on_top">
 
@@ -88,18 +91,17 @@
                   </div>
                   <h3 class="add_on_price">
                     <?= $price_add_on ?>
-              </h3>
+                  </h3>
                 </div>
 
-              <?php // End loop.
+            <?php // End loop.
               endwhile;
 
-              // No value.
-            else:
-              // Do something...
+            // No value.
+            else :
+            // Do something...
             endif; ?>
           </div>
-        </div>
         </div>
       </section>
       <section>
@@ -121,43 +123,46 @@
         <div class="container container_qualities">
           <div class="qualities">
 
-            <?php if (have_rows('qualities')):
+            <?php if (have_rows('qualities')) :
 
               // Loop through rows.
-              while (have_rows('qualities')):
+              while (have_rows('qualities')) :
                 the_row();
 
                 // Load sub field value.
                 $img_quality = get_sub_field('img_quality');
                 $title_quality = get_sub_field('title_quality');
-                // Do something, but make sure you escape the value if outputting directly... ?>
+                // Do something, but make sure you escape the value if outputting directly... 
+            ?>
                 <div class="quality">
                   <div class="quality_img">
-                  <img src="<?= get_template_directory_uri() ?>/images/check.svg" alt="" width="30" height="30">
+                    <img src="<?= get_template_directory_uri() ?>/images/check.svg" alt="" width="30" height="30">
                   </div>
                   <div class="quality_title">
-                    <?= $title_quality ?>
+                    <p>
+                      <?= $title_quality ?>
+                    </p>
                   </div>
                 </div>
 
-              <?php // End loop.
+            <?php // End loop.
               endwhile;
 
-              // No value.
-            else:
-              // Do something...
+            // No value.
+            else :
+            // Do something...
             endif; ?>
           </div>
-        </section>
-        <section>
-      <div class="container bottom_container">
-        <img class="bottom_img" src="<?= get_field('bottom_img') ?>">
-      </div>
-    </section>
-        <?php endwhile; ?>
-      <?php else: ?>
-      </div>
-    
+      </section>
+      <section>
+        <div class="container bottom_container">
+          <img class="bottom_img" src="<?= get_field('bottom_img') ?>">
+        </div>
+      </section>
+    <?php endwhile; ?>
+  <?php else : ?>
+    </div>
+
 
   <?php endif; ?>
 

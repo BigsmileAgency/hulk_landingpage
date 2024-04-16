@@ -147,7 +147,7 @@
         </div>
       </section>
 
-      <!-- FAQ moved to FAQ page so fa -->
+      <!-- FAQ moved to FAQ page so far -->
       <!-- <section class="bg_blue">
         <div class="container faq_container">
           <div class="faq_header">
