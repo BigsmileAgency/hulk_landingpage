@@ -38,6 +38,7 @@
           </div>
           <div class="billing_options_container">
             <div class="billing_options">
+
               <div class="billing_option">
                 <?php $small = get_field('billing_small') ?>
                 <h3 class="bold">
@@ -46,29 +47,46 @@
                 <div class="small_inside_container">
                   <div class="price bold main-color">
                     <div class="monthly_price">
-                      <?= $small['price_monthly'] ?>
+                      <p>
+                        <?= $small['price_monthly'] ?>
+                      </p>
                     </div>
                     <div class="hidden annual_price">
-                      <?= $small['price_annual'] ?>
+                      <p>
+                        <?= $small['price_annual'] ?>
+                      </p>
                     </div>
                   </div>
-                  <div class="info">
-                    <?= $small['billing_info1'] ?>
+                  <div class="infos">
+                    <div class="info">
+                      <p>
+                        <?= $small['billing_info1'] ?>
+                      </p>
+                    </div>
+                    <div class="info">
+                      <p>
+                        <?= $small['billing_info2'] ?>
+                      </p>
+                    </div>
+                    <div class="info">
+                      <p>
+                        <?= $small['billing_info3'] ?>
+                      </p>
+                    </div>
                   </div>
-                  <div class="info">
-                    <?= $small['billing_info2'] ?>
-                  </div>
-                  <div class="info">
-                    <?= $small['billing_info3'] ?>
-                  </div>
-                  <div class="billing_button">
-                    <?= $small['button_billing'] ?>
-                  </div>
-                  <div class="see_more main-color"><a href="#">
+                  <button class="billing_button">
+                    <a href="#" target="_blank">
+                      <?= $small['button_billing'] ?>
+                    </a>
+                  </button>
+
+                  <div class="see_more main-color">
+                    <a href="#">
                       <?= $small['see_more'] ?>
                     </a></div>
                 </div>
               </div>
+
               <div class="billing_option medium">
                 <?php $medium = get_field('billing_medium') ?>
                 <h3 class="bold">
@@ -77,30 +95,44 @@
                 <div class="small_inside_container">
                   <div class="price bold">
                     <div class="monthly_price">
-                      <?= $medium['price_monthly'] ?>
+                      <p>
+                        <?= $medium['price_monthly'] ?>
+                      </p>
                     </div>
                     <div class="hidden annual_price">
-                      <?= $medium['price_annual'] ?>
+                      <p>
+                        <?= $medium['price_annual'] ?>
+                      </p>
                     </div>
-
                   </div>
-                  <div class="info">
-                    <?= $medium['billing_info1'] ?>
+                  <div class="infos">
+                    <div class="info">
+                      <p>
+                        <?= $medium['billing_info1'] ?>
+                      </p>
+                    </div>
+                    <div class="info">
+                      <p>
+                        <?= $medium['billing_info2'] ?>
+                      </p>
+                    </div>
+                    <div class="info">
+                      <p>
+                        <?= $medium['billing_info3'] ?>
+                      </p>
+                    </div>
                   </div>
-                  <div class="info">
-                    <?= $medium['billing_info2'] ?>
-                  </div>
-                  <div class="info">
-                    <?= $medium['billing_info3'] ?>
-                  </div>
-                  <div class="billing_button">
-                    <?= $medium['button_billing'] ?>
-                  </div>
+                  <button class="billing_button">
+                    <a href="">
+                      <?= $medium['button_billing'] ?>
+                    </a>
+                  </button>
                   <div class="see_more"><a href="#">
                       <?= $medium['see_more'] ?>
                     </a></div>
                 </div>
               </div>
+
               <div class="billing_option">
                 <?php $large = get_field('billing_large') ?>
                 <h3 class="bold">
@@ -109,29 +141,44 @@
                 <div class="small_inside_container">
                   <div class="price bold main-color">
                     <div class="monthly_price">
-                      <?= $large['price_monthly'] ?>
+                      <p>
+                        <?= $large['price_monthly'] ?>
+                      </p>
                     </div>
                     <div class="hidden annual_price">
-                      <?= $large['price_annual'] ?>
+                      <p>
+                        <?= $large['price_annual'] ?>
+                      </p>
                     </div>
                   </div>
-                  <div class="info">
-                    <?= $large['billing_info1'] ?>
+                  <div class="infos">
+                    <div class="info">
+                      <p>
+                        <?= $large['billing_info1'] ?>
+                      </p>
+                    </div>
+                    <div class="info">
+                      <p>
+                        <?= $large['billing_info2'] ?>
+                      </p>
+                    </div>
+                    <div class="info">
+                      <p>
+                        <?= $large['billing_info3'] ?>
+                      </p>
+                    </div>
                   </div>
-                  <div class="info">
-                    <?= $large['billing_info2'] ?>
-                  </div>
-                  <div class="info">
-                    <?= $large['billing_info3'] ?>
-                  </div>
-                  <div class="billing_button">
-                    <?= $large['button_billing'] ?>
-                  </div>
+                  <button class="billing_button">
+                    <a href="">
+                      <?= $large['button_billing'] ?>
+                    </a>
+                  </button>
                   <div class="see_more main-color"><a href="#">
                       <?= $large['see_more'] ?>
                     </a></div>
                 </div>
               </div>
+
             </div>
 
             <div class="swiper-pagination"></div>
@@ -407,10 +454,10 @@
     title_desktop.forEach(function(content) {
       content.style.display = 'none';
     });
-  }  
-  
+  }
+
   if (window.innerWidth < 992) {
-    
+
     let container = document.querySelector('.billing_options_container');
     let wrapper = document.querySelector('.billing_options');
     let elements = document.querySelectorAll('.billing_option');
