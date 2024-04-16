@@ -146,7 +146,9 @@
           </div>
         </div>
       </section>
-      <section class="bg_blue">
+
+      <!-- FAQ moved to FAQ page so fa -->
+      <!-- <section class="bg_blue">
         <div class="container faq_container">
           <div class="faq_header">
             <h2 class="title">
@@ -186,7 +188,8 @@
             endif; ?>
           </div>
         </div>
-      </section>
+      </section> -->
+
       <section>
         <div class="container compare_container">
           <div class="compare_header">

@@ -9,6 +9,7 @@
                 <div class="menu1">
                     <div class="head_li bold">Ressources</div>
                     <ul>
+                        <li><a href="<?php echo get_home_url() . '/faq'; ?>">FAQ</a></li>
                         <li>Status page</li>
                         <li>Social and mockups</li>
                         <li>API</li>
