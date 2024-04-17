@@ -456,38 +456,46 @@
     });
   }
 
-  if (window.innerWidth < 992) {
-
-    let container = document.querySelector('.billing_options_container');
-    let wrapper = document.querySelector('.billing_options');
-    let elements = document.querySelectorAll('.billing_option');
-
-    container.classList.add('swiper');
-    wrapper.classList.add('swiper-wrapper');
-    elements.forEach(e => {
-      e.classList.add('swiper-slide')
-    })
-
-    const swiper = new Swiper('.swiper', {
-
-      initialSlide: 1,
-      direction: 'horizontal',
-      centeredSlides: true,
-      spaceBetween: 30,
-
-      pagination: {
-        el: '.swiper-pagination',
-      },
-
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-    });
+  function resizePrices(){
+    console.log("resized")
+    if (window.innerWidth < 992) {
+  
+      let container = document.querySelector('.billing_options_container');
+      let wrapper = document.querySelector('.billing_options');
+      let elements = document.querySelectorAll('.billing_option');
+  
+      container.classList.add('swiper');
+      wrapper.classList.add('swiper-wrapper');
+      elements.forEach(e => {
+        e.classList.add('swiper-slide')
+      })
+  
+      const swiper = new Swiper('.swiper', {
+  
+        initialSlide: 1,
+        direction: 'horizontal',
+        centeredSlides: true,
+        spaceBetween: 30,
+  
+        pagination: {
+          el: '.swiper-pagination',
+        },
+  
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+  
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      });
+    }
   }
+
+  resizePrices();
+
+  window.addEventListener('resize',resizePrices)
+
 </script>
 <?php get_footer(); ?>
