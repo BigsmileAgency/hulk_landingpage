@@ -7,7 +7,7 @@ function homepage_scroll_animation()
 			e.preventDefault();
 
 
-			if(window.innerWidth > 870){
+			if (window.innerWidth > 870) {
 
 				// img_shadow on scroll
 				let boxes = gsap.utils.toArray('.img_shadow');
@@ -17,7 +17,7 @@ function homepage_scroll_animation()
 					let rotation = index % 2 === 0 ? '45' : '-45';
 					gsap.fromTo(box, {
 						x: distance,
-						yPercent: 50, 
+						yPercent: 50,
 						rotation: 0,
 						opacity: 0,
 					}, {
@@ -35,8 +35,8 @@ function homepage_scroll_animation()
 						}
 					})
 				})
-	
-	
+
+
 				// pc slight parallaxe 
 				let imgs = gsap.utils.toArray('.feat_container > img');
 
@@ -52,7 +52,7 @@ function homepage_scroll_animation()
 						},
 					})
 				});
-			} 
+			}
 
 		})
 	</script>

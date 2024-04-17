@@ -445,17 +445,7 @@
       content.style.display = 'block';
     });
   }
-  if (window.innerWidth < 480) {
 
-    var title_mobile = document.querySelectorAll('.title_mobile');
-    var title_desktop = document.querySelectorAll('.title_desktop');
-    title_mobile.forEach(function(content) {
-      content.style.display = 'block';
-    });
-    title_desktop.forEach(function(content) {
-      content.style.display = 'none';
-    });
-  }
 
   function resizePrices(){
     const container = document.querySelector('.billing_options_container');
