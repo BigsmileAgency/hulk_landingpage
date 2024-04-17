@@ -431,6 +431,7 @@
 </main>
 
 <script>
+  let swiper;
   function showContent(contentId) {
     // Masquer tous les contenus
     var allContents = document.querySelectorAll('.price div');
@@ -457,39 +458,43 @@
   }
 
   function resizePrices(){
-    console.log("resized")
+    const container = document.querySelector('.billing_options_container');
+    const wrapper = document.querySelector('.billing_options');
+    const elements = document.querySelectorAll('.billing_option');
     if (window.innerWidth < 992) {
-  
-      let container = document.querySelector('.billing_options_container');
-      let wrapper = document.querySelector('.billing_options');
-      let elements = document.querySelectorAll('.billing_option');
-  
       container.classList.add('swiper');
       wrapper.classList.add('swiper-wrapper');
       elements.forEach(e => {
         e.classList.add('swiper-slide')
       })
-  
-      const swiper = new Swiper('.swiper', {
-  
-        initialSlide: 1,
-        direction: 'horizontal',
-        centeredSlides: true,
-        spaceBetween: 30,
-  
-        pagination: {
-          el: '.swiper-pagination',
-        },
-  
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-  
-        scrollbar: {
-          el: '.swiper-scrollbar',
-        },
-      });
+      if(!swiper){
+        swiper = new Swiper('.swiper', {
+          
+          initialSlide: 1,
+          direction: 'horizontal',
+          centeredSlides: true,
+          spaceBetween: 30,
+    
+          pagination: {
+            el: '.swiper-pagination',
+          },
+    
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+    
+          scrollbar: {
+            el: '.swiper-scrollbar',
+          },
+        });
+      }
+    }else{
+      container.classList.remove('swiper');
+      wrapper.classList.remove('swiper-wrapper');
+      elements.forEach(e => {
+        e.classList.remove('swiper-slide')
+      })
     }
   }
 
