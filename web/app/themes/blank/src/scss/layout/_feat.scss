@@ -106,6 +106,7 @@ $fs-sub-mobile : 20px;
 	border-radius: 25px;
 	object-fit: cover;
 	aspect-ratio: 3 / 2;
+	width: 100%;
 	@include breakpoint(sm) {
 		width: 100%;
 	}
