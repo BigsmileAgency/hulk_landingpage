@@ -5,17 +5,11 @@ function homepage_scroll_animation()
 	<script>
 		document.addEventListener('DOMContentLoaded', (e) => {
 			e.preventDefault();
-
-
 			if (window.innerWidth > 870) {
-
 				// img_shadow on scroll
 				let boxes = gsap.utils.toArray('.img_shadow');
-
 				boxes.forEach((box, index) => {
-
 					// let distance = index % 2 === 0 ? '-100%' : '100%';
-
 					let rotationStart = index % 2 === 0 ? '45' : '-45';
 					let rotation = index % 2 === 0 ? '-45' : '45';
 					gsap.fromTo(box, {
@@ -39,11 +33,8 @@ function homepage_scroll_animation()
 						}
 					})
 				})
-
-
 				// pc slight parallaxe 
 				let imgs = gsap.utils.toArray('.feat_container > img');
-
 				imgs.forEach((img, index) => {
 					gsap.to(img, {
 						y: "-5%",
@@ -57,7 +48,6 @@ function homepage_scroll_animation()
 					})
 				});
 			}
-
 		})
 	</script>
 <?php
