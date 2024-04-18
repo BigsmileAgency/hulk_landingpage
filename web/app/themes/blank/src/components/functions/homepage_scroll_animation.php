@@ -15,7 +15,7 @@ function homepage_scroll_animation()
 				boxes.forEach((box, index) => {
 
 					// let distance = index % 2 === 0 ? '-100%' : '100%';
-					
+
 					let rotation = index % 2 === 0 ? '-45' : '45';
 					gsap.fromTo(box, {
 
@@ -40,8 +40,7 @@ function homepage_scroll_animation()
 							// start: '-=200px center',
 
 							end: 'bottom 20%',
-							markers: true,
-							// scrub: .5,
+							// markers: true,
 						}
 					})
 				})
