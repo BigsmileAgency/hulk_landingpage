@@ -10,16 +10,13 @@
                     <div class="head_li bold">Ressources</div>
                     <ul>
                         <li><a href="<?php echo get_home_url() . '/faq'; ?>">FAQ</a></li>
-                        <li>Status page</li>
-                        <li>Social and mockups</li>
-                        <li>API</li>
-                        <li>Blog</li>
+                        <li>Status page</li>        
                     </ul>
                 </div>
                 <div class="menu2">
                     <div class="head_li bold">Support</div>
                     <ul>
-                        <li>Knowledgebase</li>
+                        <!-- <li>Knowledgebase</li> -->
                         <li>Security</li>
                         <li>Contact</li>
                     </ul>

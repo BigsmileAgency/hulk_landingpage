@@ -16,29 +16,24 @@ function homepage_scroll_animation()
 
 					// let distance = index % 2 === 0 ? '-100%' : '100%';
 
+					let rotationStart = index % 2 === 0 ? '45' : '-45';
 					let rotation = index % 2 === 0 ? '-45' : '45';
 					gsap.fromTo(box, {
-
-						rotation: 0,
-
+						rotation: rotationStart,
 						// x: distance,
 						// yPercent: 50,
 						// opacity: 0,
 					}, {
 						rotation: rotation,
-
 						// x: 0,
 						// yPercent: 0,
-
-						duration: 3,
+						duration: 9,
 						opacity: 1,
 						ease: 'expo.out',
 						scrollTrigger: {
 							trigger: box,
-
 							start: '-=250px 70%',
 							// start: '-=200px center',
-
 							end: 'bottom 20%',
 							// markers: true,
 						}
