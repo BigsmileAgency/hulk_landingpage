@@ -76,7 +76,7 @@ $fs-sub-mobile : 20px;
 
 	@include breakpoint(sm) {
 		grid-template-columns: 1fr;
-
+		margin: auto;
 	}
 }
 
@@ -105,7 +105,6 @@ $fs-sub-mobile : 20px;
 
 .feature_img img {
 	border-radius: 25px;
-	height: 250px;
 	object-fit: cover;
 	@include breakpoint(sm) {
 		width: 100%;
