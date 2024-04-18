@@ -26,7 +26,7 @@ function homepage_scroll_animation()
 						ease: 'expo.out',
 						scrollTrigger: {
 							trigger: box,
-							start: '-=250px 70%',
+							start: '-=250px 60%',
 							// start: '-=200px center',
 							end: 'bottom 20%',
 							// markers: true,
