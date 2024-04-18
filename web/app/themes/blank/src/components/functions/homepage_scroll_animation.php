@@ -13,24 +13,34 @@ function homepage_scroll_animation()
 				let boxes = gsap.utils.toArray('.img_shadow');
 
 				boxes.forEach((box, index) => {
-					let distance = index % 2 === 0 ? '-100%' : '100%';
-					let rotation = index % 2 === 0 ? '45' : '-45';
+
+					// let distance = index % 2 === 0 ? '-100%' : '100%';
+					
+					let rotation = index % 2 === 0 ? '-45' : '45';
 					gsap.fromTo(box, {
-						x: distance,
-						yPercent: 50,
+
 						rotation: 0,
-						opacity: 0,
+
+						// x: distance,
+						// yPercent: 50,
+						// opacity: 0,
 					}, {
-						x: 0,
-						yPercent: 0,
 						rotation: rotation,
-						duration: 2,
+
+						// x: 0,
+						// yPercent: 0,
+
+						duration: 3,
 						opacity: 1,
 						ease: 'expo.out',
 						scrollTrigger: {
 							trigger: box,
-							start: '-=200px center',
+
+							start: '-=250px 70%',
+							// start: '-=200px center',
+
 							end: 'bottom 20%',
+							markers: true,
 							// scrub: .5,
 						}
 					})
