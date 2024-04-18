@@ -106,6 +106,7 @@ $fs-sub-mobile : 20px;
 .feature_img img {
 	border-radius: 25px;
 	object-fit: cover;
+	aspect-ratio: 375 / 250;
 	@include breakpoint(sm) {
 		width: 100%;
 	}
