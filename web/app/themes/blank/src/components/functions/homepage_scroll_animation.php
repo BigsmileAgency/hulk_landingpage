@@ -10,7 +10,7 @@ function homepage_scroll_animation()
 				let boxes = gsap.utils.toArray('.img_shadow');
 				boxes.forEach((box, index) => {
 					// let distance = index % 2 === 0 ? '-100%' : '100%';
-					let rotationStart = index % 2 === 0 ? '45' : '-45';
+					let rotationStart = index % 2 === 0 ? '30' : '-30';
 					let rotation = index % 2 === 0 ? '-45' : '45';
 					gsap.fromTo(box, {
 						rotation: rotationStart,
@@ -21,7 +21,7 @@ function homepage_scroll_animation()
 						rotation: rotation,
 						// x: 0,
 						// yPercent: 0,
-						duration: 9,
+						duration: 6.66,
 						opacity: 1,
 						ease: 'expo.out',
 						scrollTrigger: {
