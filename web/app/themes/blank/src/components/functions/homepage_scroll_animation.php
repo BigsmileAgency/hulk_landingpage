@@ -16,7 +16,7 @@ function homepage_scroll_animation()
 						rotation: rotationStart,
 						// x: distance,
 						// yPercent: 50,
-						// opacity: 0,
+						opacity: 0,
 					}, {
 						rotation: rotation,
 						// x: 0,

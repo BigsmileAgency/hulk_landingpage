@@ -18,6 +18,7 @@ $mb: 2rem;
 
   // center button and img
   @include breakpoint(md) {
+
     .hero_btn,
     .hero_2_box img,
     .hero_3_box img,
@@ -29,7 +30,7 @@ $mb: 2rem;
   }
 }
 
-.hero_1 {  
+.hero_1 {
   min-height: 91vh;
   text-align: center;
   background-size: contain;
@@ -96,7 +97,7 @@ $mb: 2rem;
     }
 
     @include breakpoint(ss) {
-      button {  
+      button {
         font-size: 12px;
         min-width: 260px;
         height: 44px;
@@ -199,34 +200,28 @@ $mb: 2rem;
     background-color: $lighter-color;
     border-radius: 30px;
     overflow: hidden;
-
     transform: rotate(-45deg);
-    // @media screen and (max-width: 870px){
-    // }
 
-    @include breakpoint(xs){
+    @include breakpoint(xs) {
       width: 264px;
       height: 240px;
       left: -10px;
     }
 
-    @include breakpoint(ss){
+    @include breakpoint(ss) {
       width: 226px;
       height: 205px;
       left: -10px;
     }
-  
+
   }
 
   .feat_container:nth-of-type(even) .img_shadow {
-
     transform: rotate(45deg);
-    // @media screen and (max-width: 870px){
-    // }
-
     left: auto;
     right: 43px;
-    @include breakpoint(xs){
+
+    @include breakpoint(xs) {
       right: -10px;
     }
   }
@@ -267,7 +262,8 @@ $mb: 2rem;
     width: 100%;
     max-width: 433px;
     justify-self: center;
-    @include breakpoint(xs){
+
+    @include breakpoint(xs) {
       width: 110%;
     }
   }
