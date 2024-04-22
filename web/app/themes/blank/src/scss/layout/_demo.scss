@@ -77,9 +77,7 @@
 		}
 
 		.icons_demo {
-			width: 80%;
-			padding: 20px;
-
+			padding: 40px;
 			@include breakpoint(md) {
 				display: none;
 				width: 0px;
