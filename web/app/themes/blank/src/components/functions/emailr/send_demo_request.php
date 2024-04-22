@@ -80,12 +80,12 @@ function send_demo_request()
         "last_name" => $last_name,
         "date" => $full_date,
         "time" => $time,       
-        "ics_url" => $ics_url,         
+        "ics_url" =>  get_template_directory_uri() . "/components/functions/emailr/ics_files/fba-" . $ics_id . ".ics",         
     ];
 
     $sendMailToCLient = $emailrOforThem->sendEmail($emailR_data[$lang]["FOR_CLIENT"], array('contacts' => $emails_for_them ));
 
-    echo json_encode([$sendMailToCLient, $sendMailToUs, $ics_url, $ics_content]);
+    echo json_encode([$ics_url, $ics_content]);
     wp_die();
 }
 
