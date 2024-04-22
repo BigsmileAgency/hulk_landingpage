@@ -3,6 +3,9 @@
 
 function send_demo_request()
 {
+
+    date_default_timezone_set('Europe/Brussels');
+
     // $POST //
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
@@ -14,18 +17,18 @@ function send_demo_request()
     $lang = $_POST['lang'];
 
     // ICS FILE (ADD TO AGENDA) //
-    $ics_start = strtotime($_POST['full_date'] . " " . $_POST['time']);
+    $ics_start = strtotime($full_date . " " . $time);
     $ics_end = strtotime('+30 minutes', $ics_start);
     $ics_id = uniqid();
 
     $ics_content = "BEGIN:VCALENDAR\n" .
         "VERSION:2.0\n" .
         "BEGIN:VEVENT\n" .
-        "SUMMARY:" . $_POST['summary'] . "\n" .
+        "SUMMARY:" . $_POST['first_name'] . " " . $_POST['last_name'] . "\n" .
         "UID:" . $ics_id . "\n" .
         "DTSTAMP:20240419T120000Z\n" .
-        "DTSTART:" . date("Ymd\THis\Z", $ics_start) . "\n" .
-        "DTEND:" . date("Ymd\THis\Z", $ics_end) . "\n" .
+        "DTSTART:" . date("Ymd\THis", $ics_start) . "\n" .
+        "DTEND:" . date("Ymd\THis", $ics_end) . "\n" .
         "DESCRIPTION:RDV avec FoxBanner\n" .
         "ORGANIZER:FoxBanner\n" .
         "STATUS:CONFIRMED\n" .
