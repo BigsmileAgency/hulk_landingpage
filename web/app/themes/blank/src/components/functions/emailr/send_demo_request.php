@@ -41,7 +41,7 @@ function send_demo_request()
     file_put_contents($ics_url, $ics_content);
 
     // Clean ics folder of outdated appointement:
-    // include get_theme_file_path("/components/functions/ics_clean.php");
+    include get_theme_file_path("/components/functions/cleaning.php");
 
     // EMAILR VAR //
     $emailR_data = array();

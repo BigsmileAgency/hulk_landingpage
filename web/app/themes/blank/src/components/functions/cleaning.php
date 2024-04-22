@@ -3,7 +3,7 @@
 // Clean Ics Folder from outdated appointements
 $files_ics = get_theme_file_path("/components/functions/emailr/ics_files/");;
 $files = scandir($files_ics);
-$date_actuelle_utc = gmdate('Ymd\THis\Z');
+$date_actuelle_utc = gmdate('Ymd\THis');
 
 foreach ($files as $file) {
 
