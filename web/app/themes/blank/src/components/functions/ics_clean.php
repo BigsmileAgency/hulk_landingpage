@@ -1,32 +1,32 @@
 <?php
 
 // Clean Ics Folder from outdated appointements
-// $files_ics = get_theme_file_path("/components/functions/emailr/ics_files/");;
-// $files = scandir($files_ics);
-// $date_actuelle_utc = gmdate('Ymd\THis\Z');
+$files_ics = get_theme_file_path("/components/functions/emailr/ics_files/");;
+$files = scandir($files_ics);
+$date_actuelle_utc = gmdate('Ymd\THis\Z');
 
-// foreach ($files as $file) {
+foreach ($files as $file) {
 
-//   if ($file == '.' || $file == '..') {
-//     continue;
-//   }
+  if ($file == '.' || $file == '..') {
+    continue;
+  }
 
-//   $path_file = $files_ics . $file;
+  $path_file = $files_ics . $file;
 
-//   if (pathinfo($path_file, PATHINFO_EXTENSION) != 'ics') {
-//     continue;
-//   }
+  if (pathinfo($path_file, PATHINFO_EXTENSION) != 'ics') {
+    continue;
+  }
 
-//   $contenu_file = file_get_contents($path_file);
+  $contenu_file = file_get_contents($path_file);
 
-//   if (preg_match('/DTEND:(\d{8}T\d{6})/', $contenu_file, $matches)) {
-//     $date_rdv = $matches[1];
+  if (preg_match('/DTEND:(\d{8}T\d{6})/', $contenu_file, $matches)) {
+    $date_rdv = $matches[1];
 
-//     if ($date_rdv < $date_actuelle_utc) {
-//       unlink($path_file);
-//     }
-//   }
-// }
+    if ($date_rdv < $date_actuelle_utc) {
+      unlink($path_file);
+    }
+  }
+}
 
 
 // Clean DB from BSA placeholders in appoitement table
