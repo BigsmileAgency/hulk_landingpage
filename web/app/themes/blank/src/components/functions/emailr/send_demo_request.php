@@ -3,7 +3,7 @@
 
 function send_demo_request()
 {
-
+    // $POST //
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $full_date = date("d-m-Y", strtotime($_POST['full_date']));
@@ -13,6 +13,32 @@ function send_demo_request()
     $time = $_POST['time'];
     $lang = $_POST['lang'];
 
+    // ICS FILE (ADD TO AGENDA) //
+    $ics_start = strtotime($_POST['full_date'] . " " . $_POST['time']);
+    $ics_end = strtotime('+30 minutes', $ics_start);
+    $ics_id = uniqid();
+
+    $ics_content = "BEGIN:VCALENDAR\n" .
+        "VERSION:2.0\n" .
+        "BEGIN:VEVENT\n" .
+        "SUMMARY:" . $_POST['summary'] . "\n" .
+        "UID:" . $ics_id . "\n" .
+        "DTSTAMP:20240419T120000Z\n" .
+        "DTSTART:" . date("Ymd\THis\Z", $ics_start) . "\n" .
+        "DTEND:" . date("Ymd\THis\Z", $ics_end) . "\n" .
+        "DESCRIPTION:RDV avec FoxBanner\n" .
+        "ORGANIZER:FoxBanner\n" .
+        "STATUS:CONFIRMED\n" .
+        "PRIORITY:0\n" .
+        "LOCATION:Online\n" .
+        "END:VEVENT\n" .
+        "END:VCALENDAR";
+
+    $ics_url = get_theme_file_path("/components/functions/emailr/ics_files/fba-" . $ics_id . ".ics");
+
+    file_put_contents($ics_url, $ics_content);
+
+    // EMAILR VAR //
     $emailR_data = array();
     $emailR_data["fr"] = array();
 
@@ -20,7 +46,7 @@ function send_demo_request()
 
     $emailR_data["fr"]["FOR_CLIENT"] = "7fe57583-1e52-4406-8976-58488627f0e8"; 
     $emailR_data["nl"]["FOR_CLIENT"] = "a5fd7c05-a118-49d9-88bc-5c15f977d991"; 
-    $emailR_data["en"]["FOR_CLIENT"] = "5ee5f165-e37c-4b14-b5df-3a3e360e4be2"; 
+    $emailR_data["en"]["FOR_CLIENT"] = "589fa875-bbaa-4cb9-bbbe-cc6cb8f7ae94"; 
 
     $emailR_data["USER"] = "info@bigsmile.be"; // Account creditential
     $emailR_data["PWD"] = "bsaRFLX@2024"; // Account creditential
@@ -28,7 +54,7 @@ function send_demo_request()
     $emailR_data["fr"]["PROFILE_ID"] = "22EFD984-B8A1-42B1-A8B5-958287D5DFF2";  // Profile ID
 
 
-    // FOR US
+    // MAIL FOR US
     $emailrOforUs = new EmailR( $emailR_data['ACCOUNT_ID'],  $emailR_data['USER'],  $emailR_data['PWD'],  $emailR_data["fr"]['PROFILE_ID'] );
     $emails_for_us[] = [
         "Email" => "jr@bigsmile.be",
@@ -45,22 +71,23 @@ function send_demo_request()
     $sendMailToUs = $emailrOforUs->sendEmail($emailR_data["fr"]["FOR_US"], array('contacts' => $emails_for_us ));
 
 
-    // FOR THEM
+    // MAIL FOR CLIENT
     $emailrOforThem = new EmailR( $emailR_data['ACCOUNT_ID'],  $emailR_data['USER'],  $emailR_data['PWD'],  $emailR_data["fr"]['PROFILE_ID'] );
-    
+
     $emails_for_them[] = [
         "Email" => $email,
         "first_name" => $first_name,
         "last_name" => $last_name,
         "date" => $full_date,
         "time" => $time,       
+        "ics_url" => $ics_url,         
     ];
+
     $sendMailToCLient = $emailrOforThem->sendEmail($emailR_data[$lang]["FOR_CLIENT"], array('contacts' => $emails_for_them ));
 
-    echo json_encode([$sendMailToUs, $sendMailToCLient]);
+    echo json_encode([$sendMailToCLient, $sendMailToUs, $ics_url, $ics_content]);
     wp_die();
 }
 
 add_action('wp_ajax_send_demo_request', 'send_demo_request');
 add_action('wp_ajax_nopriv_send_demo_request', 'send_demo_request');
-

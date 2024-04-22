@@ -34,7 +34,7 @@ do_action('demo_handle')
           ?>
         </ol>
         <div class="icons_demo">
-          <img src="<?= get_template_directory_uri() ?>/images/icones.svg" alt="">
+          <img src=<?= get_field("bg_img")?> alt="">
         </div>
       </div>
 
