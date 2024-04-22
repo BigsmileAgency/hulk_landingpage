@@ -3,7 +3,6 @@
 
 function send_demo_request()
 {
-
     date_default_timezone_set('Europe/Brussels');
 
     // $POST //
@@ -40,6 +39,9 @@ function send_demo_request()
     $ics_url = get_theme_file_path("/components/functions/emailr/ics_files/fba-" . $ics_id . ".ics");
 
     file_put_contents($ics_url, $ics_content);
+
+    // Clean ics folder of outdated appointement:
+    // include get_theme_file_path("/components/functions/ics_clean.php");
 
     // EMAILR VAR //
     $emailR_data = array();
