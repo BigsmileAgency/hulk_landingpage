@@ -135,7 +135,7 @@ function demo_form_handler()
 									companyName.value = "";
 									isAgency.value = "";
 									isConsent = false;
-									// window.location.reload();
+									window.location.reload();
 								}
 								console.log(result)
 							} else {
