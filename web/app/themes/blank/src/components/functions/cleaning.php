@@ -29,7 +29,7 @@ foreach ($files as $file) {
 }
 
 
-// Clean DB from BSA placeholders in appoitement table
+// Clean DB from BSA placeholders in appointement table
 global $wpdb;
 
 $name = "BSA";

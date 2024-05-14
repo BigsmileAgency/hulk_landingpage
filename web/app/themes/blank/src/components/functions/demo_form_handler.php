@@ -94,6 +94,8 @@ function demo_form_handler()
 						'&time=' + time.innerHTML +
 						'&lang=' + lang;
 
+						console.log(dataSet)
+
 					// INSERT DB
 					let xhrInsert = new XMLHttpRequest();
 					let urlInsert = '<?= admin_url('admin-ajax.php') ?>';
@@ -133,9 +135,9 @@ function demo_form_handler()
 									companyName.value = "";
 									isAgency.value = "";
 									isConsent = false;
-									window.location.reload();
+									// window.location.reload();
 								}
-								// console.log(result)
+								console.log(result)
 							} else {
 								console.log(result);
 								alert(copy.problem[lang])

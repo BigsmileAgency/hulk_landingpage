@@ -4,31 +4,28 @@ function insert_demo_request()
 {
     global $wpdb;
 
-    $first_name = $_POST['first_name'];
+    $first_name =  $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $full_date = date("Y-m-d", strtotime($_POST['full_date']));
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $company = $_POST['company'];
     $is_agency = $_POST['is_agency'];
-    $is_consent = $_POST['is_consent'];
+    $is_consent = ($_POST['is_consent'] === 'true') ? 1 : 0;
     $time = $_POST['time'];
     $lang = $_POST['lang'];
-
-    if ($is_consent === "true") {
-        // insert in mailing list
-    }
 
     $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE time = %s", $time));
 
     $insert = $wpdb->query(
         $wpdb->prepare(
-            "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `is_agency`, `email`, `phone`, `lang`, `date`, `time_slot_id`) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `is_agency`, `is_consent`, `email`, `phone`, `lang`, `date`, `time_slot_id`) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
             $first_name,
             $last_name,
             $company,
             $is_agency,
+            $is_consent,
             $email,
             $phone,
             $lang,
@@ -43,7 +40,7 @@ function insert_demo_request()
         $response = "Echec";
     }
 
-    echo json_encode($response);
+    echo json_encode($is_consent);
     wp_die();
 }
 
