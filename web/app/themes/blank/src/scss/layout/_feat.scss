@@ -38,6 +38,10 @@ $fs-sub-mobile : 20px;
 	@include breakpoint(sm) {
 		width: 95%;
 	}
+	@include breakpoint(md) {
+		text-align: left;
+
+	}
 }
 
 .free_trial_container {
@@ -162,7 +166,7 @@ $fs-sub-mobile : 20px;
 		}
 
 		.add_on_content {
-			padding: 0 30px;
+			padding: 0 30px 20px;
 
 			@include breakpoint(ss) {
 				padding-left: 20px;

@@ -21,6 +21,12 @@
 		}
 	}
 
+	.compare_header {
+		@include breakpoint(md) {
+			text-align: left;
+		}
+	}
+
 	.container_pricing {
 		.title_content {
 			margin-bottom: 0;
