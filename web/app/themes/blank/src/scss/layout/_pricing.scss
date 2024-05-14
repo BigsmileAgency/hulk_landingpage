@@ -250,7 +250,8 @@
 
 				&.medium {
 					background-color: $main-color;
-					.monthly_price {
+					.monthly_price,
+					.annual_price {
 						p {
 							color: $main-color;	
 						}
@@ -260,7 +261,8 @@
 						min-height: 555px;
 						padding-top: 40px;
 						background-color: $black;
-						.monthly_price {
+						.monthly_price, 
+						.annual_price {
 							p {
 								color: $black;	
 							}
