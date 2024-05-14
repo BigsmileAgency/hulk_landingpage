@@ -191,7 +191,6 @@
       height: 205px;
       left: -10px;
     }
-
   }
 
   .feat_container:nth-of-type(even) .img_shadow {
@@ -216,19 +215,22 @@
 .feat_container {
   display: grid;
   grid-template-columns: 50% 50%;
+  margin-top: 90px;
 
   .side_grid {
     padding-top: 60px;
     @include breakpoint(md) {
-      margin-bottom: 3rem;
+      margin-bottom: $marginBottom;
     }
+  }
+  h3 {
+    margin-bottom: 0px;
   }
   ul {
     padding: 20px;
   }
   li {
     padding: 1px 0;
-    margin-bottom: 10px;
   }
   img {
     width: 100%;
