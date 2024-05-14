@@ -14,9 +14,9 @@
       <section>
         <div class="container container_pricing">
           <div class="pricing_header">
-            <h1 class="title">
+            <h2 class="title">
               <?= get_field('main_title') ?>
-            </h1>
+            </h2>
             <p class="title_content margin_bottom">
               <?= get_field('main_title_content') ?>
             </p>

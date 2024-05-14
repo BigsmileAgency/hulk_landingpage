@@ -3,7 +3,6 @@ $mb: 2rem;
 .home {
   .container {
     padding: 50px 90px;
-
     @include breakpoint(md) {
       padding: 50px 0px;
     }
@@ -15,14 +14,10 @@ $mb: 2rem;
     color: $black;
   }
 
-
   // center button and img
-  @include breakpoint(md) {
-
-    .hero_btn,
+  @include breakpoint(md) {   
     .hero_2_box img,
-    .hero_3_box img,
-    .feat_btn {
+    .hero_3_box img {
       position: relative;
       left: 50%;
       transform: translateX(-50%);
@@ -116,7 +111,6 @@ $mb: 2rem;
 .hero_2,
 .hero_3 {
   background-color: $light-color;
-
   .trial_btn {
     @include button(16px);
   }
@@ -127,17 +121,17 @@ $mb: 2rem;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-
+  @include breakpoint(md){
+    align-items: flex-start;
+  }
   p {
     text-align: center;
     @include breakpoint(md){
       text-align: left;
     }
   }
-
   .full_btn {
     @include button(16px);
-    height: 60px;
   }
 }
 
@@ -159,7 +153,6 @@ $mb: 2rem;
   h2 {
     font-weight: 800;
     margin-bottom: $mb;
-
   }
 
   p {
@@ -173,12 +166,6 @@ $mb: 2rem;
 
   .hero_btn {
     @include button(16px, solid);
-
-    @include breakpoint(md) {
-      &:hover {
-        transform: scale(1.05) translateX(-48%);
-      }
-    }
   }
 }
 
@@ -280,12 +267,6 @@ $mb: 2rem;
 
   .feat_btn {
     @include button(16px, hollow);
-
-    &:hover {
-      @include breakpoint(md) {
-        transform: scale(1.05) translateX(-48%);
-      }
-    }
   }
 
   @media screen and (min-width: 992px) {

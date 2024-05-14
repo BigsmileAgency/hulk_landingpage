@@ -14,9 +14,9 @@
       <section>
         <div class="container">
           <header class="feat_header">
-            <h1 class="title">
+            <h2 class="title">
               <?= get_field('title_header') ?>
-            </h1>
+            </h2>
             <p class="title_content">
               <?= get_field('content_header') ?>
             </p>
