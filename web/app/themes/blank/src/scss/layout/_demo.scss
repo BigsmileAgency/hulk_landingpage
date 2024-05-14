@@ -1,30 +1,5 @@
 .demo {
-	.container {
-		margin: 0px auto;
-		padding: 50px 0;
-		
-		@include breakpoint(md) {
-			width: 90%;
-		}
 
-		.demo_header {
-			width: 800px;
-			margin: auto;
-			text-align: center;
-			
-			@include breakpoint(md) {
-				width: 750px;
-			}
-	
-			@include breakpoint(sm) {
-				width: 90%;
-			}
-	
-			h1, p {
-				margin-bottom: 25px;
-			}
-		}
-	}
 
 	i {
 		cursor: pointer;
@@ -78,6 +53,7 @@
 
 		.icons_demo {
 			padding: 40px;
+
 			@include breakpoint(md) {
 				display: none;
 				width: 0px;

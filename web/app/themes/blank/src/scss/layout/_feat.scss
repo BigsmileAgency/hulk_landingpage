@@ -6,14 +6,6 @@ $fs-sub-mobile : 20px;
 	flex-direction: column;
 	align-items: center;
 
-	.container {
-		padding: 50px 90px;
-
-		@include breakpoint(sm) {
-			padding: 50px 0px;
-		}
-	}
-
 	h1,
 	h2,
 	p {
@@ -37,7 +29,6 @@ $fs-sub-mobile : 20px;
 	}
 }
 
-.feat_header,
 .free_trial_container,
 .add_ons_container {
 	text-align: center;
@@ -142,6 +133,10 @@ $fs-sub-mobile : 20px;
 		// width: 100%;
 		@include breakpoint(xl) {
 			width: 100%;
+		}
+
+		p {
+			margin-bottom: 0px;
 		}
 
 		&:hover {

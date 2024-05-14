@@ -81,7 +81,7 @@
                   </button>
 
                   <div class="see_more main-color">
-                    <a href="#">
+                    <a href="<?php echo get_home_url() . '/feat'; ?>">
                       <?= $small['see_more'] ?>
                     </a></div>
                 </div>
@@ -127,7 +127,7 @@
                       <?= $medium['button_billing'] ?>
                     </a>
                   </button>
-                  <div class="see_more"><a href="#">
+                  <div class="see_more"><a href="<?php echo get_home_url() . '/feat'; ?>">
                       <?= $medium['see_more'] ?>
                     </a></div>
                 </div>
@@ -173,7 +173,7 @@
                       <?= $large['button_billing'] ?>
                     </a>
                   </button>
-                  <div class="see_more main-color"><a href="#">
+                  <div class="see_more main-color"><a href="<?php echo get_home_url() . '/feat'; ?>">
                       <?= $large['see_more'] ?>
                     </a></div>
                 </div>
@@ -237,6 +237,51 @@
         </div>
       </section> -->
 
+      <section class="bg_blue">
+        <div class="container">
+          <div class="add_ons_box">
+            <div class="add_ons_container">
+              <h2 class="title">
+                <?= get_field('title_add-ons') ?>
+              </h2>
+              <p class="title_content margin_bottom">
+                <?= get_field('content_add-ons') ?>
+              </p>
+            </div>
+            <div class="add_ons">
+              <?php if (have_rows('add-ons')) :
+
+                // Loop through rows.
+                while (have_rows('add-ons')) :
+                  the_row();
+                  
+                  // Load sub field value.
+                  $title_add_on = get_sub_field('title_add-on');
+                  $content_add_on = get_sub_field('content_add-on');
+                  $price_add_on = get_sub_field('price_add-on');
+                  // Do something, but make sure you escape the value if outputting directly... 
+                  ?>
+                  <div class="add_on">
+                    <div class="add_on_top">
+                      <p class="add_on_title">
+                        <?= $title_add_on ?>
+                      </p>
+                      <p class="add_on_content">
+                        <?= $content_add_on ?>
+                      </p>
+                    </div>
+                    <p class="add_on_price">
+                      <?= $price_add_on ?>
+                    </p>
+                  </div>
+
+                  <?php // End loop.
+                endwhile;
+              endif; ?>
+            </div>
+          </div>
+        </div>
+      </section>
       <section>
         <div class="container compare_container">
           <div class="compare_header">
@@ -249,7 +294,7 @@
           </div>
           <div class="columns_title">
             <div class="column">
-
+  
             </div>
             <div class="column">
               <div class="title_column bold">
@@ -286,11 +331,11 @@
             // !!! You hear?
             ?>
             <?php if (have_rows('plans_table')) :
-
+  
               // Loop through rows.
               while (have_rows('plans_table')) :
                 the_row();
-
+  
                 // Load sub field value.
                 $table_title = get_sub_field('table_title');
                 // Do something, but make sure you escape the value if outputting directly... 
@@ -312,7 +357,7 @@
                         <div class="row_title row ">
                           <p><?= $row_title ?></p>
                         </div>
-
+  
                         <div class="small_row row">
                           <?php
                           if ($small_row === "true") { ?>
@@ -325,7 +370,7 @@
                             echo $small_row;
                           } ?>
                         </div>
-
+  
                         <div class="medium_row row">
                           <?php
                           if ($medium_row === "true") { ?>
@@ -338,7 +383,7 @@
                             echo $medium_row;
                           } ?>
                         </div>
-
+  
                         <div class="large_row row">
                           <?php
                           if ($large_row === "true") { ?>
@@ -355,7 +400,7 @@
                   <?php endwhile;
                   endif; ?>
                 </div>
-
+  
             <?php // End loop.
               endwhile;
             endif; ?>
@@ -367,55 +412,9 @@
           </div>
         </div>
       </section>
-      <section class="bg_blue">
-        <div class="container">
-          <div class="add_ons_box">
-            <div class="add_ons_container">
-              <h2 class="title">
-                <?= get_field('title_add-ons') ?>
-              </h2>
-              <p class="title_content margin_bottom">
-                <?= get_field('content_add-ons') ?>
-              </p>
-            </div>
-            <div class="add_ons">
-              <?php if (have_rows('add-ons')) :
-
-                // Loop through rows.
-                while (have_rows('add-ons')) :
-                  the_row();
-
-                  // Load sub field value.
-                  $title_add_on = get_sub_field('title_add-on');
-                  $content_add_on = get_sub_field('content_add-on');
-                  $price_add_on = get_sub_field('price_add-on');
-                  // Do something, but make sure you escape the value if outputting directly... 
-              ?>
-                  <div class="add_on">
-                    <div class="add_on_top">
-
-                      <h3 class="add_on_title">
-                        <?= $title_add_on ?>
-                      </h3>
-                      <p class="add_on_content">
-                        <?= $content_add_on ?>
-                      </p>
-                    </div>
-                    <h3 class="add_on_price">
-                      <?= $price_add_on ?>
-                    </h3>
-                  </div>
-
-              <?php // End loop.
-                endwhile;
-              endif; ?>
-            </div>
-          </div>
-        </div>
-      </section>
 
     <?php endwhile; ?>
-  <?php else : ?>
+    <?php else : ?>
     <!-- fin contenu page -->
     <article>
       <div class="inner large">

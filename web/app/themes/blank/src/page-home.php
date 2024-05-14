@@ -7,17 +7,17 @@
 
 <?php get_header(); ?>
 
-<main class="home">
+<main class="default home">
 
-	<section class="hero_1" style="background-image: url(<?= get_field('bg_img') ?>);">
-  <div class="container">
-    <h1><?= get_field('catchphrase') ?></h1>
-    <h3><?= get_field('sub_catchphrase') ?></h3>
-    <div class="grid_btn_2">
-      <button class="trial_btn"><a href="<?php echo get_home_url() . '/login'; ?>"><?= get_field('trial_btn') ?></a></button>
-      <button class="demo_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= get_field('demo_btn') ?></a></button>
+  <section class="hero_1" style="background-image: url(<?= get_field('bg_img') ?>);">
+    <div class="container">
+      <h1><?= get_field('catchphrase') ?></h1>
+      <h3><?= get_field('sub_catchphrase') ?></h3>
+      <div class="grid_btn_2">
+        <button class="trial_btn"><a href="<?php echo get_home_url() . '/login'; ?>"><?= get_field('trial_btn') ?></a></button>
+        <button class="demo_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= get_field('demo_btn') ?></a></button>
+      </div>
     </div>
-  </div>
   </section>
 
   <?php $hero2 = get_field('hero_2'); ?>
@@ -79,14 +79,14 @@
         <button class="full_btn"><a href="#"><?= $hero3['btn_trial'] ?></a></button>
       </div>
     </div>
-      </section>
+  </section>
   <section class="hero_4">
-  <div class="container">
+    <div class="container">
       <div class="hero_4_box">
         <div class="left_box">
           <h2><?= $hero3['catchphrase'] ?></h2>
           <p><?= $hero3['sub_catchphrase'] ?></p>
-          <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= __('Book a demo call', 'hulkbanner')?></a></button>
+          <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= __('Book a demo call', 'hulkbanner') ?></a></button>
         </div>
         <img src="<?= $hero3['img_hero3'] ?>" alt="">
       </div>

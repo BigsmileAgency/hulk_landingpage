@@ -1,17 +1,6 @@
 .faq {
   .container {
 		text-align: center;
-		margin: 0px auto;
-		padding: 50px 0;
-
-		// @include breakpoint(md) {
-		// 	width: 750px;
-		// }
-
-		@include breakpoint(sm) {
-			width: 90%;
-		}
-
 		h1,
 		h2,
 		.margin_bottom {

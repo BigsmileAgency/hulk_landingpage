@@ -1,13 +1,4 @@
-$mb: 2rem;
-
 .home {
-  .container {
-    padding: 50px 90px;
-    @include breakpoint(md) {
-      padding: 50px 0px;
-    }
-  }
-
   h2,
   h3 {
     font-weight: 800;
@@ -26,7 +17,6 @@ $mb: 2rem;
 }
 
 .hero_1 {
-  min-height: 91vh;
   text-align: center;
   background-size: contain;
   background-position: center;
@@ -35,7 +25,6 @@ $mb: 2rem;
   h1 {
     max-width: 100vw;
     font-weight: 800;
-    font-size: 70px;
     margin: 0 2rem;
     color: $black;
 
@@ -61,7 +50,6 @@ $mb: 2rem;
       padding: 2rem 0;
     }
   }
-
 
   .trial_btn {
     @include button(16px);
@@ -152,11 +140,6 @@ $mb: 2rem;
 
   h2 {
     font-weight: 800;
-    margin-bottom: $mb;
-  }
-
-  p {
-    margin-bottom: $mb;
   }
 
   img {
@@ -177,7 +160,6 @@ $mb: 2rem;
 
 .feats_section {
   overflow: hidden;
-
   .feats_display_container {
     max-width: 1366px;
     position: relative;
@@ -224,8 +206,6 @@ $mb: 2rem;
 
   h2 {
     text-align: center;
-    margin: 2rem 0 4rem;
-
     @include breakpoint(xs) {
       font-size: 36px;
       text-align: left;
@@ -234,27 +214,22 @@ $mb: 2rem;
 }
 
 .feat_container {
-  padding: 50px 0px;
   display: grid;
   grid-template-columns: 50% 50%;
 
   .side_grid {
     padding-top: 60px;
-
     @include breakpoint(md) {
       margin-bottom: 3rem;
     }
   }
-
   ul {
     padding: 20px;
   }
-
   li {
     padding: 1px 0;
     margin-bottom: 10px;
   }
-
   img {
     width: 100%;
     max-width: 433px;
@@ -264,30 +239,24 @@ $mb: 2rem;
       width: 110%;
     }
   }
-
   .feat_btn {
     @include button(16px, hollow);
   }
-
   @media screen and (min-width: 992px) {
     &:nth-of-type(even) {
       direction: rtl;
-
       ul,
       h3 {
         direction: ltr;
       }
-
       .feat_btn {
         float: left;
       }
     }
   }
-
   @include breakpoint(md) {
     grid-template-columns: 1fr;
   }
-
   .feat_list {
     li::marker {
       color: $main-color;

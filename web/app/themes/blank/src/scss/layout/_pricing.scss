@@ -461,6 +461,9 @@
 						justify-content: flex-start;
 						padding-left: 15px;
 						text-align: left;
+						p {
+							margin-bottom: 0px;
+						}
 
 						@include word-wrap();
 
@@ -504,7 +507,7 @@
 
 	.bg_blue {
 		p {
-			margin-bottom: 25px;
+			margin-bottom: 0px;
 		}
 	}
 }

@@ -13,7 +13,7 @@
       the_post(); ?>
       <section>
         <div class="container">
-          <header class="feat_header">
+          <header class="feat_header page_header">
             <h2 class="title">
               <?= get_field('title_header') ?>
             </h2>
@@ -82,16 +82,16 @@
                 <div class="add_on">
                   <div class="add_on_top">
 
-                    <h3 class="add_on_title">
+                    <p class="add_on_title">
                       <?= $title_add_on ?>
-                    </h3>
+                    </p>
                     <p class="add_on_content">
                       <?= $content_add_on ?>
                     </p>
                   </div>
-                  <h3 class="add_on_price">
+                  <p class="add_on_price">
                     <?= $price_add_on ?>
-                  </h3>
+                  </p>
                 </div>
 
             <?php // End loop.

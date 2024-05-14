@@ -12,7 +12,6 @@ body {
   color: $black;
   overflow-x: hidden;
   background-color: $white;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -26,7 +25,6 @@ main {
     display: flex;
     flex-direction: column;
     padding-top : 75px;
-
   }
   section {
     display: flex;
@@ -46,11 +44,13 @@ main {
 }
 .container {
   max-width: 1366px;
-  margin: auto;
+  margin: 0px auto;
+  padding: 50px 0;
+  
   @include breakpoint(xl) {
     width: 95%;
   }
-  @include breakpoint(xs) {
+  @include breakpoint(md) {
     width: 90%;
   }
 }
@@ -65,9 +65,14 @@ a {
   color: $main-color
 }
 
+h1, h2, h3, p {
+  margin-bottom: 26px;
+}
+
 h1 {
   font-size: 50px;
   line-height: 1.25;
+
   @include breakpoint(xs) {
     font-size: 36px;
   }
@@ -76,26 +81,25 @@ h1 {
 h2 {
   font-size: 40px;
   line-height: 1.25;
+  margin-bottom: 26px;
   @include breakpoint(xs) {
     font-size: 30px;
   }
 }
 
-h3 {
+h3, h4 {
   font-size: 24px;
   line-height: 1.25;
-}
-
-h4 {
-  font-size: 24px;
 }
 
 h5 {
   font-size: 20px;
 }
+
 .bold {
   font-weight: 700;
 }
+
 .underline {
   text-decoration: underline;
 }
@@ -104,9 +108,11 @@ ul, ol {
   padding: 0;
   margin: 0;
 }
+
 .hidden {
   display: none;
 }
+
 p, li  {
   line-height: 1.5;
 }
@@ -115,4 +121,18 @@ p, li  {
   outline: none;
   border: solid $grey 2px;
   border-radius: 5px;
+}
+
+.page_header {
+  width: 800px;
+  margin: auto;
+  text-align: center;
+
+  @include breakpoint(md) {
+    width: 750px;
+  }
+
+  @include breakpoint(sm) {
+    width: 90%;
+  }
 }

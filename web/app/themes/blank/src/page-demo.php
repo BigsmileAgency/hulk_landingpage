@@ -13,7 +13,7 @@ do_action('demo_handle')
 <main class="default demo">
 
   <div class="container">
-    <div class="demo_header">
+    <div class="page_header">
       <h2><?= get_field("title") ?></h2>
       <p><?= get_field("explanation") ?></p>
     </div>
@@ -34,7 +34,7 @@ do_action('demo_handle')
           ?>
         </ol>
         <div class="icons_demo">
-          <img src=<?= get_field("bg_img")?> alt="">
+          <img src=<?= get_field("bg_img") ?> alt="">
         </div>
       </div>
 
