@@ -130,6 +130,9 @@ $mb: 2rem;
 
   p {
     text-align: center;
+    @include breakpoint(md){
+      text-align: left;
+    }
   }
 
   .full_btn {
@@ -238,6 +241,7 @@ $mb: 2rem;
 
     @include breakpoint(xs) {
       font-size: 36px;
+      text-align: left;
     }
   }
 }
