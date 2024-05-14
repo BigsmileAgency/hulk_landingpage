@@ -259,10 +259,9 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		@include button(20px);
+		@include button(16px);
 		color: $main-color;
 		background-color: $white;
-		height: 56px;
 
 		a {
 			&:hover {

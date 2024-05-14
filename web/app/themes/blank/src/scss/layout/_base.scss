@@ -127,6 +127,7 @@ p, li  {
   width: 800px;
   margin: auto;
   text-align: center;
+  padding-bottom: 50px;
 
   @include breakpoint(md) {
     width: 750px;

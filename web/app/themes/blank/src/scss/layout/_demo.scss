@@ -170,7 +170,7 @@
 			}
 
 			input[type=submit] {
-				@include button(12px, hollow);
+				@include button(16px, hollow);
 				width: 60%;
 				margin: 0 auto;
 			}
@@ -323,7 +323,7 @@
 		}
 
 		#book_btn {
-			@include button(12px, hollow);
+			@include button(16px, hollow);
 			width: 60%;
 			margin: 0 auto;
 		}

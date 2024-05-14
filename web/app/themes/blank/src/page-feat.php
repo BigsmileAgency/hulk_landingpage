@@ -20,7 +20,7 @@
             <p class="title_content">
               <?= get_field('content_header') ?>
             </p>
-          </header>
+          </header> 
           <div class="features">
             <?php if (have_rows('features')) :
 
