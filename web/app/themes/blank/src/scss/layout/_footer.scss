@@ -21,6 +21,7 @@
     @include breakpoint(sm) {
         flex-direction: column-reverse;
         gap: 50px;
+
         li:last-of-type {
             margin-bottom: 0px;
         }
@@ -30,14 +31,6 @@
 .menus {
     display: flex;
     gap: 150px;
-
-    @include breakpoint(md) {
-        gap: 50px;
-    }
-
-    @include breakpoint(xs) {
-        gap: 25px;
-    }
 }
 
 .container_footer ul {
