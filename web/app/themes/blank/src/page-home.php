@@ -10,7 +10,7 @@
 <main class="default home">
 
   <section class="hero_1" style="background-image: url(<?= get_field('bg_img') ?>);">
-    <div class="container">
+    <div class="container page_header">
       <h1><?= get_field('catchphrase') ?></h1>
       <h3><?= get_field('sub_catchphrase') ?></h3>
       <div class="grid_btn_2">

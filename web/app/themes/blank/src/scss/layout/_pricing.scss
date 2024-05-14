@@ -1,24 +1,7 @@
 .pricing {
 	.container {
 		text-align: center;
-		margin: 0px auto;
-		padding: 50px 0;
-
-		// @include breakpoint(md) {
-		// 	width: 750px;
-		// }
-
-		@include breakpoint(sm) {
-			width: 90%;
-		}
-
-		h1,
-		h2,
-		.margin_bottom {
-			margin-bottom: 25px;
-		}
 	}
-
 	.hidden {
 		display: none;
 	}
@@ -159,33 +142,26 @@
 		.pricing_header {
 			text-align: center;
 		}
-
 		.swiper {
 			max-width: 375px;
 		}
-
 		.swiper-horizontal {
-
 			.swiper-pagination-bullets,
 			.swiper-pagination-bullets.swiper-pagination-horizontal,
 			.swiper-pagination-custom,
 			.swiper-pagination-fraction {
 				bottom: 0px;
 			}
-
 			.swiper-pagination-bullet {
 				background-color: $lighter-color;
 			}
-
 			.swiper-pagination-bullet-active {
 				background: $main-color;
 			}
 		}
 
 		.billing_options {
-
 			$size: "md";
-
 			display: flex;
 			gap: 30px;
 			align-items: flex-end;
@@ -273,20 +249,30 @@
 				}
 
 				&.medium {
-					background-color: $black;
+					background-color: $main-color;
+					.monthly_price {
+						p {
+							color: $main-color;	
+						}
+					}
 
 					@media screen and(min-width: 992px) {
 						min-height: 555px;
 						padding-top: 40px;
-					}
-
-					.billing_button {
 						background-color: $black;
-						border-color: $black;
-
-						&:hover {
-							background-color: $grey;
-							border-color: $grey;
+						.monthly_price {
+							p {
+								color: $black;	
+							}
+						}
+						.billing_button {
+							background-color: $black;
+							border-color: $black;
+	
+							&:hover {
+								background-color: $grey;
+								border-color: $grey;
+							}
 						}
 					}
 				}
