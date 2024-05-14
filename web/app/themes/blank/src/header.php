@@ -69,6 +69,7 @@
 				<div class="nav_mobile_items">
 					<?php wp_nav_menu(array('theme_location' => 'burger', 'container' => '', 'container_id' => '#menu-burger',)); ?>
 					<li></li>
+					<li></li>
 					<li><a href="#"><?= __('Login', 'hulkbanner') ?></a></li>
 					<li class="try"><a href="#"><?= __('Try for free', 'hulkbanner') ?></a></li>
 				</div>
