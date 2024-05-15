@@ -471,30 +471,15 @@
 		}
 	}
 
-	.mobile_button_container {
+	.mobile_button_container {		
 		display: none;
-
 		@include breakpoint(md) {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-
 			.free_trial_button {
-				min-width: 200px;
-				font-size: 14px;
-				width: 60%;
-			}
-		}
-
-		.free_trial_button {
-			margin-top: 0;
-
-			@include breakpoint(sm) {
-				width: 70%;
-			}
-
-			@include breakpoint(xs) {
-				width: 90%;
+				width: 260px;
+				margin-top: 0;
 			}
 		}
 	}

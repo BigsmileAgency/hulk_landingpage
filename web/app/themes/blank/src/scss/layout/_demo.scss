@@ -139,7 +139,6 @@
 
 
 		#demo_form {
-
 			.response {
 				height: 16px;
 				font-size: 12px;
@@ -147,7 +146,6 @@
 				color: red;
 				display: flex;
 				flex-direction: row;
-
 				.response_text {
 					padding-left: 6px;
 				}
@@ -171,7 +169,6 @@
 
 			input[type=submit] {
 				@include button(16px, hollow);
-				width: 60%;
 				margin: 0 auto;
 			}
 
@@ -250,7 +247,7 @@
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				column-gap: 2rem;
-				padding: 50px 20px;
+				padding: 50px 20px 0px;
 				text-align: left;
 
 				@include breakpoint(sm) {
@@ -324,7 +321,6 @@
 
 		#book_btn {
 			@include button(16px, hollow);
-			width: 60%;
 			margin: 0 auto;
 		}
 
@@ -524,7 +520,6 @@
 
 					.slots_container {
 						width: 100%;
-
 						@include breakpoint(md) {
 							min-height: 190px;
 						}
