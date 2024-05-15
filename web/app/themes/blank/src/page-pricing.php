@@ -285,9 +285,9 @@
       <section>
         <div class="container compare_container">
           <div class="compare_header">
-            <h1 class="title">
+            <h2 class="title">
               <?= get_field('compare_title') ?>
-            </h1>
+            </h2>
             <p class="title_content margin_bottom">
               <?= get_field('compare_title_content') ?>
             </p>

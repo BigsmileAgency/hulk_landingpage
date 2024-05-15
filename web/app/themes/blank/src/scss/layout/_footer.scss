@@ -1,59 +1,59 @@
 .bg_footer {
-    background: $main-color;
+	background: $main-color;
 }
 
 .container_footer {
-    display: flex;
-    justify-content: space-between;
-    color: $white;
-    padding: 50px 90px;
-    position: relative;
+	display: flex;
+	justify-content: space-between;
+	color: $white;
+	padding: 50px 90px;
+	position: relative;
 
-    @include breakpoint(xl) {
-        padding: 50px 3%;
-        width: 100%;
-    }
+	@include breakpoint(xl) {
+		padding: 50px 3%;
+		width: 100%;
+	}
 
-    @include breakpoint(md) {
-        padding: 50px 5%;
-    }
+	@include breakpoint(md) {
+		padding: 50px 5%;
+	}
 
-    @include breakpoint(sm) {
-        flex-direction: column-reverse;
-        gap: 50px;
+	@include breakpoint(sm) {
+		flex-direction: column-reverse;
+		gap: 50px;
 
-        li:last-of-type {
-            margin-bottom: 0px;
-        }
-    }
+		li:last-of-type {
+			margin-bottom: 0px;
+		}
+	}
 }
 
 .menus {
-    display: flex;
-    gap: 150px;
+	display: flex;
+	gap: 150px;
 }
 
 .container_footer ul {
-    list-style-type: none;
-    list-style-position: inside;
-    padding: 0;
+	list-style-type: none;
+	list-style-position: inside;
+	padding: 0;
 }
 
 .head_li,
 .container_footer li {
-    margin-bottom: 25px;
+	margin-bottom: 25px;
 }
 
 .legal_footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 50px;
-    font-size: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 50px;
+	font-size: 12px;
 
-    @include breakpoint(xs) {
-        width: 90%;
-        margin: auto;
-    }
+	@include breakpoint(xs) {
+		width: 90%;
+		margin: auto;
+	}
 }

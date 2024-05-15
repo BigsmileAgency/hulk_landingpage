@@ -99,7 +99,6 @@
 				border-radius: 99px;
 				cursor: pointer;
 				transition: color 0.15s ease-in;
-				font-size: 16px;
 
 				@include breakpoint(xs) {
 					width: 150px;
@@ -230,9 +229,6 @@
 
 					.info {
 						font-size: 20px;
-						p {
-							line-height: 1.2;
-						}
 					}
 
 					.billing_button {

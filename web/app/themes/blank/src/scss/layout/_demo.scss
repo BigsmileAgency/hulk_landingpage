@@ -1,14 +1,13 @@
 .demo {
-
-
 	i {
 		cursor: pointer;
 	}
-
+	.page_header {
+		padding-bottom: 0px;
+	}
 	.demo_section {
 		background-color: $light-color;
 	}
-
 	.demo_container {
 		width: 100%;
 		display: grid;
@@ -376,7 +375,6 @@
 						margin-bottom: 1rem;
 
 						.month_display {
-							font-size: 16px;
 							margin-bottom: .5rem;
 						}
 
@@ -504,7 +502,6 @@
 						min-width: 160px;
 						display: flex;
 						justify-content: space-between;
-						font-size: 16px;
 						margin: auto;
 						margin-bottom: 1rem;
 						padding: 8px 1rem;
