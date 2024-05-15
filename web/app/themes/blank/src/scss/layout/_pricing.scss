@@ -455,7 +455,7 @@
 							margin-bottom: 0px;
 						}
 
-						@include word-wrap();
+						// @include word_wrap();
 
 						@include breakpoint(md) {
 							max-width: 165px;

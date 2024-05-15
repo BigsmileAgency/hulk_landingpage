@@ -107,7 +107,7 @@
 			justify-content: space-evenly;
 
 			@include breakpoint(md) {
-				padding: 25px 0px;
+				padding: 25px 0px 0px;
 			}
 
 			i {
