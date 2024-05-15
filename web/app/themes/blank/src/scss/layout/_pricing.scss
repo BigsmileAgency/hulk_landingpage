@@ -2,6 +2,7 @@
 	.container {
 		text-align: center;
 	}
+
 	.hidden {
 		display: none;
 	}
@@ -147,19 +148,24 @@
 		.pricing_header {
 			text-align: center;
 		}
+
 		.swiper {
 			max-width: 375px;
 		}
+
 		.swiper-horizontal {
+
 			.swiper-pagination-bullets,
 			.swiper-pagination-bullets.swiper-pagination-horizontal,
 			.swiper-pagination-custom,
 			.swiper-pagination-fraction {
 				bottom: 0px;
 			}
+
 			.swiper-pagination-bullet {
 				background-color: $lighter-color;
 			}
+
 			.swiper-pagination-bullet-active {
 				background: $main-color;
 			}
@@ -208,19 +214,19 @@
 					border-radius: 30px;
 					display: grid;
 					grid-template-rows: 27% 1fr 15% 10%;
-			
+
 					.price {
 						font-size: 100px;
 						display: flex;
 						justify-content: center;
 						margin-bottom: 15px;
-						
+
 						.euro {
 							font-size: 57px;
 							vertical-align: super;
 						}
 					}
-					
+
 					.infos {
 						display: flex;
 						flex-direction: column;
@@ -246,16 +252,17 @@
 
 					.see_more {
 						font-size: 12px;
-						padding-top: 8px;	
+						padding-top: 8px;
 					}
 				}
 
 				&.medium {
 					background-color: $main-color;
+
 					.monthly_price,
 					.annual_price {
 						p {
-							color: $main-color;	
+							color: $main-color;
 						}
 					}
 
@@ -263,16 +270,18 @@
 						min-height: 555px;
 						padding-top: 40px;
 						background-color: $black;
-						.monthly_price, 
+
+						.monthly_price,
 						.annual_price {
 							p {
-								color: $black;	
+								color: $black;
 							}
 						}
+
 						.billing_button {
 							background-color: $black;
 							border-color: $black;
-	
+
 							&:hover {
 								background-color: $grey;
 								border-color: $grey;
@@ -369,7 +378,6 @@
 				}
 
 				@media screen and (max-width: 657px) {
-
 					.title_column {
 						font-size: 0px;
 					}
@@ -451,11 +459,10 @@
 						justify-content: flex-start;
 						padding-left: 15px;
 						text-align: left;
+
 						p {
 							margin-bottom: 0px;
 						}
-
-						// @include word_wrap();
 
 						@include breakpoint(md) {
 							max-width: 165px;
@@ -467,12 +474,14 @@
 		}
 	}
 
-	.mobile_button_container {		
+	.mobile_button_container {
 		display: none;
+
 		@include breakpoint(md) {
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
 			.free_trial_button {
 				width: 260px;
 				margin-top: 0;

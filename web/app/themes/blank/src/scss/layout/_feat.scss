@@ -199,8 +199,6 @@ $fs-sub-mobile : 20px;
 	}
 }
 
-
-
 // qualities
 .container_qualities {
 	height: 400px;
@@ -267,20 +265,16 @@ $fs-sub-mobile : 20px;
 	position: relative;
 	top: -260px;
 	margin: auto;
-
 	@include breakpoint(xl) {
 		top: -150px;
 	}
-
 	@include breakpoint(md) {
 		width: 90%;
 		top: -150px;
 	}
-
 	@include breakpoint(sm) {
 		top: -120px;
 	}
-
 	@include breakpoint(xs) {
 		top: -100px;
 	}
