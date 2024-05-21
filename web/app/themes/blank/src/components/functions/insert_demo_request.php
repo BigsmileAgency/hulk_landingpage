@@ -40,7 +40,7 @@ function insert_demo_request()
         $response = "Echec";
     }
 
-    echo json_encode($is_consent);
+    echo json_encode($response);
     wp_die();
 }
 

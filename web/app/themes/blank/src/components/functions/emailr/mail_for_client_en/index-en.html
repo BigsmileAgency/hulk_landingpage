@@ -214,7 +214,7 @@
 								<tr>
 									<td width="100%" valign="top" align="center"
 										style="width: 450px; max-width: 450px; text-align: center; font-weight: bold;" class="mobile90">
-										{%date%} - {%time%}, 
+										{%date%} - {%time%} EDT, 
 									</td>
 								</tr>								
 								<tr>
@@ -266,22 +266,24 @@
 						</td>
 					</tr>
 					<tr>
-						<td width="100%" valign="top" align="center" style="background-color: #ffffff; width: 600px; max-width: 600px;">
+						<td width="100%" valign="top" align="center" style="background-color: #ffffff; width: 600px; max-width: 600px;" class="container">
 							<table width="450" height="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff"	class="container" align="center">
 								<tr>
-									<td align="center">
+									<td align="center" class="mobile">
 										<a href="#">
-											<img src="images/edit_btn.png" alt="" style="width: 130px" class="mobile">
+											<img src="images/edit_btn.png" alt="" style="width: 120px" >
 										</a>
 									</td>
-									<td align="center">
-										<a href="#">
-											<img src="images/add_btn.png" alt="" style="width: 170px" class="mobile">
+									<td class="mobile" width="0" style="height: 10px; display: none; width: 0px;">&nbsp;</td>
+									<td align="center" class="mobile">
+										<a href="{% ics_url %}">
+											<img src="images/add_btn.png" alt="" style="width: 160px" >
 										</a>
 									</td>
-									<td align="center">
+									<td class="mobile" width="0" style="height: 10px; display: none; width: 0px;">&nbsp;</td>
+									<td align="center" class="mobile">
 										<a href="#">
-											<img src="images/cancel_btn.png" alt="" style="width: 130px" class="mobile">
+											<img src="images/cancel_btn.png" alt="" style="width: 120px" >
 										</a>
 									</td>
 								</tr>
