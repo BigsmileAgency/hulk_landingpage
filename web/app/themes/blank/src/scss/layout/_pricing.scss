@@ -246,7 +246,6 @@
 						display: flex;
 						align-items: center;
 						justify-content: center;
-						font-weight: 700;
 						margin: auto;
 					}
 
@@ -258,7 +257,6 @@
 
 				&.medium {
 					background-color: $main-color;
-
 					.monthly_price,
 					.annual_price {
 						p {
@@ -396,7 +394,6 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					font-weight: 700;
 					width: 225px;
 
 					@include breakpoint(md) {
@@ -449,7 +446,7 @@
 
 								&::after {
 									content: "\221E";
-									font-size: 26px;
+									font-size: 22px;
 								}
 							}
 						}
