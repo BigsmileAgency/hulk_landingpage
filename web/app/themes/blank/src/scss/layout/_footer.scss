@@ -31,6 +31,9 @@
 .menus {
 	display: flex;
 	gap: 150px;
+	@include breakpoint(sm) {
+		gap: 100px;
+	}
 }
 
 .container_footer ul {
