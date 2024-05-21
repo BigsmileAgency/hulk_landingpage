@@ -246,7 +246,7 @@
 						display: flex;
 						align-items: center;
 						justify-content: center;
-						font-weight: 600;
+						font-weight: 700;
 						margin: auto;
 					}
 
@@ -396,7 +396,7 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					font-weight: 600;
+					font-weight: 700;
 					width: 225px;
 
 					@include breakpoint(md) {
