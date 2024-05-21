@@ -42,20 +42,20 @@ function demo_form_handler()
 
 				let success = 0;
 
-				// fieldsArray.map((e) => {
-				// 	if (e.value == "") {
-				// 		handleAlert(e, copy.emptyFields, lang)
-				// 		success++
-				// 	} else if (e == email && !email.value.match(mailRegex)) {
-				// 		handleAlert(e, copy.badMail, lang);
-				// 		success++
-				// 	} else if (e == phone && !phone.value.match(phoneRegex)) {
-				// 		handleAlert(e, copy.badPhone, lang);
-				// 		success++
-				// 	} else {
-				// 		rollBackAlert(e, grey)
-				// 	}
-				// })
+				fieldsArray.map((e) => {
+					if (e.value == "") {
+						handleAlert(e, copy.emptyFields, lang)
+						success++
+					} else if (e == email && !email.value.match(mailRegex)) {
+						handleAlert(e, copy.badMail, lang);
+						success++
+					} else if (e == phone && !phone.value.match(phoneRegex)) {
+						handleAlert(e, copy.badPhone, lang);
+						success++
+					} else {
+						rollBackAlert(e, grey)
+					}
+				})
 
 				if (success == 0) {
 					demoFormContainer.style.display = "none";
@@ -115,7 +115,7 @@ function demo_form_handler()
 									companyName.value = "";
 									isAgency.value = "";
 									isConsent = false;
-									// window.location.reload();
+									window.location.reload();
 								}
 							} else {
 								console.log(result);
