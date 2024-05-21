@@ -94,28 +94,7 @@ function demo_form_handler()
 						'&time=' + time.innerHTML +
 						'&lang=' + lang;
 
-						console.log(dataSet)
-
-					// INSERT DB
-					let xhrInsert = new XMLHttpRequest();
-					let urlInsert = '<?= admin_url('admin-ajax.php') ?>';
-					let dataSetInsert = 'action=insert_demo_request&' + dataSet
-
-					xhrInsert.open("POST", urlInsert, true);
-					xhrInsert.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					xhrInsert.onreadystatechange = function() {
-						if (xhrInsert.readyState == 4 && xhrInsert.status == 200) {
-							let result = xhrInsert.responseText;
-							result = JSON.parse(result);
-							if (result.error) {
-								console.log(result);
-								bookBtn.disabled = false;
-							}
-						}
-					};
-					xhrInsert.send(dataSetInsert);
-
-					// SEND MAIL
+					// INSERT DB + SEND MAIL
 					let xhrSend = new XMLHttpRequest();
 					let urlSend = '<?= admin_url('admin-ajax.php') ?>';
 					let dataSetSend = 'action=send_demo_request&' + dataSet;
@@ -126,6 +105,7 @@ function demo_form_handler()
 						if (xhrSend.readyState == 4 && xhrSend.status == 200) {
 							let result = xhrSend.responseText;
 							result = JSON.parse(result);
+							console.log(result)
 							if (!result.error) {
 								if (!alert(copy.successSend[lang])) {
 									firstName.value = "";
@@ -135,9 +115,8 @@ function demo_form_handler()
 									companyName.value = "";
 									isAgency.value = "";
 									isConsent = false;
-									window.location.reload();
+									// window.location.reload();
 								}
-								console.log(result)
 							} else {
 								console.log(result);
 								alert(copy.problem[lang])
