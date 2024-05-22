@@ -66,7 +66,7 @@ if (isset($_GET['id'])) {
     let container = document.querySelector('.cancel_container');
     container.innerHTML = 
       `<p>Votre RDV a été annulé</p>
-      <button><a href="<?= get_home_url() . '/'; ?>">Retour</a></button>`;
+      <a href="<?= get_home_url() . '/'; ?>"><button>Retour</button></a>`;
   }
 
 </script>
