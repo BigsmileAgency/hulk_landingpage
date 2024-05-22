@@ -18,7 +18,7 @@ function send_demo_request()
     $is_consent = ($_POST['is_consent'] === 'true') ? 1 : 0;
     $time = $_POST['time'];
     $lang = $_POST['lang'];
-    $id = uniqid();
+    $id = md5(uniqid(rand(), true));
 
     // INSERT DB //
     $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE time = %s", $time));
