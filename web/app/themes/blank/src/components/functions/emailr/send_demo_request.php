@@ -18,14 +18,16 @@ function send_demo_request()
     $is_consent = ($_POST['is_consent'] === 'true') ? 1 : 0;
     $time = $_POST['time'];
     $lang = $_POST['lang'];
+    $id = uniqid();
 
     // INSERT DB //
     $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE time = %s", $time));
 
     $insert = $wpdb->query(
         $wpdb->prepare(
-            "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `is_agency`, `is_consent`, `email`, `phone`, `lang`, `date`, `time_slot_id`) 
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            "INSERT INTO `wp_demo_appointement`(`id`,`first_name`, `last_name`, `company`, `is_agency`, `is_consent`, `email`, `phone`, `lang`, `date`, `time_slot_id`) 
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            $id,
             $first_name,
             $last_name,
             $company,

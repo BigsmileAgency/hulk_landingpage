@@ -51,7 +51,7 @@
     margin: auto;
     font-weight: 400;
     @include breakpoint(md){
-      font-size: 20px;
+      font-size: 16px;
       padding: 2rem 0;
     }
   }
@@ -81,16 +81,9 @@
 
     @include breakpoint(xs) {
       button {
-        font-size: 14px;
+        font-size: 16px;
+        width: 260px;
         height: 60px;
-      }
-    }
-
-    @include breakpoint(ss) {
-      button {
-        font-size: 12px;
-        min-width: 260px;
-        height: 44px;
       }
     }
   }

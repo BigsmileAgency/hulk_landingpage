@@ -136,3 +136,7 @@ p, li  {
     width: 90%;
   }
 }
+
+button {
+  @include button(16px);
+}
