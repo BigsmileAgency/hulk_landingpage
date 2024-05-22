@@ -3,32 +3,43 @@
 global $wpdb;
 
 $response = "";
-if (isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $appointement = $wpdb->get_row(
-    $wpdb->prepare(
-      "SELECT * 
+
+var_dump($_GET);
+
+if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "cancel")) {
+
+  if (isset($_GET['id'])) {
+
+    $id = $_GET['id'];
+    $appointement = $wpdb->get_row(
+      $wpdb->prepare(
+        "SELECT * 
       FROM `wp_demo_appointement` 
       WHERE id = %s",
-      $id,
-    )
-  );
-  if (empty($appointement)) {
-    $response = "User doesn't exist";
-  } else {
-    $time = $appointement->time_slot_id;
-    $what_time = $wpdb->get_row(
-      $wpdb->prepare(
-        "SELECT time 
-        FROM `wp_time_slot` 
-        WHERE id=%s",
-        $time,
+        $id,
       )
     );
+
+    if (empty($appointement)) {
+      $response = "User doesn't exist";
+    } else {
+      $time = $appointement->time_slot_id;
+      $what_time = $wpdb->get_row(
+        $wpdb->prepare(
+          "SELECT time 
+        FROM `wp_time_slot` 
+        WHERE id=%s",
+          $time,
+        )
+      );
+    }
+  } else {
+    $response = "Error trying to get user timetable";
   }
 } else {
-  $response = "Erreur";
+  $response = "Wrong request";
 }
+
 ?>
 
 <script>
@@ -36,6 +47,7 @@ if (isset($_GET['id'])) {
 
     load.preventDefault();
     let cancelBtn = document.querySelector('#cancel_appointement_from_mail');
+    let updateBtn = document.querySelector('#update_appointement_from_mail');
 
     cancelBtn.addEventListener('click', click => {
       click.preventDefault();
@@ -60,13 +72,16 @@ if (isset($_GET['id'])) {
       };
       xhr.send(dataSet);
     })
+
+
+
+
   })
 
-  function displayResponse(){
+  function displayResponse() {
     let container = document.querySelector('.cancel_container');
-    container.innerHTML = 
+    container.innerHTML =
       `<p>Votre RDV a été annulé</p>
       <a href="<?= get_home_url() . '/'; ?>"><button>Retour</button></a>`;
   }
-
 </script>
