@@ -6,7 +6,6 @@ $response = "";
 
 // var_dump($_GET);
 
-
 if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "cancel")) {
 
   if (!isset($_GET['id'])) {
@@ -137,7 +136,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
           } else {
 
             if (confirm("Vous êtes sur ?")) {
-              
+
               updateBtn.disabled = true;
 
               let dataSet = 'first_name=' + firstName.value +

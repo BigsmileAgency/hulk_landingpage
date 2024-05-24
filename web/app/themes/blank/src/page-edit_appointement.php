@@ -70,9 +70,9 @@
                   <label for="update_agency"><?= __('Are you an agency?', 'hulkBanner') ?></label><br>
                   <div id="agency_container">
                     <div class="tabs update_agency">
-                      <input type="radio" name="update_agency" id="no" value="0" checked>
+                      <input type="radio" name="update_agency" id="no" value="0" <?= $appointement->is_agency == 0 ? 'checked' : '' ?>>
                       <label class="tab" for="no"><?= __('No', 'hulkBanner') ?></label>
-                      <input type="radio" name="update_agency" id="yes" value="1">
+                      <input type="radio" name="update_agency" id="yes" value="1" <?= $appointement->is_agency == 1 ? 'checked' : '' ?>>
                       <label class="tab" for="yes"><?= __('Yes', 'hulkBanner') ?></label>
                       <span class="glider"></span>
                     </div>
