@@ -17,7 +17,7 @@
             <h2 class="title">
               <?= get_field('main_title') ?>
             </h2>
-            <p class="title_content margin_bottom">
+            <p class="title_content bottom_p">
               <?= get_field('main_title_content') ?>
             </p>
           </div>
@@ -274,7 +274,7 @@
                       <?= $price_add_on ?>
                     </p>
                   </div>
-
+                  
                   <?php // End loop.
                 endwhile;
               endif; ?>
@@ -288,7 +288,7 @@
             <h2 class="title">
               <?= get_field('compare_title') ?>
             </h2>
-            <p class="title_content margin_bottom">
+            <p class="title_content bottom_p">
               <?= get_field('compare_title_content') ?>
             </p>
           </div>

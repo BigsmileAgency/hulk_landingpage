@@ -17,7 +17,7 @@
             <h2 class="title">
               <?= get_field('title_header') ?>
             </h2>
-            <p class="title_content">
+            <p class="title_content bottom_p">
               <?= get_field('content_header') ?>
             </p>
           </header> 
@@ -62,7 +62,7 @@
             <h2 class="title">
               <?= get_field('title_add-ons') ?>
             </h2>
-            <p class="title_content">
+            <p class="title_content bottom_p">
               <?= get_field('content_add-ons') ?>
             </p>
           </div>

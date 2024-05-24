@@ -1,85 +1,11 @@
-.demo {
-	i {
-		cursor: pointer;
-	}
+.edit {	
+  .form_and_calendar {
 
-	.page_header {
-		padding-bottom: 0px;
-	}
-	
-	.header_p {
-		margin-bottom: 0px;
-	} 
-
-	.demo_section {
-		background-color: $light-color;
-	}
-	.demo_container {
-		width: 100%;
-		display: grid;
-		grid-template-columns: 1fr 60%;
-
-		@include breakpoint(md) {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	.explanation_list {
-		width: 100%;
-		margin: 3rem auto 0px;
-
-		@include breakpoint(xl) {
-			padding: 0px 30px;
-		}
-
-		@include breakpoint(md) {
-			margin-top: 0px;
-		}
-
-		h3 {
-			margin: 30px 0px;
-		}
-
-		ol {
-			padding-left: 30px;
-			color: $main-color;
-			font-weight: bold;
-			font-size: 20px;
-		}
-
-		li {
-			margin-bottom: 10px;
-
-			@include breakpoint(xs) {
-				font-size: 18px;
-			}
-		}
-
-		.black {
-			color: $black;
-			font-weight: 400;
-		}
-
-		.icons_demo {
-			padding: 40px;
-
-			@include breakpoint(md) {
-				display: none;
-				width: 0px;
-			}
-		}
-	}
-
-	.form_and_calendar {
 		background-color: $white;
-		margin: 2rem auto;
+		margin: auto;
 		text-align: center;
-		padding: 20px;
-		border-radius: 30px;
-		box-shadow: 0 3px 30px $light-color;
 		width: 100%;
 		max-width: 650px;
-		height: 694px;
 
 		@include breakpoint(md) {
 			width: 75%;
@@ -95,55 +21,9 @@
 			width: 90%;
 		}
 
-		.demo_grid {
-			display: grid;
-			grid-template-rows: 128px 459px 85px;
-
-			@include breakpoint(md) {
-				display: flex;
-				flex-direction: column;
-			}
-		}
-
-		.form_header {
-			position: relative;
-			min-height: 145px;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-evenly;
-
-			@include breakpoint(md) {
-				padding: 25px 0px 0px;
-			}
-
-			i {
-				position: absolute;
-				color: $main-color;
-				font-size: 25px;
-				border-radius: 5px;
-				padding: 4px;
-				left: 6px;
-				top: 3px;
-
-				@include breakpoint(sm) {
-					left: 3px;
-					top: 0px;
-				}
-
-				@include breakpoint(xs) {
-					left: 3px;
-					top: -6px;
-				}
-
-				&:hover {
-					background-color: $main-color;
-					color: $white;
-				}
-			}
-		}
 
 
-		#demo_form {
+		#update_form {
 			.response {
 				height: 16px;
 				font-size: 12px;
@@ -158,7 +38,8 @@
 
 			input[type=text],
 			input[type=email],
-			input[type=tel] {
+			input[type=tel],
+			select {
 				border: solid $grey 1px;
 				border-radius: 5px;
 				padding: 5px;
@@ -179,7 +60,8 @@
 
 			input[type=text]:focus-visible,
 			input[type=email]:focus-visible,
-			input[type=tel]:focus-visible {
+			input[type=tel]:focus-visible,
+			select:focus-visible {
 				outline: none;
 				border: solid $main-color 1px;
 			}
@@ -252,7 +134,7 @@
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				column-gap: 2rem;
-				padding: 50px 20px 0px;
+				padding: 50px 20px;
 				text-align: left;
 
 				@include breakpoint(sm) {
@@ -292,48 +174,10 @@
 			}
 		}
 
-		.demo_form_container {
-			display: block;
-			// display: none;
-		}
-
-		.demo_gif {
-			// display: block;
-			display: none;
-			width: 100%;
-			height: 100%;
-			justify-content: center;
-			align-items: center;
-
-			@include breakpoint(sm) {
-				min-height: 750px;
-			}
-
-			img {
-				width: 40%;
-
-				@include breakpoint(sm) {
-					width: 60%;
-				}
-			}
-		}
-
-		.calendar_container {
-			// display: block;
-			display: none;
-			width: 100%;
-		}
-
-		#book_btn {
-			@include button(16px, hollow);
-			margin: 0 auto;
-		}
-
 		.booking_form {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			padding-top: 45px;
 
 			@include breakpoint(sm) {
 				height: fit-content;
@@ -350,8 +194,8 @@
 				flex-direction: row;
 				justify-content: space-around;
 
-				padding: 10px;
-				gap: 1rem;
+				padding: 10px 20px 50px;
+				gap: 2rem;
 
 				@include breakpoint(sm) {
 					flex-direction: column;
@@ -365,7 +209,7 @@
 				}
 
 				.calendar {
-					border: solid 1px $grey;
+					border: solid 1px grey;
 					border-radius: 5px;
 					padding-bottom: 2px;
 					padding: 10px;
@@ -559,7 +403,7 @@
 					.slot {
 						font-size: 12px;
 						padding: 10px 4px;
-						border: solid 1px $grey;
+						border: solid 1px grey;
 						border-radius: 5px;
 						margin: 5px;
 						width: 100%;

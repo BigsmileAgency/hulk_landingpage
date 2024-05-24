@@ -24,6 +24,9 @@ include get_theme_file_path( '/components/functions/custom_post_type.php' );
 // DEMO FORM JS HANDLER SCRIPT
 include get_theme_file_path( '/components/functions/demo_form_handler.php' );
 
+// UPDATE APPOINTEMENT
+include get_theme_file_path( '/components/functions/update_demo_request.php' );
+
 // MYSQL 
 include get_theme_file_path( '/components/functions/insert_demo_request.php' );
 include get_theme_file_path( '/components/functions/get_the_slots.php' );
@@ -51,6 +54,9 @@ include get_theme_file_path( '/components/functions/lang_switch_handler.php' );
 
 // GSAP / ANIMATION
 include get_theme_file_path( '/components/functions/homepage_scroll_animation.php' );
+
+// COPIES FOR JS FUNCTIONS :
+include get_theme_file_path( '/components/functions/copy_js.php' );
 
 
 // AJAX CATEGORY FILTER

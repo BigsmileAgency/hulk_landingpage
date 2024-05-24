@@ -17,7 +17,7 @@ function get_unavailable_days()
 
     $date = $year . "-" . $month . "-" . $day_item;
 
-    if ($date < $today || $weekdays_array[$key] == 6 || $weekdays_array[$key] == 7) {
+    if ($date <= $today || $weekdays_array[$key] == 6 || $weekdays_array[$key] == 7) {
       $results[] = [
         'date' => $date,
         'day' => $day_item,

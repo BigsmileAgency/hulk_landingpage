@@ -15,7 +15,7 @@ do_action('demo_handle')
   <div class="container">
     <div class="page_header">
       <h2><?= get_field("title") ?></h2>
-      <p><?= get_field("explanation") ?></p>
+      <p class="header_p"><?= get_field("explanation") ?></p>
     </div>
   </div>
 
@@ -49,7 +49,7 @@ do_action('demo_handle')
               <p><?= $demo_form['form_subtitle'] ?></p>
             </div>
 
-            <div id="form_grid">
+            <div class="form_grid">
               <div class="form_item">
                 <label for="demo_first_name"><?= $demo_form['first_name'] ?></label><br>
                 <input id="demo_first_name" type="text" name="demo_first_name">

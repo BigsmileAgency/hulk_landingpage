@@ -68,15 +68,32 @@ $lang = get_language_attributes($doctype = "html");
 </div>
 
 <script>
+	// handlers for the update form
+	let updateDateDisplay = document.querySelector('.update_date_display');
+	let update = false;
+	let noUpdate = true;
+	let updateDate = document.querySelector("#update_date");
+	let updateTime = document.querySelector('#update_time');
+	//
+
 	let fullDate = document.querySelector(".full_date");
 	let date = new Date();
 
 	function renderCalendar() {
-		let newDate = new Date();
 
-		if (date.getMonth() == newDate.getMonth()) {
-			date = newDate;
-		};
+		if (updateDateDisplay !== null && !update) {
+			date = new Date(updateDate.innerHTML + " " + updateTime.innerHTML);
+			fullDate.innerHTML = dateInEn(date.toDateString());
+			getTheSlots(date);
+			unavailableDays(date);
+			update = true;
+			noUpdate = false;
+		} else {
+			let newDate = new Date();
+			if (date.getMonth() == newDate.getMonth()) {
+				date = newDate;
+			};
+		}
 
 		// make week start on monday
 		date.setDate(1);
@@ -111,15 +128,17 @@ $lang = get_language_attributes($doctype = "html");
 
 		document.querySelector(".month_display").innerHTML = months[lang][date.getMonth()] + " " + date.getFullYear();
 
-		if (lang == "fr") {
-			let dateFr = new Date().toDateString();
-			fullDate.innerHTML = dateInFr(dateFr);
-		} else if (lang == "nl") {
-			let dateFr = new Date().toDateString();
-			fullDate.innerHTML = dateInNl(dateFr);
-		} else {
-			let dateEn = new Date().toDateString();
-			fullDate.innerHTML = dateInEn(dateEn);
+		if (noUpdate) {
+			if (lang == "fr") {
+				let dateFr = new Date().toDateString();
+				fullDate.innerHTML = dateInFr(dateFr);
+			} else if (lang == "nl") {
+				let dateFr = new Date().toDateString();
+				fullDate.innerHTML = dateInNl(dateFr);
+			} else {
+				let dateEn = new Date().toDateString();
+				fullDate.innerHTML = dateInEn(dateEn);
+			}
 		}
 
 		let days = "";
@@ -148,9 +167,12 @@ $lang = get_language_attributes($doctype = "html");
 		return date;
 	};
 
+
 	renderCalendar();
-	unavailableDays(date);
-	getTheSlots(date);
+	if (noUpdate) {
+		unavailableDays(date);
+		getTheSlots(date);
+	}
 
 	document.querySelector(".prev").addEventListener("click", () => {
 		prevMonth();
@@ -323,6 +345,8 @@ $lang = get_language_attributes($doctype = "html");
 
 	function prevDay() {
 
+		// console.log(date)
+
 		let daysArray = Array.from(document.querySelectorAll('.day'));
 		let whatDay = fullDate.innerHTML.split(' ').filter((e) => /^\d{1,2}$/.test(e)).join('');
 		let prevDate = new Date(date)
@@ -399,18 +423,33 @@ $lang = get_language_attributes($doctype = "html");
 		xhr.send(dataSet);
 	}
 
+	let firstTime = true;
 
 	function showSlots(date, result, slots, noSlots) {
-
 		let allSlots = result.all_slots;
 		let takenSlots = result.taken_slot
-		slotsDisplay = ""
 		let selectedDate = new Date(date);
 		let now = new Date();
 
+		slotsDisplay = "";
+		slotsArray = [];
+
 		allSlots.map((e) => {
-			slotsDisplay += `<div class="slot">${e.time}</div>`
+			slotsArray.push(e.time);
 		})
+
+		if (!noUpdate &&
+			updateDate.innerHTML.split('-')[2] == result.date &&
+			updateDate.innerHTML.split('-')[1] == date.getMonth() + 1) {
+			if (!slotsArray.includes(updateTime.innerHTML)) {
+				slotsArray.push(updateTime.innerHTML);
+			}
+		}
+
+		slotsArray.sort().map((e) => {
+			slotsDisplay += `<div class="slot">${e}</div>`
+		})
+
 		slots.innerHTML = slotsDisplay;
 
 		slots.style.display = "grid";
@@ -420,7 +459,12 @@ $lang = get_language_attributes($doctype = "html");
 			timeArray = Array.from(document.querySelectorAll('.slot'));
 			takenSlots.map((e) => {
 				timeArray.map((f) => {
-					if (e == f.innerHTML) {
+					if (!noUpdate &&
+						f.innerHTML == updateTime.innerHTML &&
+						updateDate.innerHTML.split('-')[2] == result.date &&
+						updateDate.innerHTML.split('-')[1] == date.getMonth() + 1) {
+						f.classList.add('time_selected')
+					} else if (e == f.innerHTML) {
 						f.classList.add('unavailable')
 					}
 				})
@@ -429,17 +473,27 @@ $lang = get_language_attributes($doctype = "html");
 
 		let unavailable = document.querySelectorAll('.unavailable')
 
-		if (selectedDate <= now || unavailable.length == allSlots.length) {
-			slots.style.display = "none";
-			noSlots.style.display = "block";
-			noSlots.innerHTML = `${copy.noAvailable[lang]}`
+		if (noUpdate) {
+			if (selectedDate <= now || unavailable.length == allSlots.length) {
+				slots.style.display = "none";
+				noSlots.style.display = "block";
+				noSlots.innerHTML = `${copy.noAvailable[lang]}`
+			}
+		} else {
+			if (firstTime) {
+				selectedDate.setDate(updateDate.innerHTML.split('-')[2])
+				firstTime = false;
+			}
+			if (selectedDate <= now || unavailable.length == allSlots.length) {
+				slots.style.display = "none";
+				noSlots.style.display = "block";
+				noSlots.innerHTML = `${copy.noAvailable[lang]}`
+			}
 		}
 		handleSelection();
 	}
 
-
 	function unavailableDays(date) {
-
 		let year = date.getFullYear();
 		let month = date.getMonth() + 1;
 		let UVDays = []
@@ -482,6 +536,7 @@ $lang = get_language_attributes($doctype = "html");
 			}
 		};
 		xhr.send(dataSet);
+
 
 		function showUnavailableDays(UVDays) {
 			let allDays = document.querySelectorAll('.day');
