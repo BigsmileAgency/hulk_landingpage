@@ -19,7 +19,6 @@ $copy = [
 ];
 
 $lang = get_language_attributes($doctype = "html");
-var_dump($lang);
 $lang = explode('=', $lang);
 $lang = explode('-', $lang[1]);
 $lang = explode('"', $lang[0])[1];
