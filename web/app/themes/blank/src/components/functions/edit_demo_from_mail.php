@@ -19,6 +19,7 @@ $copy = [
 ];
 
 $lang = get_language_attributes($doctype = "html");
+var_dump($lang);
 $lang = explode('=', $lang);
 $lang = explode('-', $lang[1]);
 $lang = explode('"', $lang[0])[1];
@@ -31,8 +32,8 @@ $language = [
 $langArray = ["fr", "nl", "en"];
 $otherLang = [];
 
-foreach($langArray as $item){
-  if($item !== $lang) {
+foreach ($langArray as $item) {
+  if ($item !== $lang) {
     $otherLang[] = $item;
   }
 }
@@ -124,16 +125,17 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
         let updateLang = document.querySelector('#lang_update').value;
         let id = <?= json_encode($id); ?>;
         let isAgency = document.querySelector('input[type=radio][name=update_agency]:checked');
-        let grey = companyName.style.borderColor
+        let grey = companyName.style.borderColor;
 
+        
         // regexs 
         let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-
+        
         let fieldsArray = [firstName, lastName, email, phone];
-
+        
         let success = 0;
-
+        
         fieldsArray.map((e) => {
           if (e.value == "") {
             handleAlert(e, copy.emptyFields, lang)
@@ -161,7 +163,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
             alert(copy.noTime[lang]);
           } else {
 
-            // if (confirm("Vous êtes sur ?")) {
+            if (confirm("Sure?")) {
 
               updateBtn.disabled = true;
               let dataSet = 'first_name=' + firstName.value +
@@ -196,9 +198,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
                 }
               };
               xhrSend.send(dataSetSend);
-
-            // }
-            
+            }
           }
         }
       })

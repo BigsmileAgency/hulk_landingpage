@@ -80,7 +80,7 @@ function copy_js()
         "en": "Back",
         "fr": "Retour",
         "nl": "terug",
-      }
+      },      
     }
   </script>
 <?php

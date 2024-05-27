@@ -97,10 +97,9 @@
               <?php get_template_part('./components/layouts/calendar') ?>
               <button id="update_appointement_from_mail"><?= __('UPDATE', 'edit_form') ?></button>
             </div>
+
           </div>
-
         <?php endif; ?>
-
       <?php else : ?>
         <p><?= $response ?></p>
       <?php endif; ?>
