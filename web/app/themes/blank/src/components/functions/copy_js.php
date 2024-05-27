@@ -62,6 +62,24 @@ function copy_js()
         "en": "Problem, try again",
         "fr": "Un problème est survenu réessayez",
         "nl": "Probleem, probeer het opnieuw",
+      },
+
+      updateSuccess: {
+        "en": "Meeting successfully updated",
+        "fr": "Rendez-vous mis à jour avec succés",
+        "nl": "Afspraken succesvol bijgewerkt",
+      },
+
+      cancelSuccess: {
+        "en": "Meeting successfully canceled",
+        "fr": "Rendez-vous annulé avec succés",
+        "nl": "Afspraak succesvol geannuleerd",
+      },
+
+      back: {
+        "en": "Back",
+        "fr": "Retour",
+        "nl": "terug",
       }
     }
   </script>

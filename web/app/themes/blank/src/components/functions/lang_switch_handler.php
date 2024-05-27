@@ -7,12 +7,12 @@ function lang_switch_handler()
 			e.preventDefault();
 
 			let switchContainer = document.querySelector('.lang_btns');
-			let mobileSwitch = document.querySelector('.mobile_lang_btns')
+			let mobileSwitch = document.querySelector('.mobile_lang_btns');
 			let langArray = ["en", "fr", "nl"];
 			let otherLang = [];
 
 			if (langArray.includes(lang)) {
-				otherLang = langArray.filter((e) => e !== lang)
+				otherLang = langArray.filter((e) => e !== lang);
 			}
 
 			function displayButtons() {
@@ -28,14 +28,15 @@ function lang_switch_handler()
 						mobileSwitch.innerHTML += `<div class="other_lang lang_display">${e.toUpperCase()}</div>`
 					})
 				}
-
-				let langBtn = document.querySelectorAll('.lang_display')
+				 
+				let langBtn = document.querySelectorAll('.lang_display');
 				langBtn.forEach((e) => {
 					e.addEventListener('click', (click) => {
 						if (click.target.innerHTML.toLowerCase() !== lang) {
-							let newLang = click.target.innerHTML.toLowerCase()
+							let newLang = click.target.innerHTML.toLowerCase();
+							let search = window.location.search;
 							if (newLang == "en") {
-								window.location = window.location.href.replace('/' + lang, '');
+								window.location = window.location.href.replace('/' + lang, '');		
 							} else {
 								window.location = '/' + newLang + window.location.pathname.replace('/' + lang, '');
 							}
@@ -43,11 +44,8 @@ function lang_switch_handler()
 					});
 				});
 			}
-
 			displayButtons();
-
 			window.addEventListener('resize', displayButtons);
-
 		})
 	</script>
 <?php

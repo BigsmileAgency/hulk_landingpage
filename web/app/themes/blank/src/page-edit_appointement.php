@@ -4,6 +4,7 @@
  * Template Name: Edit Appointement
  */
 
+// script and logic at funcitons/edit_demo_from_mail.php
 ?>
 
 <?php get_header(); ?>
@@ -82,13 +83,12 @@
                 <div class="form_item">
                   <label for="lang_update"><?= __('Language', 'edit_form') ?></label>
                   <select name="lang_update" id="lang_update">
-                    <option value="en">English</option>
-                    <option value="fr">Français</option>
-                    <option value="nl">Nederlands</option>
+                    <option value="<?= $lang ?>"><?= $language[$lang] ?></option>
+                    <option value="<?= $otherLang[0] ?>"><?= $language[$otherLang[0]] ?></option>
+                    <option value="<?= $otherLang[1] ?>"><?= $language[$otherLang[1]] ?></option>
                   </select>
                   <div class="response"></div>
                 </div>
-
               </div>
             </form>
 

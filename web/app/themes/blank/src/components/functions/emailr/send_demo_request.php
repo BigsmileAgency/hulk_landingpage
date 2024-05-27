@@ -86,8 +86,8 @@ function send_demo_request()
 	$emailR_data["fr"]["FOR_US"] = "515f498f-ad96-4add-ac16-6c402162a8d9";
 
 	$emailR_data["en"]["FOR_CLIENT"] = "da7b5d1e-7349-4755-aa7d-d4237c4b913d"; 
-	$emailR_data["fr"]["FOR_CLIENT"] = "7fe57583-1e52-4406-8976-58488627f0e8";
-	$emailR_data["nl"]["FOR_CLIENT"] = "a5fd7c05-a118-49d9-88bc-5c15f977d991";
+	$emailR_data["fr"]["FOR_CLIENT"] = "d8dd8016-af49-424f-9215-8c3ebff11371";
+	$emailR_data["nl"]["FOR_CLIENT"] = "c589e2f2-dbc4-4c9b-9723-1ce7d8fc42e9";
 
 	$emailR_data["USER"] = "info@bigsmile.be"; // Account creditential
 	$emailR_data["PWD"] = "bsaRFLX@2024"; // Account creditential
@@ -122,8 +122,8 @@ function send_demo_request()
 		"date" => htmlspecialchars($mail_date, ENT_XML1, 'UTF-8'),
 		"time" => htmlspecialchars($time, ENT_XML1, 'UTF-8'),
 		"ics_url" => htmlspecialchars(get_template_directory_uri() . "/components/functions/emailr/ics_files/fba-" . $ics_id . ".ics", ENT_XML1, 'UTF-8'),
-		"update_url" => htmlspecialchars(get_home_url() . "/edit/?what=update&id=" . $id, ENT_XML1, 'UTF-8'),
-		"cancel_url" => htmlspecialchars(get_home_url() . "/edit/?what=cancel&id=" . $id, ENT_XML1, 'UTF-8'),
+		"update_url" => $lang == "en" ? htmlspecialchars(get_home_url() . "/edit/?what=update&id=" . $id, ENT_XML1, 'UTF-8') : htmlspecialchars(get_home_url() . "/" . $lang . "/edit/?what=update&id=" . $id, ENT_XML1, 'UTF-8'),
+		"cancel_url" => $lang == "en" ? htmlspecialchars(get_home_url() . "/edit/?what=cancel&id=" . $id, ENT_XML1, 'UTF-8') : htmlspecialchars(get_home_url() . "/" . $lang . "/edit/?what=cancel&id=" . $id, ENT_XML1, 'UTF-8'),
 		"id" => htmlspecialchars($id, ENT_XML1, 'UTF-8'),
 	];
 

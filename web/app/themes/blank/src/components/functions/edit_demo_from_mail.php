@@ -1,18 +1,32 @@
 <?php
 
+$lang = get_language_attributes($doctype = "html");
+$lang = explode('=', $lang);
+$lang = explode('-', $lang[1]);
+$lang = explode('"', $lang[0])[1];
+$language = [
+  "fr" => "Français",
+  "nl" => "Nederlands",
+  "en" => "English",
+];
+
+$langArray = ["fr", "nl", "en"];
+$otherLang = [];
+
+foreach($langArray as $item){
+  if($item !== $lang) {
+    $otherLang[] = $item;
+  }
+}
+
 global $wpdb;
 
 $response = "";
 
-// var_dump($_GET);
-
 if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "cancel")) {
-
   if (!isset($_GET['id'])) {
-
     $response = "Error trying to get user timetable";
   } else {
-
     $id = $_GET['id'];
     $appointement = $wpdb->get_row(
       $wpdb->prepare(
@@ -22,15 +36,10 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
         $id,
       )
     );
-
-
     if (empty($appointement)) {
-
       $response = "User doesn't exist";
     } else {
-
       $time = $appointement->time_slot_id;
-
       $what_time = $wpdb->get_row(
         $wpdb->prepare(
           "SELECT time 
@@ -39,10 +48,8 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
           $time,
         )
       );
-
       $now = date("Y-m-d");
       $dislayDate = date('d-m-Y', strtotime($appointement->date));
-
       if ($appointement->date <= $now) {
         $response = "Ce rdv n'existe plus...";
       }
@@ -136,10 +143,9 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
             alert(copy.noTime[lang]);
           } else {
 
-            if (confirm("Vous êtes sur ?")) {
+            // if (confirm("Vous êtes sur ?")) {
 
               updateBtn.disabled = true;
-
               let dataSet = 'first_name=' + firstName.value +
                 '&last_name=' + lastName.value +
                 '&full_date=' + date.toDateString() +
@@ -172,7 +178,9 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
                 }
               };
               xhrSend.send(dataSetSend);
-            }
+
+            // }
+            
           }
         }
       })
@@ -194,15 +202,15 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
   function displayResponse(answer) {
     let displayResponse = "";
     if (answer == "update") {
-      displayResponse = "RDV mis à jour";
+      displayResponse = copy.updateSuccess[lang];
     } else if (answer == "cancel") {
-      displayResponse = "RDV annulé";
+      displayResponse = copy.cancelSuccess[lang];
     } else {
       displayResponse = "Erreur";
     }
     let container = document.querySelector('.edit_container');
     container.innerHTML =
       `<p>${displayResponse}</p>
-      <a href="<?= get_home_url() . '/'; ?>"><button>Retour</button></a>`;
+      <a href="<?= get_home_url() . '/'; ?>"><button>${copy.back[lang]}</button></a>`;
   }
 </script>
