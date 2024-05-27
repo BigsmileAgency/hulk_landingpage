@@ -41,6 +41,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
       );
 
       $now = date("Y-m-d");
+      $dislayDate = date('d-m-Y', strtotime($appointement->date));
 
       if ($appointement->date <= $now) {
         $response = "Ce rdv n'existe plus...";

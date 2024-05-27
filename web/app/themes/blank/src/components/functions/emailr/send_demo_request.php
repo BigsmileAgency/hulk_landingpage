@@ -7,13 +7,13 @@ function send_demo_request()
 	global $wpdb;
 
 	// $POST //
-	$first_name = $_POST['first_name'];
-	$last_name = $_POST['last_name'];
+	$first_name = sanitize_text_field($_POST['first_name']);
+	$last_name = sanitize_text_field($_POST['last_name']);
 	$insert_date = date("Y-m-d", strtotime($_POST['full_date']));
 	$mail_date = date("d-m-Y", strtotime($_POST['full_date']));
-	$phone = $_POST['phone'];
-	$email = $_POST['email'];
-	$company = $_POST['company'];
+	$phone = sanitize_text_field($_POST['phone']);
+	$email = sanitize_email($_POST['email']);
+	$company = sanitize_text_field($_POST['company']);
 	$is_agency = $_POST['is_agency'];
 	$is_consent = ($_POST['is_consent'] === 'true') ? 1 : 0;
 	$time = $_POST['time'];
@@ -40,12 +40,21 @@ function send_demo_request()
 			$time_id
 		)
 	);
-	$apointementId = $wpdb->insert_id;
+
 
 	// ICS FILE (ADD TO AGENDA) //
 	$ics_start = strtotime($mail_date . " " . $time);
 	$ics_end = strtotime('+30 minutes', $ics_start);
 	$ics_id = uniqid();
+
+	$description = "";
+	if($lang == "fr") {
+		$description = "Vous avez RDV avec FoxBanner";
+	} else if($lang == "nl") {
+		$description = "U heeft een afspraak met FoxBanner";
+	} else {
+		$description = "You have an appoitement with FoxBanner";
+	}
 
 	$ics_content = "BEGIN:VCALENDAR\n" .
 		"VERSION:2.0\n" .
@@ -55,7 +64,7 @@ function send_demo_request()
 		"DTSTAMP:20240419T120000Z\n" .
 		"DTSTART:" . date("Ymd\THis", $ics_start) . "\n" .
 		"DTEND:" . date("Ymd\THis", $ics_end) . "\n" .
-		"DESCRIPTION:RDV avec FoxBanner\n" .
+		"DESCRIPTION:" . $description ."\n" .
 		"ORGANIZER:FoxBanner\n" .
 		"STATUS:CONFIRMED\n" .
 		"PRIORITY:0\n" .
@@ -76,9 +85,9 @@ function send_demo_request()
 
 	$emailR_data["fr"]["FOR_US"] = "515f498f-ad96-4add-ac16-6c402162a8d9";
 
+	$emailR_data["en"]["FOR_CLIENT"] = "da7b5d1e-7349-4755-aa7d-d4237c4b913d"; 
 	$emailR_data["fr"]["FOR_CLIENT"] = "7fe57583-1e52-4406-8976-58488627f0e8";
 	$emailR_data["nl"]["FOR_CLIENT"] = "a5fd7c05-a118-49d9-88bc-5c15f977d991";
-	$emailR_data["en"]["FOR_CLIENT"] = "589fa875-bbaa-4cb9-bbbe-cc6cb8f7ae94";
 
 	$emailR_data["USER"] = "info@bigsmile.be"; // Account creditential
 	$emailR_data["PWD"] = "bsaRFLX@2024"; // Account creditential
@@ -107,18 +116,20 @@ function send_demo_request()
 	$emailrOforThem = new EmailR($emailR_data['ACCOUNT_ID'],  $emailR_data['USER'],  $emailR_data['PWD'],  $emailR_data["fr"]['PROFILE_ID']);
 
 	$emails_for_them[] = [
-		"Email" => $email,
-		"first_name" => $first_name,
-		"last_name" => $last_name,
-		"date" => $mail_date,
-		"time" => $time,
-		"ics_url" =>  get_template_directory_uri() . "/components/functions/emailr/ics_files/fba-" . $ics_id . ".ics",
-		"id" => $apointementId,
+		"Email" => htmlspecialchars($email, ENT_XML1, 'UTF-8'),
+		"first_name" => htmlspecialchars($first_name, ENT_XML1, 'UTF-8'),
+		"last_name" => htmlspecialchars($last_name, ENT_XML1, 'UTF-8'),
+		"date" => htmlspecialchars($mail_date, ENT_XML1, 'UTF-8'),
+		"time" => htmlspecialchars($time, ENT_XML1, 'UTF-8'),
+		"ics_url" => htmlspecialchars(get_template_directory_uri() . "/components/functions/emailr/ics_files/fba-" . $ics_id . ".ics", ENT_XML1, 'UTF-8'),
+		"update_url" => htmlspecialchars(get_home_url() . "/edit/?what=update&id=" . $id, ENT_XML1, 'UTF-8'),
+		"cancel_url" => htmlspecialchars(get_home_url() . "/edit/?what=cancel&id=" . $id, ENT_XML1, 'UTF-8'),
+		"id" => htmlspecialchars($id, ENT_XML1, 'UTF-8'),
 	];
 
 	$sendMailToCLient = $emailrOforThem->sendEmail($emailR_data[$lang]["FOR_CLIENT"], array('contacts' => $emails_for_them));
 
-	echo json_encode([$insert, $sendMailToUs, $sendMailToCLient, $apointementId]);
+	echo json_encode([$emailrOforThem, $emails_for_them, $sendMailToCLient]);
 	wp_die();
 }
 

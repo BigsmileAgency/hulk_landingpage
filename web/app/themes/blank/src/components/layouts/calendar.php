@@ -82,8 +82,17 @@ $lang = get_language_attributes($doctype = "html");
 	function renderCalendar() {
 
 		if (updateDateDisplay !== null && !update) {
+
 			date = new Date(updateDate.innerHTML + " " + updateTime.innerHTML);
-			fullDate.innerHTML = dateInEn(date.toDateString());
+
+			if (lang == "fr") {
+				fullDate.innerHTML = dateInFr(date);
+			} else if (lang == "nl") {
+				fullDate.innerHTML = dateInNl(date);
+			} else {
+				fullDate.innerHTML = dateInEn(date);
+			}
+
 			getTheSlots(date);
 			unavailableDays(date);
 			update = true;

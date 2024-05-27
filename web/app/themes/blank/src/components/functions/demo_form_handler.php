@@ -107,6 +107,7 @@ function demo_form_handler()
 							result = JSON.parse(result);
 							console.log(result)
 							if (!result.error) {
+								// console.log(result);
 								if (!alert(copy.successSend[lang])) {
 									firstName.value = "";
 									lastName.value = "";
