@@ -19,8 +19,8 @@
 
           <h3><?= __('Hey', 'edit_form') ?> <?= $appointement->first_name ?> <?= $appointement->last_name ?></h3>
           <p><?= __('- Cancel meeting form -', 'edit_form') ?></p>
-          <p><?= $appointement->date ?> <?= __('at', 'edit_form') ?> <?= $what_time->time ?></p>
-          <p><?= __("If you're absolutly certain you want to cancel thios meeting click here", 'edit_form') ?></p>
+          <p><?= $dislayDate ?> <?= __('at', 'edit_form') ?> <?= $what_time->time ?></p>
+          <p><?= __("If you're absolutly certain you want to cancel this meeting click here", 'edit_form') ?></p>
           <button id="cancel_appointement_from_mail" class="button"><?= __('CANCEL', 'edit_form') ?></button>
 
         <?php elseif ($_GET['what'] == "update") : ?>
@@ -94,7 +94,7 @@
 
             <div class="calendar_container update_grid">
               <?php get_template_part('./components/layouts/calendar') ?>
-              <button id="update_appointement_from_mail">MODIFIER</button>
+              <button id="update_appointement_from_mail"><?= __('UPDATE', 'edit_form') ?></button>
             </div>
           </div>
 
