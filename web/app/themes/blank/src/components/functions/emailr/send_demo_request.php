@@ -10,8 +10,7 @@ function send_demo_request()
 	$first_name = sanitize_text_field($_POST['first_name']);
 	$last_name = sanitize_text_field($_POST['last_name']);
 	$insert_date = date("Y-m-d", strtotime($_POST['full_date']));
-	$mail_date = date("d-m-Y", strtotime($_POST['full_date']));
-	$phone = sanitize_text_field($_POST['phone']);
+	$mail_date = date("d-m-Y", strtotime($_POST['full_date']));	$phone = sanitize_text_field($_POST['phone']);
 	$email = sanitize_email($_POST['email']);
 	$company = sanitize_text_field($_POST['company']);
 	$is_agency = $_POST['is_agency'];
@@ -26,7 +25,7 @@ function send_demo_request()
 	$insert = $wpdb->query(
 		$wpdb->prepare(
 			"INSERT INTO `wp_demo_appointement`(`id`,`first_name`, `last_name`, `company`, `is_agency`, `is_consent`, `email`, `phone`, `lang`, `date`, `time_slot_id`) 
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
 			$id,
 			$first_name,
 			$last_name,
@@ -48,9 +47,9 @@ function send_demo_request()
 	$ics_id = uniqid();
 
 	$description = "";
-	if($lang == "fr") {
+	if ($lang == "fr") {
 		$description = "Vous avez RDV avec FoxBanner";
-	} else if($lang == "nl") {
+	} else if ($lang == "nl") {
 		$description = "U heeft een afspraak met FoxBanner";
 	} else {
 		$description = "You have an appoitement with FoxBanner";
@@ -64,7 +63,7 @@ function send_demo_request()
 		"DTSTAMP:20240419T120000Z\n" .
 		"DTSTART:" . date("Ymd\THis", $ics_start) . "\n" .
 		"DTEND:" . date("Ymd\THis", $ics_end) . "\n" .
-		"DESCRIPTION:" . $description ."\n" .
+		"DESCRIPTION:" . $description . "\n" .
 		"ORGANIZER:FoxBanner\n" .
 		"STATUS:CONFIRMED\n" .
 		"PRIORITY:0\n" .
@@ -85,7 +84,7 @@ function send_demo_request()
 
 	$emailR_data["fr"]["FOR_US"] = "515f498f-ad96-4add-ac16-6c402162a8d9";
 
-	$emailR_data["en"]["FOR_CLIENT"] = "da7b5d1e-7349-4755-aa7d-d4237c4b913d"; 
+	$emailR_data["en"]["FOR_CLIENT"] = "da7b5d1e-7349-4755-aa7d-d4237c4b913d";
 	$emailR_data["fr"]["FOR_CLIENT"] = "d8dd8016-af49-424f-9215-8c3ebff11371";
 	$emailR_data["nl"]["FOR_CLIENT"] = "c589e2f2-dbc4-4c9b-9723-1ce7d8fc42e9";
 

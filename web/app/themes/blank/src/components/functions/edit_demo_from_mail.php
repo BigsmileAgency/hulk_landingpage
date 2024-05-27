@@ -1,5 +1,23 @@
 <?php
 
+$copy = [
+  "no_user" => [
+    "en" => "No user",
+    "fr" => "Pas d'utilisateur",
+    "nl" => "Nee usereke"
+  ],
+  "no_meeting" => [
+    "en" => "No more access to this meeting: It's either outdated or already canceled",
+    "fr" => "Ce rendez vous ne semble pas éxister: il est soit passé soit a été annulé",
+    "nl" => "Nee meeting, annulereed op outdatedeke"
+  ],
+  "wrong_way" => [
+    "en" => "Wrong request",
+    "fr" => "Mauvaise requête",
+    "nl" => "Nee requeteke"
+  ],
+];
+
 $lang = get_language_attributes($doctype = "html");
 $lang = explode('=', $lang);
 $lang = explode('-', $lang[1]);
@@ -37,7 +55,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
       )
     );
     if (empty($appointement)) {
-      $response = "User doesn't exist";
+      $response = $copy["no_user"][$lang];
     } else {
       $time = $appointement->time_slot_id;
       $what_time = $wpdb->get_row(
@@ -51,12 +69,12 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
       $now = date("Y-m-d");
       $dislayDate = date('d-m-Y', strtotime($appointement->date));
       if ($appointement->date <= $now) {
-        $response = "Ce rdv n'existe plus...";
+        $response = $copy["no_meeting"][$lang];
       }
     }
   }
 } else {
-  $response = "Wrong request";
+  $response = $copy["wrong_way"][$lang];
 }
 ?>
 
