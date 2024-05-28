@@ -1,5 +1,7 @@
 <?php
 $lang = get_language_attributes($doctype = "html");
+$lang = explode('"', $lang);
+$lang = explode('-', $lang[1])[0];
 ?>
 
 <div class="booking_form">
@@ -13,7 +15,7 @@ $lang = get_language_attributes($doctype = "html");
 				<i class="fas fa-angle-right next"></i>
 			</div>
 
-			<?php if ($lang == 'lang="fr-FR"') : ?>
+			<?php if ($lang == 'fr') : ?>
 				<div class="weekdays">
 					<div>L</div>
 					<div>Ma</div>
@@ -24,7 +26,7 @@ $lang = get_language_attributes($doctype = "html");
 					<div>D</div>
 				</div>
 
-			<?php elseif ($lang == 'lang="en-EN"' || $lang == 'lang="en-US"') : ?>
+			<?php elseif ($lang == 'en') : ?>
 				<div class="weekdays">
 					<div>M</div>
 					<div>Tue</div>
@@ -35,7 +37,7 @@ $lang = get_language_attributes($doctype = "html");
 					<div>Sun</div>
 				</div>
 
-			<?php elseif ($lang == 'lang="nl-NL"' || $lang == 'lang="nl-BE"') : ?>
+			<?php elseif ($lang == 'nl') : ?>
 				<div class="weekdays">
 					<div>Ma</div>
 					<div>Di</div>

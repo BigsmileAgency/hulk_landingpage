@@ -15,6 +15,12 @@ function copy_js()
       lang = "nl"
     }
 
+    let language = {
+      "en": "English",
+      "fr": "Français",
+      "nl": "Nederlands"
+     }
+
     let copy = {
       emptyFields: {
         "en": "You must fill in this field",
@@ -80,7 +86,7 @@ function copy_js()
         "en": "Back",
         "fr": "Retour",
         "nl": "terug",
-      },      
+      },   
     }
   </script>
 <?php

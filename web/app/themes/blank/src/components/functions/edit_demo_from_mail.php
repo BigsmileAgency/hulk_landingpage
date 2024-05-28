@@ -19,9 +19,9 @@ $copy = [
 ];
 
 $lang = get_language_attributes($doctype = "html");
-$lang = explode('=', $lang);
-$lang = explode('-', $lang[1]);
-$lang = explode('"', $lang[0])[1];
+$lang = explode('"', $lang);
+$lang = explode('-', $lang[1])[0];
+
 $language = [
   "fr" => "Français",
   "nl" => "Nederlands",
@@ -126,15 +126,14 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
         let isAgency = document.querySelector('input[type=radio][name=update_agency]:checked');
         let grey = companyName.style.borderColor;
 
-        
         // regexs 
         let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-        
+
         let fieldsArray = [firstName, lastName, email, phone];
-        
+
         let success = 0;
-        
+
         fieldsArray.map((e) => {
           if (e.value == "") {
             handleAlert(e, copy.emptyFields, lang)
@@ -152,8 +151,38 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
 
         let time = document.querySelector('.time_selected');
         let day = document.querySelector('.date_selected');
+        let whatMonthYear = document.querySelector('.month_display').innerHTML;
 
-        date.setDate(day.innerHTML);
+        confirmUpdate = {
+
+          "en": `Confirm this: 
+          Name: ${firstName.value} ${lastName.value}
+          Date: ${fullDate.innerHTML} ${whatMonthYear}
+          Email: ${email.value}
+          Phone: ${phone.value}
+          Company: ${companyName.value == "" ? "- None -" : companyName.value}
+          Language: ${language[updateLang]}
+          You are an agency: ${isAgency.value == 0 ? "No" : "Yes"}`,
+
+          "fr": `Confirmez vous: 
+          Nom: ${firstName.value} ${lastName.value}
+          Date: ${fullDate.innerHTML} ${whatMonthYear}
+          E-mail: ${email.value}
+          Téléhone: ${phone.value}
+          Entreprise: ${companyName.value == "" ? "- Aucune -" : companyName.value}
+          Langue: ${language[updateLang]}
+          Vous êtes une agence: ${isAgency.value == 0 ? "Non" : "Oui"}`,
+
+          "nl": `Bevestig dit:
+          Naam: ${firstName.value} ${lastName.value}
+          Dat: ${fullDate.innerHTML} ${whatMonthYear}
+          E-mail: ${email.value}
+          Telefoon: ${phone.value}
+          Bedrijf: ${companyName.value == "" ? "- Geen -" : companyName.value}
+          Taal: ${language[updateLang]}
+          Je bent een agentschap: ${isAgency.value == 0 ? "Nee" : "Ja"}`,
+        }
+
 
         if (success == 0) {
           if (day == null || day == undefined) {
@@ -162,7 +191,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
             alert(copy.noTime[lang]);
           } else {
 
-            if (confirm("Sure?")) {
+            if (confirm(confirmUpdate[lang])) {
 
               updateBtn.disabled = true;
               let dataSet = 'first_name=' + firstName.value +
