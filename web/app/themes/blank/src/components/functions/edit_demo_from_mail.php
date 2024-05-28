@@ -158,6 +158,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
           "en": `Confirm this: 
           Name: ${firstName.value} ${lastName.value}
           Date: ${fullDate.innerHTML} ${whatMonthYear}
+          Time: ${time}
           Email: ${email.value}
           Phone: ${phone.value}
           Company: ${companyName.value == "" ? "- None -" : companyName.value}
@@ -166,7 +167,8 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
 
           "fr": `Confirmez vous: 
           Nom: ${firstName.value} ${lastName.value}
-          Date: ${fullDate.innerHTML} ${whatMonthYear}
+          Date: ${fullDate.innerHTML} ${whatMonthYear} 
+          Heure: ${time}          
           E-mail: ${email.value}
           Téléhone: ${phone.value}
           Entreprise: ${companyName.value == "" ? "- Aucune -" : companyName.value}
@@ -175,7 +177,8 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
 
           "nl": `Bevestig dit:
           Naam: ${firstName.value} ${lastName.value}
-          Dat: ${fullDate.innerHTML} ${whatMonthYear}
+          Dat: ${fullDate.innerHTML} ${whatMonthYear} 
+          tijd: ${time}
           E-mail: ${email.value}
           Telefoon: ${phone.value}
           Bedrijf: ${companyName.value == "" ? "- Geen -" : companyName.value}
