@@ -158,7 +158,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
           "en": `Confirm this: 
           Name: ${firstName.value} ${lastName.value}
           Date: ${fullDate.innerHTML} ${whatMonthYear}
-          Time: ${time}
+          Time: ${time.innerHTML}
           Email: ${email.value}
           Phone: ${phone.value}
           Company: ${companyName.value == "" ? "- None -" : companyName.value}
