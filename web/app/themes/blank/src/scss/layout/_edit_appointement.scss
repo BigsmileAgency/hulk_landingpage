@@ -1,6 +1,5 @@
 .edit {	
   .form_and_calendar {
-
 		background-color: $white;
 		margin: auto;
 		text-align: center;
@@ -20,8 +19,6 @@
 		@include breakpoint(xs) {
 			width: 90%;
 		}
-
-
 
 		#update_form {
 			.response {
@@ -140,11 +137,14 @@
 				@include breakpoint(sm) {
 					padding: 20px;
 					grid-template-columns: 1fr;
+					width: 80%;
+					margin: auto;
 				}
 
 				@include breakpoint(xs) {
 					font-size: 14px;
 					padding: 0;
+					width: 100%;
 				}
 			}
 

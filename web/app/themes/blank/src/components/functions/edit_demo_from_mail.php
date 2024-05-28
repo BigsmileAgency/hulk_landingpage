@@ -186,7 +186,6 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
           Je bent een agentschap: ${isAgency.value == 0 ? "Nee" : "Ja"}`,
         }
 
-
         if (success == 0) {
           if (day == null || day == undefined) {
             alert(copy.noDate[lang]);

@@ -1,6 +1,5 @@
 <?php
 
-
 function copy_js()
 {
 ?>
@@ -85,7 +84,7 @@ function copy_js()
       back: {
         "en": "Back",
         "fr": "Retour",
-        "nl": "terug",
+        "nl": "Terug",
       },   
     }
   </script>
