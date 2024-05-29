@@ -83,7 +83,9 @@ $lang = explode('-', $lang[1])[0];
 
 	function renderCalendar() {
 
-		if (updateDateDisplay !== null && !update) {
+		console.log("render : " + date)
+
+		if (updateDateDisplay !== null && !update) {	
 
 			date = new Date(updateDate.innerHTML + " " + updateTime.innerHTML);
 
@@ -99,12 +101,13 @@ $lang = explode('-', $lang[1])[0];
 			unavailableDays(date);
 			update = true;
 			noUpdate = false;
-		} else {
-			let newDate = new Date();
-			if (date.getMonth() == newDate.getMonth()) {
-				date = newDate;
-			};
+
 		}
+
+		let newDate = new Date();
+		if (date.getMonth() === newDate.getMonth() && date.getFullYear() === newDate.getFullYear()) {
+			date = newDate;
+		};
 
 		// make week start on monday
 		date.setDate(1);
@@ -291,10 +294,9 @@ $lang = explode('-', $lang[1])[0];
 		})
 	}
 
-
 	function prevMonth() {
 		date.setMonth(date.getMonth() - 1);
-		date = renderCalendar();
+		renderCalendar();
 		unavailableDays(date);
 		if (lang == "fr") {
 			fullDate.innerHTML = dateInFr(date)
@@ -308,8 +310,15 @@ $lang = explode('-', $lang[1])[0];
 
 
 	function nextMonth() {
+
+		console.log(date);
+
 		date.setMonth(date.getMonth() + 1);
-		date = renderCalendar();
+
+		console.log(date);
+	
+		renderCalendar();
+
 		unavailableDays(date);
 		if (lang == "fr") {
 			fullDate.innerHTML = dateInFr(date)
@@ -318,6 +327,8 @@ $lang = explode('-', $lang[1])[0];
 		} else {
 			fullDate.innerHTML = dateInEn(date);
 		}
+
+
 		getTheSlots(date);
 	}
 
