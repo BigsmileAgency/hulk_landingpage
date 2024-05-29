@@ -113,6 +113,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
     }
 
     if (updateBtn !== null) {
+      
       updateBtn.addEventListener('click', click => {
 
         let updateSubmit = document.querySelector('#update_appointement_from_mail');
@@ -152,6 +153,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
         let time = document.querySelector('.time_selected');
         let day = document.querySelector('.date_selected');
         let whatMonthYear = document.querySelector('.month_display').innerHTML;
+        date.setDate(day.innerHTML);
 
         confirmUpdate = {
 
