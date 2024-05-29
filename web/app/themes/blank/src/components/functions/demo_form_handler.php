@@ -75,6 +75,7 @@ function demo_form_handler()
 				e.preventDefault();
 				let time = document.querySelector('.time_selected');
 				let day = document.querySelector('.date_selected');
+        date.setDate(day.innerHTML);
 				if (day == null || day == undefined) {
 					alert(copy.noDate[lang]);
 				} else if (time == null || time == undefined) {
