@@ -215,19 +215,19 @@ $lang = explode('-', $lang[1])[0];
 		console.log(fullDate);
 	}
 
-	// function prevMonth() {
-	// 	date.setMonth(date.getMonth() - 1);
-	// 	renderCalendar();
-	// 	unavailableDays(date);
-	// 	if (lang == "fr") {
-	// 		fullDate.innerHTML = dateInFr(date)
-	// 	} else if (lang == "nl") {
-	// 		fullDate.innerHTML = dateInNl(date)
-	// 	} else {
-	// 		fullDate.innerHTML = dateInEn(date)
-	// 	}
-	// 	getTheSlots(date);
-	// }
+	function prevMonth() {
+		date.setMonth(date.getMonth() - 1);
+		renderCalendar();
+		unavailableDays(date);
+		if (lang == "fr") {
+			fullDate.innerHTML = dateInFr(date)
+		} else if (lang == "nl") {
+			fullDate.innerHTML = dateInNl(date)
+		} else {
+			fullDate.innerHTML = dateInEn(date)
+		}
+		getTheSlots(date);
+	}
 
 
 	function nextMonth() {
@@ -358,32 +358,16 @@ $lang = explode('-', $lang[1])[0];
 
 		let callIt = false;
 		let selectClass = 0;
-		daysArray.forEach((day) => {
+		daysArray.forEach((day) => {			
 			if (day.classList.contains('date_selected')) {
 				selectClass++
 			}
 			day.addEventListener('click', (e) => {
-				// if (e.target.classList.contains('prev_date')) {
-				// 	if (!callIt) {
-				// 		renderCalendar()
-				// 		dateIsSelected(e);
-				// 		date.setMonth(date.getMonth() - 1);
-				// 		callIt = true;
-				// 	}
-				// } else if (e.target.classList.contains('next_date')) {
-				// 	if (!callIt) {
-				// 		date.setMonth(date.getMonth() + 1);
-				// 		renderCalendar()
-				// 		dateIsSelected(e);
-				// 		callIt = true;
-				// 	}
-				// } else {
 				date.setDate(day.innerHTML)
 				if (!callIt) {
 					callIt = true;
 					dateIsSelected(e);
 				}
-				// }
 			})
 		})
 
