@@ -10,7 +10,7 @@ function cancel_demo_meeting()
   $date = date("Y-m-d", strtotime($_POST['date']));
   $time = $_POST['time'];
 
-  $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE time = %s", $time));
+  $time_id = $wpdb->get_var($wpdb->prepare("SELECT id FROM `wp_time_slot` WHERE TIME_FORMAT(wp_time_slot.time, '%%H:%%i') AS time = %s", $time));
 
   $delete = $wpdb->query(
     $wpdb->prepare(

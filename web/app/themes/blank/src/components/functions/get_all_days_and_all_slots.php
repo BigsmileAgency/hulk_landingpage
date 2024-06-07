@@ -6,7 +6,7 @@ function get_all_days_and_all_slots()
   global $wpdb;
 
   $all_days = $wpdb->get_results("SELECT * FROM `wp_week_slots` ORDER BY wp_week_slots.day_number");
-  $all_time_slots = $wpdb->get_results("SELECT * FROM `wp_time_slot` ORDER BY wp_time_slot.time");
+  $all_time_slots = $wpdb->get_results("SELECT wp_time_slot.id, TIME_FORMAT(wp_time_slot.time, '%H:%i') AS time FROM `wp_time_slot` ORDER BY wp_time_slot.time");
 
   if($all_days && $all_time_slots){
     $response = [

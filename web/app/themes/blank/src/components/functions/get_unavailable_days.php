@@ -36,7 +36,7 @@ function get_unavailable_days()
     if ($appointements !== []) {
       $slots = $wpdb->get_results(
         $wpdb->prepare(
-          "SELECT *
+          "SELECT wp_time_slot.id, TIME_FORMAT(wp_time_slot.time, '%%H:%%i') AS time
             FROM wp_time_slot
             JOIN week_has_slots ON wp_time_slot.id = week_has_slots.time_slots_id
             WHERE week_has_slots.week_day_id = %s

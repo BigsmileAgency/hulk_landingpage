@@ -7,7 +7,7 @@ function unblock_day_from_plugin()
 
   $date = date("Y-m-d", strtotime($_POST['date']));
 
-  $delete = $wpdb->query($wpdb->prepare("DELETE FROM `wp_demo_appointement` WHERE date = %s", $date));
+  $delete = $wpdb->query($wpdb->prepare("DELETE FROM `wp_demo_appointement` WHERE date = %s AND first_name = %s AND first_name = %s" , $date, 'BSA', 'BSA'));
 
   if($delete){
     $response = "Journée ". $date . " débloquée";

@@ -60,7 +60,7 @@ if (isset($_GET['what']) && ($_GET['what'] == "update" || $_GET['what'] == "canc
       $time = $appointement->time_slot_id;
       $what_time = $wpdb->get_row(
         $wpdb->prepare(
-          "SELECT time 
+          "SELECT TIME_FORMAT(wp_time_slot.time, '%%H:%%i') AS time 
               FROM `wp_time_slot` 
               WHERE id=%s",
           $time,

@@ -15,10 +15,12 @@ function block_slot_from_plugin()
     $is_it = $wpdb->get_var($wpdb->prepare("SELECT * FROM `wp_demo_appointement` WHERE time_slot_id = %s AND date = %s", $time_id, $date));
 
     if(is_null($is_it)){
+      $appointement_id = uniqid();
       $insert = $wpdb->query(
         $wpdb->prepare(
-          "INSERT INTO `wp_demo_appointement`(`first_name`, `last_name`, `company`, `email`, `phone`, `date`, `time_slot_id`) 
-              VALUES (%s, %s, %s, %s, %s, %s, %s)",
+          "INSERT INTO `wp_demo_appointement`(`id`,`first_name`, `last_name`, `company`, `email`, `phone`, `date`, `time_slot_id`) 
+              VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+          $appointement_id,
           "BSA",
           "BSA",
           "BSA",

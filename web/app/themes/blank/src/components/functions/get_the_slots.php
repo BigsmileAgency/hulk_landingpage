@@ -12,7 +12,7 @@ function get_the_slots()
 
 	$all_slots = $wpdb->get_results(
 		$wpdb->prepare(
-			"SELECT *
+			"SELECT wp_time_slot.id, TIME_FORMAT(wp_time_slot.time, '%%H:%%i') AS time, week_has_slots.time_slots_id, week_has_slots.week_day_id
 				FROM wp_time_slot
 				JOIN week_has_slots ON wp_time_slot.id = week_has_slots.time_slots_id
 				WHERE week_has_slots.week_day_id = %s
@@ -27,7 +27,7 @@ function get_the_slots()
 
 	if (!empty($check_date)) {
 		foreach ($check_date as $appointement) {
-			$taken_slots[] = $wpdb->get_var($wpdb->prepare("SELECT time FROM `wp_time_slot` WHERE id = %s", $appointement->time_slot_id));
+			$taken_slots[] = $wpdb->get_var($wpdb->prepare("SELECT TIME_FORMAT(wp_time_slot.time, '%%H:%%i') FROM `wp_time_slot` WHERE id = %s", $appointement->time_slot_id));
 		}
 	}
 

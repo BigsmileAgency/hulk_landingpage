@@ -70,6 +70,9 @@ $lang = explode('-', $lang[1])[0];
 </div>
 
 <script>
+	let fullDate = document.querySelector(".full_date");
+	let date = new Date();
+
 	// handlers for the update form
 	let updateDateDisplay = document.querySelector('.update_date_display');
 	let update = false;
@@ -77,9 +80,6 @@ $lang = explode('-', $lang[1])[0];
 	let updateDate = document.querySelector("#update_date");
 	let updateTime = document.querySelector('#update_time');
 	//
-
-	let fullDate = document.querySelector(".full_date");
-	let date = new Date();
 
 	function renderCalendar() {
 
@@ -211,8 +211,6 @@ $lang = explode('-', $lang[1])[0];
 		} else {
 			fullDate.innerHTML = dateInEn(date.toDateString());
 		}
-
-		console.log(fullDate);
 	}
 
 	function prevMonth() {
@@ -234,7 +232,7 @@ $lang = explode('-', $lang[1])[0];
 		const currentDay = date.getDate();
 		date.setMonth(date.getMonth() + 1);
 		if (currentDay > date.getDate()) {
-			date.setDate(0); 
+			date.setDate(0);
 		}
 		renderCalendar();
 		unavailableDays(date);
@@ -358,7 +356,7 @@ $lang = explode('-', $lang[1])[0];
 
 		let callIt = false;
 		let selectClass = 0;
-		daysArray.forEach((day) => {			
+		daysArray.forEach((day) => {
 			if (day.classList.contains('date_selected')) {
 				selectClass++
 			}
@@ -535,6 +533,7 @@ $lang = explode('-', $lang[1])[0];
 				let result = xhr.responseText;
 				result = JSON.parse(result);
 				if (!result.error) {
+					// console.log(result)
 					result.map((e) => {
 						UVDays.push(e.day);
 					})

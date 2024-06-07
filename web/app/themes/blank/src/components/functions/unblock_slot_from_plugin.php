@@ -39,13 +39,13 @@ function unblock_slot_from_plugin()
         "first_name" => $check[0]->first_name,
         "last_name" => $check[0]->last_name,
         "date"=> $check[0]->date, 
-        "time"=>$time_id[0]->time,       
+        "time"=>  substr($time_id[0]->time, 0, 5),       
       ];
 
     }
     $inserted++;
   }
-
+  
   echo json_encode($response);
   wp_die();
 }

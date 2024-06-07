@@ -8,7 +8,7 @@ function get_all_appointements()
   $appointements =
     $wpdb->get_results(
       "SELECT wp_demo_appointement.*, 
-      wp_time_slot.time AS time,
+      TIME_FORMAT(wp_time_slot.time, '%H:%i') AS time,
         CASE 
             WHEN DATE(wp_demo_appointement.date) >= DATE(NOW()) THEN 'future_date'
             ELSE 'past_date'
