@@ -285,3 +285,40 @@
     }
   }
 }
+
+.feat_container_bis {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 950px;
+  position: relative;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .img_shadow {
+    position: absolute;
+    left: 240px;
+  }
+
+  .feats_box {
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 30px;    
+    width: 200px;
+    text-align: center;
+  }
+
+  .feats_line, .title {
+    margin-bottom: 20px;
+  }
+
+  .title {
+    color: $main-color;
+    font-weight: bold;
+
+  }
+}

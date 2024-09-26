@@ -5,7 +5,11 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php 
+$upload_dir = wp_upload_dir();
+get_header();
+?>
+
 
 <main class="default home">
 
@@ -49,7 +53,56 @@
     </div>
   </section>
 
+
+  <!-- NEW FEATS TEST 09/24-->
   <section class="feats_section">
+    <div class="container">
+      <h2><span class="main-color">An easy tool to use and to configurate</span> ! Visualize your banners <span class="main-color">in real time</span> with your clients<span class="main-color">.</span></h2>
+      <div class="feat_container_bis">
+
+        <div class="feats_left feats_box">
+          <p class="title">You, the agency</p>
+          <div class="feats_line">
+            <p class="bold">UPLOAD</p>
+            <p>Your banner</p>
+          </div>
+          <div class="feats_line">
+            <p class="bold">SHARE</p>
+            <p>With your client</p>
+          </div>
+          <div class="feats_line">
+            <p class="bold">RECEIVE</p>
+            <p>Notifications</p>
+          </div>
+        </div>  
+
+        <div class="desktop_block">
+          <div class="img_shadow"></div>
+          <img src="<?= $upload_dir['baseurl'] ?>/2024/02/destop.png" alt="">
+        </div> 
+
+        <div class="feats_right feats_box">
+          <p class="title">Your client</p>
+          <div class="feats_line">
+            <p class="bold">Preview</p>
+            <p>Your ads</p>
+          </div>
+          <div class="feats_line">
+            <p class="bold">COMMENT</p>
+            <p>Validate</p>
+          </div>
+          <div class="feats_line">
+            <p class="bold">DOWNLOAD</p>
+            <p>Banner or ads</p>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OLD FEATs 02/24 -->
+  <!-- <section class="feats_section">
     <div class="container">
       <h2><?= get_field('feats_diplay_title') ?></h2>
       <div class="feats_display_container">
@@ -83,7 +136,7 @@
         endif; ?>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <?php $hero3 = get_field('hero_3'); ?>
   <section class="hero_3">
@@ -93,16 +146,14 @@
 
         <div class="hero_list">
           <div class="picto_bubble">
-            <?php $upload_dir = wp_upload_dir() ?>
-            <img src="<?= $upload_dir['url'] ?>/free_lance.png" alt="" class="picto">
+            <img src="<?= $upload_dir['baseurl'] ?>/2024/09/free_lance.png" alt="" class="picto">
           </div>
           <p>30 days free</p>
         </div>
 
         <div class="hero_list">
           <div class="picto_bubble">
-            <?php $upload_dir = wp_upload_dir() ?>
-            <img src="<?= $upload_dir['url'] ?>/stockage.png" alt="" class="picto">
+            <img src="<?= $upload_dir['baseurl'] ?>/2024/09/stockage.png" alt="" class="picto">
           </div>
           <p>1Go of unlimited storage</p>
         </div>
