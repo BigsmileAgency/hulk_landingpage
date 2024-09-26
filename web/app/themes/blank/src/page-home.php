@@ -85,9 +85,9 @@
   <section class="hero_3">
     <div class="container">
       <div class="hero_3_box">
-        <h2>Lorem ipsum <span class="main-color"> dolor sit </span>amet.</h2>
+        <h2><span class="main-color">A</span> personnalized plan <span class="main-color">adapted to your business.</span></h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada nulla eget ipsum pretium molestie. Cras lobortis dui non volutpat posuere. Mauris lacinia neque sed nisl aliquam dapibus.</p>
-        <button class="full_btn"><a href="#"><?= $hero3['btn_trial'] ?></a></button>
+        <button class="full_btn"><a href="#">VIEW PLANS</a></button>
       </div>
     </div>
   </section>
