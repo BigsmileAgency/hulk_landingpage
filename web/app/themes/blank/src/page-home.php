@@ -94,7 +94,7 @@
         <div class="hero_list">
           <div class="picto_bubble">
             <?php $upload_dir = wp_upload_dir() ?>
-            <img src="<?= $upload_dir['url'] ?>/performance.png" alt="" class="picto">
+            <img src="<?= $upload_dir['url'] ?>/free_lance.png" alt="" class="picto">
           </div>
           <p>30 days free</p>
         </div>
@@ -102,7 +102,7 @@
         <div class="hero_list">
           <div class="picto_bubble">
             <?php $upload_dir = wp_upload_dir() ?>
-            <img src="<?= $upload_dir['url'] ?>/performance.png" alt="" class="picto">
+            <img src="<?= $upload_dir['url'] ?>/stockage.png" alt="" class="picto">
           </div>
           <p>1Go of unlimited storage</p>
         </div>
