@@ -314,14 +314,15 @@
 
   .img_shadow {
     position: absolute;
-    left: 240px;
+    left: 300px;
+    overflow: hidden;
   }
 
   .feats_box {
     background-color: lightgray;
     padding: 20px;
     border-radius: 30px;    
-    width: 200px;
+    width: 250px;
     text-align: center;
   }
 
@@ -332,6 +333,14 @@
   .title {
     color: $main-color;
     font-weight: bold;
+  }
 
+  @include breakpoint(md){
+    flex-direction: column;
+    .img_shadow {
+      position: absolute;
+      left: 40px;
+      overflow: hidden;
+    }
   }
 }

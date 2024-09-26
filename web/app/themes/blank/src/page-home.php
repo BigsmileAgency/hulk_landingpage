@@ -162,7 +162,8 @@ get_header();
       </div>
     </div>
   </section>
-  <section class="hero_4">
+
+  <!-- <section class="hero_4">
     <div class="container">
       <div class="hero_4_box">
         <div class="left_box">
@@ -173,7 +174,7 @@ get_header();
         <img src="<?= $hero3['img_hero3'] ?>" alt="">
       </div>
     </div>
-  </section>
+  </section> -->
 </main>
 
 <?php get_footer(); ?>
