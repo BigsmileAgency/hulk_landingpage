@@ -29,13 +29,13 @@
           <!-- <p><?= $hero2['sub_catchphrase'] ?></p> -->
           <?php 
           $list = $hero2["hero_2_list"];
-          var_dump($list);
-          if(have_rows($list)): 
-            while(have_rows($list)): the_row();
-              echo get_sub_field($list["list_img"]);
-              echo get_sub_field($list["list_txt"]);
-            endwhile;
-          endif;
+          var_dump($list["list_img"]);
+          // if(have_rows($list)): 
+          //   while(have_rows($list)): the_row();
+          //     echo get_sub_field($list["list_img"]);
+          //     echo get_sub_field($list["list_txt"]);
+          //   endwhile;
+          // endif;
           ?>
 
           <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= $hero2['btn_trial'] ?></a></button>
