@@ -28,7 +28,9 @@
           <h2><?= $hero2['catchphrase'] ?></h2>
           <!-- <p><?= $hero2['sub_catchphrase'] ?></p> -->
           <?php 
+          var_dump(have_rows("hero_2_list"));
           if(have_rows("hero_2_list")): 
+            echo "hero have rows";
             while(have_rows("hero_2_list")): the_row();
               echo get_sub_field("list_img");
               echo get_sub_field("list_txt");
