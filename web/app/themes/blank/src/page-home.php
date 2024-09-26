@@ -30,11 +30,14 @@
           <?php 
           if(have_rows("hero_2_list")): 
             echo "hero_2 list";
-            while(have_rows("hero_2_list")): the_row();
-            echo get_sub_field("list_img");
-            echo get_sub_field("list_txt");
-          endwhile;
-        endif; ?>
+            // while(have_rows("hero_2_list")): the_row();
+            //   echo get_sub_field("list_img");
+            //   echo get_sub_field("list_txt");
+            // endwhile;
+          else:
+            echo "hero_2 pas list";
+          endif;
+        ?>
 
           <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= $hero2['btn_trial'] ?></a></button>
         </div>
