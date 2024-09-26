@@ -28,11 +28,12 @@
           <h2><?= $hero2['catchphrase'] ?></h2>
           <!-- <p><?= $hero2['sub_catchphrase'] ?></p> -->
           <?php 
-          var_dump($hero2["hero_2_list"]);
-          if(have_rows($hero2["hero_2_list"])): 
-            while(have_rows($hero2["hero_2_list"])): the_row();
-              echo get_sub_field($hero2["list_img"]);
-              echo get_sub_field($hero2["list_txt"]);
+          $list = $hero2["hero_2_list"];
+          var_dump($list);
+          if(have_rows($list)): 
+            while(have_rows($list)): the_row();
+              echo get_sub_field($list["list_img"]);
+              echo get_sub_field($list["list_txt"]);
             endwhile;
           endif;
           ?>
