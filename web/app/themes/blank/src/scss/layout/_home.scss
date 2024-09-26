@@ -97,11 +97,23 @@
   .trial_btn {
     @include button(16px);
   }
+
+  // TEST
+  h2 {
+    text-align: center;
+    margin: 0 auto 26px;
+    padding-bottom: 26px;
+    @include breakpoint(xs) {
+      text-align: left;
+    }
+  }
 }
 
 .hero_3_box {
   display: flex;
   flex-direction: column;
+  max-width: 900px;
+  margin: auto;
   @include breakpoint(md){
     align-items: flex-start;
   }
@@ -294,6 +306,7 @@
   justify-content: space-between;
   max-width: 950px;
   position: relative;
+  margin: auto;
 
   p {
     margin-bottom: 0;

@@ -27,9 +27,9 @@ get_header();
   <?php $hero2 = get_field('hero_2'); ?>
   <section class="hero_2">
     <div class="container">
+      <h2><?= $hero2['catchphrase'] ?></h2>
       <div class="hero_2_box">
         <div class="left_box">
-          <h2><?= $hero2['catchphrase'] ?></h2>
           <!-- <p><?= $hero2['sub_catchphrase'] ?></p> -->
 
           <?php
