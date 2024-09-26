@@ -29,13 +29,10 @@
           <!-- <p><?= $hero2['sub_catchphrase'] ?></p> -->
           <?php 
           if(have_rows("hero_2_list")): 
-            echo "hero_2 list";
-            // while(have_rows("hero_2_list")): the_row();
-            //   echo get_sub_field("list_img");
-            //   echo get_sub_field("list_txt");
-            // endwhile;
-          else:
-            echo "hero_2 pas list";
+            while(have_rows("hero_2_list")): the_row();
+              echo get_sub_field("list_img");
+              echo get_sub_field("list_txt");
+            endwhile;
           endif;
         ?>
 
