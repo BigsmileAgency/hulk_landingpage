@@ -27,18 +27,18 @@
         <div class="left_box">
           <h2><?= $hero2['catchphrase'] ?></h2>
           <!-- <p><?= $hero2['sub_catchphrase'] ?></p> -->
-          
+
           <?php
-          $list = $hero2["hero_2_list"];          
-          foreach($list as $item):
+          $list = $hero2["hero_2_list"];
+          foreach ($list as $item):
           ?>
-          <div class="hero_list">
-            <div class="picto_bubble">
-              <img src="<?= $item["list_img"]["url"]  ?>" alt="" class="picto">  
+            <div class="hero_list">
+              <div class="picto_bubble">
+                <img src="<?= $item["list_img"]["url"]  ?>" alt="" class="picto">
+              </div>
+              <p><?= $item["list_txt"] ?></p>
             </div>
-            <p><?= $item["list_txt"] ?></p>
-          </div>
-          <?php  
+          <?php
           endforeach;
           ?>
 
@@ -90,7 +90,23 @@
     <div class="container">
       <div class="hero_3_box">
         <h2><span class="main-color">A</span> personnalized plan <span class="main-color">adapted to your business.</span></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris malesuada nulla eget ipsum pretium molestie. Cras lobortis dui non volutpat posuere. Mauris lacinia neque sed nisl aliquam dapibus.</p>
+
+        <div class="hero_list">
+          <div class="picto_bubble">
+            <?php $upload_dir = wp_upload_dir() ?>
+            <img src="<?= $upload_dir['url'] ?>/performance.png" alt="" class="picto">
+          </div>
+          <p>30 days free</p>
+        </div>
+
+        <div class="hero_list">
+          <div class="picto_bubble">
+            <?php $upload_dir = wp_upload_dir() ?>
+            <img src="<?= $upload_dir['url'] ?>/performance.png" alt="" class="picto">
+          </div>
+          <p>1Go of unlimited storage</p>
+        </div>
+
         <button class="full_btn"><a href="#">VIEW PLANS</a></button>
       </div>
     </div>
