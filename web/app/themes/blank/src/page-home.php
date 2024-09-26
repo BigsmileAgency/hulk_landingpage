@@ -27,8 +27,7 @@
         <div class="left_box">
           <h2><?= $hero2['catchphrase'] ?></h2>
           <p><?= $hero2['sub_catchphrase'] ?></p>
-           
-          // <?php 
+                    
           // $list = $hero2["hero_2_list"];
           // var_dump($list[0]["list_img"]['url']);
           // if(have_rows($list)): 
@@ -37,7 +36,7 @@
           //     echo get_sub_field($list["list_txt"]);
           //   endwhile;
           // endif;
-          // ?>
+          
 
           <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= $hero2['btn_trial'] ?></a></button>
         </div>
