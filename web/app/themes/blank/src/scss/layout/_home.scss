@@ -136,7 +136,6 @@
 
     p {
       margin-bottom: 0;
-      font-weight: bold;
     }
 
     .picto_bubble {
@@ -153,7 +152,11 @@
         border-radius: 0px;
       }
     }
-    margin-bottom: 26px;
+    margin-bottom: 12px;
+
+    &:last-of-type {
+      margin-bottom: 26px;
+    }
   }
 
   .left_box {
