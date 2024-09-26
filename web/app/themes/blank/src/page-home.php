@@ -26,7 +26,15 @@
       <div class="hero_2_box">
         <div class="left_box">
           <h2><?= $hero2['catchphrase'] ?></h2>
-          <p><?= $hero2['sub_catchphrase'] ?></p>
+          <!-- <p><?= $hero2['sub_catchphrase'] ?></p> -->
+          <?php 
+          if(have_rows("hero_2_list")): 
+            while(have_rows("hero_2_list")): the_row();
+            echo get_sub_field("list_img");
+            echo get_sub_field("list_txt");
+          endwhile;
+        endif; ?>
+
           <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= $hero2['btn_trial'] ?></a></button>
         </div>
         <img src="<?= $hero2['img_hero2'] ?>" alt="">
