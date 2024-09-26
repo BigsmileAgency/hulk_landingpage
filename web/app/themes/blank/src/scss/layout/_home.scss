@@ -13,9 +13,11 @@
   @include breakpoint(md) {   
     .hero_2_box img,
     .hero_3_box img {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+      &:not(.picto) {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
   }
 }
@@ -126,6 +128,34 @@
     grid-template-columns: 1fr;
   }
 
+
+  .hero_list {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    p {
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+
+    .picto_bubble {
+      background-color: $main-color;
+      min-width: 36px;
+      min-height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 500px;    
+      margin-right: 20px;  
+      .picto {
+        width: 18px;
+        border-radius: 0px;
+      }
+    }
+    margin-bottom: 26px;
+  }
+
   .left_box {
     align-self: center;
   }
@@ -137,7 +167,7 @@
 
   .hero_btn {
     @include button(16px, solid);
-  }
+  }  
 }
 
 .hero_4_box {

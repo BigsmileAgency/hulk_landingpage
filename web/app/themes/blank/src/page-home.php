@@ -26,17 +26,21 @@
       <div class="hero_2_box">
         <div class="left_box">
           <h2><?= $hero2['catchphrase'] ?></h2>
-          <p><?= $hero2['sub_catchphrase'] ?></p>
-                    
-          <!-- $list = $hero2["hero_2_list"];
-          // var_dump($list[0]["list_img"]['url']);
-          // if(have_rows($list)): 
-          //   while(have_rows($list)): the_row();
-          //     echo get_sub_field($list["list_img"]);
-          //     echo get_sub_field($list["list_txt"]);
-          //   endwhile;
-          // endif; -->
+          <!-- <p><?= $hero2['sub_catchphrase'] ?></p> -->
           
+          <?php
+          $list = $hero2["hero_2_list"];          
+          foreach($list as $item):
+          ?>
+          <div class="hero_list">
+            <div class="picto_bubble">
+              <img src="<?= $item["list_img"]["url"]  ?>" alt="" class="picto">  
+            </div>
+            <p><?= $item["list_txt"] ?></p>
+          </div>
+          <?php  
+          endforeach;
+          ?>
 
           <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= $hero2['btn_trial'] ?></a></button>
         </div>
