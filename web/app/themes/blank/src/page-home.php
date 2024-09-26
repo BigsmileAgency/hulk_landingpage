@@ -28,14 +28,14 @@
           <h2><?= $hero2['catchphrase'] ?></h2>
           <p><?= $hero2['sub_catchphrase'] ?></p>
                     
-          // $list = $hero2["hero_2_list"];
+          <!-- $list = $hero2["hero_2_list"];
           // var_dump($list[0]["list_img"]['url']);
           // if(have_rows($list)): 
           //   while(have_rows($list)): the_row();
           //     echo get_sub_field($list["list_img"]);
           //     echo get_sub_field($list["list_txt"]);
           //   endwhile;
-          // endif;
+          // endif; -->
           
 
           <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= $hero2['btn_trial'] ?></a></button>
