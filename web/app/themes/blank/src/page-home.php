@@ -114,18 +114,18 @@ get_header();
       <div class="feat_container_bis">
 
         <div class="feats_left feats_box">
-          <p class="title">You, the agency</p>
+          <p class="title"><?= __('You, the agency', 'hulkbanner') ?></p>
           <div class="feats_line">
-            <p class="bold">UPLOAD</p>
-            <p>Your banner</p>
+            <p class="bold"><?= __('UPLOAD', 'hulkbanner') ?></p>
+            <p><?= __('Your banner', 'hulkbanner') ?></p>
           </div>
           <div class="feats_line">
-            <p class="bold">SHARE</p>
-            <p>With your client</p>
+            <p class="bold"><?= __('SHARE', 'hulkbanner') ?></p>
+            <p><?= __('With your client', 'hulkbanner') ?></p>
           </div>
           <div class="feats_line">
-            <p class="bold">RECEIVE</p>
-            <p>Notifications</p>
+            <p class="bold"><?= __('RECEIVE', 'hulkbanner') ?></p>
+            <p><?= __('Notifications', 'hulkbanner') ?></p>
           </div>
         </div>
 
@@ -135,18 +135,18 @@ get_header();
         </div>
 
         <div class="feats_right feats_box">
-          <p class="title">Your client</p>
+          <p class="title"><?= __('Your client', 'hulkbanner') ?></p>
           <div class="feats_line">
-            <p class="bold">PREVIEW</p>
-            <p>Your ads</p>
+            <p class="bold"><?= __('PREVIEW', 'hulkbanner') ?></p>
+            <p><?= __('Your ads', 'hulkbanner') ?></p>
           </div>
           <div class="feats_line">
-            <p class="bold">COMMENT</p>
-            <p>Validate</p>
+            <p class="bold"><?= __('COMMENT', 'hulkbanner') ?></p>
+            <p><?= __('Validate', 'hulkbanner') ?></p>
           </div>
           <div class="feats_line">
-            <p class="bold">DOWNLOAD</p>
-            <p>Banners or ads</p>
+            <p class="bold"><?= __('DOWNLOAD', 'hulkbanner') ?></p>
+            <p><?= __('Banners or ads', 'hulkbanner') ?></p>
           </div>
         </div>
       </div>

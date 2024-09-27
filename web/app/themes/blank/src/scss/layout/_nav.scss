@@ -48,7 +48,46 @@
 	}
 }
 
+.left_nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+	height: 60px;
+}
+
 .nav_menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+	height: 60px;
+
+	ul {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		li {
+			padding: 20px;
+		}
+
+		li:hover {
+			color: $main-color;
+		}
+
+	}
+
+	@include breakpoint(md) {
+		gap: 0px;
+
+		ul>li {
+			padding: 10px;
+		}
+	}
+}
+
+.nav_user {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -179,7 +218,8 @@
 }
 
 @include breakpoint(sm) {
-	.nav_menu {
+	.nav_menu, 
+	.nav_user {
 		display: none;
 		width: 0px;
 	}
