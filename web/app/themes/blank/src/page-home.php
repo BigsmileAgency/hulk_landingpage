@@ -211,7 +211,7 @@ get_header();
           <p>1Go of unlimited storage</p>
         </div>
 
-        <p>Find the pricing plan that fits your specific situation and goals. Our flexible options are designed to meet the unique needs of your business, whether you're a small startup or a large enterprise.</p>
+        <p>Find the pricing plan that fits your specific situation and goals. Our flexible options are designed to meet the unique needs of your business, whether you're a small startup or a large company.</p>
 
         <button class="full_btn"><a href="<?php echo get_home_url() . '/pricing'; ?>">VIEW PLANS</a></button>
       </div>
