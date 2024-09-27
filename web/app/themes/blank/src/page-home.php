@@ -84,7 +84,7 @@ get_header();
         <div class="feats_right feats_box">
           <p class="title">Your client</p>
           <div class="feats_line">
-            <p class="bold">Preview</p>
+            <p class="bold">PREVIEW</p>
             <p>Your ads</p>
           </div>
           <div class="feats_line">
@@ -93,7 +93,7 @@ get_header();
           </div>
           <div class="feats_line">
             <p class="bold">DOWNLOAD</p>
-            <p>Banner or ads</p>
+            <p>Banners or ads</p>
           </div>
         </div>  
       </div>
