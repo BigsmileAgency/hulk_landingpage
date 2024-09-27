@@ -5,7 +5,7 @@
  */
 ?>
 
-<?php 
+<?php
 $upload_dir = wp_upload_dir();
 get_header();
 ?>
@@ -23,6 +23,59 @@ get_header();
       </div>
     </div>
   </section>
+
+  <!-- video secion -->
+  <section class="video">
+    <iframe id="vimeo_video" src="https://player.vimeo.com/video/682956628?mute=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </section>
+
+  <!-- <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    // Sélectionne l'iframe Vimeo avec son ID
+    const iframe = document.querySelector('#vimeo_video');
+    const player = new Vimeo.Player(iframe);
+    player.setVolume(0);
+
+    // Fonction pour vérifier si l'élément est visible dans la fenêtre du navigateur
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    // Fonction pour démarrer la vidéo lorsque visible
+    function playVideoOnScroll() {
+      if (isElementInViewport(iframe)) {
+        player.play().catch(function(error) {
+          console.error("Erreur lors de la lecture de la vidéo : ", error);
+        });
+      }
+    }
+
+    // Écoute l'événement de scroll et de resize
+    window.addEventListener('scroll', playVideoOnScroll);
+    window.addEventListener('resize', playVideoOnScroll);
+
+    // Lancer la vérification de visibilité au chargement de la page
+    document.addEventListener('DOMContentLoaded', playVideoOnScroll);
+
+    function playVideoOnScroll() {
+      if (isElementInViewport(iframe)) {
+        player.play().catch(function(error) {
+          console.error("Erreur lors de la lecture de la vidéo : ", error);
+        });
+      } else {
+        player.pause().catch(function(error) {
+          console.error("Erreur lors de la pause de la vidéo : ", error);
+        });
+      }
+    }
+  </script> -->
+  <!-- video secion end -->
 
   <?php $hero2 = get_field('hero_2'); ?>
   <section class="hero_2">
@@ -74,12 +127,12 @@ get_header();
             <p class="bold">RECEIVE</p>
             <p>Notifications</p>
           </div>
-        </div>  
+        </div>
 
         <div class="desktop_block">
           <div class="img_shadow"></div>
           <img src="<?= $upload_dir['baseurl'] ?>/2024/02/destop.png" alt="">
-        </div> 
+        </div>
 
         <div class="feats_right feats_box">
           <p class="title">Your client</p>
@@ -95,7 +148,7 @@ get_header();
             <p class="bold">DOWNLOAD</p>
             <p>Banners or ads</p>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
   </section>
@@ -176,5 +229,7 @@ get_header();
     </div>
   </section> -->
 </main>
+
+
 
 <?php get_footer(); ?>
