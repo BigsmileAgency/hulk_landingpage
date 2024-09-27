@@ -198,20 +198,22 @@ get_header();
         <h2><span class="main-color">A</span> personnalized plan <span class="main-color">adapted to your business.</span></h2>
 
         <div class="hero_list">
-          <div class="picto_bubble">
+          <!-- <div class="picto_bubble">
             <img src="<?= $upload_dir['baseurl'] ?>/2024/09/free_lance.png" alt="" class="picto">
-          </div>
+          </div> -->
           <p>30 days free</p>
         </div>
 
         <div class="hero_list">
-          <div class="picto_bubble">
+          <!-- <div class="picto_bubble">
             <img src="<?= $upload_dir['baseurl'] ?>/2024/09/stockage.png" alt="" class="picto">
-          </div>
+          </div> -->
           <p>1Go of unlimited storage</p>
         </div>
 
-        <button class="full_btn"><a href="#">VIEW PLANS</a></button>
+        <p>Find the pricing plan that fits your specific situation and goals. Our flexible options are designed to meet the unique needs of your business, whether you're a small startup or a large enterprise.</p>
+
+        <button class="full_btn"><a href="<?php echo get_home_url() . '/pricing'; ?>">VIEW PLANS</a></button>
       </div>
     </div>
   </section>

@@ -13,7 +13,6 @@
 
   // center button and img
   @include breakpoint(md) {
-
     .hero_2_box img,
     .hero_3_box img {
       &:not(.picto) {
@@ -119,23 +118,19 @@
 .hero_3_box {
   display: flex;
   flex-direction: column;
-  max-width: 900px;
   margin: auto;
 
   @include breakpoint(md) {
     align-items: flex-start;
   }
 
-  p {
-    text-align: center;
-
-    @include breakpoint(md) {
-      text-align: left;
-    }
+  .full_btn {
+    margin: auto;
+    @include button(16px);
   }
 
-  .full_btn {
-    @include button(16px);
+  h2 {
+    max-width: 1000px;
   }
 }
 
