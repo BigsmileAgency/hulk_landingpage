@@ -30,7 +30,7 @@
     <section>
     <div class="legal_footer">
 
-    © 2024 Big Smile Agency - Terms and conditions | Privacy policy | Cookie policy
+    © <?= date('Y') ?> Big Smile Agency -&nbsp;<a href="<?php echo get_home_url() . '/terms'; ?>">Terms and conditions</a>&nbsp;| Privacy policy | Cookie policy
     </div>
 </section>
 
