@@ -105,6 +105,17 @@ get_header();
       </div>
     </div>
   </section>
+  
+  <?php $cta_block_1 = get_field('cta_block_1'); ?>
+  <section class="cta_block">
+    <div class="container">
+      <div class="cta_block_box">
+        <h2><?= $cta_block_1['title']; ?></h2>     
+        <p><?= $cta_block_1['content']; ?></p>
+        <button class="full_btn"><a href="<?php echo get_home_url() . '/feat'; ?>"><?= $cta_block_1['btn']; ?></a></button>
+      </div>
+    </div>
+  </section>
 
 
   <!-- NEW FEATS TEST 09/24-->
@@ -191,15 +202,13 @@ get_header();
     </div>
   </section> -->
 
-  <?php $hero3 = get_field('hero_3'); ?>
-  <section class="hero_3">
+  <?php $cta_block_2 = get_field('cta_block_2'); ?>
+  <section class="cta_block">
     <div class="container">
-      <div class="hero_3_box">
-        <h2><span class="main-color">A</span> personnalized plan <span class="main-color">adapted to your business.</span></h2>     
-
-        <p>Find the pricing plan that fits your specific situation and goals. Our flexible options are designed to meet the unique needs of your business, whether you're a small startup or a large company.</p>
-
-        <button class="full_btn"><a href="<?php echo get_home_url() . '/pricing'; ?>">VIEW PLANS</a></button>
+      <div class="cta_block_box">
+        <h2><?= $cta_block_2['title']; ?></h2>     
+        <p><?= $cta_block_2['content']; ?></p>
+        <button class="full_btn"><a href="<?php echo get_home_url() . '/pricing'; ?>"><?= $cta_block_2['btn']; ?></a></button>
       </div>
     </div>
   </section>

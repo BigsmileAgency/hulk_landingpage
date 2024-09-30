@@ -1,5 +1,4 @@
 .home {
-
   h2,
   h3 {
     font-weight: bold;
@@ -202,12 +201,11 @@
   }
 
   margin-bottom: 20px;
-
-
 }
 
 .feats_section {
   overflow: hidden;
+  background-color: $light-color;
 
   .feats_display_container {
     max-width: 1366px;
@@ -351,7 +349,7 @@
   }
 
   .feats_box {
-    background-color: lightgray;
+    background-color: $white;
     padding: 20px;
     border-radius: 30px;
     width: 250px;
@@ -388,6 +386,49 @@
     .feats_box {
       width: 100%;
     }
+  }
+}
+
+.cta_block {
+  // background-color: $light-color;
+
+  .trial_btn {
+    @include button(16px);
+  }
+
+  // TEST
+}
+
+.cta_block_box {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  h2 {
+    text-align: center;
+    margin: 0 auto 26px;
+    padding-bottom: 26px;
+    max-width: 1000px;
+  
+    @include breakpoint(xs) {
+      text-align: left;
+    }
+  }
+
+  @include breakpoint(md) {
+    align-items: flex-start;
+  }
+
+  .full_btn {
+    margin: auto;
+    @include button(16px);
+    margin-top: 22px;
+  }
+
+  p {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 26px;
   }
 }
 
