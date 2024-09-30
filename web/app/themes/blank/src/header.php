@@ -45,12 +45,12 @@
 		<div class="container container_nav">
 
 			<!-- remove .left_nav div if you wanna comme back to centered nav -->
-			<div class="left_nav">
+			<!-- <div class="left_nav"> -->
 				<div class="logo_nav">
 					<a href="<?php echo get_home_url() . '/'; ?>"><img class="logo_hulk" src="<?php echo get_template_directory_uri() ?>/images/logo_header.svg"></a>
 				</div>
 				<?php wp_nav_menu(array('theme_location' => 'nav_menu', 'container_class' => 'nav_menu')); ?>
-			</div>
+			<!-- </div> -->
 			<!-- remove .left_nav div END -->
 
 			<div class="nav_user">
