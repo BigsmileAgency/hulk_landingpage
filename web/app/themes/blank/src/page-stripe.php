@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Sign-up
+ * Template Name: Stripe
  */
 ?>
 <?php

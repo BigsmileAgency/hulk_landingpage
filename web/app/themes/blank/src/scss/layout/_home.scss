@@ -32,6 +32,13 @@
   .page_header {
     width: 1260px;
     padding: 90px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include breakpoint(lg){
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
 
     @include breakpoint(md) {
       padding: 50px 0px;
@@ -43,6 +50,7 @@
     font-weight: bold;
     margin: 0 2rem;
     color: $black;
+    font-size: 48px;
 
     @include breakpoint(md) {
       margin-top: 1rem;
@@ -51,9 +59,10 @@
 
   h3 {
     width: 80%;
-    padding: 4rem 0;
+    padding: 1rem 0;
     margin: auto;
     font-weight: 400;
+    font-size: 20px;
 
     @include breakpoint(md) {
       font-size: 16px;
@@ -63,14 +72,14 @@
 
   .trial_btn {
     @include button(16px);
-    width: 226px;
-    height: 60px;
+    // width: 226px;
+    // height: 60px;
   }
 
   .demo_btn {
     @include button(16px, hollow);
-    width: 226px;
-    height: 60px;
+    // width: 226px;
+    // height: 60px;
   }
 
   .grid_btn_2 {
@@ -91,6 +100,28 @@
         height: 60px;
       }
     }
+  }
+}
+
+.video {
+  position: relative;
+  overflow: hidden;
+  max-width: 683px;
+  margin: auto;
+  width: 100%;
+
+  &::before {
+    display: block;
+    content: "";
+    padding-top: 56.25%;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -144,64 +175,87 @@
 
 }
 
-.hero_2_box,
-.hero_4_box {
+.hero_2_box {
   margin: auto;
-  display: grid;
-  grid-template-columns: 50% 1fr;
-  gap: 50px;
-
-  @include breakpoint(md) {
-    grid-template-columns: 1fr;
+  
+  .hero_btn {
+    margin: auto;
+    display: block;
+    @include button(16px, solid);
   }
 
   .left_box {
-    align-self: center;
-  }
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    max-width: 1260px;
+    width: 100%;
+    margin-bottom: 50px;
 
-  img {
-    width: 575px;
-    border-radius: 30px;
-  }
-
-  .hero_btn {
-    @include button(16px, solid);
-  }
-}
-
-.hero_4_box {
-  .trial_btn {
-    @include button(16px);
-  }
-}
-
-.hero_list {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-
-  p {
-    margin-bottom: 0;
-  }
-
-  .picto_bubble {
-    background-color: $main-color;
-    min-width: 36px;
-    min-height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 500px;
-    margin-right: 20px;
-
-    .picto {
-      width: 18px;
-      border-radius: 0px;
+    @include breakpoint(md) {
+      display: flex;
+      flex-direction: column;
     }
   }
 
-  margin-bottom: 20px;
+  .hero_list {
+    background-color: $white;
+    padding: 20px;
+    border-radius: 20px;
+    min-height: 200px;
+  
+    p {
+      margin-bottom: 0;
+      font-size: 20px;
+      padding: 20px; 
+      text-align: center;
+      font-weight: bold;
+    }
+  
+    .picto_bubble {
+      background-color: $main-color;
+      width: 75px;
+      height: 75px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 500px;
+      margin: 10px auto;
+      
+      .picto {
+        width: 40px;
+        border-radius: 0px;
+      }
+    }
+  }
+  
+  .hero_list:nth-child(1) {
+    grid-column: 1 / span 2; 
+    grid-row: 1; 
+  }
+  
+  .hero_list:nth-child(2) {
+    grid-column: 3 / span 2;
+    grid-row: 1; 
+  }
+  
+  .hero_list:nth-child(3) {
+    grid-column: 5 / span 2;
+    grid-row: 1; 
+  }
+  
+  .hero_list:nth-child(4) {
+    grid-column: 2 / span 2; 
+    grid-row: 2;
+  }
+  
+  .hero_list:nth-child(5) {
+    grid-column: 4 / span 2; 
+    grid-row: 2; 
+  }
 }
+
 
 .feats_section {
   overflow: hidden;
@@ -433,24 +487,40 @@
   }
 }
 
-.video {
-  position: relative;
-  overflow: hidden;
-  max-width: 1366px;
-  margin: auto;
-  width: 100%;
+// aside
+// .hero_2_box,
+// .hero_4_box {
+//   margin: auto;
+//   display: grid;
+//   grid-template-columns: 50% 1fr;
+//   gap: 50px;
 
-  &::before {
-    display: block;
-    content: "";
-    padding-top: 56.25%;
-  }
+//   @include breakpoint(md) {
+//     grid-template-columns: 1fr;
+//   }
 
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
+//   .left_box {
+//     align-self: center;
+//   }
+
+//   img {
+//     width: 575px;
+//     border-radius: 30px;
+//   }
+
+//   .hero_btn {
+//     @include button(16px, solid);
+//   }
+// }
+
+// .hero_4_box {
+//   .trial_btn {
+//     @include button(16px);
+//   }
+// }
+// .hero_4_box {
+//   .trial_btn {
+//     @include button(16px);
+//   }
+// }
+

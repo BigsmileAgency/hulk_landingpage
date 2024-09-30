@@ -15,19 +15,21 @@ get_header();
 
   <section class="hero_1" style="background-image: url(<?= get_field('bg_img') ?>);">
     <div class="container page_header">
-      <h1><?= get_field('catchphrase') ?></h1>
-      <h3><?= get_field('sub_catchphrase') ?></h3>
-      <div class="grid_btn_2">
-        <button class="trial_btn"><a href="<?php echo get_home_url() . '/login'; ?>"><?= get_field('trial_btn') ?></a></button>
-        <button class="demo_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= get_field('demo_btn') ?></a></button>
+      <div class="hero_left">
+        <h1><?= get_field('catchphrase') ?></h1>
+        <h3><?= get_field('sub_catchphrase') ?></h3>
+        <div class="grid_btn_2">
+          <button class="trial_btn"><a href="<?php echo get_home_url() . '/login'; ?>"><?= get_field('trial_btn') ?></a></button>
+          <button class="demo_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= get_field('demo_btn') ?></a></button>
+        </div>
+      </div>
+      <!-- video secion -->
+      <div class="video">
+        <iframe id="vimeo_video" src="https://player.vimeo.com/video/682956628?mute=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </section>
 
-  <!-- video secion -->
-  <section class="video">
-    <iframe id="vimeo_video" src="https://player.vimeo.com/video/682956628?mute=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-  </section>
 
   <!-- AUTO PLAY VIDEO WHEN SCROLL INTO VIEW -->
   <!-- <script src="https://player.vimeo.com/api/player.js"></script>
@@ -84,8 +86,6 @@ get_header();
       <h2><?= $hero2['catchphrase'] ?></h2>
       <div class="hero_2_box">
         <div class="left_box">
-          <!-- <p><?= $hero2['sub_catchphrase'] ?></p> -->
-
           <?php
           $list = $hero2["hero_2_list"];
           foreach ($list as $item):
@@ -100,18 +100,55 @@ get_header();
           endforeach;
           ?>
 
-          <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= $hero2['btn_trial'] ?></a></button>
         </div>
-        <img src="<?= $hero2['img_hero2'] ?>" alt="">
+        <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= $hero2['btn_trial'] ?></a></button>
+        <!-- <img src="<?= $hero2['img_hero2'] ?>" alt=""> -->
       </div>
     </div>
   </section>
-  
+
+    <!-- OLD FEATs 02/24 -->
+    <section class="feats_section">
+    <div class="container">
+      <h2><?= get_field('feats_diplay_title') ?></h2>
+      <div class="feats_display_container">
+        <?php
+        if (have_rows("feat_display")) :
+          while (have_rows("feat_display")) : the_row();
+            $title = get_sub_field('feat_title');
+            $img = get_sub_field('feat_img');
+            $btn = get_sub_field('feat_btn');
+        ?>
+            <div class="feat_container">
+              <div class="img_shadow"></div>
+              <img src="<?= $img ?>" alt="">
+              <div class="side_grid">
+                <h3><?= $title ?></h3>
+                <div class="feat_list">
+                  <ul>
+                    <?php if (have_rows("feat_list")) :
+                      while (have_rows("feat_list")) : the_row();
+                        $item = get_sub_field('feat_item');
+                    ?>
+                        <li class="feat_item"><?= $item ?></li>
+                    <?php endwhile;
+                    endif; ?>
+                  </ul>
+                </div>
+                <button class="feat_btn"><a href="<?php echo get_home_url() . '/feat'; ?>"><?= $btn ?></a></button>
+              </div>
+            </div>
+        <?php endwhile;
+        endif; ?>
+      </div>
+    </div>
+  </section>
+
   <?php $cta_block_1 = get_field('cta_block_1'); ?>
   <section class="cta_block">
     <div class="container">
       <div class="cta_block_box">
-        <h2><?= $cta_block_1['title']; ?></h2>     
+        <h2><?= $cta_block_1['title']; ?></h2>
         <p><?= $cta_block_1['content']; ?></p>
         <a href="<?php echo get_home_url() . '/feat'; ?>"><button class="full_btn"><?= $cta_block_1['btn']; ?></button></a>
       </div>
@@ -122,7 +159,7 @@ get_header();
   <!-- NEW FEATS TEST 09/24-->
   <section class="feats_section">
     <div class="container">
-      <h2><span class="main-color">An easy tool to use and to configurate</span> ! Visualize your banners <span class="main-color">in real time</span> with your clients<span class="main-color">.</span></h2>
+      <h2>An <span class="main-color">easy tool</span> to use and <span class="main-color">to configurate</span>!</h2>
       <div class="feat_container_bis">
 
         <div class="feats_left feats_box">
@@ -166,48 +203,13 @@ get_header();
   </section>
 
 
-  <!-- OLD FEATs 02/24 -->
-  <!-- <section class="feats_section">
-    <div class="container">
-      <h2><?= get_field('feats_diplay_title') ?></h2>
-      <div class="feats_display_container">
-        <?php
-        if (have_rows("feat_display")) :
-          while (have_rows("feat_display")) : the_row();
-            $title = get_sub_field('feat_title');
-            $img = get_sub_field('feat_img');
-            $btn = get_sub_field('feat_btn');
-        ?>
-            <div class="feat_container">
-              <div class="img_shadow"></div>
-              <img src="<?= $img ?>" alt="">
-              <div class="side_grid">
-                <h3><?= $title ?></h3>
-                <div class="feat_list">
-                  <ul>
-                    <?php if (have_rows("feat_list")) :
-                      while (have_rows("feat_list")) : the_row();
-                        $item = get_sub_field('feat_item');
-                    ?>
-                        <li class="feat_item"><?= $item ?></li>
-                    <?php endwhile;
-                    endif; ?>
-                  </ul>
-                </div>
-                <button class="feat_btn"><a href="<?php echo get_home_url() . '/feat'; ?>"><?= $btn ?></a></button>
-              </div>
-            </div>
-        <?php endwhile;
-        endif; ?>
-      </div>
-    </div>
-  </section> -->
+
 
   <?php $cta_block_2 = get_field('cta_block_2'); ?>
   <section class="cta_block">
     <div class="container">
       <div class="cta_block_box">
-        <h2><?= $cta_block_2['title']; ?></h2>     
+        <h2><?= $cta_block_2['title']; ?></h2>
         <p><?= $cta_block_2['content']; ?></p>
         <a href="<?php echo get_home_url() . '/pricing'; ?>"><button class="full_btn"><?= $cta_block_2['btn']; ?></button></a>
       </div>
