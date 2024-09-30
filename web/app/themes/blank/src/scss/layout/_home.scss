@@ -393,7 +393,7 @@
   justify-content: space-between;
   max-width: 950px;
   position: relative;
-  margin: auto;
+  margin: 0 auto;
 
   p {
     margin-bottom: 0;
@@ -411,12 +411,15 @@
     border-radius: 30px;
     width: 280px;
     text-align: center;
-    margin-bottom: 50px;
   }
 
   .feats_line,
   .title {
     margin-bottom: 20px;    
+  }
+
+  .desktop_block {
+    padding: 0 30px;
   }
 
   .bold:hover {    

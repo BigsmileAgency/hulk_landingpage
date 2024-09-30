@@ -179,7 +179,7 @@ get_header();
         </div>
 
         <div class="desktop_block">
-          <img src="<?= $upload_dir['baseurl'] ?>/2024/02/destop.png" alt="">
+          <img src="<?= $upload_dir['baseurl'] ?>/2024/09/desktop.png" alt="">
         </div>
 
         <div class="feats_right feats_box">
