@@ -107,8 +107,8 @@ get_header();
     </div>
   </section>
 
-    <!-- OLD FEATs 02/24 -->
-    <section class="feats_section">
+  <!-- OLD FEATs 02/24 -->
+  <section class="feats_section">
     <div class="container">
       <h2><?= get_field('feats_diplay_title') ?></h2>
       <div class="feats_display_container">
@@ -145,7 +145,7 @@ get_header();
   </section>
 
   <?php $cta_block_1 = get_field('cta_block_1'); ?>
-  <section class="cta_block">
+  <section class="cta_block" id="cta_block_1">
     <div class="container">
       <div class="cta_block_box">
         <h2><?= $cta_block_1['title']; ?></h2>
@@ -179,7 +179,6 @@ get_header();
         </div>
 
         <div class="desktop_block">
-          <div class="img_shadow"></div>
           <img src="<?= $upload_dir['baseurl'] ?>/2024/02/destop.png" alt="">
         </div>
 
@@ -201,9 +200,6 @@ get_header();
       </div>
     </div>
   </section>
-
-
-
 
   <?php $cta_block_2 = get_field('cta_block_2'); ?>
   <section class="cta_block">
