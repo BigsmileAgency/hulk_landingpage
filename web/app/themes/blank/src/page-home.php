@@ -29,6 +29,7 @@ get_header();
     <iframe id="vimeo_video" src="https://player.vimeo.com/video/682956628?mute=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
   </section>
 
+  <!-- AUTO PLAY VIDEO WHEN SCROLL INTO VIEW -->
   <!-- <script src="https://player.vimeo.com/api/player.js"></script>
   <script>
     // Sélectionne l'iframe Vimeo avec son ID
@@ -112,7 +113,7 @@ get_header();
       <div class="cta_block_box">
         <h2><?= $cta_block_1['title']; ?></h2>     
         <p><?= $cta_block_1['content']; ?></p>
-        <button class="full_btn"><a href="<?php echo get_home_url() . '/feat'; ?>"><?= $cta_block_1['btn']; ?></a></button>
+        <a href="<?php echo get_home_url() . '/feat'; ?>"><button class="full_btn"><?= $cta_block_1['btn']; ?></button></a>
       </div>
     </div>
   </section>
@@ -208,7 +209,7 @@ get_header();
       <div class="cta_block_box">
         <h2><?= $cta_block_2['title']; ?></h2>     
         <p><?= $cta_block_2['content']; ?></p>
-        <button class="full_btn"><a href="<?php echo get_home_url() . '/pricing'; ?>"><?= $cta_block_2['btn']; ?></a></button>
+        <a href="<?php echo get_home_url() . '/pricing'; ?>"><button class="full_btn"><?= $cta_block_2['btn']; ?></button></a>
       </div>
     </div>
   </section>

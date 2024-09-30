@@ -395,8 +395,6 @@
   .trial_btn {
     @include button(16px);
   }
-
-  // TEST
 }
 
 .cta_block_box {
@@ -419,8 +417,11 @@
     align-items: flex-start;
   }
 
-  .full_btn {
+  a {
     margin: auto;
+  }
+
+  .full_btn {
     @include button(16px);
     margin-top: 22px;
   }

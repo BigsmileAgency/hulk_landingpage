@@ -82,10 +82,6 @@
     </div>
   </section>
 
-
-
-
-
   <?php endwhile; ?>
   <?php else: ?>
   <?php endif; ?>
