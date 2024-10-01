@@ -353,6 +353,10 @@
     }
   }
 
+  .computer {
+    z-index: 1;
+  }
+
   .feat_btn {
     @include button(16px, hollow);
   }

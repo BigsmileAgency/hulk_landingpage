@@ -121,7 +121,7 @@ get_header();
         ?>
             <div class="feat_container">
               <div class="img_shadow"></div>
-              <img src="<?= $img ?>" alt="">
+              <img src="<?= $img ?>" class="computer" alt="computers decorating">
               <div class="side_grid">
                 <h3><?= $title ?></h3>
                 <div class="feat_list">
