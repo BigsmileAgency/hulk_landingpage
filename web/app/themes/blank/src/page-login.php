@@ -6,9 +6,15 @@
 
 <?php 
 get_header("login"); 
+
+
+// Recup les infos du check-out de stripe
 $session_id = $_GET['session_id'];
 $session = \Stripe\Checkout\Session::retrieve($session_id);
 $customer = \Stripe\Customer::retrieve($session->customer);
+var_dump($customer); 
+
+
 ?>
 
 
@@ -54,7 +60,6 @@ $customer = \Stripe\Customer::retrieve($session->customer);
   <?php else: ?>
   <?php endif; ?>
 
-  <?php var_dump($customer); ?>
 
 </main>
 
