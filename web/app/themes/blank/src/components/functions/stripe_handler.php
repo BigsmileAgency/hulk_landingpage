@@ -18,21 +18,21 @@ class StripePayment
   {
 
     if (!empty($_POST)) {
-      $first_name = sanitize_text_field($_POST['firstname']);
-      $last_name = sanitize_text_field($_POST['lastname']);
       $mail = sanitize_text_field($_POST['mail']);
-      $tel = sanitize_text_field($_POST['tel']);
-      $address = sanitize_text_field($_POST['address']);
-      $zipcode = sanitize_text_field($_POST['zipcode']);
-      $company = sanitize_text_field($_POST['company']);
-      $tva = sanitize_text_field($_POST['tva']);
       $billing_interval = sanitize_text_field($_POST['billing']);
       $subscription_array = explode(' ', sanitize_text_field($_POST['subscription_type']));
+      // $first_name = sanitize_text_field($_POST['firstname']);
+      // $last_name = sanitize_text_field($_POST['lastname']);
+      // $tel = sanitize_text_field($_POST['tel']);
+      // $address = sanitize_text_field($_POST['address']);
+      // $zipcode = sanitize_text_field($_POST['zipcode']);
+      // $company = sanitize_text_field($_POST['company']);
+      // $tva = sanitize_text_field($_POST['tva']);
     }
-
-    if (isset($first_name, $last_name, $mail, $tel, $address, $zipcode, $company, $tva, $billing_interval, $subscription_array)) {
-
-
+    
+    
+    if (isset($mail, $billing_interval, $subscription_array)) {
+      var_dump($mail, $billing_interval, $subscription_array);
       $plan = [
         'quantity' => 1,
         'price_data' => [
@@ -45,37 +45,30 @@ class StripePayment
         ]
       ];
 
-
-      $customer = Customer::create([
-        'name' => $company,
-        'email' => $mail,
-        'address' => [
-          'line1' => $address,
-          'postal_code' => $zipcode,
-        ],
-        'phone' => $tel,
-        // 'tax_id_data' => [
-        //     'type' => 'eu_vat',
-        //     'value' => $tva,
-        // ],
-      ]);
+      // $customer = Customer::create([
+      //   'name' => $company,
+      //   'email' => $mail,
+      //   'address' => [
+      //     'line1' => $address,
+      //     'postal_code' => $zipcode,
+      //   ],
+      //   'phone' => $tel,
+      //   // 'tax_id_data' => [
+      //   //     'type' => 'eu_vat',
+      //   //     'value' => $tva,
+      //   // ],
+      // ]);
     }
 
-
-    if (isset($plan, $customer)) {
+    if (isset($plan)) {
       $session = Session::create([
         'mode' => 'subscription',
-        'customer' => $customer->id,
+        'customer_email' => $mail,
         'line_items' => [
           $plan
         ],
         'tax_id_collection' => ['enabled' => true],
-        'customer_update' => [
-          'name' => 'auto',
-          'shipping' => 'auto',
-          'address' => 'auto',
-        ],
-        'success_url' => 'http://hulk-landing.local/login',
+        'success_url' => 'http://hulk-landing.local/login?session_id={CHECKOUT_SESSION_ID}',
         'cancel_url' => 'http://hulk-landing.local/sign-up',
         'phone_number_collection' => ['enabled' => true],
         'billing_address_collection' => 'required',

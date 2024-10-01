@@ -4,7 +4,13 @@
   */
 ?>
 
-<?php get_header("login"); ?>
+<?php 
+get_header("login"); 
+$session_id = $_GET['session_id'];
+$session = \Stripe\Checkout\Session::retrieve($session_id);
+$customer = \Stripe\Customer::retrieve($session->customer);
+?>
+
 
 <main class="default">
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
@@ -44,14 +50,12 @@
     </div>
   </section>
 
-
-
-
-
   <?php endwhile; ?>
   <?php else: ?>
   <?php endif; ?>
 
+  <?php var_dump($customer); ?>
+
 </main>
 
-<!-- <?php get_footer(); ?> -->
+<?php get_footer(); ?>

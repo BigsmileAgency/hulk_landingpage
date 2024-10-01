@@ -18,16 +18,16 @@
               <h3><?= get_field('title_signup') ?></h3>
             </div>
             <form id="first-part-form" action="" method="post">
-              <label for="firstname"><?= __('Firstname', 'hulkbanner') ?></label>
+              <!-- <label for="firstname"><?= __('Firstname', 'hulkbanner') ?></label>
               <input type="text" name="firstname" id="firstname">
               <br>
               <label for="lastname"><?= __('Lastname', 'hulkbanner') ?></label>
               <input type="text" name="lastname" id="lastname">
-              <br>
+              <br> -->
               <label for="mail"><?= __('Mail', 'hulkbanner') ?></label>
               <input type="email" name="mail" id="mail">
               <br>
-              <label for="tel"><?= __('Phone', 'hulkbanner') ?></label>
+              <!-- <label for="tel"><?= __('Phone', 'hulkbanner') ?></label>
               <input type="text" name="tel" id="tel">
               <br>
               <label for="address"><?= __('Address', 'hulkbanner') ?></label>
@@ -41,7 +41,7 @@
               <br>
               <label for="tva"><?= __('TVA number', 'hulkbanner') ?></label>
               <input type="text" name="tva" id="tva">
-              <br>
+              <br> -->
               <div class="billing_plan">
                 <div class="billing_choice">
                   <label for="monthly"><?= __('Monthly', 'hulkbanner') ?></label>
@@ -130,11 +130,9 @@
       let company = document.getElementById('company').value;
       let tva = document.getElementById('tva').value;
 
-      // Valider si tous les champs (sauf logo) sont remplis
-      if (firstname !== "" && lastname !== "" && mail !== "" && tel !== "" && company !== "" && tva !== "") {
+      if (mail !== "") {
         // La validation réussit, le formulaire sera soumis normalement
       } else {
-        // La validation échoue, annuler l'événement de soumission
         event.preventDefault();
         alert('Veuillez remplir tous les champs sauf le logo.');
       }
