@@ -74,14 +74,10 @@
 
   .trial_btn {
     @include button(16px);
-    // width: 226px;
-    // height: 60px;
   }
 
   .demo_btn {
     @include button(16px, hollow);
-    // width: 226px;
-    // height: 60px;
   }
 
   .grid_btn_2 {
@@ -98,7 +94,6 @@
       button {
         font-size: 16px;
         width: 260px;
-        height: 60px;
       }
     }
   }
