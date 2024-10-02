@@ -135,12 +135,12 @@ get_header();
                     endif; ?>
                   </ul>
                 </div>
-                <button class="feat_btn"><a href="<?php echo get_home_url() . '/feat'; ?>"><?= $btn ?></a></button>
               </div>
             </div>
-        <?php endwhile;
+            <?php endwhile;
         endif; ?>
       </div>
+      <!-- <button class="feat_btn"><a href="<?php echo get_home_url() . '/feat'; ?>"><?= $btn ?></a></button> -->
     </div>
   </section>
 

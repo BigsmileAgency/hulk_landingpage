@@ -262,6 +262,12 @@
   overflow: hidden;
   background-color: $white;
 
+  //  to compensate the img_shadow overflow
+  .container {
+    margin-bottom: 24px;
+  } 
+
+
   .feats_display_container {
     max-width: 1366px;
     position: relative;
@@ -296,6 +302,16 @@
       z-index: 0;
     }
   }
+
+
+  // Button is commented in html
+  .feat_btn {
+    @include button(16px);
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
 
   .feat_container:nth-of-type(even) .img_shadow {
     transform: rotate(45deg);
@@ -355,10 +371,6 @@
 
   .computer {
     z-index: 1;
-  }
-
-  .feat_btn {
-    @include button(16px, hollow);
   }
 
   @media screen and (min-width: 992px) {
