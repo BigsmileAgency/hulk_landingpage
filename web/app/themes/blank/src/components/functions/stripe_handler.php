@@ -41,8 +41,7 @@ function stripe_handler()
 
     // Créer un abonnement
     $subscription = \Stripe\Checkout\Session::create([
-      'customer' => $customer->id,
-      'mode' => 'subscription',
+      'customer' => $customer->id,      
       'line_items' => [
         [
           'price' => $selectedPlan[1],
