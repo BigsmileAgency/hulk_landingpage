@@ -7,6 +7,8 @@
 
 <?php get_header(); ?>
 
+<script src="https://js.stripe.com/v3/"></script>
+
 <main class="login_body">
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -18,16 +20,16 @@
               <h3><?= get_field('title_signup') ?></h3>
             </div>
             <form id="first-part-form" action="" method="post">
-              <!-- <label for="firstname"><?= __('Firstname', 'hulkbanner') ?></label>
+              <label for="firstname"><?= __('Firstname', 'hulkbanner') ?></label>
               <input type="text" name="firstname" id="firstname">
               <br>
               <label for="lastname"><?= __('Lastname', 'hulkbanner') ?></label>
               <input type="text" name="lastname" id="lastname">
-              <br> -->
-              <label for="mail"><?= __('Mail', 'hulkbanner') ?></label>
-              <input type="email" name="mail" id="mail">
               <br>
-              <!-- <label for="tel"><?= __('Phone', 'hulkbanner') ?></label>
+              <label for="email"><?= __('Eail', 'hulkbanner') ?></label>
+              <input type="email" name="email" id="email">
+              <br>
+              <label for="tel"><?= __('Phone', 'hulkbanner') ?></label>
               <input type="text" name="tel" id="tel">
               <br>
               <label for="address"><?= __('Address', 'hulkbanner') ?></label>
@@ -41,15 +43,15 @@
               <br>
               <label for="tva"><?= __('TVA number', 'hulkbanner') ?></label>
               <input type="text" name="tva" id="tva">
-              <br> -->
+              <br>
               <div class="billing_plan">
                 <div class="billing_choice">
                   <label for="monthly"><?= __('Monthly', 'hulkbanner') ?></label>
-                  <input type="radio" name="billing" id="monthly" value="month" checked>
+                  <input type="radio" name="billing" id="monthly" value="monthly" checked>
                 </div>
                 <div class="billing_choice">
                   <label for="yearly"><?= __('Yearly', 'hulkbanner') ?></label>
-                  <input type="radio" name="billing" id="yearly" value="year">
+                  <input type="radio" name="billing" id="yearly" value="yearly">
                 </div>
               </div>
               <br>
@@ -70,6 +72,9 @@
               <br>
               <div class="captcha">Captcha</div>
               <br>
+              <div id="card_element">
+                <!-- STRIPE ELEMENTS GOES HERE -->
+              </div>
               <input type="submit" value="<?= __('Continue', 'hulkbanner') ?>">
               <div class="divider">
                 <hr>
@@ -90,6 +95,13 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
 
+    // INITIATE STIPE CARD CHECKOUT
+    const stripe = Stripe('pk_test_51Q568r2KTIC8Xb8E7XiZWF6B5aC0sQV6aVRA0dgpr1YjP0Bp1IsyP8flO5cMGdqkUQXYCAZ4qN5Nch06Un0DdfAL00xcjT14Wy');
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+    cardElement.mount('#card_element');
+
+
     // Sélectionner tous les inputs radio avec le nom "billing"
     let billingInputs = document.querySelectorAll('input[name="billing"]');
 
@@ -97,14 +109,14 @@
       input.addEventListener("change", function() {
         let selectedBilling = document.querySelector('input[name="billing"]:checked').value;
 
-        if (selectedBilling === 'month') {
+        if (selectedBilling === 'monthly') {
           document.querySelectorAll('.monthly').forEach(function(e) {
             e.style.display = 'block';
           });
           document.querySelectorAll('.yearly').forEach(function(e) {
             e.style.display = 'none';
           });
-        } else if (selectedBilling === 'year') {
+        } else if (selectedBilling === 'yearly') {
           document.querySelectorAll('.monthly').forEach(function(e) {
             e.style.display = 'none';
           });
@@ -120,24 +132,85 @@
         }
       });
     });
-    
-    document.getElementById('first-part-form').addEventListener('submit', function(event) {
+
+
+    // SUBMIT 
+    document.getElementById('first-part-form').addEventListener('submit', async (event) => {
+
+      // A RETIRER
+      event.preventDefault();
+
       // Récupérer les valeurs des champs
       let firstname = document.getElementById('firstname').value;
       let lastname = document.getElementById('lastname').value;
-      let mail = document.getElementById('mail').value;
+      let email = document.getElementById('email').value;
+      let address = document.getElementById('address').value;
+      let zip = document.getElementById('zipcode').value
       let tel = document.getElementById('tel').value;
       let company = document.getElementById('company').value;
       let tva = document.getElementById('tva').value;
+      let selectedBilling = document.querySelector('input[name="billing"]:checked').value;
+      let selectedPlan = document.getElementById('subscription_type').value;
 
-      if (mail !== "") {
-        // La validation réussit, le formulaire sera soumis normalement
-      } else {
+      // console.log(selectedBilling, selectedPlan);
+
+      if (firstname === "" || lastname === "" || email === "" || tel === "" || company === "" || tva === "" || selectedBilling === "" || selectedPlan === "") {
         event.preventDefault();
-        alert('Veuillez remplir tous les champs sauf le logo.');
+        alert('All the fields are mandatory exept "Logo"');
+      } else {
+        const {
+          error,
+          paymentMethod
+        } = await stripe.createPaymentMethod({
+          type: 'card',
+          card: cardElement,
+          billing_details: {
+            name: company,
+            email,
+            address: {
+              line1: address,
+              postal_code: zip
+            }
+          }
+        });
+
+        if (error) {
+          alert(error.message);
+        } else {
+          let url = '<?= admin_url('admin-ajax.php') ?>';
+
+          let formData = new URLSearchParams({
+            action: 'stripe_handler',
+            paymentMethod: paymentMethod.id,
+            firstname,
+            lastname,
+            company,
+            email,
+            address,
+            zip,
+            tel,
+            tva,
+            selectedBilling,
+            selectedPlan
+          })
+
+          fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData.toString()
+          }).then(response => response.json()).then(data => {
+            console.log(data);
+            if (data.success) {
+              alert(data.message);
+            } else {
+              alert(data.message);
+            }
+          })
+        }
       }
     });
-
 
     // Déclencher l'événement change au chargement de la page
     let checkedBillingInput = document.querySelector('input[name="billing"]:checked');
