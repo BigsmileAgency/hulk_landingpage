@@ -59,7 +59,8 @@ include get_theme_file_path( '/components/functions/homepage_scroll_animation.ph
 include get_theme_file_path( '/components/functions/copy_js.php' );
 
 // STRIPE HANDLER :
-include get_theme_file_path( '/components/functions/stripe_handler.php' );
+include get_theme_file_path( '/components/functions/stripe/confirm_customer.php' );
+include get_theme_file_path( '/components/functions/stripe/create_customer_trial.php' );
 
 
 // AJAX CATEGORY FILTER
