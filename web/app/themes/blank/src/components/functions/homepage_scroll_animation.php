@@ -34,19 +34,19 @@ function homepage_scroll_animation()
 					})
 				})
 				// pc slight parallaxe 
-				let imgs = gsap.utils.toArray('.feat_container > img');
-				imgs.forEach((img, index) => {
-					gsap.to(img, {
-						y: "-5%",
-						ease: "none",
-						scrollTrigger: {
-							trigger: img,
-							start: "top center",
-							scrub: 1,
-							// markers: true,
-						},
-					})
-				});
+				// let imgs = gsap.utils.toArray('.feat_container > img');
+				// imgs.forEach((img, index) => {
+				// 	gsap.to(img, {
+				// 		y: "-5%",
+				// 		ease: "none",
+				// 		scrollTrigger: {
+				// 			trigger: img,
+				// 			start: "top center",
+				// 			scrub: 1,
+				// 			// markers: true,
+				// 		},
+				// 	})
+				// });
 			}
 		})
 	</script>

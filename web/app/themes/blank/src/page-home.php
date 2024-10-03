@@ -159,22 +159,22 @@ get_header();
   <!-- NEW FEATS TEST 09/24-->
   <section class="feats_section">
     <div class="container">
-      <h2>An <span class="main-color">easy tool</span> to use and <span class="main-color">to configurate</span>!</h2>
+      <h2>An <span class="main-color">easy tool to use</span> and to configurate!</h2>
       <div class="feat_container_bis">
 
         <div class="feats_left feats_box">
-          <p class="title"><?= __('You, the agency', 'hulkbanner') ?></p>
+          <p class="title"><?= __('YOUR AGENCY', 'hulkbanner') ?></p>
           <div class="feats_line">
             <p class="bold"><?= __('UPLOAD', 'hulkbanner') ?></p>
-            <p><?= __('Your banner', 'hulkbanner') ?></p>
+            <p><?= __('your banner', 'hulkbanner') ?></p>
           </div>
           <div class="feats_line">
             <p class="bold"><?= __('SHARE', 'hulkbanner') ?></p>
-            <p><?= __('With your client', 'hulkbanner') ?></p>
+            <p><?= __('with your client', 'hulkbanner') ?></p>
           </div>
           <div class="feats_line">
             <p class="bold"><?= __('RECEIVE', 'hulkbanner') ?></p>
-            <p><?= __('Notifications', 'hulkbanner') ?></p>
+            <p><?= __('notifications', 'hulkbanner') ?></p>
           </div>
         </div>
 
@@ -183,18 +183,18 @@ get_header();
         </div>
 
         <div class="feats_right feats_box">
-          <p class="title"><?= __('Your client', 'hulkbanner') ?></p>
+          <p class="title"><?= __('YOUR CLIENT', 'hulkbanner') ?></p>
           <div class="feats_line">
             <p class="bold"><?= __('PREVIEW', 'hulkbanner') ?></p>
-            <p><?= __('Your ads', 'hulkbanner') ?></p>
+            <p><?= __('your ads', 'hulkbanner') ?></p>
           </div>
           <div class="feats_line">
             <p class="bold"><?= __('COMMENT', 'hulkbanner') ?></p>
-            <p><?= __('Validate', 'hulkbanner') ?></p>
+            <p><?= __('or validate', 'hulkbanner') ?></p>
           </div>
           <div class="feats_line">
             <p class="bold"><?= __('DOWNLOAD', 'hulkbanner') ?></p>
-            <p><?= __('Banners or ads', 'hulkbanner') ?></p>
+            <p><?= __('banners or ads', 'hulkbanner') ?></p>
           </div>
         </div>
       </div>

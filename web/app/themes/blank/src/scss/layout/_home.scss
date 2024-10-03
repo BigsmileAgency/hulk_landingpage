@@ -209,13 +209,13 @@
     }
 
     .picto_bubble {
-      background-color: $main-color;
+      // background-color: $main-color;
       width: 60px;
       height: 60px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 500px;
+      // border-radius: 500px;
       margin: 10px auto;
 
       .picto {
@@ -401,12 +401,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  max-width: 950px;
+  // max-width: 950px;
   position: relative;
   margin: 0 auto;
 
   p {
     margin-bottom: 0;
+    font-size: 18px;
   }
 
   .img_shadow {
@@ -417,30 +418,29 @@
 
   .feats_box {
     background-color: $light-color;
-    padding: 20px;
+    padding: 40px;
     border-radius: 30px;
     width: 280px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
-
-  .feats_line,
-  .title {
-    margin-bottom: 20px;    
+  .feats_line{
+    transition: .2s ease color;
+    cursor: pointer;
+  }
+  .feats_line:hover {
+    color: $main-color;
   }
 
   .desktop_block {
     padding: 0 30px;
   }
-
-  .bold:hover {    
-    color: $main-color;
-    cursor: pointer;
-    transition: .2s;
-  }
-
   .title {
     color: $main-color;
     font-weight: bold;    
+    font-size: 24px;
   }
 
   @include breakpoint(md) {
