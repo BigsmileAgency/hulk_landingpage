@@ -24,7 +24,7 @@
               <label for="lastname"><?= __('Lastname', 'hulkbanner') ?></label>
               <input type="text" name="lastname" id="lastname">
               <br>
-              <label for="email"><?= __('Eail', 'hulkbanner') ?></label>
+              <label for="email"><?= __('Email', 'hulkbanner') ?></label>
               <input type="email" name="email" id="email">
               <br>
               <label for="tel"><?= __('Phone', 'hulkbanner') ?></label>
@@ -87,8 +87,13 @@
         let formData = new URLSearchParams({
           action: 'create_customer_trial',
           firstname: firstname,
-          // lastname: lastname,
-          // email: email,
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          address: address,
+          zip: zip,
+          tel: tel,
+          company: company
         });
 
         let url = '<?php echo admin_url('admin-ajax.php'); ?>';
@@ -104,10 +109,15 @@
             body: formData.toString()
           });
 
+
           const data = await response.json();
 
-          console.log(data);
-
+          if (data.success) {
+            alert(data.data.message);
+            window.location.href = '/';
+          } else {
+            alert(data.data.message);
+          }
 
         } catch (error) {
           console.error('Erreur:', error);

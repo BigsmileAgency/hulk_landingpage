@@ -17,7 +17,7 @@
           <div class="form_login">
             <a href="<?php echo get_home_url(); ?>" class="back_home"><img src="<?php echo get_template_directory_uri() ?>/images/icon_close.png" alt=""></a>
             <div class="header_login_form">
-              <h3><?= get_field('title_signup') ?></h3>
+              <h3><?= __('Update', 'hulkbanner') ?></h3>
             </div>
             <form id="first-part-form" action="" method="post">
               <label for="firstname"><?= __('Firstname', 'hulkbanner') ?></label>
