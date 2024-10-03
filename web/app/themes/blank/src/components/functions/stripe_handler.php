@@ -20,47 +20,54 @@ function stripe_handler()
   $company = sanitize_text_field($_POST['company']);
   $tva = sanitize_text_field($_POST['tva']);
   $selectedBilling = sanitize_text_field($_POST['selectedBilling']);
-  $selectedPlan = sanitize_text_field($_POST['selectedPlan']);
-  $selectedPlan = explode(' ', $selectedPlan);
+  $selectedPlanAndPrice = sanitize_text_field($_POST['selectedPlan']);
+  $selectedPlanAndPrice = explode(' ', $selectedPlanAndPrice);
+  $selectedPlan = $selectedBilling . " " . $selectedPlanAndPrice[0];
+
+  $priceMapping = [
+    "yearly large" => "price_1Q5Rdm2KTIC8Xb8EDBPwEJsb",
+    "yearly medium" => "price_1Q5RdR2KTIC8Xb8EfFk21K1c",
+    "yearly small" => "price_1Q5Rd72KTIC8Xb8EzQn8EcPy",
+    "monthly large" => "price_1Q5Rcn2KTIC8Xb8EJGv7x1GS",
+    "monthly medium" => "price_1Q5RcV2KTIC8Xb8EbxThxXhO",
+    "monthly small" => "price_1Q5Rc82KTIC8Xb8EBoqvsLeJ"
+  ];
+
+  $price = isset($priceMapping[$selectedPlan]) ? $priceMapping[$selectedPlan] : "error";
+  $user_id = uniqid();
 
   try {
-    // Créer un client dans Stripe
     $customer = \Stripe\Customer::create([
       'email' => $email,
-      'payment_method' => $paymentMethodId,
+      'payment_method' => $paymentMethodId,      
+      'invoice_settings' => [
+        'default_payment_method' => $paymentMethodId, 
+      ],
       'metadata' => [
-        'user_id' => "123456789",
         'firstname' => $firstname,
         'lastname' => $lastname,
         'company' => $company,
         'tel' => $tel,
         'tva' => $tva,
-        'plan' => $selectedBilling . " " . $selectedPlan[0],
+        'plan' => $selectedPlan,
+        'user_id' => $user_id,
       ],
     ]);
 
-    // Créer un abonnement
-    $subscription = \Stripe\Checkout\Session::create([
-      'customer' => $customer->id,      
-      'line_items' => [
-        [
-          'price' => $selectedPlan[1],
-          'quantity' => 1
-        ]
-      ],
+    $subscription = \Stripe\Subscription::create([
+      'customer' => $customer->id,
+      'items' => [['price' => $price]],
+      'expand' => ['latest_invoice.payment_intent'],
     ]);
 
-    // Vérifiez si le paiement a réussi
     if ($subscription->status === 'active') {
-      // Répondre avec un message de succès
-      wp_send_json_success(['message' => 'Abonnement créé avec succès!']);
+      wp_send_json_success(['message' => "Success"]);
     } else {
-      wp_send_json_error(['message' => 'Erreur lors de la création de l\'abonnement.']);
+      wp_send_json_error(['message' => "Erreur lors de la création de l'abonnement."]);
     }
   } catch (Exception $e) {
-    // Gérer les erreurs
     wp_send_json_error(['message' => $e->getMessage()]);
-  }
+  }  
 }
 
 add_action('wp_ajax_nopriv_stripe_handler', 'App\stripe_handler');
