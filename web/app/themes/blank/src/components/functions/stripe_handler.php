@@ -36,38 +36,46 @@ function stripe_handler()
   $price = isset($priceMapping[$selectedPlan]) ? $priceMapping[$selectedPlan] : "error";
   $user_id = uniqid();
 
-  try {
-    $customer = \Stripe\Customer::create([
-      'email' => $email,
-      'payment_method' => $paymentMethodId,      
-      'invoice_settings' => [
-        'default_payment_method' => $paymentMethodId, 
-      ],
-      'metadata' => [
-        'firstname' => $firstname,
-        'lastname' => $lastname,
-        'company' => $company,
-        'tel' => $tel,
-        'tva' => $tva,
-        'plan' => $selectedPlan,
-        'user_id' => $user_id,
-      ],
-    ]);
+  insert();
+  wp_send_json_success(['message' => "Success"]);
 
-    $subscription = \Stripe\Subscription::create([
-      'customer' => $customer->id,
-      'items' => [['price' => $price]],
-      'expand' => ['latest_invoice.payment_intent'],
-    ]);
+  // try {
+  //   $customer = \Stripe\Customer::create([
+  //     'email' => $email,
+  //     'payment_method' => $paymentMethodId,      
+  //     'invoice_settings' => [
+  //       'default_payment_method' => $paymentMethodId, 
+  //     ],
+  //     'metadata' => [
+  //       'firstname' => $firstname,
+  //       'lastname' => $lastname,
+  //       'company' => $company,
+  //       'tel' => $tel,
+  //       'tva' => $tva,
+  //       'plan' => $selectedPlan,
+  //       'user_id' => $user_id,
+  //     ],
+  //   ]);
 
-    if ($subscription->status === 'active') {
-      wp_send_json_success(['message' => "Success"]);
-    } else {
-      wp_send_json_error(['message' => "Erreur lors de la création de l'abonnement."]);
-    }
-  } catch (Exception $e) {
-    wp_send_json_error(['message' => $e->getMessage()]);
-  }  
+  //   $subscription = \Stripe\Subscription::create([
+  //     'customer' => $customer->id,
+  //     'items' => [['price' => $price]],
+  //     'expand' => ['latest_invoice.payment_intent'],
+  //   ]);
+
+  //   if ($subscription->status === 'active') {
+  //     insert();
+  //     wp_send_json_success(['message' => "Success"]);
+  //   } else {
+  //     wp_send_json_error(['message' => "Erreur lors de la création de l'abonnement."]);
+  //   }
+  // } catch (Exception $e) {
+  //   wp_send_json_error(['message' => $e->getMessage()]);
+  // }  
+}
+
+function insert(){
+  echo "insert";
 }
 
 add_action('wp_ajax_nopriv_stripe_handler', 'App\stripe_handler');
