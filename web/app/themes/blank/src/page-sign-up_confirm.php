@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Sign-up
+ * Template Name: Sign-up_confirm
  */
 ?>
 
