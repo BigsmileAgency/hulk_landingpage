@@ -87,12 +87,12 @@ function insert_customer_to_platform($user_id, $firstname, $lastname, $company, 
     ]);
 
     $stmt = $pdo->prepare(
-      "INSERT INTO users (user_id, firstname, lastname, company, email, password, isAdmin, ownerID) 
-      VALUES (:user_id, :firstname, :lastname,  :company, :email, :password, :isAdmin, :ownerID)"
+      "INSERT INTO users (id, firstname, lastname, company, email, password, isAdmin, ownerID) 
+      VALUES (:id, :firstname, :lastname,  :company, :email, :password, :isAdmin, :ownerID)"
     );
 
     $stmt->execute([
-      ':user_id' => $user_id,
+      ':id' => $user_id,
       ':firstname' => $firstname,
       ':lastname' => $lastname,
       ':company' => $company,
