@@ -11,7 +11,7 @@ function create_customer_trial()
   
   $stripe_secret_key = getenv('STRIPE_KEY');
   Stripe::setApiKey($stripe_secret_key);
-  
+
   
   $firstname = sanitize_text_field($_POST['firstname']);
   $lastname = sanitize_text_field($_POST['lastname']);
@@ -57,7 +57,7 @@ function create_customer_trial()
 
     if ($subscription->status === 'trialing') {
 
-      $insert = insert_customer_to_platform($firstname, $lastname, $company, $email, $pwd);
+      $insert = insert_customer_to_platform($firstname, $lastname, $company, $email, $pwd, $customer->id);
       wp_send_json_success([
         'message' => "Trial has started now",
         'insert' => $insert['message']
@@ -72,7 +72,7 @@ function create_customer_trial()
   }
 }
 
-function insert_customer_to_platform($firstname, $lastname, $company, $email, $pwd)
+function insert_customer_to_platform($firstname, $lastname, $company, $email, $pwd, $customer_id)
 {
   $dbname = getenv('PLATFORM_DB_NAME');
   $dbuser = getenv('PLATFORM_DB_USER');
@@ -96,7 +96,7 @@ function insert_customer_to_platform($firstname, $lastname, $company, $email, $p
       ':company' => $company,
       ':email' => $email,
       ':password' => $pwd,
-      ':stripe_id' => "", 
+      ':stripe_id' => $customer_id, 
       ':is_trial' => "1", 
       ':is_active' => "1",
       ':createdAt' => date("Y-m-d H:i:s"), 
