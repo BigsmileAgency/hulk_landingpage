@@ -12,7 +12,6 @@ get_header();
 if (!empty($_GET['t'])) {
 
   include_once get_template_directory() . '/components/functions/stripe/get_costumer_w_token.php';
-
 } else {
 
 ?>
@@ -31,7 +30,6 @@ if (isset($costumer)):
 
   <script src="https://js.stripe.com/v3/"></script>
 
-
   <main class="login_body">
     <section class="section_login">
       <div class="container">
@@ -41,7 +39,11 @@ if (isset($costumer)):
             <h3><?= __('Update', 'hulkbanner') ?></h3>
           </div>
 
-          <?= $customer ?>
+          <div class="customer_infos">
+            <?= $customer['id'] ?>
+            <p>Name : <?= $customer['metadata']['firstname'] ?></p>
+            <p>company : <?= $customer['metadata']['company'] ?> </p>
+          </div>
 
           <form id="first-part-form" action="" method="post">
             <div class="billing_plan">
@@ -58,12 +60,12 @@ if (isset($costumer)):
             <label for="subscription_type"><?= __('Choose your plan', 'hulkbanner') ?></label>
             <select id="subscription_type" name="subscription_type">
               <option value=""><?= __('Please choose an option', 'hulkbanner') ?></option>
-              <option class="monthly" value="small 3900">Small 39€ / <?= __('month', 'hulkbanner') ?></option>
-              <option class="monthly" value="medium 5900">Medium 59€ / <?= __('month', 'hulkbanner') ?></option>
-              <option class="monthly" value="large 8900">Large 89€ / <?= __('month', 'hulkbanner') ?></option>
-              <option class="yearly" value="small 36000">Small 30€ / <?= __('month', 'hulkbanner') ?></option>
-              <option class="yearly" value="medium 60000">Medium 50€ / <?= __('month', 'hulkbanner') ?></option>
-              <option class="yearly" value="large 96000">Large 80€ / <?= __('month', 'hulkbanner') ?></option>
+              <option class="monthly" value="small">Small 39€ / <?= __('month', 'hulkbanner') ?></option>
+              <option class="monthly" value="medium">Medium 59€ / <?= __('month', 'hulkbanner') ?></option>
+              <option class="monthly" value="large">Large 89€ / <?= __('month', 'hulkbanner') ?></option>
+              <option class="yearly" value="small">Small 30€ / <?= __('month', 'hulkbanner') ?></option>
+              <option class="yearly" value="medium">Medium 50€ / <?= __('month', 'hulkbanner') ?></option>
+              <option class="yearly" value="large">Large 80€ / <?= __('month', 'hulkbanner') ?></option>
             </select>
             <br>
             <div class="billing_infos_link"><a href="<?= get_permalink(58); ?>">Need more infos about billing plans ?</a></div>
@@ -134,7 +136,47 @@ if (isset($costumer)):
           alert('All the fields are mandatory exept "Logo"');
         } else {
 
-          // REQUETE AJAX ICI
+          // Initialiser Stripe Elements
+          const {
+            token,
+            error
+          } = await stripe.createToken(cardElement);
+
+          if (error) {
+            console.error('Error creating Stripe token:', error);
+            alert('Invalid card information');
+            return;
+          }
+
+          // Envoi des données via AJAX
+          const response = await fetch('<?= admin_url('admin-ajax.php'); ?>', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+              action: 'confirm_customer', 
+              stripeToken: token.id, 
+              plan: selectedPlan, 
+              billing: selectedBilling, 
+              customer_id: '<?= $customer['id'] ?>' 
+            })
+          });
+
+          // Vérifier la réponse
+          const result = await response.json();
+
+
+          if (result.success) {
+            // alert('Customer updated successfully!');
+            // window.location.href = "/confirmation-page"; 
+
+            console.log(result);
+
+          } else {
+            console.error(result);
+            alert('Failed to update customer: ' + result);
+          }
 
         }
       });
