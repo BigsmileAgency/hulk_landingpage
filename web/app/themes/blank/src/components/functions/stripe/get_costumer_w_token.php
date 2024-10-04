@@ -1,8 +1,6 @@
 <?php
 
-
 use Stripe\Stripe;
-use PDO;
 
 $stripe_secret_key = getenv('STRIPE_KEY');
 Stripe::setApiKey($stripe_secret_key);
