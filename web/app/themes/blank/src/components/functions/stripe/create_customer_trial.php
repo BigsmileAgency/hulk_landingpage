@@ -22,8 +22,8 @@ function create_customer_trial()
   $company = sanitize_text_field($_POST['company']);
   $tva = sanitize_text_field($_POST['tva']);
   $pwd = password_hash(sanitize_text_field($_POST['pwd']), PASSWORD_BCRYPT);
+
   
-  $user_id = uniqid();
 
   // $insert = insert_customer_to_platform($user_id, $firstname, $lastname, $company, $email, $pwd);
   // wp_send_json_success([
@@ -41,7 +41,6 @@ function create_customer_trial()
         'company' => $company,
         'tel' => $tel,
         'tva' => $tva,
-        'user_id' => $user_id,
       ],
       'address' => [
         'line1' => $address,
@@ -58,7 +57,7 @@ function create_customer_trial()
 
     if ($subscription->status === 'trialing') {
 
-      $insert = insert_customer_to_platform($user_id, $firstname, $lastname, $company, $email, $pwd);
+      $insert = insert_customer_to_platform($firstname, $lastname, $company, $email, $pwd);
       wp_send_json_success([
         'message' => "Trial has started now",
         'insert' => $insert['message']
@@ -73,7 +72,7 @@ function create_customer_trial()
   }
 }
 
-function insert_customer_to_platform($user_id, $firstname, $lastname, $company, $email, $pwd)
+function insert_customer_to_platform($firstname, $lastname, $company, $email, $pwd)
 {
   $dbname = getenv('PLATFORM_DB_NAME');
   $dbuser = getenv('PLATFORM_DB_USER');
@@ -87,19 +86,21 @@ function insert_customer_to_platform($user_id, $firstname, $lastname, $company, 
     ]);
 
     $stmt = $pdo->prepare(
-      "INSERT INTO users (id, firstname, lastname, company, email, password, isAdmin, ownerID) 
-      VALUES (:id, :firstname, :lastname,  :company, :email, :password, :isAdmin, :ownerID)"
+      "INSERT INTO users (id, firstname, lastname, company, email, password, stripe_id, is_trial, is_active, createdAt, updatedAt) 
+      VALUES (:id, :firstname, :lastname,  :company, :email, :password, :stripe_id, :is_trial, :is_active, :createdAt, :updatedAt)"
     );
 
     $stmt->execute([
-      ':id' => $user_id,
       ':firstname' => $firstname,
       ':lastname' => $lastname,
       ':company' => $company,
       ':email' => $email,
       ':password' => $pwd,
-      ':isAdmin' => '0',
-      ':ownerID' => '0',
+      ':stripe_id' => "", 
+      ':is_trial' => 1, 
+      ':is_active' => 1,
+      ':createdAt' => date("Y-m-d H:i:s"), 
+      ':updatedAt' => date("Y-m-d H:i:s")
     ]);
 
     return ['success' => true, 'message' => 'Insertion dans la plateforme réussie.'];
