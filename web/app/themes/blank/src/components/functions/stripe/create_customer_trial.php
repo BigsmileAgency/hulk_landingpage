@@ -24,7 +24,7 @@ function create_customer_trial()
   $pwd = password_hash(sanitize_text_field($_POST['pwd']), PASSWORD_BCRYPT);
   
   $user_id = uniqid();
-  
+
   $insert = insert_customer_to_platform($user_id, $firstname, $lastname, $company, $email, $pwd);
   wp_send_json_success([
     'message' => "Trial has started now",
@@ -86,21 +86,21 @@ function insert_customer_to_platform($user_id, $firstname, $lastname, $company, 
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
 
-    // $stmt = $pdo->prepare(
-    //   "INSERT INTO users (user_id, firstname, lastname, company, email, password, isAdmin, ownerID) 
-    //   VALUES (:user_id, :firstname, :lastname,  :company, :email, :password, :isAdmin, :ownerID)"
-    // );
+    $stmt = $pdo->prepare(
+      "INSERT INTO users (user_id, firstname, lastname, company, email, password, isAdmin, ownerID) 
+      VALUES (:user_id, :firstname, :lastname,  :company, :email, :password, :isAdmin, :ownerID)"
+    );
 
-    // $stmt->execute([
-    //   ':user_id' => $user_id,
-    //   ':firstname' => $firstname,
-    //   ':lastname' => $lastname,
-    //   ':company' => $company,
-    //   ':email' => $email,
-    //   ':password' => $pwd,
-    //   ':isAdmin' => '0',
-    //   ':ownerID' => '0',
-    // ]);
+    $stmt->execute([
+      ':user_id' => $user_id,
+      ':firstname' => $firstname,
+      ':lastname' => $lastname,
+      ':company' => $company,
+      ':email' => $email,
+      ':password' => $pwd,
+      ':isAdmin' => '0',
+      ':ownerID' => '0',
+    ]);
 
     return ['success' => true, 'message' => 'Insertion dans la plateforme réussie.'];
   } catch (Exception $e) {
