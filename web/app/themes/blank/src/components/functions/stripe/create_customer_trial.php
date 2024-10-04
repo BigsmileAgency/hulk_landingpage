@@ -8,10 +8,10 @@ use PDO;
 
 function create_customer_trial()
 {
-
   
   $stripe_secret_key = getenv('STRIPE_KEY');
   Stripe::setApiKey($stripe_secret_key);
+  
   
   $firstname = sanitize_text_field($_POST['firstname']);
   $lastname = sanitize_text_field($_POST['lastname']);
@@ -24,12 +24,12 @@ function create_customer_trial()
   $pwd = password_hash(sanitize_text_field($_POST['pwd']), PASSWORD_BCRYPT);
 
   
-
   // $insert = insert_customer_to_platform($user_id, $firstname, $lastname, $company, $email, $pwd);
   // wp_send_json_success([
   //   'message' => "Trial has started now",
   //   'insert' => $insert['message']
   // ]);
+
 
   try {
     $customer = \Stripe\Customer::create([
@@ -86,8 +86,8 @@ function insert_customer_to_platform($firstname, $lastname, $company, $email, $p
     ]);
 
     $stmt = $pdo->prepare(
-      "INSERT INTO users (id, firstname, lastname, company, email, password, stripe_id, is_trial, is_active, createdAt, updatedAt) 
-      VALUES (:id, :firstname, :lastname,  :company, :email, :password, :stripe_id, :is_trial, :is_active, :createdAt, :updatedAt)"
+      "INSERT INTO users (firstname, lastname, company, email, password, stripe_id, is_trial, is_active, createdAt, updatedAt) 
+      VALUES (:firstname, :lastname,  :company, :email, :password, :stripe_id, :is_trial, :is_active, :createdAt, :updatedAt)"
     );
 
     $stmt->execute([
@@ -97,8 +97,8 @@ function insert_customer_to_platform($firstname, $lastname, $company, $email, $p
       ':email' => $email,
       ':password' => $pwd,
       ':stripe_id' => "", 
-      ':is_trial' => 1, 
-      ':is_active' => 1,
+      ':is_trial' => "1", 
+      ':is_active' => "1",
       ':createdAt' => date("Y-m-d H:i:s"), 
       ':updatedAt' => date("Y-m-d H:i:s")
     ]);
