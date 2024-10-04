@@ -39,15 +39,18 @@
               <label for="company"><?= __('Company', 'hulkbanner') ?></label>
               <input type="text" name="company" id="company">
               <br>
-              <!-- <label for="tva"><?= __('TVA number', 'hulkbanner') ?></label>
+              <label for="tva"><?= __('TVA number', 'hulkbanner') ?></label>
               <input type="text" name="tva" id="tva">
-              <br> -->
+              <br>
+              <label for="pwd"><?= __('Password', 'hulkbanner') ?></label>
+              <input type="password" name="pwd" id="pwd">
+              <br>
               <label for="logo"><?= __('Logo', 'hulkbanner') ?></label>
               <input type="file" name="logo" id="logo">
               <br>
               <div class="captcha">Captcha</div>
               <br>
-              <input type="submit" value="<?= __('Continue', 'hulkbanner') ?>">
+              <input type="submit" id="submit_sign_up" value="<?= __('Continue', 'hulkbanner') ?>">
               <div class="divider">
                 <hr>
                 <p> or </p>
@@ -71,6 +74,8 @@
       // A RETIRER
       event.preventDefault();
 
+      let submit_sign_up = document.getElementById('submit_sign_up');
+
       let firstname = document.getElementById('firstname').value;
       let lastname = document.getElementById('lastname').value;
       let email = document.getElementById('email').value;
@@ -78,11 +83,15 @@
       let zip = document.getElementById('zipcode').value
       let tel = document.getElementById('tel').value;
       let company = document.getElementById('company').value;
+      let pwd = document.getElementById('pwd').value;
 
-      if (firstname === "" || lastname === "" || email === "" || tel === "" || company === "") {
-        event.preventDefault();
-        alert('All the fields are mandatory exept "Logo"');
-      } else {
+
+      // if (firstname === "" || lastname === "" || email === "" || tel === "" || company === "" || pwd === "") {
+      //   event.preventDefault();
+      //   alert('All the fields are mandatory exept "Logo"');
+      // } else {
+
+        submit_sign_up.disabled = true;
 
         let formData = new URLSearchParams({
           action: 'create_customer_trial',
@@ -93,7 +102,8 @@
           address: address,
           zip: zip,
           tel: tel,
-          company: company
+          company: company,
+          pwd: pwd,
         });
 
         let url = '<?php echo admin_url('admin-ajax.php'); ?>';
@@ -113,8 +123,9 @@
           const data = await response.json();
 
           if (data.success) {
+            console.log(data);
             alert(data.data.message);
-            window.location.href = '/';
+            // window.location.href = '/';
           } else {
             alert(data.data.message);
           }
@@ -123,7 +134,7 @@
           console.error('Erreur:', error);
           alert('Une erreur est survenue. Veuillez réessayer.');
         }
-      }
+      // }
     });
   });
 </script>

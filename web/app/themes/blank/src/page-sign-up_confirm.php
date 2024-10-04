@@ -5,7 +5,23 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php 
+
+get_header(); 
+
+if(!empty($_GET)){
+  $session_id = $_GET['session_id'];
+  var_dump($session_id);
+  if(isset($session_id)){
+    $session = \Stripe\Checkout\Session::retrieve($session_id);
+    $customer = \Stripe\Customer::retrieve($session->customer);    
+    var_dump($customer); 
+  }
+}
+
+?>
+
+
 
 <script src="https://js.stripe.com/v3/"></script>
 
@@ -129,7 +145,7 @@
         let dropdown = document.getElementById('subscription_type');
         if (dropdown) {
           dropdown.selectedIndex = 0;
-        }
+        } 
       });
     });
 
@@ -152,7 +168,6 @@
       let selectedBilling = document.querySelector('input[name="billing"]:checked').value;
       let selectedPlan = document.getElementById('subscription_type').value;
 
-      // console.log(selectedBilling, selectedPlan);
 
       if (firstname === "" || lastname === "" || email === "" || tel === "" || company === "" || tva === "" || selectedBilling === "" || selectedPlan === "") {
         event.preventDefault();
