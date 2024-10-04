@@ -23,13 +23,6 @@ function create_customer_trial()
   $tva = sanitize_text_field($_POST['tva']);
   $pwd = password_hash(sanitize_text_field($_POST['pwd']), PASSWORD_BCRYPT);
 
-  
-  // $insert = insert_customer_to_platform($user_id, $firstname, $lastname, $company, $email, $pwd);
-  // wp_send_json_success([
-  //   'message' => "Trial has started now",
-  //   'insert' => $insert['message']
-  // ]);
-
 
   try {
     $customer = \Stripe\Customer::create([
@@ -50,7 +43,7 @@ function create_customer_trial()
 
     $subscription = \Stripe\Subscription::create([
       'customer' => $customer->id,
-      'trial_period_days' => 8,
+      'trial_period_days' => 30,
       'items' => [['price' => 'price_1Q5Rcn2KTIC8Xb8EJGv7x1GS']], // basic sub is large monthly for trial
       'expand' => ['latest_invoice.payment_intent'],
     ]);
