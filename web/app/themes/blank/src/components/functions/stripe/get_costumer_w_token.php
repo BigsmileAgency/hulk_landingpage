@@ -2,7 +2,7 @@
 
 
 echo "TOKEN";
-
+$costumer = "yes";
 
 // use Stripe\Stripe;
 // use PDO;
