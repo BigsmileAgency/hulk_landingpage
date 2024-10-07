@@ -81,16 +81,12 @@ if (isset($costumer)):
 
   <?php include_once get_template_directory() . '/components/functions/stripe/confirm_customer_js.php'; ?>
 
-
-
 <?php else: ?>
-
 
   <script>
     window.location.href = '/404';
   </script>
-
-
+  
 <?php endif; ?>
 
 <?php get_footer(); ?>

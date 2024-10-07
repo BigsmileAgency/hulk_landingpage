@@ -21,7 +21,7 @@
       }
     };
 
-    const cardElement = elements.create('card',{
+    const cardElement = elements.create('card', {
       style: style,
       hidePostalCode: true,
     });

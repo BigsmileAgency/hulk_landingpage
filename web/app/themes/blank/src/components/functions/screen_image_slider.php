@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     document.addEventListener('DOMContentLoaded', (e) => {
         const imageScreenCollection = document.querySelectorAll(".image_screen")
         const textScreenCollection = document.querySelectorAll(".text_screen")
@@ -83,4 +83,4 @@
 
         // startSliding()
     })
-</script>
+</script> -->
