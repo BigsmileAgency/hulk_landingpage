@@ -157,22 +157,22 @@ get_header();
 
 
   <!-- NEW FEATS TEST 09/24-->
-  <section class="feats_section">
+  <section id="feats_section_screen" class="feats_section">
     <div class="container">
       <h2>An <span class="main-color">easy tool to use</span> and to configurate!</h2>
       <div class="feat_container_bis">
 
         <div class="feats_left feats_box">
           <p class="title"><?= __('YOUR AGENCY', 'hulkbanner') ?></p>
-          <div class="feats_line">
+          <div data-textelement="upload" class="feats_line text_screen">
             <p class="bold"><?= __('UPLOAD', 'hulkbanner') ?></p>
             <p><?= __('your banner', 'hulkbanner') ?></p>
           </div>
-          <div class="feats_line">
+          <div data-textelement="share" class="feats_line text_screen">
             <p class="bold"><?= __('SHARE', 'hulkbanner') ?></p>
             <p><?= __('with your client', 'hulkbanner') ?></p>
           </div>
-          <div class="feats_line">
+          <div data-textelement="receive" class="feats_line text_screen">
             <p class="bold"><?= __('RECEIVE', 'hulkbanner') ?></p>
             <p><?= __('notifications', 'hulkbanner') ?></p>
           </div>
@@ -180,19 +180,27 @@ get_header();
 
         <div class="desktop_block">
           <img src="<?= $upload_dir['baseurl'] ?>/2024/09/desktop.png" alt="">
+          <img data-image="upload" class="image_screen" src="<?php echo get_template_directory_uri() ?>/images/screen/upload.png" alt="Upload your banner">
+          <img data-image="preview" class="image_screen" src="<?php echo get_template_directory_uri() ?>/images/screen/preview.png" alt="Preview tour ads">
+          <img data-image="share" class="image_screen" src="<?php echo get_template_directory_uri() ?>/images/screen/share.png" alt="Share with your client">
+          <img data-image="comment" class="image_screen" src="<?php echo get_template_directory_uri() ?>/images/screen/comment.png" alt="Comment or validate">
+          <img data-image="receive" class="image_screen" src="<?php echo get_template_directory_uri() ?>/images/screen/receive.png" alt="Receive notifications">
+          <img data-image="download" class="image_screen" src="<?php echo get_template_directory_uri() ?>/images/screen/download.png" alt="Download banners or ads">
+          <img data-image="logo" class="image_screen" src="<?php echo get_template_directory_uri() ?>/images/screen/fox.png" alt="For banner logo">
+
         </div>
 
         <div class="feats_right feats_box">
           <p class="title"><?= __('YOUR CLIENT', 'hulkbanner') ?></p>
-          <div class="feats_line">
+          <div data-textelement="preview" class="feats_line text_screen">
             <p class="bold"><?= __('PREVIEW', 'hulkbanner') ?></p>
             <p><?= __('your ads', 'hulkbanner') ?></p>
           </div>
-          <div class="feats_line">
+          <div data-textelement="comment" class="feats_line text_screen">
             <p class="bold"><?= __('COMMENT', 'hulkbanner') ?></p>
             <p><?= __('or validate', 'hulkbanner') ?></p>
           </div>
-          <div class="feats_line">
+          <div data-textelement="download" class="feats_line text_screen">
             <p class="bold"><?= __('DOWNLOAD', 'hulkbanner') ?></p>
             <p><?= __('banners or ads', 'hulkbanner') ?></p>
           </div>

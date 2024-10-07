@@ -435,8 +435,29 @@
   }
 
   .desktop_block {
-    padding: 0 30px;
+    margin: 0 15px;
+    position: relative;
   }
+  .image_screen{
+    width: clamp(50px, 20%, 128px);
+    height: auto;
+    vertical-align: middle;
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity .5s ease;
+  }
+  .image_screen[data-image="logo"]{
+      opacity: 1;
+  }
+.text_screen{
+  &.active{
+    color: $main-color;
+  }
+}
+
   .title {
     color: $main-color;
     font-weight: bold;    

@@ -55,6 +55,10 @@ include get_theme_file_path( '/components/functions/lang_switch_handler.php' );
 // GSAP / ANIMATION
 include get_theme_file_path( '/components/functions/homepage_scroll_animation.php' );
 
+// SCREEN  IMAGE SLIDER
+
+include get_theme_file_path('/components/functions/screen_image_slider.php');
+
 // COPIES FOR JS FUNCTIONS :
 include get_theme_file_path( '/components/functions/copy_js.php' );
 
