@@ -12,6 +12,7 @@ get_header();
 
 if (!empty($_GET['t'])) {
   include_once get_template_directory() . '/components/functions/stripe/get_costumer_w_token.php';
+  do_action('confirm_customer');
 } else {
 ?>
 
@@ -86,7 +87,7 @@ if (isset($costumer)):
   <script>
     window.location.href = '/404';
   </script>
-  
+
 <?php endif; ?>
 
 <?php get_footer(); ?>

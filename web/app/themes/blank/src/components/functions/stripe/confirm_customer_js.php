@@ -1,3 +1,8 @@
+<?php
+
+function confirm_customer_js(){
+?>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
 
@@ -123,3 +128,8 @@
     }
   });
 </script>
+
+<?php
+}
+
+add_action('confirm_customer', 'confirm_customer_js');

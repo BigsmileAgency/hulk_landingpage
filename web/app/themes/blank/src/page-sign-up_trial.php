@@ -5,7 +5,10 @@
  */
 ?>
 
-<?php get_header(); ?>
+<?php 
+get_header(); 
+do_action('create_customer');
+?>
 
 <main class="login_body">
 
