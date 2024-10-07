@@ -4,18 +4,7 @@
   */
 ?>
 
-<?php 
-get_header("login"); 
-
-
-// Recup les infos du check-out de stripe
-$session_id = $_GET['session_id'];
-$session = \Stripe\Checkout\Session::retrieve($session_id);
-$customer = \Stripe\Customer::retrieve($session->customer);
-var_dump($customer); 
-
-
-?>
+<?php get_header("login"); ?>
 
 
 <main class="default">

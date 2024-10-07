@@ -4,12 +4,15 @@ namespace App;
 
 use Stripe\Stripe;
 use Exception;
+use PDO;
 
 function create_customer_trial()
 {
+  
   $stripe_secret_key = getenv('STRIPE_KEY');
   Stripe::setApiKey($stripe_secret_key);
 
+  
   $firstname = sanitize_text_field($_POST['firstname']);
   $lastname = sanitize_text_field($_POST['lastname']);
   $email = sanitize_email($_POST['email']);
@@ -18,8 +21,8 @@ function create_customer_trial()
   $tel = sanitize_text_field($_POST['tel']);
   $company = sanitize_text_field($_POST['company']);
   $tva = sanitize_text_field($_POST['tva']);
+  $pwd = password_hash(sanitize_text_field($_POST['pwd']), PASSWORD_BCRYPT);
 
-  $user_id = uniqid();
 
   try {
     $customer = \Stripe\Customer::create([
@@ -31,7 +34,6 @@ function create_customer_trial()
         'company' => $company,
         'tel' => $tel,
         'tva' => $tva,
-        'user_id' => $user_id,
       ],
       'address' => [
         'line1' => $address,
@@ -41,24 +43,65 @@ function create_customer_trial()
 
     $subscription = \Stripe\Subscription::create([
       'customer' => $customer->id,
-      'trial_period_days' => 8,
+      'trial_period_days' => 30,
       'items' => [['price' => 'price_1Q5Rcn2KTIC8Xb8EJGv7x1GS']], // basic sub is large monthly for trial
       'expand' => ['latest_invoice.payment_intent'],
     ]);
 
     if ($subscription->status === 'trialing') {
-      wp_send_json_success(['message' => "Trial has started now"]);
+
+      $insert = insert_customer_to_platform($firstname, $lastname, $company, $email, $pwd, $customer->id);
+      wp_send_json_success([
+        'message' => "Trial has started now",
+        'insert' => $insert['message']
+      ]);
     } else {
+
       wp_send_json_error(['message' => "Erreur lors de la création de l'abonnement."]);
     }
   } catch (Exception $e) {
+
     wp_send_json_error(['message' => $e->getMessage()]);
   }
 }
 
-function insert()
+function insert_customer_to_platform($firstname, $lastname, $company, $email, $pwd, $customer_id)
 {
-  echo "insert";
+  $dbname = getenv('PLATFORM_DB_NAME');
+  $dbuser = getenv('PLATFORM_DB_USER');
+  $dbpwd = getenv('PLATFORM_DB_PWD');
+
+  try {
+    $dsn = "mysql:host=localhost;dbname=$dbname;charset=utf8mb4";
+    $pdo = new PDO($dsn, $dbuser, $dbpwd, [
+      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]);
+
+    $stmt = $pdo->prepare(
+      "INSERT INTO users (firstname, lastname, company, email, password, stripe_id, is_trial, is_active, createdAt, updatedAt) 
+      VALUES (:firstname, :lastname,  :company, :email, :password, :stripe_id, :is_trial, :is_active, :createdAt, :updatedAt)"
+    );
+
+    $stmt->execute([
+      ':firstname' => $firstname,
+      ':lastname' => $lastname,
+      ':company' => $company,
+      ':email' => $email,
+      ':password' => $pwd,
+      ':stripe_id' => $customer_id, 
+      ':is_trial' => "1", 
+      ':is_active' => "1",
+      ':createdAt' => date("Y-m-d H:i:s"), 
+      ':updatedAt' => date("Y-m-d H:i:s")
+    ]);
+
+    return ['success' => true, 'message' => 'Insertion dans la plateforme réussie.'];
+  } catch (Exception $e) {
+    return ['success' => false, 'message' => $e->getMessage()];
+  } finally {
+    $pdo = null;
+  }
 }
 
 add_action('wp_ajax_nopriv_create_customer_trial', 'App\create_customer_trial');

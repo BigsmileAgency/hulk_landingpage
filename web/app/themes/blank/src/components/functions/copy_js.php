@@ -18,7 +18,26 @@ function copy_js()
       "en": "English",
       "fr": "Français",
       "nl": "Nederlands"
-     }
+    }
+
+    let grey = "#333";
+
+    // regexs 
+    let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+
+    //  HANDLERS FUNCTIONS
+    function handleAlert(field, message, lang) {
+      field.style.borderColor = "red";
+      let response = field.nextElementSibling;
+      response.innerHTML = `<img class="response_img" src="<?php echo get_template_directory_uri() ?>/images/material_error.svg" /><p class="response_text">${message[lang]}</p>`
+    }
+
+    function rollBackAlert(field, grey) {
+      field.style.borderColor = grey;
+      let response = field.nextElementSibling;
+      response.innerHTML = ""
+    }
 
     let copy = {
       emptyFields: {
@@ -37,6 +56,12 @@ function copy_js()
         "en": "Not a valid phone number",
         "fr": "Numéro de téléphone non valide",
         "nl": "Geen geldig telefoonnummer",
+      },
+
+      badPassword: {
+        "en": "Passwords doesn't match",
+        "fr": "Les mots de passe ne correspondent pas",
+        "nl": "Passwords nee",
       },
 
       noTime: {
@@ -85,7 +110,7 @@ function copy_js()
         "en": "Back",
         "fr": "Retour",
         "nl": "Terug",
-      },   
+      },
     }
   </script>
 <?php

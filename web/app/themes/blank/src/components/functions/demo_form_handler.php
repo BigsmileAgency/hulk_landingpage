@@ -6,6 +6,8 @@ function demo_form_handler()
 
 		document.addEventListener("DOMContentLoaded", function() {
 
+			console.log("handle alert");
+
 			let demoSubmit = document.querySelector("#demo_form");
 			let demoFormContainer = document.querySelector('.demo_form_container');
 			let gif = document.querySelector('.demo_gif');
@@ -33,11 +35,7 @@ function demo_form_handler()
 				isAgency = document.querySelector('input[type=radio][name=is_agency]:checked');
 				isConsent = document.querySelector("#demo_consent").checked;
 				let grey = companyName.style.borderColor
-
-				// regexs 
-				let mailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-				let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-
+				
 				let fieldsArray = [firstName, lastName, email, phone]
 
 				let success = 0;
@@ -142,17 +140,6 @@ function demo_form_handler()
 				isConsent = false;
 			}
 
-			function handleAlert(field, message, lang) {
-				field.style.borderColor = "red";
-				let response = field.nextElementSibling;
-				response.innerHTML = `<img class="response_img" src="<?php echo get_template_directory_uri() ?>/images/material_error.svg" /><p class="response_text">${message[lang]}</p>`
-			}
-
-			function rollBackAlert(field, grey) {
-				field.style.borderColor = grey;
-				let response = field.nextElementSibling;
-				response.innerHTML = ""
-			}
 		})
 	</script>
 <?php
