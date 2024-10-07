@@ -15,11 +15,11 @@
         observer.observe(targetObserver);
 
         textScreenCollection.forEach(textEl => {
+            const idElement = textEl.dataset.textelement
             textEl.addEventListener('mouseenter',()=>{
                 textScreenCollection.forEach(element => {
                     element.classList.remove('active')
                 })
-                const idElement = textEl.dataset.textelement
                 imageScreenCollection.forEach(imgEl =>{
                     imgEl.style.opacity = "0"
                     if(imgEl.dataset.image == idElement){
@@ -30,14 +30,9 @@
             })
             
             textEl.addEventListener('mouseleave',()=>{
-                const idElement = textEl.dataset.textelement
                 imageScreenCollection.forEach((imgEl,index) =>{
                     if(imgEl.dataset.image == idElement){
-                        if(intervalID == 6){
-                            intervalID = 0
-                        }else{
-                            intervalID = index + 1
-                        }
+                        intervalID == 6 ? intervalID = 0 : intervalID = index + 1
                     }
                 })
                 startSliding()
@@ -59,11 +54,7 @@
                         imgEl.style.opacity = "0"
                     }
                 })
-                if(intervalID == 6){
-                    intervalID = 0
-                }else{
-                    intervalID ++
-                }
+                intervalID == 6 ? intervalID = 0 : intervalID ++
             },3000)
         }
 
@@ -79,8 +70,7 @@
                 }
             }
         });
-}
+    }
 
-        // startSliding()
-    })
+})
 </script>
