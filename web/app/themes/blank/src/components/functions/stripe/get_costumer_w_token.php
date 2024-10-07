@@ -13,27 +13,27 @@ $token = sanitize_text_field($_GET['t']);
 
 try {
 
-  $dsn = "mysql:host=localhost;dbname=$platform_dbname;charset=utf8mb4";
-  $pdo = new PDO($dsn, $platform_dbuser, $platform_dbpwd, [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-  ]);
-
   // STAGING:
-  $stmt = $pdo->prepare("SELECT stripe_id FROM users WHERE token = :token");
-  $stmt->execute([':token' => $token]);
-  $result = $stmt->fetch();
+  // $dsn = "mysql:host=localhost;dbname=$platform_dbname;charset=utf8mb4";
+  // $pdo = new PDO($dsn, $platform_dbuser, $platform_dbpwd, [
+  //   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+  //   PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+  // ]);
+
+  // $stmt = $pdo->prepare("SELECT stripe_id FROM users WHERE token = :token");
+  // $stmt->execute([':token' => $token]);
+  // $result = $stmt->fetch();
 
   // TEST EN LOCAL
-  // $result = true;
+  $result = true;
 
   if ($result) {
 
     // STAGING:
-    $stripe_customer_id = $result['stripe_id'];
+    // $stripe_customer_id = $result['stripe_id'];
 
     // TEST EN LOCAL
-    // $stripe_customer_id = "cus_Qxlx4IQ265dWkh";
+    $stripe_customer_id = "cus_Qxlx4IQ265dWkh";
 
     $customer = \Stripe\Customer::retrieve($stripe_customer_id);
 

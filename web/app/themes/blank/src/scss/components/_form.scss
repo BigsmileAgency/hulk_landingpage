@@ -13,7 +13,8 @@
 input[type=text],
 input[type=password],
 input[type=email],
-input[type=tel] {
+input[type=tel], 
+select {
   border: solid $grey 1px;
   border-radius: 5px;
   padding: 5px;
