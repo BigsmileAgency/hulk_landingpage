@@ -132,4 +132,4 @@ function confirm_customer_js($customer){
 <?php
 }
 
-add_action('confirm_customer', $customer);
+add_action('confirm_customer', 'confirm_customer_js');
