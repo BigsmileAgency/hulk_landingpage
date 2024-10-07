@@ -62,7 +62,6 @@ include get_theme_file_path('/components/functions/screen_image_slider.php');
 include get_theme_file_path( '/components/functions/copy_js.php' );
 
 // STRIPE HANDLER :
-include get_theme_file_path( '/components/functions/stripe/confirm_customer_js.php' );
 include get_theme_file_path( '/components/functions/stripe/confirm_customer.php' );
 include get_theme_file_path( '/components/functions/stripe/create_customer_trial.php' );
 include get_theme_file_path( '/components/functions/stripe/create_customer_trial_js.php' );
