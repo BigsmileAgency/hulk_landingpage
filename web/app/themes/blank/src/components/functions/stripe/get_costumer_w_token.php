@@ -20,20 +20,20 @@ try {
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
   ]);
 
-  // $stmt = $pdo->prepare("SELECT stripe_id FROM users WHERE token = :token");
-  // $stmt->execute([':token' => $token]);
-  // $result = $stmt->fetch();
+  $stmt = $pdo->prepare("SELECT stripe_id FROM users WHERE token = :token");
+  $stmt->execute([':token' => $token]);
+  $result = $stmt->fetch();
 
   // TEST EN LOCAL
-  $result = true;
+  // $result = true;
 
   if ($result) {
 
     // STAGING:
-    // $stripe_customer_id = $result['stripe_id'];
+    $stripe_customer_id = $result['stripe_id'];
 
     // TEST EN LOCAL
-    $stripe_customer_id = "cus_Qxlx4IQ265dWkh";
+    // $stripe_customer_id = "cus_Qxlx4IQ265dWkh";
 
     $customer = \Stripe\Customer::retrieve($stripe_customer_id);
 
