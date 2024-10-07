@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
     document.addEventListener('DOMContentLoaded', (e) => {
         const imageScreenCollection = document.querySelectorAll(".image_screen")
         const textScreenCollection = document.querySelectorAll(".text_screen")
@@ -72,11 +72,5 @@
         });
     }
 
-<<<<<<< HEAD
-        // startSliding()
-    })
-</script> -->
-=======
 })
 </script>
->>>>>>> 53a664f27c6283ff2b57cbd4518b0bb2c863cb93
