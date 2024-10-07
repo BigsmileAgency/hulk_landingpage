@@ -39,7 +39,7 @@
 		display: grid;
 		grid-template-columns: 190px 190px;
 		text-align: left;
-		gap: 20px;
+		column-gap: 20px;
 
 		@include breakpoint(sm) {
 			padding: 20px;
@@ -166,4 +166,12 @@
 	#second-part-form {
 		display: none;
 	}
+}
+
+#card_element {
+	width: 100%;
+	display: block;
+	margin: 0px auto 25px;
+	padding: 20px 30px;
+	background-color: $light-color;
 }

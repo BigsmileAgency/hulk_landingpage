@@ -5,6 +5,7 @@
  */
 ?>
 
+
 <?php
 
 get_header();
@@ -12,7 +13,6 @@ get_header();
 if (!empty($_GET['t'])) {
   include_once get_template_directory() . '/components/functions/stripe/get_costumer_w_token.php';
 } else {
-
 ?>
 
   <script>
@@ -22,9 +22,7 @@ if (!empty($_GET['t'])) {
 <?php
 }
 
-
 if (isset($costumer)):
-
 ?>
 
   <script src="https://js.stripe.com/v3/"></script>
@@ -33,18 +31,17 @@ if (isset($costumer)):
     <section class="section_login">
       <div class="container">
         <div class="form_login">
-          <a href="<?php echo get_home_url(); ?>" class="back_home"><img src="<?php echo get_template_directory_uri() ?>/images/icon_close.png" alt=""></a>
           <div class="header_login_form">
             <h3><?= __('Update', 'hulkbanner') ?></h3>
           </div>
 
           <div class="customer_infos">
-            <?= $customer['id'] ?>
-            <p>Name : <?= $customer['metadata']['firstname'] ?></p>
-            <p>company : <?= $customer['metadata']['company'] ?> </p>
+            <!-- <?= $customer['id'] ?> -->
+            <p><?= $customer['metadata']['firstname'] ?> <?= $customer['metadata']['lastname'] ?> - <span class="bold"><?= $customer['metadata']['company'] ?></span></p>
           </div>
 
           <form id="first-part-form" action="" method="post">
+            <label for="subscription_type"><?= __('Choose your plan', 'hulkbanner') ?></label><br>
             <div class="billing_plan">
               <div class="billing_choice">
                 <label for="monthly"><?= __('Monthly', 'hulkbanner') ?></label>
@@ -54,9 +51,7 @@ if (isset($costumer)):
                 <label for="yearly"><?= __('Yearly', 'hulkbanner') ?></label>
                 <input type="radio" name="billing" id="yearly" value="yearly">
               </div>
-            </div>
-            <br>
-            <label for="subscription_type"><?= __('Choose your plan', 'hulkbanner') ?></label>
+            </div>                        
             <select id="subscription_type" name="subscription_type">
               <option value=""><?= __('Please choose an option', 'hulkbanner') ?></option>
               <option class="monthly" value="small">Small 39€ / <?= __('month', 'hulkbanner') ?></option>
@@ -68,10 +63,10 @@ if (isset($costumer)):
             </select>
             <br>
             <div class="billing_infos_link"><a href="<?= get_permalink(58); ?>">Need more infos about billing plans ?</a></div>
-            <label for="logo"><?= __('Logo', 'hulkbanner') ?></label>
+            <!-- <label for="logo"><?= __('Logo', 'hulkbanner') ?></label>
             <input type="file" name="logo" id="logo">
             <br>
-            <div class="captcha">Captcha</div>
+            <div class="captcha">Captcha</div> -->
             <br>
             <div id="card_element">
               <!-- STRIPE ELEMENTS GOES HERE -->
@@ -83,110 +78,9 @@ if (isset($costumer)):
     </section>
 
   </main>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
 
-      // INITIATE STIPE CARD CHECKOUT
-      const stripe = Stripe('pk_test_51Q568r2KTIC8Xb8E7XiZWF6B5aC0sQV6aVRA0dgpr1YjP0Bp1IsyP8flO5cMGdqkUQXYCAZ4qN5Nch06Un0DdfAL00xcjT14Wy');
-      const elements = stripe.elements();
-      const cardElement = elements.create('card');
-      cardElement.mount('#card_element');
+  <?php include_once get_template_directory() . '/components/functions/stripe/confirm_customer_js.php'; ?>
 
-      // Sélectionner tous les inputs radio avec le nom "billing"
-      let billingInputs = document.querySelectorAll('input[name="billing"]');
-
-      billingInputs.forEach(function(input) {
-        input.addEventListener("change", function() {
-          let selectedBilling = document.querySelector('input[name="billing"]:checked').value;
-
-          if (selectedBilling === 'monthly') {
-            document.querySelectorAll('.monthly').forEach(function(e) {
-              e.style.display = 'block';
-            });
-            document.querySelectorAll('.yearly').forEach(function(e) {
-              e.style.display = 'none';
-            });
-          } else if (selectedBilling === 'yearly') {
-            document.querySelectorAll('.monthly').forEach(function(e) {
-              e.style.display = 'none';
-            });
-            document.querySelectorAll('.yearly').forEach(function(e) {
-              e.style.display = 'block';
-            });
-          }
-
-          let dropdown = document.getElementById('subscription_type');
-          if (dropdown) {
-            dropdown.selectedIndex = 0;
-          }
-        });
-      });
-
-
-      // SUBMIT 
-      document.getElementById('first-part-form').addEventListener('submit', async (event) => {
-
-        event.preventDefault();
-
-        let selectedBilling = document.querySelector('input[name="billing"]:checked').value;
-        let selectedPlan = document.getElementById('subscription_type').value;
-
-        if (selectedBilling === "" || selectedPlan === "") {
-          alert('All the fields are mandatory exept "Logo"');
-        } else {
-
-          // Initialiser Stripe Elements
-          const {
-            token,
-            error
-          } = await stripe.createToken(cardElement);
-
-          if (error) {
-            console.error('Error creating Stripe token:', error);
-            alert('Invalid card information');
-            return;
-          }
-
-          // Envoi des données via AJAX
-          const response = await fetch('<?= admin_url('admin-ajax.php'); ?>', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-              action: 'confirm_customer', 
-              stripeToken: token.id, 
-              plan: selectedPlan, 
-              billing: selectedBilling, 
-              customer_id: '<?= $customer['id'] ?>' 
-            })
-          });
-
-          // Vérifier la réponse
-          const result = await response.json();
-
-
-          if (result.success) {
-            // alert('Customer updated successfully!');
-            // window.location.href = "/confirmation-page"; 
-
-            console.log(result);
-
-          } else {
-            console.error(result);
-            alert('Failed to update customer: ' + result);
-          }
-
-        }
-      });
-
-      // Déclencher l'événement change au chargement de la page
-      let checkedBillingInput = document.querySelector('input[name="billing"]:checked');
-      if (checkedBillingInput) {
-        checkedBillingInput.dispatchEvent(new Event('change'));
-      }
-    });
-  </script>
 
 
 <?php else: ?>
