@@ -82,7 +82,7 @@ get_header();
 
   <?php $hero2 = get_field('hero_2'); ?>
   <section class="hero_2">
-    <div class="container">
+    <div class="container container_home">
       <h2><?= $hero2['catchphrase'] ?></h2>
       <div class="hero_2_box">
         <div class="left_box">
@@ -91,9 +91,9 @@ get_header();
           foreach ($list as $item):
           ?>
             <div class="hero_list">
-              <div class="picto_bubble">
+              <!-- <div class="picto_bubble"> -->
                 <img src="<?= $item["list_img"]["url"]  ?>" alt="" class="picto">
-              </div>
+              <!-- </div> -->
               <p><?= $item["list_txt"] ?></p>
             </div>
           <?php
@@ -109,7 +109,7 @@ get_header();
 
   <!-- OLD FEATs 02/24 -->
   <section class="feats_section">
-    <div class="container">
+    <div class="container container_home">
       <h2><?= get_field('feats_diplay_title') ?></h2>
       <div class="feats_display_container">
         <?php
@@ -158,7 +158,7 @@ get_header();
 
   <!-- NEW FEATS TEST 09/24-->
   <section id="feats_section_screen" class="feats_section">
-    <div class="container">
+    <div class="container container_home">
       <h2>An <span class="main-color">easy tool to use</span> and to configurate!</h2>
       <div class="feat_container_bis">
 
@@ -236,4 +236,7 @@ get_header();
 
 
 
-<?php get_footer(); ?>
+<?php 
+get_footer();
+do_action('screen_image_slider')
+?>

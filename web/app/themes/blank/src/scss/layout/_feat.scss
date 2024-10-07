@@ -56,7 +56,7 @@ $fs-sub-mobile : 20px;
 // features
 .features {
 	display: grid;
-	gap: 25px;
+	gap: 30px;
 	grid-template-columns: repeat(3, 1fr);
 	text-align: center;
 	justify-items: center;
@@ -74,7 +74,7 @@ $fs-sub-mobile : 20px;
 
 .feature {
 	width: 100%;
-	max-width: 375px;
+	max-width: 374px;
 	text-align: center;
 
 	@include breakpoint(sm) {

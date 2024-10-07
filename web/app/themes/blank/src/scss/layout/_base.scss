@@ -55,6 +55,10 @@ main {
   }
 }
 
+.container_home{
+  max-width: $max-width;
+  width: 100%;
+}
 a {
   text-decoration: none;
   font-family: inherit;

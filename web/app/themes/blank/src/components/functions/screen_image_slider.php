@@ -1,3 +1,7 @@
+<?php
+function screen_image_slider()
+{
+?>
 <script>
     document.addEventListener('DOMContentLoaded', (e) => {
         const imageScreenCollection = document.querySelectorAll(".image_screen")
@@ -74,3 +78,9 @@
 
 })
 </script>
+
+<?php
+}
+add_action('screen_image_slider', 'screen_image_slider');
+
+?>
