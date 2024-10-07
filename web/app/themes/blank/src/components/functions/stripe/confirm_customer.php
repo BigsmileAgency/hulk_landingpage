@@ -65,9 +65,10 @@ function confirm_customer()
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
 
-    $stmt = $pdo->prepare("UPDATE users SET is_trial = :plan WHERE stripe_id = :customer_id");
+    $stmt = $pdo->prepare("UPDATE users SET is_trial = :plan, updatedAt = :updatedAt WHERE stripe_id = :customer_id");
     $stmt->execute([
       ':plan' => '0', 
+      ':updatedAt' => date("Y-m-d H:i:s"),
       ':customer_id' => $customer_id,
     ]);
 
