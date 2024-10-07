@@ -39,23 +39,23 @@ function create_customer_trial_js(){
       let fieldsArray = [firstname, lastname, email, address, zip, tel, company, tva, pwd, confirmPwd];
       let success = 0;
 
-      // fieldsArray.map((e) => {
-      //   if (e.value == "") {
-      //     handleAlert(e, copy.emptyFields, lang)
-      //     success++
-      //   } else if (e == email && !email.value.match(mailRegex)) {
-      //     handleAlert(e, copy.badMail, lang);
-      //     success++
-      //   } else if (e == tel && !tel.value.match(phoneRegex)) {
-      //     handleAlert(e, copy.badPhone, lang);
-      //     success++
-      //   } else if (!pwdOk) {
-      //     handleAlert(confirmPwd, copy.badPassword, lang);
-      //     success++
-      //   } else {
-      //     rollBackAlert(e, grey)
-      //   }
-      // })
+      fieldsArray.map((e) => {
+        if (e.value == "") {
+          handleAlert(e, copy.emptyFields, lang)
+          success++
+        } else if (e == email && !email.value.match(mailRegex)) {
+          handleAlert(e, copy.badMail, lang);
+          success++
+        } else if (e == tel && !tel.value.match(phoneRegex)) {
+          handleAlert(e, copy.badPhone, lang);
+          success++
+        } else if (!pwdOk) {
+          handleAlert(confirmPwd, copy.badPassword, lang);
+          success++
+        } else {
+          rollBackAlert(e, grey)
+        }
+      })
 
       if (success == 0) {
         submit_sign_up.disabled = true;
@@ -85,17 +85,15 @@ function create_customer_trial_js(){
             body: formData.toString()
           });
 
-          const data = await response.text();
+          const data = await response.json();
 
-          console.log(data);
-
-          // if (data.success) {
-          //   console.log(data);
-          //   alert(data.data.message);
-          //   // window.location.href = '/';
-          // } else {
-          //   alert(data.data.message);
-          // }
+          if (data.success) {
+            console.log(data);
+            alert(data.data.message);
+            // window.location.href = '/';
+          } else {
+            alert(data.data.message);
+          }
 
         } catch (error) {
           console.error('Erreur:', error);
