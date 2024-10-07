@@ -6,7 +6,7 @@
 
 // GET FIELDS FROM OPTION TAB : 
 //  <?= get_field('time', 'Options') 
-do_action('demo_handle')
+do_action('demo_handle');
 ?>
 
 <?php get_header(); ?>

@@ -1,5 +1,11 @@
+<?php 
+
+function create_customer_trial_js(){
+?>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
+
+    console.log("tu sais qui on est");
 
     let submit_sign_up = document.getElementById('submit_sign_up');
     let firstname = document.getElementById('firstname');
@@ -23,16 +29,16 @@
         pwdOk = true;
       }
     }
-    
+
     pwd.addEventListener('input', isConfirm);
     confirmPwd.addEventListener('input', isConfirm);
-    
-    document.getElementById('first-part-form').addEventListener('submit', async (event) => {      
+
+    document.getElementById('first-part-form').addEventListener('submit', async (event) => {
       event.preventDefault();
 
       let fieldsArray = [firstname, lastname, email, address, zip, tel, company, tva, pwd, confirmPwd];
       let success = 0;
-      
+
       fieldsArray.map((e) => {
         if (e.value == "") {
           handleAlert(e, copy.emptyFields, lang)
@@ -53,6 +59,7 @@
 
       if (success == 0) {
         submit_sign_up.disabled = true;
+
         let formData = new URLSearchParams({
           action: 'create_customer_trial',
           firstname: firstname.value,
@@ -67,7 +74,6 @@
         });
 
         let url = '<?php echo admin_url('admin-ajax.php'); ?>';
-        console.log(url);
 
         try {
           const response = await fetch(url, {
@@ -97,3 +103,7 @@
     });
   });
 </script>
+<?php
+}
+
+add_action('create_customer', 'create_customer_trial_js');

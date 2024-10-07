@@ -11,10 +11,10 @@ function create_customer_trial()
   
   $stripe_secret_key = getenv('STRIPE_KEY');
   Stripe::setApiKey($stripe_secret_key);
-
   
   $firstname = sanitize_text_field($_POST['firstname']);
   $lastname = sanitize_text_field($_POST['lastname']);
+
   $email = sanitize_email($_POST['email']);
   $address = sanitize_text_field($_POST['address']);
   $zip = sanitize_text_field($_POST['zip']);
@@ -79,7 +79,7 @@ function insert_customer_to_platform($firstname, $lastname, $company, $email, $p
     ]);
 
     $stmt = $pdo->prepare(
-      "INSERT INTO users (firstname, lastname, company, email, password, isAdmin stripe_id, is_trial, is_active, createdAt, updatedAt) 
+      "INSERT INTO users (firstname, lastname, company, email, password, isAdmin, stripe_id, is_trial, is_active, createdAt, updatedAt) 
       VALUES (:firstname, :lastname,  :company, :email, :password, :isAdmin, :stripe_id, :is_trial, :is_active, :createdAt, :updatedAt)"
     );
 
