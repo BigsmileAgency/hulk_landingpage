@@ -58,6 +58,12 @@ main {
 .container_home{
   max-width: $max-width;
   width: 100%;
+  @include breakpoint(xl) {
+    width: 95%;
+  }
+  @include breakpoint(md) {
+    width: 90%;
+  }
 }
 a {
   text-decoration: none;
