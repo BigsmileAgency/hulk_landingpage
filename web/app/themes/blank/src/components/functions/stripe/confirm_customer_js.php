@@ -1,6 +1,6 @@
 <?php
 
-function confirm_customer_js(){
+function confirm_customer_js($customer){
 ?>
 
 <script>
@@ -132,4 +132,4 @@ function confirm_customer_js(){
 <?php
 }
 
-add_action('confirm_customer', 'confirm_customer_js');
+add_action('confirm_customer', $customer);

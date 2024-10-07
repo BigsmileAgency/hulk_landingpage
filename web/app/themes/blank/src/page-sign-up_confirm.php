@@ -12,7 +12,6 @@ get_header();
 
 if (!empty($_GET['t'])) {
   include_once get_template_directory() . '/components/functions/stripe/get_costumer_w_token.php';
-  do_action('confirm_customer');
 } else {
 ?>
 
@@ -52,7 +51,7 @@ if (isset($costumer)):
                 <label for="yearly"><?= __('Yearly', 'hulkbanner') ?></label>
                 <input type="radio" name="billing" id="yearly" value="yearly">
               </div>
-            </div>                        
+            </div>
             <select id="subscription_type" name="subscription_type">
               <option value=""><?= __('Please choose an option', 'hulkbanner') ?></option>
               <option class="monthly" value="small">Small 39€ / <?= __('month', 'hulkbanner') ?></option>
@@ -80,13 +79,13 @@ if (isset($costumer)):
 
   </main>
 
-  <?php include_once get_template_directory() . '/components/functions/stripe/confirm_customer_js.php'; ?>
-
-<?php else: ?>
-
-  <script>
-    window.location.href = '/404';
-  </script>
+  <?php do_action('confirm_customer'); ?>
+  
+  <?php else: ?>
+    
+    <script>
+      window.location.href = '/404';
+      </script>
 
 <?php endif; ?>
 
