@@ -14,7 +14,6 @@
     let confirmPwd = document.getElementById('confirm_pwd');
     let pwdOk = true;
 
-
     function isConfirm() {
       if (confirmPwd.value !== pwd.value) {
         handleAlert(confirmPwd, copy.badPassword, lang);
@@ -27,7 +26,6 @@
     
     pwd.addEventListener('input', isConfirm);
     confirmPwd.addEventListener('input', isConfirm);
-
     
     document.getElementById('first-part-form').addEventListener('submit', async (event) => {      
       event.preventDefault();
@@ -58,13 +56,13 @@
         let formData = new URLSearchParams({
           action: 'create_customer_trial',
           firstname: firstname.value,
-          firstname: firstname.value,
           lastname: lastname.value,
           email: email.value,
           address: address.value,
           zip: zip.value,
           tel: tel.value,
           company: company.value,
+          tva: tva.value,
           pwd: pwd.value,
         });
 
