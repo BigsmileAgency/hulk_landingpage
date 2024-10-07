@@ -10,7 +10,6 @@
 get_header();
 
 if (!empty($_GET['t'])) {
-
   include_once get_template_directory() . '/components/functions/stripe/get_costumer_w_token.php';
 } else {
 

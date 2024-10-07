@@ -19,19 +19,20 @@ try {
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
   ]);
 
+  // STAGING:
   $stmt = $pdo->prepare("SELECT stripe_id FROM users WHERE token = :token");
   $stmt->execute([':token' => $token]);
   $result = $stmt->fetch();
 
-  // TEST
+  // TEST EN LOCAL
   // $result = true;
 
   if ($result) {
 
-    // VRAI CODE A DECOMMENTER
+    // STAGING:
     $stripe_customer_id = $result['stripe_id'];
 
-    // ID pour tester en local à supprimer
+    // TEST EN LOCAL
     // $stripe_customer_id = "cus_Qxlx4IQ265dWkh";
 
     $customer = \Stripe\Customer::retrieve($stripe_customer_id);

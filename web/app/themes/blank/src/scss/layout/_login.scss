@@ -1,5 +1,5 @@
 .login_body {
-	background-color: #33AAFF;
+	background-color: $main-color;
 
 	.container_nav {
 		@include breakpoint(sm) {
@@ -15,26 +15,40 @@
 
 	.captcha {
 		text-align: center;
-		margin-bottom: 25px;
+		margin: 25px 0px;
+		height: 12vh;
+		background-color: $light-color;
+		padding: 20px;
 	}
 
-	.signup {
-		display: flex;
-		align-items: center;
-		color: $white;
-		gap: 15px;
+	input[type="submit"] {
+		display: block;
+		margin: auto;
+	}
 
-		.sign_up_button {
-			border-radius: 50px;
-			padding: .7em 40px;
-			background-color: white;
-			color: $main-color;
-			text-align: center;
+	input[type="file"] {
+		text-align: center;
+		margin: 25px 0px;
+		height: 12vh;
+		background-color: $light-color;
+		padding: 20px;
+		width: 100%;
+	}
 
-			&:hover {
-				transform: scale(1.05);
-				transition: 0.25s ease-out;
-			}
+	.form_grid {
+		display: grid;
+		grid-template-columns: 190px 190px;
+		text-align: left;
+		gap: 20px;
+
+		@include breakpoint(sm) {
+			padding: 20px;
+			grid-template-columns: 1fr;
+		}
+
+		@include breakpoint(xs) {
+			font-size: 14px;
+			padding: 0;
 		}
 	}
 
@@ -86,18 +100,6 @@
 				gap: 10px;
 			}
 
-			input[type="text"],
-			input[type="email"],
-			input[type="tel"],
-			select {
-				width: 100%;
-				height: 40px;
-				border-radius: 5px;
-				border: 1px #3D464D solid;
-				margin: 10px auto 10px auto;
-				padding-left: 15px;
-			}
-
 			.sublogin {
 				display: flex;
 				justify-content: space-between;
@@ -134,13 +136,6 @@
 				}
 			}
 
-			input[type="submit"] {
-				width: 100%;
-				@include button(16px);
-				color: $white;
-				margin: auto;
-			}
-
 			.divider {
 				display: flex;
 				margin: 25px 0;
@@ -156,12 +151,6 @@
 				text-align: center;
 			}
 		}
-
-		label,
-		input {
-			display: block;
-		}
-
 	}
 
 	#menu-toggle {
