@@ -79,7 +79,7 @@ function insert_customer_to_platform($firstname, $lastname, $company, $email, $p
     ]);
 
     $stmt = $pdo->prepare(
-      "INSERT INTO users (firstname, lastname, company, email, password, isAdmin stripe_id, is_trial, is_active, createdAt, updatedAt) 
+      "INSERT INTO users (firstname, lastname, company, email, password, isAdmin, stripe_id, is_trial, is_active, createdAt, updatedAt) 
       VALUES (:firstname, :lastname,  :company, :email, :password, :isAdmin, :stripe_id, :is_trial, :is_active, :createdAt, :updatedAt)"
     );
 
