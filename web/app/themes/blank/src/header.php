@@ -42,14 +42,14 @@
 
 <body>
 	<header class="header">
-		<div class="container container_nav">
+		<nav aria-label="Main menu" class="container container_nav">
 
 			<!-- remove .left_nav div if you wanna comme back to centered nav -->
 			<!-- <div class="left_nav"> -->
-				<div class="logo_nav">
-					<a href="<?php echo get_home_url() . '/'; ?>"><img class="logo_hulk" src="<?php echo get_template_directory_uri() ?>/images/logo_header.svg"></a>
-				</div>
-				<?php wp_nav_menu(array('theme_location' => 'nav_menu', 'container_class' => 'nav_menu')); ?>
+			<div class="logo_nav">
+				<a href="<?php echo get_home_url() . '/'; ?>"><img alt="logo FoxBanner" class="logo_hulk" src="<?php echo get_template_directory_uri() ?>/images/logo_header.svg"></a>
+			</div>
+			<?php wp_nav_menu(array('theme_location' => 'nav_menu', 'container_class' => 'nav_menu')); ?>
 			<!-- </div> -->
 			<!-- remove .left_nav div END -->
 
@@ -58,10 +58,10 @@
 					<li><a href="#"><?= __('Login', 'hulkbanner') ?></a></li>
 					<li><a href="#"><?= __('Try for free', 'hulkbanner') ?></a></li>
 				</ul>
-				<div id="lang_switch_wrap">
-					<div class="lang_btns"></div>
+				<nav id="lang_switch_wrap" aria-expanded="false">
+					<div class="lang_btns" ></div>
 					<!-- generate by: lang_switch_handler.php -->
-				</div>
+				</nav>
 			</div>
 			<!-- <?php wp_nav_menu(array('theme_location' => 'login', 'container_class' => 'nav_menu')); ?> -->
 			<div id="burger-simple" class="burger_to_open">
@@ -71,7 +71,7 @@
 			</div>
 			<div class="nav_mobile">
 				<div class="mobile_logo_container">
-					<div class="logo_mobile"><a href="<?php echo get_home_url() . '/'; ?>"><img src="<?php echo get_template_directory_uri() ?>/images/logo_footer.svg"></a></div>
+					<div class="logo_mobile"><a href="<?php echo get_home_url() . '/'; ?>"><img alt="logo FoxBanner" src="<?php echo get_template_directory_uri() ?>/images/logo_footer.svg"></a></div>
 					<div class="empty_squarre"></div>
 				</div>
 				<div class="nav_mobile_items">
@@ -85,8 +85,7 @@
 					<div class="mobile_lang_btns"></div>
 				</div>
 			</div>
-		</div>
-		</div>
+		</nav>
 	</header>
 
 	<script>

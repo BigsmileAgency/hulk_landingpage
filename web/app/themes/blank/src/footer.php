@@ -3,9 +3,8 @@
       
     </div>
     <section class="bg_footer">
-        <div class="container container_footer">
+        <nav aria-label="Footer navigation" class="container container_footer">
             <div class="menus">
-
                 <div class="menu1">
                     <div class="head_li bold">Ressources</div>
                     <ul>
@@ -21,10 +20,9 @@
                         <li>Contact</li>
                     </ul>
                 </div>
-                
             </div>
-            <div class="logo_hulk"><a href="<?php echo get_home_url(); ?>"><img class="logo_hulk" src="<?php echo get_template_directory_uri() ?>/images/logo_footer.svg"></a></div>
-        </div>
+            <div class="logo_hulk"><a href="<?php echo get_home_url(); ?>"><img alt="FoxBanner logo" class="logo_hulk" src="<?php echo get_template_directory_uri() ?>/images/logo_footer.svg"></a></div>
+        </nav>
     </section>
 
     <section>

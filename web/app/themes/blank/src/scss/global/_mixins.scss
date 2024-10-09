@@ -61,18 +61,18 @@
 
 @mixin button($font-size: 16px, $type: solid) {
   border-radius: 50px;
-  padding: 0px 35px;
+  padding: 10px 35px;
   border: solid 2px $main-color;
   font-size: $font-size;
   color: $white;
   transition: 0.25s ease-out;
-  height: 46px;
+  transition-property: border, transform, color,background-color;
   width: 260px;
+  text-align: center;
   &:hover {
     border: solid 2px $main-hover;
     cursor: pointer;
     transform: scale(1.05);
-    transition: 0.25s ease-out;
   }
   @if $type == hollow {
     background-color: rgba(255, 255, 255, 0);

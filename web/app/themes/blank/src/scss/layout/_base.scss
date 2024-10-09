@@ -7,7 +7,6 @@ body {
 
 body {
   font-family: $fontMain;
-  font-size: 16px;
   font-weight: normal;
   color: $black;
   overflow-x: hidden;
@@ -22,14 +21,10 @@ main {
   margin: auto;
   background-size: cover;
   &.default {
-    display: flex;
-    flex-direction: column;
     padding-top : 75px;
   }
   section {
-    display: flex;
     width: 100%;
-
     &.center {
       justify-content: center;
     }
@@ -56,7 +51,7 @@ main {
 }
 
 .container_home{
-  max-width: $max-width;
+  max-width: $max-width-home;
   width: 100%;
   @include breakpoint(xl) {
     width: 95%;
@@ -133,8 +128,8 @@ p, li  {
 }
 
 :focus-visible {
-  outline: none;
-  border: solid $grey 2px;
+  outline: solid $focus-color 2px;
+  border: none;
   border-radius: 5px;
 }
 
