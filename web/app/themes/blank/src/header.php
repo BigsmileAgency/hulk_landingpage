@@ -85,7 +85,9 @@
 					<li class="try"><a href="#"><?= __('Try for free', 'hulkbanner') ?></a></li>
 				</div>
 				<div id="mobile_lang_switch">
-					<div class="mobile_lang_btns"></div>
+					<?php
+						do_action('wpml_add_language_selector');
+					?>
 				</div>
 			</div>
 		</nav>
