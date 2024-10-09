@@ -47,7 +47,7 @@
 			<!-- remove .left_nav div if you wanna comme back to centered nav -->
 			<!-- <div class="left_nav"> -->
 			<div class="logo_nav">
-				<a href="<?php echo get_home_url() . '/'; ?>"><img alt="logo FoxBanner" class="logo_hulk" src="<?php echo get_template_directory_uri() ?>/images/logo_header.svg"></a>
+				<a href="<?php echo get_home_url() ?>"><img alt="logo FoxBanner" class="logo_hulk" src="<?php echo get_template_directory_uri() ?>/images/logo_header.svg"></a>
 			</div>
 			<?php wp_nav_menu(array('theme_location' => 'nav_menu', 'container_class' => 'nav_menu')); ?>
 			<!-- </div> -->
@@ -82,7 +82,7 @@
 					<li></li>
 					<li></li>
 					<li><a href="https://hulkbanner.bigsmile.be/"><?= __('Login', 'hulkbanner') ?></a></li>
-					<li class="try"><a href="<?php echo get_home_url() . '/sign-up'; ?>"><?= __('Try for free', 'hulkbanner') ?></a></li>
+					<li class="try"><a href="<?php echo get_home_url() . 'sign-up'; ?>"><?= __('Try for free', 'hulkbanner') ?></a></li>
 				</div>
 				<div id="mobile_lang_switch">
 					<?php
