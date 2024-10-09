@@ -57,7 +57,7 @@ function lang_switch_handler()
 				// 	})
 				// });
 			}
-			displayButtons();
+			// displayButtons();
 			window.addEventListener('resize', displayButtons);
 		})
 	</script>
