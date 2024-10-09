@@ -14,9 +14,9 @@
       <section>
         <div class="container">
           <header class="feat_header page_header">
-            <h2 class="title">
+            <h1 class="title section_title">
               <?= get_field('title_header') ?>
-            </h2>
+            </h1>
             <p class="title_content bottom_p">
               <?= get_field('content_header') ?>
             </p>
@@ -35,9 +35,9 @@
                 // Do something, but make sure you escape the value if outputting directly... 
             ?>
                 <div class="feature">
-                  <div class="feature_img">
-                    <img src="<?= $img_feature ?>">
-                  </div>
+                  <!-- <div class="feature_img"> -->
+                    <img class="feature_img" src="<?= $img_feature ?>">
+                  <!-- </div> -->
                   <h3 class="feature_title">
                     <?= $title_feature ?>
                   </h3>

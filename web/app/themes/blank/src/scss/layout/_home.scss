@@ -61,7 +61,7 @@
     margin-bottom: 0;
   }
 
-  h3 {
+  p {
     width: 90%;
     font-weight: 400;
     font-size: 1.25rem;
@@ -419,6 +419,9 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    .title{
+      margin-bottom: 0px;
+    }
   }
   .feats_line{
     transition: .2s ease color;

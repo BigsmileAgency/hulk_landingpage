@@ -14,7 +14,7 @@ do_action('demo_handle');
 
   <div class="container">
     <div class="page_header">
-      <h2><?= get_field("title") ?></h2>
+      <h1 class="section_title"><?= get_field("title") ?></h1 >
       <p class="header_p"><?= get_field("explanation") ?></p>
     </div>
   </div>

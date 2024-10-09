@@ -16,8 +16,8 @@ get_header();
   <section class="hero_1" style="background-image: url(<?= get_field('bg_img') ?>);">
     <div class="container page_header">
       <div class="hero_left">
-        <h1><?= get_field('catchphrase') ?></h1>
-        <h3><?= get_field('sub_catchphrase') ?></h3>
+        <h1 class="main_title"><?= get_field('catchphrase') ?></h1>
+        <p><?= get_field('sub_catchphrase') ?></p>
         <div class="grid_btn_2">
             <a class="trial_btn" href="<?php echo get_home_url() . '/sign-up'; ?>"><?= get_field('trial_btn') ?></a>
             <a class="demo_btn" href="<?php echo get_home_url() . '/demo'; ?>"><?= get_field('demo_btn') ?></a>
@@ -83,7 +83,7 @@ get_header();
   <?php $hero2 = get_field('hero_2'); ?>
   <section class="hero_2">
     <div class="container container_home">
-      <h2><?= $hero2['catchphrase'] ?></h2>
+      <h2 class="section_title"><?= $hero2['catchphrase'] ?></h2>
       <div class="hero_2_box">
         <div class="left_box">
           <?php
@@ -110,7 +110,7 @@ get_header();
   <!-- OLD FEATs 02/24 -->
   <section class="feats_section">
     <div class="container container_home">
-      <h2><?= get_field('feats_diplay_title') ?></h2>
+      <h2 class="section_title"><?= get_field('feats_diplay_title') ?></h2>
       <div class="feats_display_container">
         <?php
         if (have_rows("feat_display")) :
@@ -148,7 +148,7 @@ get_header();
   <section class="cta_block" id="cta_block_1">
     <div class="container">
       <div class="cta_block_box">
-        <h2><?= $cta_block_1['title']; ?></h2>
+        <h2 class="section_title"><?= $cta_block_1['title']; ?></h2>
         <p><?= $cta_block_1['content']; ?></p>
         <a class="full_btn" href="<?php echo get_home_url() . '/feat'; ?>"><?= $cta_block_1['btn']; ?></a>
       </div>
@@ -159,11 +159,11 @@ get_header();
   <!-- NEW FEATS TEST 09/24-->
   <section id="feats_section_screen" class="feats_section">
     <div class="container container_home">
-      <h2>An <span class="main-color">easy tool to use</span> and to configurate!</h2>
+      <h2 class="section_title">An <span class="main-color">easy tool to use</span> and to configurate!</h2>
       <div class="feat_container_bis">
 
         <div class="feats_left feats_box">
-          <p class="title"><?= __('YOUR AGENCY', 'hulkbanner') ?></p>
+          <h3 class="title"><?= __('YOUR AGENCY', 'hulkbanner') ?></h3>
           <div data-textelement="upload" class="feats_line text_screen">
             <p class="bold"><?= __('UPLOAD', 'hulkbanner') ?></p>
             <p><?= __('your banner', 'hulkbanner') ?></p>
@@ -191,7 +191,7 @@ get_header();
         </div>
 
         <div class="feats_right feats_box">
-          <p class="title"><?= __('YOUR CLIENT', 'hulkbanner') ?></p>
+          <h3 class="title"><?= __('YOUR CLIENT', 'hulkbanner') ?></h3>
           <div data-textelement="preview" class="feats_line text_screen">
             <p class="bold"><?= __('PREVIEW', 'hulkbanner') ?></p>
             <p><?= __('your ads', 'hulkbanner') ?></p>
@@ -213,7 +213,7 @@ get_header();
   <section class="cta_block">
     <div class="container">
       <div class="cta_block_box">
-        <h2><?= $cta_block_2['title']; ?></h2>
+        <h2 class="section_title"><?= $cta_block_2['title']; ?></h2>
         <p><?= $cta_block_2['content']; ?></p>
         <a class="full_btn" href="<?php echo get_home_url() . '/pricing'; ?>"><?= $cta_block_2['btn']; ?></a>
       </div>
@@ -224,7 +224,7 @@ get_header();
     <div class="container">
       <div class="hero_4_box">
         <div class="left_box">
-          <h2><?= $hero3['catchphrase'] ?></h2>
+          <h2 class="section_title"><?= $hero3['catchphrase'] ?></h2>
           <p><?= $hero3['sub_catchphrase'] ?></p>
           <button class="hero_btn"><a href="<?php echo get_home_url() . '/demo'; ?>"><?= __('Book a demo call', 'hulkbanner') ?></a></button>
         </div>

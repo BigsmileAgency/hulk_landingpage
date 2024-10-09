@@ -136,6 +136,7 @@
 	.wpml-ls-legacy-list-vertical{
 		border:0;
 		ul{
+			background: white;
 			flex-direction: column;
 		}
 		a{
@@ -283,7 +284,6 @@
 		height: 100vh;
 		width: 100vw;
 		top: -100vh;
-		// top: 0vh;
 		left: 0;
 		background-color: $main-color;
 		transition: .5s ease-in-out;
@@ -397,6 +397,7 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
+			background: transparent;
 		}
 		a{
 			background-color: $white;

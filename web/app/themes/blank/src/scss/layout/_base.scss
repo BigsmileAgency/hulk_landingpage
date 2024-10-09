@@ -80,7 +80,7 @@ h1, h2, h3, p {
   }
 }
 
-h1 {
+.main_title {
   font-size: 50px;
   line-height: 1.25;
   @include breakpoint(xs) {
@@ -88,7 +88,8 @@ h1 {
   }
 }
 
-h2 {
+h2,
+.section_title {
   font-size: 40px;
   line-height: 1.25;
   margin-bottom: 26px;

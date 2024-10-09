@@ -95,15 +95,8 @@ $fs-sub-mobile : 20px;
 	}
 }
 
-.feature_img img {
+.feature_img {
 	border-radius: 25px;
-	object-fit: cover;
-	aspect-ratio: 3 / 2;
-	width: 100%;
-
-	@include breakpoint(sm) {
-		width: 100%;
-	}
 }
 
 // add-ons 
