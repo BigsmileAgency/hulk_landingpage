@@ -136,7 +136,7 @@
 	.wpml-ls-legacy-list-vertical{
 		border:0;
 		ul{
-			display: block;
+			flex-direction: column;
 		}
 		a{
 			transition: .2s;
@@ -164,8 +164,17 @@
 				text-decoration-thickness: 2px;
 			}
 		}
+		li{
+			order: 1;
+		}
+		.wpml-ls-current-language{
+			order: 0;
+		}
 		.wpml-ls-current-language a{
 			color: $main-color;
+			&:hover{
+				color: white;
+			}
 		}
 	} 
 }
