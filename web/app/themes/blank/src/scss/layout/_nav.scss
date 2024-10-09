@@ -133,6 +133,22 @@
 			position: relative;
 		}
 	}
+	.wpml-ls-legacy-list-vertical{
+		ul{
+			display: block;
+		}
+		a{
+			transition: .2s;
+			width: 41px;
+			height: 41px;
+			line-height: 1;
+			border: solid 2px white;
+			border-radius: 1000px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	} 
 }
 
 #menu-login li:nth-child(2n) a{

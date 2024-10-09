@@ -59,7 +59,7 @@
 					<li><a href="#"><?= __('Try for free', 'hulkbanner') ?></a></li>
 				</ul>
 				<nav id="lang_switch_wrap" aria-expanded="false">
-					<!-- <div class="lang_btns" ></div> -->
+					<div class="lang_btns" ></div>
 					<!-- generate by: lang_switch_handler.php -->
 					<?php
 						do_action('wpml_add_language_selector');
