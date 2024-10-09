@@ -55,8 +55,8 @@
 
 			<div class="nav_user">
 				<ul id="menu-login">
-					<li><a href="#"><?= __('Login', 'hulkbanner') ?></a></li>
-					<li><a href="#"><?= __('Try for free', 'hulkbanner') ?></a></li>
+					<li><a href="https://hulkbanner.bigsmile.be/"><?= __('Login', 'hulkbanner') ?></a></li>
+					<li><a href="<?php echo get_home_url() . '/sign-up'; ?>"><?= __('Try for free', 'hulkbanner') ?></a></li>
 				</ul>
 				<nav id="lang_switch_wrap" aria-expanded="false">
 					<!-- <div class="lang_btns" ></div> -->
@@ -81,8 +81,8 @@
 					<?php wp_nav_menu(array('theme_location' => 'burger', 'container' => '', 'container_id' => '#menu-burger',)); ?>
 					<li></li>
 					<li></li>
-					<li><a href="#"><?= __('Login', 'hulkbanner') ?></a></li>
-					<li class="try"><a href="#"><?= __('Try for free', 'hulkbanner') ?></a></li>
+					<li><a href="https://hulkbanner.bigsmile.be/"><?= __('Login', 'hulkbanner') ?></a></li>
+					<li class="try"><a href="<?php echo get_home_url() . '/sign-up'; ?>"><?= __('Try for free', 'hulkbanner') ?></a></li>
 				</div>
 				<div id="mobile_lang_switch">
 					<?php

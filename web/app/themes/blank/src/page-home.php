@@ -19,7 +19,7 @@ get_header();
         <h1><?= get_field('catchphrase') ?></h1>
         <h3><?= get_field('sub_catchphrase') ?></h3>
         <div class="grid_btn_2">
-            <a class="trial_btn" href="<?php echo get_home_url() . '/login'; ?>"><?= get_field('trial_btn') ?></a>
+            <a class="trial_btn" href="<?php echo get_home_url() . '/sign-up'; ?>"><?= get_field('trial_btn') ?></a>
             <a class="demo_btn" href="<?php echo get_home_url() . '/demo'; ?>"><?= get_field('demo_btn') ?></a>
         </div>
       </div>
@@ -208,7 +208,7 @@ get_header();
       </div>
     </div>
   </section>
-
+  
   <?php $cta_block_2 = get_field('cta_block_2'); ?>
   <section class="cta_block">
     <div class="container">
