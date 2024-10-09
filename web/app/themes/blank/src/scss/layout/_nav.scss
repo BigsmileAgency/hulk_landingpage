@@ -392,19 +392,29 @@
 
 	.wpml-ls-legacy-list-vertical{
 		border:0;
+		width: 100%;
 		ul{
+			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
 		}
 		a{
 			background-color: $white;
 			color: $main-color;
+			height: 40px;
+			width: 40px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50px;
 		}
 		li{
 			opacity: .5;
+			order: 1;
 		}
 		.wpml-ls-current-language{
 			opacity: 1;
+			order: 1;
 		}
 		.wpml-ls-current-language a{
 			color: $main-color;
