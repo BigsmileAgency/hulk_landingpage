@@ -390,6 +390,29 @@
 		}
 	}
 
+	.wpml-ls-legacy-list-vertical{
+		border:0;
+		ul{
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		a{
+			background-color: $white;
+			color: $main-color;
+		}
+		li{
+			opacity: .5;
+		}
+		.wpml-ls-current-language{
+			opacity: 1;
+		}
+		.wpml-ls-current-language a{
+			color: $main-color;
+			&:hover{
+				color: white;
+			}
+		}
+	} 
 	// burger icon
 	.burger-bg-1 {
 		background: black;
