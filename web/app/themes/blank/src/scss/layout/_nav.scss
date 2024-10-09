@@ -134,13 +134,14 @@
 		}
 	}
 	.wpml-ls-legacy-list-vertical{
+		border:0;
 		ul{
 			display: block;
 		}
 		a{
 			transition: .2s;
-			width: 41px;
-			height: 41px;
+			width: 40px;
+			height: 40px;
 			line-height: 1;
 			border: solid 2px white;
 			border-radius: 1000px;
@@ -182,11 +183,11 @@
 
 #lang_switch_wrap {
 	position: relative;
-	width: 41px;
+	width: 40px;
+	height: 40px;
 	box-sizing: initial;
 	align-self: flex-start;
 	overflow: hidden;
-	height: 41px;
 	border: solid 2px #FF7300;
 	border-radius: 8888px;
 	transition: height .2s ease;
@@ -196,10 +197,10 @@
 	margin-top: 7px;
 
 	&:hover,&:focus {
-		height: 123px;
+		height: 120px;
 	}
 	&:has(.wpml-ls-legacy-list-vertical a:focus){
-		height: 123px;
+		height: 120px;
 	}
 
 	.lang_btns {
@@ -222,8 +223,8 @@
 
 		.lang_display {
 			transition: .2s;
-			width: 41px;
-			height: 41px;
+			width: 40px;
+			height: 40px;
 			line-height: 1;
 			border: solid 2px white;
 			border-radius: 1000px;
