@@ -36,7 +36,6 @@ if (isset($costumer)):
           </div>
 
           <div class="customer_infos">
-            <!-- <?= $customer['id'] ?> -->
             <p><?= $customer['metadata']['firstname'] ?> <?= $customer['metadata']['lastname'] ?> - <span class="bold"><?= $customer['metadata']['company'] ?></span></p>
           </div>
 
@@ -184,10 +183,11 @@ if (isset($costumer)):
 
 
           if (result.success) {
-            // alert('Customer updated successfully!');
-            // window.location.href = "/confirmation-page"; 
 
-            console.log(result);
+            alert(copy.successConfirmCustomer[lang]);
+            window.location = "https://hulkbanner.bigsmile.be/"; 
+
+            // console.log(result);
 
           } else {
             console.error(result);
