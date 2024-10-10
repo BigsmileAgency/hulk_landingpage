@@ -82,7 +82,7 @@ if (isset($costumer)):
     document.addEventListener("DOMContentLoaded", function() {
 
       // INITIATE STIPE CARD CHECKOUT
-      const stripe = Stripe('pk_test_51Q568r2KTIC8Xb8E7XiZWF6B5aC0sQV6aVRA0dgpr1YjP0Bp1IsyP8flO5cMGdqkUQXYCAZ4qN5Nch06Un0DdfAL00xcjT14Wy');
+      const stripe = Stripe('<?= getenv("STRIPE_PUBLIC_KEY"); ?>');
       const elements = stripe.elements();
 
       const style = {
