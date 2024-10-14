@@ -22,7 +22,7 @@ if (!empty($_GET['t'])) {
 <?php
 }
 
-if (isset($costumer)):
+if (isset($customer)):
 ?>
 
   <script src="https://js.stripe.com/v3/"></script>
@@ -39,7 +39,7 @@ if (isset($costumer)):
             <p><?= $customer['metadata']['firstname'] ?> <?= $customer['metadata']['lastname'] ?> - <span class="bold"><?= $customer['metadata']['company'] ?></span></p>
           </div>
 
-          <form id="first-part-form" action="" method="post">
+          <form id="confirm_form" action="" method="post">
             <label for="subscription_type"><?= __('Choose your plan', 'hulkbanner') ?></label><br>
             <div class="billing_plan">
               <div class="billing_choice">
@@ -140,7 +140,7 @@ if (isset($costumer)):
 
 
       // SUBMIT 
-      document.getElementById('first-part-form').addEventListener('submit', async (event) => {
+      document.getElementById('confirm_form').addEventListener('submit', async (event) => {
 
         event.preventDefault();
 
