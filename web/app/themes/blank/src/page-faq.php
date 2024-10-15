@@ -42,13 +42,20 @@
                   </p>
                 </div>
 
-            <?php // End loop.
+            <?php 
               endwhile;
-
-            // No value.
             else :
-            // Do something...
-            endif; ?>
+            ?>  
+              <div class="question">
+              <h3 class="title_question bold">
+                <?= __('Oops, something went wrong', 'hulkbanner') ?>
+              </h3>
+              <p class="content_question">
+                <?= "" ?>
+              </p>
+            </div>
+
+            <?php endif; ?>
           </div>
         </div>
       </section>

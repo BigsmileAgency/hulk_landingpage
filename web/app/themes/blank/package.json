@@ -77,6 +77,7 @@
   },
   "target": "web",
   "dependencies": {
+    "@weareathlon/frontend-webpack-boilerplate": "file:",
     "air-datepicker": "^3.2.0",
     "gsap": "^3.10.4",
     "jquery": "^3.6.0",

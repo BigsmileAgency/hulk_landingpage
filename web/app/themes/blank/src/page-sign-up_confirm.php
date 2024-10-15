@@ -22,7 +22,7 @@ if (!empty($_GET['t'])) {
 <?php
 }
 
-if (isset($costumer)):
+if (isset($customer)):
 ?>
 
   <script src="https://js.stripe.com/v3/"></script>
@@ -36,11 +36,10 @@ if (isset($costumer)):
           </div>
 
           <div class="customer_infos">
-            <!-- <?= $customer['id'] ?> -->
             <p><?= $customer['metadata']['firstname'] ?> <?= $customer['metadata']['lastname'] ?> - <span class="bold"><?= $customer['metadata']['company'] ?></span></p>
           </div>
 
-          <form id="first-part-form" action="" method="post">
+          <form id="confirm_form" action="" method="post">
             <label for="subscription_type"><?= __('Choose your plan', 'hulkbanner') ?></label><br>
             <div class="billing_plan">
               <div class="billing_choice">
@@ -82,8 +81,8 @@ if (isset($costumer)):
   <script>
     document.addEventListener("DOMContentLoaded", function() {
 
-      // INITIATE STIPE CARD CHECKOUT
-      const stripe = Stripe('pk_test_51Q568r2KTIC8Xb8E7XiZWF6B5aC0sQV6aVRA0dgpr1YjP0Bp1IsyP8flO5cMGdqkUQXYCAZ4qN5Nch06Un0DdfAL00xcjT14Wy');
+      // INITIATE STRIPE CARD CHECKOUT
+      const stripe = Stripe('<?= getenv("STRIPE_PUBLIC_KEY"); ?>');
       const elements = stripe.elements();
 
       const style = {
@@ -141,7 +140,7 @@ if (isset($costumer)):
 
 
       // SUBMIT 
-      document.getElementById('first-part-form').addEventListener('submit', async (event) => {
+      document.getElementById('confirm_form').addEventListener('submit', async (event) => {
 
         event.preventDefault();
 
@@ -164,7 +163,6 @@ if (isset($costumer)):
             return;
           }
 
-          // Envoi des données via AJAX
           const response = await fetch('<?= admin_url('admin-ajax.php'); ?>', {
             method: 'POST',
             headers: {
@@ -179,16 +177,14 @@ if (isset($costumer)):
             })
           });
 
-          // Vérifier la réponse
           const result = await response.json();
 
-
           if (result.success) {
-            // alert('Customer updated successfully!');
-            // window.location.href = "/confirmation-page"; 
-
-            console.log(result);
-
+            message = result.data.message;            
+            alert(copy[message][lang]);
+            window.location = "https://hulkbanner.bigsmile.be/"; 
+            // console.log(message);
+            // console.log(result);
           } else {
             console.error(result);
             alert('Failed to update customer: ' + result);

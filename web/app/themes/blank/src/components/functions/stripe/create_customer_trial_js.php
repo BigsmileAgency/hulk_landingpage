@@ -5,8 +5,6 @@ function create_customer_trial_js(){
 <script>
   document.addEventListener("DOMContentLoaded", function() {
 
-    console.log("tu sais qui on est");
-
     let submit_sign_up = document.getElementById('submit_sign_up');
     let firstname = document.getElementById('firstname');
     let lastname = document.getElementById('lastname');
@@ -90,7 +88,7 @@ function create_customer_trial_js(){
           if (data.success) {
             console.log(data);
             alert(data.data.message);
-            // window.location.href = '/';
+            window.location = 'https://hulkbanner.bigsmile.be/';
           } else {
             alert(data.data.message);
           }
