@@ -38,6 +38,7 @@ function confirm_customer()
     $platform_dbuser = getenv('PLATFORM_DB_USER');
     $platform_dbpwd = getenv('PLATFORM_DB_PWD');
 
+    // we get the user from the db to check if is on trial on not
     $dsn = "mysql:host=localhost;dbname=$platform_dbname;charset=utf8mb4";
     $pdo = new PDO($dsn, $platform_dbuser, $platform_dbpwd, [
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -48,11 +49,7 @@ function confirm_customer()
     $is_trial_stmt->execute([':customer_id' => $customer_id]);
     $is_trial = $is_trial_stmt->fetch(PDO::FETCH_ASSOC);
 
-    // wp_send_json_success([
-    //   'is_trial' => $is_trial,
-    //   'is_it_trial' => $is_trial['is_trial']
-    // ]);
-
+    // is he?
     if($is_trial['is_trial']){
       Stripe::setApiKey(getenv('STRIPE_KEY'));
       $customer = Customer::update($customer_id, [

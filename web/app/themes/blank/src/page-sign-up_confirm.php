@@ -163,7 +163,6 @@ if (isset($customer)):
             return;
           }
 
-          // Envoi des données via AJAX
           const response = await fetch('<?= admin_url('admin-ajax.php'); ?>', {
             method: 'POST',
             headers: {
@@ -178,19 +177,14 @@ if (isset($customer)):
             })
           });
 
-          // Vérifier la réponse
           const result = await response.json();
 
-
           if (result.success) {
-
             message = result.data.message;            
             alert(copy[message][lang]);
-            // window.location = "https://hulkbanner.bigsmile.be/"; 
-            
-            console.log(message);
-            console.log(result);
-
+            window.location = "https://hulkbanner.bigsmile.be/"; 
+            // console.log(message);
+            // console.log(result);
           } else {
             console.error(result);
             alert('Failed to update customer: ' + result);
