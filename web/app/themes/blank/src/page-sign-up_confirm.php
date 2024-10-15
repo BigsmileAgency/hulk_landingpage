@@ -81,7 +81,7 @@ if (isset($customer)):
   <script>
     document.addEventListener("DOMContentLoaded", function() {
 
-      // INITIATE STIPE CARD CHECKOUT
+      // INITIATE STRIPE CARD CHECKOUT
       const stripe = Stripe('<?= getenv("STRIPE_PUBLIC_KEY"); ?>');
       const elements = stripe.elements();
 

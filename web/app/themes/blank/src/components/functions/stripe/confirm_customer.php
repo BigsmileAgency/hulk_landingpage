@@ -34,27 +34,6 @@ function confirm_customer()
   
   try {
 
-    Stripe::setApiKey(getenv('STRIPE_KEY'));
-    
-    $customer = Customer::update($customer_id, [
-      'source' => $stripeToken,
-    ]);
-
-    $subscriptions = Subscription::all(['customer' => $customer_id, 'limit' => 1]);
-    $subscription = $subscriptions->data[0];
-    $trial_end = $subscription->trial_end;
-
-    Subscription::update($subscription->id, [
-      'trial_end' => $trial_end,
-      'items' => [
-        [
-          'id' => $subscription->items->data[0]->id,
-          'price' => $price_id
-        ],
-      ],
-      'proration_behavior' => 'create_prorations',
-    ]);
-
     $platform_dbname = getenv('PLATFORM_DB_NAME');
     $platform_dbuser = getenv('PLATFORM_DB_USER');
     $platform_dbpwd = getenv('PLATFORM_DB_PWD');
@@ -65,14 +44,37 @@ function confirm_customer()
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
 
-    $stmt = $pdo->prepare("UPDATE users SET is_trial = :plan, updatedAt = :updatedAt WHERE stripe_id = :customer_id");
-    $stmt->execute([
-      ':plan' => '0', 
-      ':updatedAt' => date("Y-m-d H:i:s"),
-      ':customer_id' => $customer_id,
-    ]);
+    $is_trial = $pdo->prepare("SELECT `is_trial` FROM `users` WHERE id=:customer_id")->execute([':customer_id' => $customer_id]);
 
-    wp_send_json_success(['message' => 'Customer and subscription updated successfully!']);
+    wp_send_json_success(['message' => $is_trial]);
+
+    // Stripe::setApiKey(getenv('STRIPE_KEY'));
+    // $customer = Customer::update($customer_id, [
+    //   'source' => $stripeToken,
+    // ]);
+    // $subscriptions = Subscription::all(['customer' => $customer_id, 'limit' => 1]);
+    // $subscription = $subscriptions->data[0];
+    // $trial_end = $subscription->trial_end;
+
+    // Subscription::update($subscription->id, [
+    //   'trial_end' => $trial_end,
+    //   'items' => [
+    //     [
+    //       'id' => $subscription->items->data[0]->id,
+    //       'price' => $price_id
+    //     ],
+    //   ],
+    //   'proration_behavior' => 'create_prorations',
+    // ]);
+
+    // $stmt = $pdo->prepare("UPDATE users SET is_trial = :plan, updatedAt = :updatedAt WHERE stripe_id = :customer_id");
+    // $stmt->execute([
+    //   ':plan' => '0', 
+    //   ':updatedAt' => date("Y-m-d H:i:s"),
+    //   ':customer_id' => $customer_id,
+    // ]);
+
+    // wp_send_json_success(['message' => 'Customer and subscription updated successfully!']);
   } catch (Exception $e) {
     wp_send_json_error(['message' => $e->getMessage()]);
   }
