@@ -78,7 +78,7 @@ function confirm_customer()
       ]);
       wp_send_json_success(['message' => 'customerIsConfirmed']);
     } else {
-      echo "<script>window.location.href='/404';</script>";
+      wp_send_json_success(['message' => 'customerAlreadyConfirmed']);
     }
   } catch (Exception $e) {
     wp_send_json_error(['message' => $e->getMessage()]);
