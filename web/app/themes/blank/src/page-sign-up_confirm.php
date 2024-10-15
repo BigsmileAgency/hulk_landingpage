@@ -37,6 +37,7 @@ if (isset($customer)):
 
           <div class="customer_infos">
             <p><?= $customer['metadata']['firstname'] ?> <?= $customer['metadata']['lastname'] ?> - <span class="bold"><?= $customer['metadata']['company'] ?></span></p>
+            <?php var_dump($customer) ?>
           </div>
 
           <form id="confirm_form" action="" method="post">
