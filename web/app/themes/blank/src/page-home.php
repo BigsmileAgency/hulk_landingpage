@@ -219,21 +219,7 @@ get_header();
       </div>
     </div>
   </section>
-
-  <!-- <section class="hero_4">
-    <div class="container">
-      <div class="hero_4_box">
-        <div class="left_box">
-          <h2 class="section_title"><?= $hero3['catchphrase'] ?></h2>
-          <p><?= $hero3['sub_catchphrase'] ?></p>
-          <button class="hero_btn"><a href="<?php echo get_home_url() . 'demo'; ?>"><?= __('Book a demo call', 'hulkbanner') ?></a></button>
-        </div>
-        <img src="<?= $hero3['img_hero3'] ?>" alt="">
-      </div>
-    </div>
-  </section> -->
 </main>
-
 
 
 <?php 
