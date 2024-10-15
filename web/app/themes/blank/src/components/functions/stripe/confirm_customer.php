@@ -50,7 +50,7 @@ function confirm_customer()
 
     // wp_send_json_success(['message' => $is_trial]);    
 
-    if($is_trial['is_trial']){
+    if($is_trial['is_trial'] == "1"){
       Stripe::setApiKey(getenv('STRIPE_KEY'));
       $customer = Customer::update($customer_id, [
         'source' => $stripeToken,
