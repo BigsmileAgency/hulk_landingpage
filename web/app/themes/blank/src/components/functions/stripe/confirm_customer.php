@@ -46,13 +46,9 @@ function confirm_customer()
 
     $is_trial_stmt = $pdo->prepare("SELECT `is_trial` FROM `users` WHERE id=:customer_id");
     $is_trial_stmt->execute([':customer_id' => $customer_id]);
-
     $is_trial = $is_trial_stmt->fetch(PDO::FETCH_ASSOC);
 
-    wp_send_json_success(['message' => $is_trial]);
-
     if($is_trial){
-
       Stripe::setApiKey(getenv('STRIPE_KEY'));
       $customer = Customer::update($customer_id, [
         'source' => $stripeToken,
@@ -78,12 +74,9 @@ function confirm_customer()
         ':updatedAt' => date("Y-m-d H:i:s"),
         ':customer_id' => $customer_id,
       ]);
-      wp_send_json_success(['message' => 'Customer and subscription updated successfully!']);
-
+      wp_send_json_success(['message' => 'customerIsConfirmed']);
     } else {
-
       wp_send_json_success(['message' => 'customerAlreadyConfirmed']);
-      
     }
   } catch (Exception $e) {
     wp_send_json_error(['message' => $e->getMessage()]);
