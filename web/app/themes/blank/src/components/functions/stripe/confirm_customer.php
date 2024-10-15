@@ -48,7 +48,7 @@ function confirm_customer()
     $is_trial_stmt->execute([':customer_id' => $customer_id]);
     $is_trial = $is_trial_stmt->fetch(PDO::FETCH_ASSOC);
 
-    // wp_send_json_success(['message' => $is_trial->is_trial]);    
+    // wp_send_json_success(['message' => $is_trial]);    
 
     if($is_trial == "1"){
       Stripe::setApiKey(getenv('STRIPE_KEY'));
