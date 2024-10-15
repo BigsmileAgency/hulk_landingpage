@@ -31,7 +31,7 @@ function confirm_customer()
   $billing = sanitize_text_field($_POST['billing']);
   $customer_id = sanitize_text_field($_POST['customer_id']);
   $price_id = $price_ids[$billing][$plan];
-  
+
   try {
 
     $platform_dbname = getenv('PLATFORM_DB_NAME');
@@ -44,44 +44,45 @@ function confirm_customer()
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
 
-    $is_trial_stmt = $pdo->prepare("SELECT `is_trial` FROM `users` WHERE id=:customer_id");
+    $is_trial_stmt = $pdo->prepare("SELECT `is_trial` FROM `users` WHERE stripe_id=:customer_id");
     $is_trial_stmt->execute([':customer_id' => $customer_id]);
     $is_trial = $is_trial_stmt->fetch(PDO::FETCH_ASSOC);
 
-    wp_send_json_success(['is_trial' => $is_trial,
-    'is_it_trial' => $is_trial['is_trial']
-  ]);    
+    // wp_send_json_success([
+    //   'is_trial' => $is_trial,
+    //   'is_it_trial' => $is_trial['is_trial']
+    // ]);
 
-    // if($is_trial['is_trial'] == "1"){
-    //   Stripe::setApiKey(getenv('STRIPE_KEY'));
-    //   $customer = Customer::update($customer_id, [
-    //     'source' => $stripeToken,
-    //   ]);
-    //   $subscriptions = Subscription::all(['customer' => $customer_id, 'limit' => 1]);
-    //   $subscription = $subscriptions->data[0];
-    //   $trial_end = $subscription->trial_end;
-  
-    //   Subscription::update($subscription->id, [
-    //     'trial_end' => $trial_end,
-    //     'items' => [
-    //       [
-    //         'id' => $subscription->items->data[0]->id,
-    //         'price' => $price_id
-    //       ],
-    //     ],
-    //     'proration_behavior' => 'create_prorations',
-    //   ]);
-  
-    //   $stmt = $pdo->prepare("UPDATE users SET is_trial = :plan, updatedAt = :updatedAt WHERE stripe_id = :customer_id");
-    //   $stmt->execute([
-    //     ':plan' => '0', 
-    //     ':updatedAt' => date("Y-m-d H:i:s"),
-    //     ':customer_id' => $customer_id,
-    //   ]);
-    //   wp_send_json_success(['message' => 'customerIsConfirmed']);
-    // } else {
-    //   wp_send_json_success(['message' => 'customerAlreadyConfirmed']);
-    // }
+    if($is_trial['is_trial']){
+      Stripe::setApiKey(getenv('STRIPE_KEY'));
+      $customer = Customer::update($customer_id, [
+        'source' => $stripeToken,
+      ]);
+      $subscriptions = Subscription::all(['customer' => $customer_id, 'limit' => 1]);
+      $subscription = $subscriptions->data[0];
+      $trial_end = $subscription->trial_end;
+
+      Subscription::update($subscription->id, [
+        'trial_end' => $trial_end,
+        'items' => [
+          [
+            'id' => $subscription->items->data[0]->id,
+            'price' => $price_id
+          ],
+        ],
+        'proration_behavior' => 'create_prorations',
+      ]);
+
+      $stmt = $pdo->prepare("UPDATE users SET is_trial = :plan, updatedAt = :updatedAt WHERE stripe_id = :customer_id");
+      $stmt->execute([
+        ':plan' => '0', 
+        ':updatedAt' => date("Y-m-d H:i:s"),
+        ':customer_id' => $customer_id,
+      ]);
+      wp_send_json_success(['message' => 'customerIsConfirmed']);
+    } else {
+      wp_send_json_success(['message' => 'customerAlreadyConfirmed']);
+    }
   } catch (Exception $e) {
     wp_send_json_error(['message' => $e->getMessage()]);
   }

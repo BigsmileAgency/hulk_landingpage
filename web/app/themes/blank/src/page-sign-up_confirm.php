@@ -188,7 +188,7 @@ if (isset($customer)):
             // alert(copy[message][lang]);
             // window.location = "https://hulkbanner.bigsmile.be/"; 
             
-            // console.log(message);
+            console.log(message);
             console.log(result);
 
           } else {
