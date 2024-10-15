@@ -184,9 +184,9 @@ if (isset($customer)):
 
           if (result.success) {
 
-            // message = result.data.message;            
-            // alert(copy[message][lang]);
-            // console.log(message);
+            message = result.data.message;            
+            alert(copy[message][lang]);
+            console.log(message);
             // window.location = "https://hulkbanner.bigsmile.be/"; 
 
             console.log(result);
