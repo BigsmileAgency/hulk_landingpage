@@ -37,7 +37,6 @@ if (isset($customer)):
 
           <div class="customer_infos">
             <p><?= $customer['metadata']['firstname'] ?> <?= $customer['metadata']['lastname'] ?> - <span class="bold"><?= $customer['metadata']['company'] ?></span></p>
-            <?php var_dump($customer) ?>
           </div>
 
           <form id="confirm_form" action="" method="post">
@@ -185,11 +184,11 @@ if (isset($customer)):
 
           if (result.success) {
 
-            message = result.data.message;            
+            // message = result.data.message;            
             // alert(copy[message][lang]);
             // window.location = "https://hulkbanner.bigsmile.be/"; 
             
-            console.log(message);
+            // console.log(message);
             console.log(result);
 
           } else {
