@@ -51,33 +51,40 @@ function confirm_customer()
 
     wp_send_json_success(['message' => $is_trial]);
 
-    // Stripe::setApiKey(getenv('STRIPE_KEY'));
-    // $customer = Customer::update($customer_id, [
-    //   'source' => $stripeToken,
-    // ]);
-    // $subscriptions = Subscription::all(['customer' => $customer_id, 'limit' => 1]);
-    // $subscription = $subscriptions->data[0];
-    // $trial_end = $subscription->trial_end;
+    if($is_trial){
 
-    // Subscription::update($subscription->id, [
-    //   'trial_end' => $trial_end,
-    //   'items' => [
-    //     [
-    //       'id' => $subscription->items->data[0]->id,
-    //       'price' => $price_id
-    //     ],
-    //   ],
-    //   'proration_behavior' => 'create_prorations',
-    // ]);
+      Stripe::setApiKey(getenv('STRIPE_KEY'));
+      $customer = Customer::update($customer_id, [
+        'source' => $stripeToken,
+      ]);
+      $subscriptions = Subscription::all(['customer' => $customer_id, 'limit' => 1]);
+      $subscription = $subscriptions->data[0];
+      $trial_end = $subscription->trial_end;
+  
+      Subscription::update($subscription->id, [
+        'trial_end' => $trial_end,
+        'items' => [
+          [
+            'id' => $subscription->items->data[0]->id,
+            'price' => $price_id
+          ],
+        ],
+        'proration_behavior' => 'create_prorations',
+      ]);
+  
+      $stmt = $pdo->prepare("UPDATE users SET is_trial = :plan, updatedAt = :updatedAt WHERE stripe_id = :customer_id");
+      $stmt->execute([
+        ':plan' => '0', 
+        ':updatedAt' => date("Y-m-d H:i:s"),
+        ':customer_id' => $customer_id,
+      ]);
+      wp_send_json_success(['message' => 'Customer and subscription updated successfully!']);
 
-    // $stmt = $pdo->prepare("UPDATE users SET is_trial = :plan, updatedAt = :updatedAt WHERE stripe_id = :customer_id");
-    // $stmt->execute([
-    //   ':plan' => '0', 
-    //   ':updatedAt' => date("Y-m-d H:i:s"),
-    //   ':customer_id' => $customer_id,
-    // ]);
+    } else {
 
-    // wp_send_json_success(['message' => 'Customer and subscription updated successfully!']);
+      wp_send_json_success(['message' => 'customerAlreadyConfirmed']);
+      
+    }
   } catch (Exception $e) {
     wp_send_json_error(['message' => $e->getMessage()]);
   }

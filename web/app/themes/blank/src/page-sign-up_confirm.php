@@ -184,10 +184,11 @@ if (isset($customer)):
 
           if (result.success) {
 
-            // alert(copy.successConfirmCustomer[lang]);
-            // window.location = "https://hulkbanner.bigsmile.be/"; 
+            message = result.message;
 
-            console.log(result);
+            alert(message);
+            // window.location = "https://hulkbanner.bigsmile.be/"; 
+            // console.log(result);
 
           } else {
             console.error(result);
