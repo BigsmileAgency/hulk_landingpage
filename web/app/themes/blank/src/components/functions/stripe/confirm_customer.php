@@ -44,7 +44,10 @@ function confirm_customer()
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]);
 
-    $is_trial = $pdo->prepare("SELECT `is_trial` FROM `users` WHERE id=:customer_id")->execute([':customer_id' => $customer_id]);
+    $is_trial_stmt = $pdo->prepare("SELECT `is_trial` FROM `users` WHERE id=:customer_id");
+    $is_trial_stmt->execute([':customer_id' => $customer_id]);
+
+    $is_trial = $is_trial_stmt->fetch(PDO::FETCH_ASSOC);
 
     wp_send_json_success(['message' => $is_trial]);
 
