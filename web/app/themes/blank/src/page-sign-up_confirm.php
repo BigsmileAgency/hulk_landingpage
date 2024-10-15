@@ -185,10 +185,10 @@ if (isset($customer)):
           if (result.success) {
 
             message = result.message;
+            console.log(result);
 
-            alert(message);
+            // alert(message);
             // window.location = "https://hulkbanner.bigsmile.be/"; 
-            // console.log(result);
 
           } else {
             console.error(result);
