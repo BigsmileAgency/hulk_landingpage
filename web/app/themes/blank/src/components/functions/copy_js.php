@@ -112,11 +112,17 @@ function copy_js()
         "nl": "Terug",
       },
 
-      successConfirmCustomer: {
+      "customerIsConfirmed": {
         "en": "Your subscription has been updated",
         "fr": "Votre abonnement a été mise à jour",
         "nl": "Uw abonnement is bijgewerkt",
-      }
+      },
+
+      "customerAlreadyConfirmed": {
+        "en": "You already subscribe",
+        "fr": "Vous déjà inscit",
+        "nl": "Uw abonnement is bijgewerkt",
+      },
     }
   </script>
 <?php
