@@ -97,7 +97,7 @@
 
 		.demo_grid {
 			display: grid;
-			grid-template-rows: 128px 459px 85px;
+			grid-template-rows: 128px 459px 46px;
 
 			@include breakpoint(md) {
 				display: flex;
