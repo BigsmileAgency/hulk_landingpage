@@ -27,8 +27,20 @@
 
     <section>
     <div class="legal_footer">
-
-    © <?= date('Y') ?> Big Smile Agency -&nbsp;<a href="<?php echo get_home_url() . '/terms'; ?>">Terms and conditions</a>&nbsp;| Privacy policy | Cookie policy
+        <ul>
+            <li>
+                <p>© <?= date('Y') ?> Big Smile Agency</p>
+            </li>
+            <li>
+                <a href="<?php echo get_home_url() . '/terms'; ?>">Terms and conditions</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">Privacy policy</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">Cookie policy</a>
+            </li>
+        </ul>
     </div>
 </section>
 

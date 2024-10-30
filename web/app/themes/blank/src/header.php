@@ -112,7 +112,6 @@
 			let burgerToOpen = document.querySelector('.burger_to_open');
 			let navMobile = document.querySelector('.nav_mobile');
 			let mobileLinks = document.querySelectorAll('.nav_mobile a');
-			let langLinks = document.querySelectorAll('.lang_display');
 
 			// animate burger button
 			burgerSimple.addEventListener('click', (e) => {
@@ -135,15 +134,6 @@
 				})
 			})
 
-			// close navbar if clicked lang = current lang
-			langLinks.forEach((e) => {
-				e.addEventListener('click', () => {
-					// console.log(e);
-					if (e.innerHTML == lang.toUpperCase()) {
-						navMobile.classList.remove('open');
-						burgerSimple.classList.remove("simple");
-					};
-				})
-			})
+	
 		})
 	</script>

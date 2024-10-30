@@ -19,8 +19,8 @@ get_header();
         <h1 class="main_title"><?= get_field('catchphrase') ?></h1>
         <p><?= get_field('sub_catchphrase') ?></p>
         <div class="grid_btn_2">
-            <a class="trial_btn" href="<?php echo get_home_url() . 'sign-up'; ?>"><?= get_field('trial_btn') ?></a>
-            <a class="demo_btn" href="<?php echo get_home_url() . 'demo'; ?>"><?= get_field('demo_btn') ?></a>
+            <a class="trial_btn" href="<?php echo get_home_url() . '/sign-up'; ?>"><?= get_field('trial_btn') ?></a>
+            <a class="demo_btn" href="<?php echo get_home_url() . '/demo'; ?>"><?= get_field('demo_btn') ?></a>
         </div>
       </div>
       <!-- video secion -->
@@ -101,7 +101,7 @@ get_header();
           ?>
 
         </div>
-          <a class="hero_btn" href="<?php echo get_home_url() . 'demo'; ?>"><?= $hero2['btn_trial'] ?></a>
+          <a class="hero_btn" href="<?php echo get_home_url() . '/demo'; ?>"><?= $hero2['btn_trial'] ?></a>
         <!-- <img src="<?= $hero2['img_hero2'] ?>" alt=""> -->
       </div>
     </div>
@@ -140,7 +140,7 @@ get_header();
             <?php endwhile;
         endif; ?>
       </div>
-      <!-- <button class="feat_btn"><a href="<?php echo get_home_url() . 'feat'; ?>"><?= $btn ?></a></button> -->
+      <!-- <button class="feat_btn"><a href="<?php echo get_home_url() . '/feat'; ?>"><?= $btn ?></a></button> -->
     </div>
   </section>
 
@@ -150,7 +150,7 @@ get_header();
       <div class="cta_block_box">
         <h2 class="section_title"><?= $cta_block_1['title']; ?></h2>
         <p><?= $cta_block_1['content']; ?></p>
-        <a class="full_btn" href="<?php echo get_home_url() . 'feat'; ?>"><?= $cta_block_1['btn']; ?></a>
+        <a class="full_btn" href="<?php echo get_home_url() . '/feat'; ?>"><?= $cta_block_1['btn']; ?></a>
       </div>
     </div>
   </section>
@@ -215,7 +215,7 @@ get_header();
       <div class="cta_block_box">
         <h2 class="section_title"><?= $cta_block_2['title']; ?></h2>
         <p><?= $cta_block_2['content']; ?></p>
-        <a class="full_btn" href="<?php echo get_home_url() . 'pricing'; ?>"><?= $cta_block_2['btn']; ?></a>
+        <a class="full_btn" href="<?php echo get_home_url() . '/pricing'; ?>"><?= $cta_block_2['btn']; ?></a>
       </div>
     </div>
   </section>

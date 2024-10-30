@@ -51,14 +51,44 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	text-align: center;
-	height: 50px;
+	padding: 1rem;
 	font-size: 12px;
-
+	gap:.5rem;
+	p{
+		margin: 0;
+	}
 	a {
 		text-decoration: underline;
 	}
+	ul{
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		list-style: none;
+		gap:.5rem;
+		@include breakpoint(s) {
+			flex-direction: column;
+		}
+	
+	}
+	li{
+		padding-right: .5rem;
+		border-right: 1px solid;
+		@include breakpoint(s) {
+			border: 0;
+			padding: 0;
+		}
 
+	}
+	li:first-child,
+	li:last-child {
+		padding-right: 0px;
+		border-right: 0;
+	}
+	@include breakpoint(s) {
+		width: 90%;
+		flex-direction: column;
+	}
 	@include breakpoint(xs) {
 		width: 90%;
 		margin: auto;
