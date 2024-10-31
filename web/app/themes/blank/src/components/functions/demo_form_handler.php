@@ -9,7 +9,6 @@ function demo_form_handler()
 			let demoFormContainer = document.querySelector('.demo_form_container');
 			let bookBtn = document.querySelector("#book_btn");
 			let firstName, lastName, email, phone, companyName, isAgency, isConsent;
-
 			
 			demoSubmit.addEventListener("submit", sendInfos);
 
