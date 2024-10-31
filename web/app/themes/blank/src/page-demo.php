@@ -116,7 +116,7 @@ do_action('demo_handle');
             <h3><?= get_field('calendar_title') ?></h3>
             <p><?= get_field('calendar_sub_title') ?></p>
           </div>
-          <?php get_template_part('./components/layouts/calendar') ?>
+          <!-- <?php get_template_part('./components/layouts/calendar') ?> -->
           <button class="demo_btn" type="submit" id="book_btn"><?= get_field('calendar_btn') ?></button>
         </div>
       </div>

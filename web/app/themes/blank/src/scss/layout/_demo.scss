@@ -97,7 +97,7 @@
 		}
 		h3 {
 			font-size: 1.875rem;
-			margin-bottom: 1.5rem;
+			margin: 1.5rem 0 1rem;
 		}
 
 
@@ -106,6 +106,8 @@
 			grid-template-rows: 128px 459px 46px;
 
 			@include breakpoint(md) {
+				display: flex;
+				flex-direction: column;
 				gap: 1rem;
 			}
 		}

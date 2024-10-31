@@ -3,20 +3,30 @@ function demo_form_handler()
 {
 ?>
 	<script>
+
 		document.addEventListener("DOMContentLoaded", function() {
+
+			console.log("handle alert");
 
 			let demoSubmit = document.querySelector("#demo_form");
 			let demoFormContainer = document.querySelector('.demo_form_container');
+			let gif = document.querySelector('.demo_gif');
+			let calendarContainer = document.querySelector('.calendar_container');
 			let bookBtn = document.querySelector("#book_btn");
+			let back = document.querySelector('#back_arrow')
 			let firstName, lastName, email, phone, companyName, isAgency, isConsent;
 
-			
-			demoSubmit.addEventListener("submit", sendInfos);
+			demoSubmit.addEventListener("submit", handleInfos)
+			bookBtn.addEventListener('click', (e) => {
+				handleTimeDay(e, firstName, lastName, email, phone, companyName, isAgency, isConsent)
+			});
+			back.addEventListener('click', handleBackButton)
 
-			function sendInfos(e) {
-				
+
+			function handleInfos(e) {
+
 				e.preventDefault();
-				
+
 				firstName = document.querySelector("#demo_first_name");
 				lastName = document.querySelector("#demo_last_name");
 				email = document.querySelector("#demo_email");
@@ -46,16 +56,41 @@ function demo_form_handler()
 				})
 
 				if (success == 0) {
+					demoFormContainer.style.display = "none";
+					gif.style.display = "flex";
+					setTimeout(() => {
+						gif.style.display = "none"
+						if (window.innerWidth > 763) {
+							calendarContainer.style.display = "grid"
+						} else {
+							calendarContainer.style.display = "flex"
+						}
+					}, 750);
+				}
+			}
+
+			function handleTimeDay(e) {
+				e.preventDefault();
+				let time = document.querySelector('.time_selected');
+				let day = document.querySelector('.date_selected');
+        date.setDate(day.innerHTML);
+				if (day == null || day == undefined) {
+					alert(copy.noDate[lang]);
+				} else if (time == null || time == undefined) {
+					alert(copy.noTime[lang]);
+				} else {
 
 					bookBtn.disabled = true;
 
 					let dataSet = 'first_name=' + firstName.value +
 						'&last_name=' + lastName.value +
+						'&full_date=' + date.toDateString() +
 						'&phone=' + phone.value +
 						'&email=' + email.value +
 						'&company=' + companyName.value +
 						'&is_agency=' + isAgency.value +
 						'&is_consent=' + isConsent +
+						'&time=' + time.innerHTML +
 						'&lang=' + lang;
 
 					// INSERT DB + SEND MAIL
@@ -92,9 +127,21 @@ function demo_form_handler()
 					xhrSend.send(dataSetSend);
 				}
 			}
+
+			function handleBackButton(e) {
+				demoFormContainer.style.display = "block";
+				calendarContainer.style.display = "none"
+				firstName = "";
+				lastName = "";
+				email = "";
+				phone = "";
+				companyName = "";
+				isAgency = "";
+				isConsent = false;
+			}
+
 		})
 	</script>
 <?php
 }
 add_action('demo_handle', 'demo_form_handler');
-

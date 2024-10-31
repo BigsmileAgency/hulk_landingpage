@@ -83,8 +83,8 @@ function copy_js()
       },
 
       successSend: {
-        "en": "We have received your request. You will receive a confirmation e-mail in the next few minutes.",
-        "fr": "Nous avons bien reçu votre demande, vous allez recevoir un mail de confirmation dans les prochaines minutes",
+        "en": "We have received your request. We will contact you shortly to set a meeting.",
+        "fr": "Nous avons bien reçu votre demande! Nous allons vous contacter sous peu pour caler un RDV",
         "nl": "We hebben je aanvraag ontvangen en sturen je binnen enkele minuten een bevestigingsmail.",
       },
 

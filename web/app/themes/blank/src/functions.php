@@ -21,33 +21,29 @@ include get_theme_file_path( '/components/functions/custom_menu.php' );
 // CUSTOM POST
 include get_theme_file_path( '/components/functions/custom_post_type.php' );
 
-// DEMO FORM JS HANDLER SCRIPT
+// DEMO REQUEST HANDLER
 include get_theme_file_path( '/components/functions/demo_form_handler.php' );
-
-// UPDATE APPOINTEMENT
-include get_theme_file_path( '/components/functions/update_demo_request.php' );
-
-// MYSQL 
-include get_theme_file_path( '/components/functions/insert_demo_request.php' );
-include get_theme_file_path( '/components/functions/get_the_slots.php' );
 
 // EMAILR : 
 include get_theme_file_path( '/components/functions/emailr/class.emailr.php' );
 include get_theme_file_path( '/components/functions/emailr/conf.emailr.php' );
 include get_theme_file_path( '/components/functions/emailr/send_demo_request.php' ); 
 
+// _OLD
 // PLUGIN FUNCTION : 
-include get_theme_file_path( '/components/functions/block_slot_from_plugin.php' );
-include get_theme_file_path( '/components/functions/block_day_from_plugin.php' );
-include get_theme_file_path( '/components/functions/unblock_slot_from_plugin.php' );
-include get_theme_file_path( '/components/functions/unblock_day_from_plugin.php' );
-include get_theme_file_path( '/components/functions/get_all_appointements.php' );
-include get_theme_file_path( '/components/functions/cancel_demo_meeting.php' );
-include get_theme_file_path( '/components/functions/cancel_demo_meeting_with_id.php' );
-include get_theme_file_path( '/components/functions/get_all_days_and_all_slots.php' );
-include get_theme_file_path( '/components/functions/get_slots_for_that_day.php' );
-include get_theme_file_path( '/components/functions/customise_weekday.php' );
-include get_theme_file_path( '/components/functions/get_unavailable_days.php' );
+// include get_theme_file_path( '/components/functions/get_the_slots.php' );
+// include get_theme_file_path( '/components/functions/update_demo_request.php' );
+// include get_theme_file_path( '/components/functions/block_slot_from_plugin.php' );
+// include get_theme_file_path( '/components/functions/block_day_from_plugin.php' );
+// include get_theme_file_path( '/components/functions/unblock_slot_from_plugin.php' );
+// include get_theme_file_path( '/components/functions/unblock_day_from_plugin.php' );
+// include get_theme_file_path( '/components/functions/get_all_appointements.php' );
+// include get_theme_file_path( '/components/functions/cancel_demo_meeting.php' );
+// include get_theme_file_path( '/components/functions/cancel_demo_meeting_with_id.php' );
+// include get_theme_file_path( '/components/functions/get_all_days_and_all_slots.php' );
+// include get_theme_file_path( '/components/functions/get_slots_for_that_day.php' );
+// include get_theme_file_path( '/components/functions/customise_weekday.php' );
+// include get_theme_file_path( '/components/functions/get_unavailable_days.php' );
 
 // LANGUAGE SWITCH BUTTON
 include get_theme_file_path( '/components/functions/lang_switch_handler.php' );
