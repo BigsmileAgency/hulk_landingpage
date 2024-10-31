@@ -103,13 +103,8 @@
 
 		.demo_grid {
 			display: grid;
-<<<<<<< HEAD
 			grid-template-rows: 128px 459px 46px;
 
-=======
-			gap: 2rem;
-			margin: 0;
->>>>>>> 8f770cfd961562864a9e3b1052183ea4176896e2
 			@include breakpoint(md) {
 				gap: 1rem;
 			}
